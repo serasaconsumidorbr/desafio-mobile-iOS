@@ -57,7 +57,7 @@ extension RequestParameters {
     public var ts: String { "1" }
     public var hash: String {
         // TODO: - ADICIONAR AS SUAS CHAVES
-        let privateKey = "081f29d198a6cfd075b9f02c5854362caf2e2203"
+        let privateKey = ""
         return "\(ts)\(privateKey)\(apiKey)".md5
     }
 
