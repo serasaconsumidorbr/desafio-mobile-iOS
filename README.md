@@ -10,7 +10,7 @@
 ## Melhorias
 <p>Estas são sugestões de melhorias a serem desenvolvidas no projeto.</p>
 
-* Adicionar uma CollectionView no `CharactersListViewController.swift` no topo da tela com **5** personagens e mostrar na tableview abaixo os  com os personagens seguintes, sem repetir.
+* Adicionar uma CollectionView no `CharactersListViewController.swift` no topo da tela com **5** personagens e mostrar na tableview abaixo os personagens seguintes, sem repetir.
 
 * Separar as chaves em um arquivo .plist e carregar elas no arquivo `EndPointType.swift`
 
