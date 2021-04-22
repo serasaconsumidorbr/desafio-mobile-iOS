@@ -4,8 +4,8 @@
 <p><b>Atenção:</b> Adicionar as suas chaves <a href="https://developer.marvel.com/documentation/authorization">Marvel</a> no arquivo <b>EndPointType.swift</b> para rodar o projeto</p>
 
 # Libs usadas
-> Alamofire
-> PromisseKit
+    > Alamofire
+    > PromisseKit
 
 ## Melhorias
 <p>Estas são sugestões de melhorias a serem desenvolvidas no projeto.</p>
