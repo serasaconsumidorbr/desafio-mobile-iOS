@@ -62,7 +62,7 @@ class MainViewModel: MainViewModelProtocol {
                         self.offset += 1
                         return
                     }
-                    
+
                     guard let data = response.data else { return }
                     self.offset += 1
                     self.characters = CharactersDataModel(character: data)
@@ -105,9 +105,8 @@ class MainViewModel: MainViewModelProtocol {
         self.setMarvelTableView.onNext(listItems)
     }
 
-
     func didSelectCharacter() {
-        #warning("implement here")
+        #warning("TODO: implementation here")
     }
 
     func closeScene() {

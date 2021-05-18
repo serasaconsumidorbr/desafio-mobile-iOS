@@ -27,7 +27,6 @@ class MainFlowAssembly: Assembly {
 
     private func registerMainViewModel(_ container: Container, _ coordinator: MainCoordinator) {
         container.register(MainViewModelCoordinating.self) { _ in coordinator }
-//        container.autoregister(MainViewModelProtocol.self, initializer: MainViewModel.init)
         container.register(MainViewModelProtocol.self) { (resolver: Resolver) in
             let viewModel = MainViewModel(useCase: resolver.resolveSafe(MainRetrieveCharactersUseCaseProtocol.self),
                                           coordinator: coordinator)

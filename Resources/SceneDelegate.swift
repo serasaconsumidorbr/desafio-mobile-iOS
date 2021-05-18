@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         let navController = UINavigationController()
-        navController.view.accessibilityIdentifier = "rootNav"
 
         setupDependencyInjector(navigationController: navController) {
 
@@ -32,7 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.makeKeyAndVisible()
             window?.rootViewController = navController
             appCoordinator?.start()
-//            window?.rootViewController = appCoordinator?.navigationController.viewControllers.first
         }
 
         guard let _ = (scene as? UIWindowScene) else { return }

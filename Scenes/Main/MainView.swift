@@ -10,7 +10,6 @@ import UIKit
 public protocol MainViewDelegate: AnyObject {
     func didRefresh()
     func didMove(to index: Int)
-    func showInstallment()
     func loadMoreData()
 }
 
@@ -91,7 +90,7 @@ extension MainView: MarvelTableViewDelegate {
     }
 
     func didTapOnCharacter(character: CharacterResponseDataModel) {
-
+        #warning("TODO: implementation here")
     }
 
     func loadMoreData() {

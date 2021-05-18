@@ -97,12 +97,6 @@ extension MarvelTableView: UITableViewDataSource {
         return UITableView.automaticDimension
     }
 
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == characters.count - 1 && !isLoading {
-//            isLoading = true
-//            delegate?.loadMoreData()
-//        }
-//    }
 }
 
 extension MarvelTableView: UIScrollViewDelegate {

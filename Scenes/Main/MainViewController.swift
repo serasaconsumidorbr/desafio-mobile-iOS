@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
             self?.rootView.loadCharactersInTableView(characters: result)
         }
         viewModel.showError.observe(on: self) {  [weak self] title, message in
-
+            #warning("TODO: implementation here")
         }
     }
 
@@ -92,10 +92,6 @@ extension MainViewController: MainViewDelegate {
 
     }
 
-    func showInstallment() {
-
-    }
-
     func loadMoreData() {
         isFromRefreshControl = true
         getCharacters()
@@ -104,11 +100,11 @@ extension MainViewController: MainViewDelegate {
 
 extension MainViewController: MainViewModelCoordinating {
     func showDetailScene() {
-
+        #warning("TODO: implementation here")
     }
 
     func closeScene() {
-
+        #warning("TODO: implementation here")
     }
 
 
