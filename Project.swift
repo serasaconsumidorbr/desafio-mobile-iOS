@@ -34,7 +34,7 @@ var uCharacterDetail = Target.makeFrameworkTargets(
 )
 
 var allTargets: [Target] {
-    Target.makeAppTargets(name: "App")
+    Target.makeAppTargets(name: "App", dependencies: allPackages)
         + carouselTargets
         + infiniteScrollingTargets
         + uCharacterList
@@ -50,8 +50,19 @@ var allLocalPackages: [Package] {
 
         .local(path: .relativeToManifest("InternalLibs/AppCore")),
         .local(path: .relativeToManifest("InternalLibs/Network")),
-        .local(path: .relativeToManifest("InternalLibs/Storage")),
         .local(path: .relativeToManifest("InternalLibs/Repository")),
+    ]
+}
+
+var allPackages: [TargetDependency] {
+    [
+        .package(product: "AppCoreUI"),
+        .package(product: "Carousel"),
+        .package(product: "InfiniteScrolling"),
+        .package(product: "AppColors"),
+        .package(product: "AppCore"),
+        .package(product: "Network"),
+        .package(product: "Repository"),
     ]
 }
 

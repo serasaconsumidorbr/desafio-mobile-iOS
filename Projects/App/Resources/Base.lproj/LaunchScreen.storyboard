@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yvZ-rk-sqa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yvZ-rk-sqa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="kZi-sa-2oC">
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kZi-sa-2oC">
                                 <rect key="frame" x="83.5" y="372.5" width="247" height="151"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -25,10 +25,18 @@
                                     <constraint firstAttribute="width" constant="247" id="miD-Gj-2Rh"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vri-k1-nH0">
+                                <rect key="frame" x="50.5" y="809.5" width="313.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="div-Kx-e8r"/>
-                        <color key="backgroundColor" name="primary_color"/>
+                        <color key="backgroundColor" name="secondaryBackground"/>
                         <constraints>
+                            <constraint firstItem="vri-k1-nH0" firstAttribute="centerX" secondItem="tEQ-59-O7V" secondAttribute="centerX" id="JRs-Ni-ASE"/>
+                            <constraint firstItem="div-Kx-e8r" firstAttribute="bottom" secondItem="vri-k1-nH0" secondAttribute="bottom" constant="32" id="LCq-8K-EGY"/>
                             <constraint firstItem="kZi-sa-2oC" firstAttribute="centerX" secondItem="tEQ-59-O7V" secondAttribute="centerX" id="lOz-19-tHu"/>
                             <constraint firstItem="kZi-sa-2oC" firstAttribute="centerY" secondItem="tEQ-59-O7V" secondAttribute="centerY" id="uFS-Mc-pAu"/>
                         </constraints>
@@ -40,9 +48,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch_logo.png" width="247" height="151"/>
-        <namedColor name="primary_color">
-            <color red="0.097999997437000275" green="0.15700000524520874" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="logo" width="800" height="321.5"/>
+        <namedColor name="secondaryBackground">
+            <color red="0.88599997758865356" green="0.21199999749660492" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.31400001049041748" green="0.28999999165534973" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

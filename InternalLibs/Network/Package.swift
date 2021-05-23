@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "Network",
+    platforms: [
+        .iOS(.v12),
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -12,7 +15,9 @@ let package = Package(
             targets: ["Network"]),
     ],
     dependencies: [
-        .package(path: "../Repository")
+        .package(path: "../AppCore"),
+        .package(url: "https://github.com/mxcl/PromiseKit", from: "6.13.2"),
+        .package(url: "https://github.com/Alamofire/Alamofire", from: "5.4.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -20,7 +25,7 @@ let package = Package(
         .target(
             name: "Network",
             dependencies: [
-                "Repository"
+                "AppCore", "PromiseKit", "Alamofire"
             ]),
         .testTarget(
             name: "NetworkTests",
