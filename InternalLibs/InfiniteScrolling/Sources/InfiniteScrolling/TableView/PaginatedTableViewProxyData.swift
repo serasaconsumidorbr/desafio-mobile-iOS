@@ -17,6 +17,7 @@ import UIKit
     )
 
     @objc optional func targetStatusCellSection(tableView: UITableView) -> Int
+    func pullToRefresh()
 }
 
 final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource, UITableViewDelegate {
@@ -33,6 +34,7 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
     
     var currentState: States = .none {
         didSet {
+            if oldValue == .pullLoading { refreshControl?.endRefreshing() }
             if currentState == .none {
                 hideLastCell()
             } else {
@@ -53,6 +55,7 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
     internal weak var delegate: UITableViewDelegate?
     internal weak var tableView: UITableView?
     internal weak var scrollView: UIScrollView?
+    internal weak var refreshControl: UIRefreshControl?
     
     init(dataSource: PaginatedDataSouce, delegate: UITableViewDelegate, tableView: UITableView,
          scrollView: UIScrollView? = nil) {
@@ -88,6 +91,18 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
         guard let tableViewRef = self.tableView else { return }
         isShowingLastCell = false
         tableViewRef.reloadData()
+    }
+    
+    public func addPullToRefresh(refreshControl: UIRefreshControl) {
+        guard let tableViewRef = self.tableView else { return }
+        self.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableViewRef.addSubview(refreshControl)
+    }
+    
+    @objc func refresh() {
+        currentState = .pullLoading
+        dataSource?.pullToRefresh()
     }
 
 }

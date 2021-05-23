@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Paginated<T: Domain> {
-    let offset: Int
-    let total: Int
-    let count: Int
-    let results: [T]
+    public let offset: Int
+    public let total: Int
+    public let count: Int
+    public let results: [T]
 }
