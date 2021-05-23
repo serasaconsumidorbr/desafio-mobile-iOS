@@ -13,5 +13,5 @@ public struct CharacterResponse: Decodable {
     public let id: Int
     public let name: String
     public let description: String
-    public let thumbnail: [Image]
+    public let thumbnail: Image
 }

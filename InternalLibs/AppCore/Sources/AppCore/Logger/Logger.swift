@@ -7,44 +7,44 @@
 
 import Foundation
 
-public struct Logger : Loggable {
+struct Logger : Loggable {
 
-    public static var isAppCode: Bool = false
-    public var logLevel: LogLevel = .verbose
+    static var isAppCode: Bool = false
+    var logLevel: LogLevel = .verbose
 
-    public var infoIcon = "⚪️"
-    public var warningIcon = "🔵"
-    public var errorIcon = "🔴"
+    var infoIcon = "⚪️"
+    var warningIcon = "🔵"
+    var errorIcon = "🔴"
     
-    public init() {}
+    init() {}
     
-    public func info<T>(_ object: T) {
+    func info<T>(_ object: T) {
 
         if logLevel == .verbose || logLevel == .info {
             if Logger.isAppCode {
-                debugPrint("\u{1b}[37m\(object)\u{1b}[39m")
+                print("\u{1b}[37m\(nullable: object)\u{1b}[39m")
             } else {
-                debugPrint("\(infoIcon)\(object)")
+                print("\(infoIcon)\(nullable: object)")
             }
         }
     }
     
-    public func warning<T>(_ object: T) {
+    func warning<T>(_ object: T) {
         if logLevel == .warning || logLevel == .verbose {
             if Logger.isAppCode {
-                debugPrint("\u{1b}[93m\(object)\u{1b}[39m")
+                print("\u{1b}[93m\(nullable: object)\u{1b}[39m")
             } else {
-                debugPrint("\(warningIcon)\(object)")
+                print("\(warningIcon)\(nullable: object)")
             }
         }
     }
     
-    public func error<T>(_ object: T) {
+    func error<T>(_ object: T) {
         if logLevel == .error || logLevel == .verbose {
             if Logger.isAppCode {
-                debugPrint("\u{1b}[31m\(object)\u{1b}[39m")
+                print("\u{1b}[31m\(nullable: object)\u{1b}[39m")
             } else {
-                debugPrint("\(errorIcon)\(object)")
+                print("\(errorIcon)\(nullable: object)")
             }
         }
     }

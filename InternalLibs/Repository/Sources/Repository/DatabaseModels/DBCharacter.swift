@@ -11,10 +11,9 @@ import RealmSwift
 
 final class DBCharacter: Object {
     @objc dynamic var id: Int = 0
-    @objc dynamic var name: String? = nil
-    @objc dynamic var picture: String? = nil
+    @objc dynamic var name: String = ""
     @objc dynamic var characterDescription: String? = nil
-    @objc dynamic var thumbnail: String? = nil
+    @objc dynamic var thumbnail: String = ""
     
     override class func primaryKey() -> String? { "id" }
 }
@@ -28,7 +27,6 @@ extension DBCharacter: DBEntity {
         return Character(
             id: id,
             name: name,
-            picture: picture,
             description: characterDescription,
             thumbnail: thumbnail
         )

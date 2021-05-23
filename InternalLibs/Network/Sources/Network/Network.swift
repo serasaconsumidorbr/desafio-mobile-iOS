@@ -1,12 +1,17 @@
 import Swinject
 import AppCore
 
-struct Network: DIHelper {
+public struct Network: DIHelper {
     
-    static let ServerUri = ""
+    static let ServerUri = "http://gateway.marvel.com"
     
+    static var container: Container = {
+        let container = Container()
+        AppCore.registerServicesInContainer(container: container)
+        return container
+    }()
     
-    static func registerServicesInContainer(container: Container) {
+    public static func registerServicesInContainer(container: Container) {
         container.register(CharacterService.self, factory: { _ in CharacterServiceImpl() })
     }
 

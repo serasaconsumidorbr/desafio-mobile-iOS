@@ -9,9 +9,11 @@ import Foundation
 
 
 public struct CharacterListParameters : Encodable {
-    public init(nameStartsWith: String) {
+    public init(nameStartsWith: String? = nil, offset: Int? = nil) {
         self.nameStartsWith = nameStartsWith
+        self.offset = offset
     }
     
-    public let nameStartsWith: String
+    public let nameStartsWith: String?
+    public let offset: Int?
 }

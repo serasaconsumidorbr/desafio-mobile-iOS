@@ -9,3 +9,5 @@
 
 // Apply common settings specific to iOS
 #include "iOS-Base.xcconfig"
+
+#include "MarvelConfig.xcconfig"

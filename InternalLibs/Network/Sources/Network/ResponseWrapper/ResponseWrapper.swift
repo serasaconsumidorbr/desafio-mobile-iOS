@@ -9,9 +9,8 @@ import Foundation
 
 
 public final class ResponseWrapper<T: Decodable>: Decodable {
-    public let code: String
-    public let copyright: String
-    
+    public let code: Int
+    public let copyright: String    
     public let data: T
 }
 
