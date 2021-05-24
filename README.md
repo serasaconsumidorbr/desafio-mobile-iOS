@@ -69,10 +69,18 @@ tuist focus App
 
 * Criar um backend que fique responsável por chamar as API's da Marvel, uma vez que em produção a chave poderia ser facilmente extraída do aplicativo utilizando engenharia reversa.
 
-* Abusar um pouco mais dos loadings
+* Abusar um pouco mais dos loadings;
+
+* Melhorar o darkmode em componentes padrões do sistema (searchbar)
 
 ------------
 
 ## O App
 
+[![Watch the video](https://img.youtube.com/vi/eacoiOoAMvk/0.jpg)](https://youtu.be/eacoiOoAMvk)
 
+* clique na imagem para ver o vídeo no youtube.
+
+O aplicativo já contém ícone, suporte a imagens dentro da tabela sem conflito, suporte a darkmode e uma searchbar para poder realizar pesquisas de personagens.
+
+A pesquisa está "protegida" com o uso de debounber's, ou seja, a pesquisa só será feita após o usuário ficar x tempo sem digitar nada.
