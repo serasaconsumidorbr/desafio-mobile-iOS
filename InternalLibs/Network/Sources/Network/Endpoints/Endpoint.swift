@@ -47,6 +47,9 @@ extension EndPoint {
         Promise<ResponseType> { seal in
             guard let urlString = "\(Network.ServerUri)\(path)".appendMarvelAuthParams,
                   let url = Foundation.URL(string: urlString) else {
+                loggable?.error("\(Network.ServerUri)\(path)")
+                loggable?.error("\(Network.ServerUri)\(path)".appendMarvelAuthParams)
+
                 seal.reject(HttpErrors.invalidUri)
                 return
             }

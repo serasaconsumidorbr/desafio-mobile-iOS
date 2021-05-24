@@ -10,6 +10,7 @@ import UIKit
 import AppCoreUI
 import AppColors
 import SnapKit
+import InfiniteScrolling
 
 
 final class CharacterListViewController: BaseViewController {
@@ -20,14 +21,24 @@ final class CharacterListViewController: BaseViewController {
 
     lazy var searchController = UISearchController()
     
-    lazy var tableView = UITableView()
-    lazy var refreshControl: UIRefreshControl = {
-        let refresh = UIRefreshControl()
-        refresh.tintColor = .appBackgroundColor
-        return refresh
+    lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 120
+        table.register(LoadingCell.self)
+        table.register(EmptyCell.self)
+        table.register(RetryCell.self)
+        table.register(CharacterCell.self)
+        table.separatorStyle = .none
+        return table
     }()
     
+    lazy var refreshControl: UIRefreshControl = RefreshControlBuilder.build()
+
+    var proxyDelegate: PaginatedTableViewProxyData?
+    
     var elements: [CharacterList.CharacterModel] = []
+    var featuredItems: [CharacterList.CharacterModel] = []
 
     // Constructor
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -46,6 +57,9 @@ final class CharacterListViewController: BaseViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         title = "PERSONAGENS"
+        
+        proxyDelegate = .init(dataSource: self, delegate: self, tableView: tableView)
+        configureProxyDelegate()
         
         startLoading()
         interactor?.fetchCharacterPage(request: CharacterList.CharacterPage.Request(offset: 0, search: nil))
@@ -67,6 +81,22 @@ final class CharacterListViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func configureProxyDelegate() {
+        proxyDelegate?.haveNextPage = true
+        proxyDelegate?.addPullToRefresh(refreshControl: refreshControl)
+        proxyDelegate?.infiniteScrollingCallBack = { [weak self] in
+            self?.loadPage()
+        }
+        proxyDelegate?.retryCallBack = { [weak self] in
+            self?.loadPage()
+        }
+    }
+    
+    func loadPage() {
+        let offset = featuredItems.count + elements.count
+        self.interactor?.fetchCharacterPage(request: .init(offset: offset, search: self.searchController.searchBar.text))
     }
 
 }

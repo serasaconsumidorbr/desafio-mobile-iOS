@@ -8,16 +8,16 @@
 import UIKit
 
 
-protocol Reusable: AnyObject {
+public protocol Reusable: AnyObject {
     static var reuseIdentifier: String { get }
 }
 
-extension Reusable {
+public extension Reusable {
     static var reuseIdentifier: String { NSStringFromClass(self) }
 }
 
 // MARK: - Table View convenience methods
-extension UITableView {
+public extension UITableView {
 
     /// Register an UITableViewCell to a UITableView.
     /// Be aware to use this only with viewcode type cells, this will not work properly with .xib and storyboard cells.

@@ -28,21 +28,26 @@ final class CharacterRepositoryImpl: CharacterRepository {
     func fetchCharacterList(parameters: CharacterListParameters) -> Promise<Paginated<Character>> {
         guard let service = characterService,
               let database = characterDatabase else { return Promise(error: RepositoryErrors.invalidService) }
-        return service.request(parameters: parameters)
-            .map { $0.data }
-            .map { ($0.offset, $0.total, $0.count, $0.results.map { item in self.convertToInternal(character: item) } ) }
-            .map { item -> (Int, Int, Int, [DBCharacter]) in
-                database.add(objects: item.3)
-                return item
-            }
-            .map { item -> Paginated<Character> in
-                Paginated<Character>(
-                    offset: item.0,
-                    total: item.1,
-                    count: item.2,
-                    results: item.3.map { $0.toDomain() }
-                )
-            }
+        
+        return Promise<Paginated<Character>> { seal in
+            seal.fulfill(Paginated(offset: 0, total: 100, count: 20, results: database.query().map { $0.toDomain() } ))
+        }
+        
+//        return service.request(parameters: parameters)
+//            .map { $0.data }
+//            .map { ($0.offset, $0.total, $0.count, $0.results.map { item in self.convertToInternal(character: item) } ) }
+//            .map { item -> (Int, Int, Int, [DBCharacter]) in
+//                database.add(objects: item.3)
+//                return item
+//            }
+//            .map { item -> Paginated<Character> in
+//                Paginated<Character>(
+//                    offset: item.0,
+//                    total: item.1,
+//                    count: item.2,
+//                    results: item.3.map { $0.toDomain() }
+//                )
+//            }
     }
     
     func fetchCharacterById(id: Int) -> Character? {
@@ -56,7 +61,7 @@ final class CharacterRepositoryImpl: CharacterRepository {
         dbCharacter.id = character.id
         dbCharacter.characterDescription = character.description
         dbCharacter.name = character.name
-        dbCharacter.thumbnail = "\(character.thumbnail.path)\(character.thumbnail.extension)"
+        dbCharacter.thumbnail = "\(character.thumbnail.path).\(character.thumbnail.extension)"
         return dbCharacter
     }
 }

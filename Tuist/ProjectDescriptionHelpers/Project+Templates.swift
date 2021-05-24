@@ -39,7 +39,12 @@ extension Target {
                     "CFBundleDisplayName": "Marvel App",
                     "CFBundleName": "Marvel App",
                     "UIViewControllerBasedStatusBarAppearance": false,
-                    "UIStatusBarStyle": "UIStatusBarStyleLightContent"
+                    "UIStatusBarStyle": "UIStatusBarStyleLightContent",
+                    "MarvelPublicKey": "$(MARVEL_API_PUBLIC_KEY)",
+                    "MarvelPrivateKey": "$(MARVEL_API_PRIVATE_KEY)",
+                    "NSAppTransportSecurity": [
+                        "NSAllowsArbitraryLoads": true
+                    ]
                    ]),
                    sources: ["Projects/\(name)/Sources/**/*.swift"],
                    resources: ["Projects/\(name)/Resources/**/*"],

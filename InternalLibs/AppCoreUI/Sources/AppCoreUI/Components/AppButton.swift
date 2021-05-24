@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import AppColors
 
 
-open class BaseCustomView: UIView {
+public class AppButton: UIButton {
     
     public override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -25,6 +26,10 @@ open class BaseCustomView: UIView {
         setupUI()
     }
     
-    open func setupUI() { }
+    open func setupUI() {
+        self.backgroundColor = .secondaryBackgroundColor
+        self.titleLabel?.font = UIFont(name: "marvel", size: 24)!
+        self.titleLabel?.textColor = .textColor
+    }
     
 }

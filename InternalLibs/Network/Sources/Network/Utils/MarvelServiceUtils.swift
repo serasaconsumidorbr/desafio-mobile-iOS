@@ -13,7 +13,9 @@ extension String {
     var appendMarvelAuthParams: String? {
         guard var urlComponents = URLComponents(string: self),
               let publicKey = NetworkConstants.publicKey,
-              let privateKey = NetworkConstants.privateKey else { return nil }
+              let privateKey = NetworkConstants.privateKey else {
+            return nil
+        }
         let ts = 1
         let percentEncodedQuery = (urlComponents.percentEncodedQuery.map { $0 + "&" } ?? "") + query([
             "ts": ts,

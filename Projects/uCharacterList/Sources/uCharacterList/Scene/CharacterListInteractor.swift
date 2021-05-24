@@ -24,7 +24,8 @@ final class CharacterListInteractor: CharacterListBusinessLogic, CharacterListDa
     var worker: CharacterListWorkerLogic?
 
     func fetchCharacterPage(request: CharacterList.CharacterPage.Request) {
-        worker?.fetchPage(parameters: CharacterListParameters(nameStartsWith: request.search, offset: request.offset))?
+        let search: String? = request.search?.isEmpty == false ? request.search : nil
+        worker?.fetchPage(parameters: CharacterListParameters(nameStartsWith: search, offset: request.offset))?
             .done { [weak self] response in
                 let presenterResponse = CharacterList.CharacterPage.Response.Success(
                     characters: response.results,

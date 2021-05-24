@@ -16,11 +16,15 @@ protocol CharacterListDisplayLogic: AnyObject {
 extension CharacterListViewController: CharacterListDisplayLogic {
 
     func displayCharacterPage(viewModel: CharacterList.CharacterPage.ViewModel.Success) {
-        
+        stopLoading()
+        elements.append(contentsOf: viewModel.characters)
+        featuredItems = viewModel.featuredElements
+        proxyDelegate?.currentState = .none
     }
 
     func displayCharacterPage(viewModel: CharacterList.CharacterPage.ViewModel.Failure) {
-        
+        stopLoading()
+        proxyDelegate?.currentState = .retryError
     }
 
 }

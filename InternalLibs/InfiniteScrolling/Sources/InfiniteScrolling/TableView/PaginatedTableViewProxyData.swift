@@ -22,7 +22,7 @@ import UIKit
 
 final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    typealias PaginatedDataSouce = UITableViewDataSource & InfiniteTableLoadable
+    public typealias PaginatedDataSouce = UITableViewDataSource & InfiniteTableLoadable
     
     @objc public enum States : Int {
         case none,
@@ -32,7 +32,7 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
         empty
     }
     
-    var currentState: States = .none {
+    public var currentState: States = .none {
         didSet {
             if oldValue == .pullLoading { refreshControl?.endRefreshing() }
             if currentState == .none {
@@ -46,9 +46,9 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
         }
     }
     
-    var haveNextPage: Bool = false
-    var infiniteScrollingCallBack: (() -> Void)?
-    var retryCallBack: (() -> Void)?
+    public var haveNextPage: Bool = false
+    public var infiniteScrollingCallBack: (() -> Void)?
+    public var retryCallBack: (() -> Void)?
     
     internal var isShowingLastCell = false
     internal weak var dataSource: PaginatedDataSouce?
@@ -57,7 +57,7 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
     internal weak var scrollView: UIScrollView?
     internal weak var refreshControl: UIRefreshControl?
     
-    init(dataSource: PaginatedDataSouce, delegate: UITableViewDelegate, tableView: UITableView,
+    public init(dataSource: PaginatedDataSouce, delegate: UITableViewDelegate, tableView: UITableView,
          scrollView: UIScrollView? = nil) {
         super.init()
         self.dataSource = dataSource
@@ -65,6 +65,9 @@ final public class PaginatedTableViewProxyData: NSObject, UITableViewDataSource,
         self.tableView = tableView
         self.scrollView = scrollView ?? tableView
         self.scrollView?.delegate = self
+        
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
     }
 
     func isStatusCell(at indexPath: IndexPath) -> Bool {
