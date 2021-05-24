@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppCore
 import AppCoreUI
 import AppColors
 import SnapKit
@@ -19,7 +20,19 @@ final class CharacterListViewController: BaseViewController {
     var interactor: CharacterListBusinessLogic?
     var router: (NSObjectProtocol & CharacterListRoutingLogic & CharacterListDataPassing)?
 
-    lazy var searchController = UISearchController()
+    lazy var searchDebouncer: Debouncer = {
+        let debouncer = Debouncer(timeInterval: 1)
+        debouncer.handler = { [weak self] in
+            self?.pullToRefresh()
+        }
+        return debouncer
+    }()
+    
+    lazy var searchController: UISearchController = {
+        let search = UISearchController()
+        search.searchBar.delegate = self
+        return search
+    }()
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -99,4 +112,15 @@ final class CharacterListViewController: BaseViewController {
         self.interactor?.fetchCharacterPage(request: .init(offset: offset, search: self.searchController.searchBar.text))
     }
 
+    func searchUpdate() {
+        emptyDataAndLoadAgain()
+    }
+    
+    func emptyDataAndLoadAgain() {
+        elements = []
+        featuredItems = []
+        startLoading()
+        interactor?.fetchCharacterPage(request: .init(offset: 0, search: searchController.searchBar.text))
+        proxyDelegate?.currentState = .infiniteLoading
+    }
 }

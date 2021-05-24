@@ -24,11 +24,7 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func pullToRefresh() {
-        elements = []
-        featuredItems = []
-        startLoading()
-        interactor?.fetchCharacterPage(request: .init(offset: 0, search: searchController.searchBar.text))
-        tableView.reloadData()
+        emptyDataAndLoadAgain()
     }
     
     func emptyCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
