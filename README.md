@@ -73,6 +73,10 @@ tuist focus App
 
 * Melhorar o darkmode em componentes padrões do sistema (searchbar)
 
+* Criar um sistema de dimensões centralizado, ao invés de colocar os valores das constraints de forma hardcoded 
+
+* Utilizar o Swiftgen para acessar recursos
+
 ------------
 
 ## O App
