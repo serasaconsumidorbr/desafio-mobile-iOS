@@ -20,6 +20,8 @@ final class CharacterListViewController: BaseViewController {
     var interactor: CharacterListBusinessLogic?
     var router: (NSObjectProtocol & CharacterListRoutingLogic & CharacterListDataPassing)?
     
+    weak var navigationDelegate: CharacterListNavigationDelegate?
+    
     lazy var searchDebouncer: Debouncer = {
         let debouncer = Debouncer(timeInterval: 1)
         debouncer.handler = { [weak self] in
@@ -78,7 +80,7 @@ final class CharacterListViewController: BaseViewController {
         super.viewDidLoad()
         navigationItem.searchController = searchController
         title = "PERSONAGENS"
-        
+
         proxyDelegate = .init(dataSource: self, delegate: self, tableView: tableView)
         configureProxyDelegate()
         

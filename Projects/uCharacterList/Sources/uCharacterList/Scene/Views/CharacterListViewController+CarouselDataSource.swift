@@ -13,7 +13,7 @@ import AppColors
 
 
 
-extension CharacterListViewController: AppCarouselDataSource {
+extension CharacterListViewController: AppCarouselDataSource, CharacterFeatureViewDelegate {
     func numberOfItems(_ carousel: AppCarouselView) -> Int {
         guard !featuredItems.isEmpty else { return 0 }
         return Int.max
@@ -28,6 +28,10 @@ extension CharacterListViewController: AppCarouselDataSource {
     }
     
     func configureSwapView(view: SwappableView) {
-        
+        (view as? CharacterFeatureView)?.delegate = self
+    }
+    
+    func openCharacterDetail(id: Int) {
+        navigationDelegate?.openCharacterDetail(id: id, present: self)
     }
 }

@@ -17,10 +17,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(path: "../AppCoreUI"),
-        .package(path: "../Network"),
-        .package(path: "../InfiniteScrolling"),
-        .package(path: "../Carousel"),
-
+        .package(path: "../Repository"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,7 +25,7 @@ let package = Package(
         .target(
             name: "uCharacterDetail",
             dependencies: [
-                "AppCoreUI", "Network", "InfiniteScrolling", "Carousel"
+                "AppCoreUI", "Repository",
             ]),
         .testTarget(
             name: "uCharacterDetailTests",

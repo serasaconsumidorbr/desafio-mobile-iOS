@@ -7,7 +7,7 @@ import Network
 import Repository
 
 import uCharacterList
-
+import uCharacterDetail
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var container: Container = Container()
+    
+    var coordinator = NavigationCoordinator()
     
     func application(
         _ application: UIApplication,
@@ -25,12 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Network.registerServicesInContainer(container: container)
         Repository.registerServicesInContainer(container: container)
         uCharacterList.registerServicesInContainer(container: container)
+        uCharacterDetail.registerServicesInContainer(container: container)
         
         configureNavigationAppearence()
         
         let listEntryPoint = container.resolve(CharacterListViewControllerEntryPoint.self)
+        let appNavigation = UINavigationController(rootViewController: listEntryPoint?.createCharacterListVC(navigation: coordinator) ?? UIViewController())
+        appNavigation.delegate = coordinator
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: listEntryPoint?.createCharacterListVC() ?? UIViewController())
+        window?.rootViewController = appNavigation
         window?.makeKeyAndVisible()
         return true
     }

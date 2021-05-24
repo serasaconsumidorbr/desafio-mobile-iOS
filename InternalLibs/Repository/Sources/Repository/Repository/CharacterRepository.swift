@@ -28,11 +28,7 @@ final class CharacterRepositoryImpl: CharacterRepository {
     func fetchCharacterList(parameters: CharacterListParameters) -> Promise<Paginated<Character>> {
         guard let service = characterService,
               let database = characterDatabase else { return Promise(error: RepositoryErrors.invalidService) }
-        
-//        return Promise<Paginated<Character>> { seal in
-//            seal.fulfill(Paginated(offset: 0, total: 100, count: 20, results: database.query().map { $0.toDomain() } ))
-//        }
-        
+             
         return service.request(parameters: parameters)
             .map { $0.data }
             .map { ($0.offset, $0.total, $0.count, $0.results.map { item in self.convertToInternal(character: item) } ) }

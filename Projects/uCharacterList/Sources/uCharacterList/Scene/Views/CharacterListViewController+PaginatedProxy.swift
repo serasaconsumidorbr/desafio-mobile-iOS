@@ -47,4 +47,9 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         return 180
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = elements[indexPath.row]
+        navigationDelegate?.openCharacterDetail(id: item.id, present: self)
+    }
+    
 }
