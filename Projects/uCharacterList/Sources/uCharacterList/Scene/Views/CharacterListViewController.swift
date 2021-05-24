@@ -19,11 +19,11 @@ final class CharacterListViewController: BaseViewController {
     // Var's
     var interactor: CharacterListBusinessLogic?
     var router: (NSObjectProtocol & CharacterListRoutingLogic & CharacterListDataPassing)?
-
+    
     lazy var searchDebouncer: Debouncer = {
         let debouncer = Debouncer(timeInterval: 1)
         debouncer.handler = { [weak self] in
-            self?.pullToRefresh()
+            self?.searchUpdate()
         }
         return debouncer
     }()
@@ -31,17 +31,26 @@ final class CharacterListViewController: BaseViewController {
     lazy var searchController: UISearchController = {
         let search = UISearchController()
         search.searchBar.delegate = self
+        search.delegate = self
+        search.searchResultsUpdater = self
         return search
     }()
     
+    lazy var tableViewHeader: CharacterFeatureHeader = {
+        let header = CharacterFeatureHeader()
+        header.carousel.dataSource = self
+        return header
+    }()
+    
     lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 120
         table.register(LoadingCell.self)
         table.register(EmptyCell.self)
         table.register(RetryCell.self)
         table.register(CharacterCell.self)
+        table.registerHeaderFooter(CharacterFeatureHeader.self)
         table.separatorStyle = .none
         return table
     }()
@@ -68,7 +77,6 @@ final class CharacterListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
         title = "PERSONAGENS"
         
         proxyDelegate = .init(dataSource: self, delegate: self, tableView: tableView)
@@ -90,10 +98,12 @@ final class CharacterListViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     func configureProxyDelegate() {
@@ -119,7 +129,6 @@ final class CharacterListViewController: BaseViewController {
     func emptyDataAndLoadAgain() {
         elements = []
         featuredItems = []
-        startLoading()
         interactor?.fetchCharacterPage(request: .init(offset: 0, search: searchController.searchBar.text))
         proxyDelegate?.currentState = .infiniteLoading
     }

@@ -39,4 +39,12 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         tableView.dequeue(RetryCell.self, for: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableViewHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 180
+    }
+    
 }

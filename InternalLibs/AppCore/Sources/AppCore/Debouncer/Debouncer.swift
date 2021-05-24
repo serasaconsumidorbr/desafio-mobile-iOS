@@ -31,9 +31,7 @@ public final class Debouncer {
         guard timer.isValid else {
             return
         }
-        
         handler?()
-        handler = nil
     }
     
 }

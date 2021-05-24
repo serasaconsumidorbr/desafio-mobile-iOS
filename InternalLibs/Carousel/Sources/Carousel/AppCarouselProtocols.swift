@@ -12,6 +12,7 @@ import UIKit
 public protocol AppCarouselDataSource: AnyObject {
     func numberOfItems(_ carousel: AppCarouselView) -> Int
     func itemAtIndex(_ carousel: AppCarouselView, at index: Int) -> Any
+    
     var carouselItemViewType: SwappableView.Type { get }
 
     func configureSwapView(view: SwappableView)

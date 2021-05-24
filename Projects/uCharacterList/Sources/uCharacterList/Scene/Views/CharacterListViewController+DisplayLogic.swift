@@ -18,7 +18,10 @@ extension CharacterListViewController: CharacterListDisplayLogic {
     func displayCharacterPage(viewModel: CharacterList.CharacterPage.ViewModel.Success) {
         stopLoading()
         elements.append(contentsOf: viewModel.characters)
-        featuredItems = viewModel.featuredElements
+        if !viewModel.featuredElements.isEmpty {
+            featuredItems = viewModel.featuredElements
+            tableViewHeader.carousel.reloadData()
+        }
         proxyDelegate?.currentState = .none
     }
 
