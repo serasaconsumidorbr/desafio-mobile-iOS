@@ -19,7 +19,7 @@ final class CharacterDetatilViewController: BaseViewController {
     lazy var backgroundImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.isUserInteractionEnabled = true
+        image.clipsToBounds = true
         return image
     }()
     

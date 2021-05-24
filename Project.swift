@@ -19,8 +19,6 @@ var allLocalPackages: [Package] {
         .local(path: .relativeToManifest("InternalLibs/Network")),
         .local(path: .relativeToManifest("InternalLibs/Repository")),
         
-        .local(path: .relativeToManifest("InternalLibs/Repository")),
-
         .local(path: .relativeToManifest("Projects/uCharacterList")),
         .local(path: .relativeToManifest("Projects/uCharacterDetail")),
     ]
