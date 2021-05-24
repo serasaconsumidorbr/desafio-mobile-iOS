@@ -84,3 +84,25 @@ tuist focus App
 O aplicativo já contém ícone, suporte a imagens dentro da tabela sem conflito, suporte a darkmode e uma searchbar para poder realizar pesquisas de personagens.
 
 A pesquisa está "protegida" com o uso de debouncer's, ou seja, a pesquisa só será feita após o usuário ficar x tempo sem digitar nada.
+
+
+![simulator_screenshot_825C81FC-AB39-4326-8A36-DD9884E198D3](https://user-images.githubusercontent.com/7849484/119412597-88d0e180-bcc2-11eb-9c74-ae51d44e8bbf.png)
+
+
+
+### DarkMode
+
+![simulator_screenshot_5810529E-5255-46DC-834F-F73522CC035C](https://user-images.githubusercontent.com/7849484/119412437-414a5580-bcc2-11eb-9bb9-489771ce6dc3.png)
+![simulator_screenshot_FAB13DA0-0B9C-4F74-91EB-4994CCE80412](https://user-images.githubusercontent.com/7849484/119412454-48716380-bcc2-11eb-9b95-03b483f88e52.png)
+![simulator_screenshot_30F2F51D-DBAE-4115-BD82-ACED0E7ED95F](https://user-images.githubusercontent.com/7849484/119412467-4f987180-bcc2-11eb-9122-b4f771077603.png)
+![simulator_screenshot_C1BCD754-FE74-4F7A-9567-D4456BD5996A](https://user-images.githubusercontent.com/7849484/119412480-58894300-bcc2-11eb-9f07-8e020967096f.png)
+![simulator_screenshot_BA6235FF-4FC5-4308-8C6E-2C89826FCB75](https://user-images.githubusercontent.com/7849484/119412511-663ec880-bcc2-11eb-95d2-f5d267b7f64c.png)
+
+### LightMode
+
+![simulator_screenshot_4A128D2D-6CE0-4EBE-8D58-0D54CDB737C9](https://user-images.githubusercontent.com/7849484/119412654-9edea200-bcc2-11eb-9258-0e297f245e8a.png)
+![simulator_screenshot_35637BD8-3752-4A77-8052-E45C61929AFC](https://user-images.githubusercontent.com/7849484/119412707-b0c04500-bcc2-11eb-98be-cc887764cd56.png)
+![simulator_screenshot_02765B9B-0F6B-482D-8641-18FFD340B422](https://user-images.githubusercontent.com/7849484/119412682-a7cf7380-bcc2-11eb-8410-9a938e4c974d.png)
+![simulator_screenshot_B7C5308D-5C40-497B-8070-4EE4BC5C0204](https://user-images.githubusercontent.com/7849484/119412740-bfa6f780-bcc2-11eb-86e6-da38a44f312a.png)
+![simulator_screenshot_2210D7DA-CCFD-4820-A758-30229E488253](https://user-images.githubusercontent.com/7849484/119412754-c6ce0580-bcc2-11eb-9665-49d0421d1b5b.png)
+
