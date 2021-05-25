@@ -77,6 +77,8 @@ tuist focus App
 
 * Utilizar o Swiftgen para acessar recursos
 
+* Acessibilidade
+
 ------------
 
 ## O App
