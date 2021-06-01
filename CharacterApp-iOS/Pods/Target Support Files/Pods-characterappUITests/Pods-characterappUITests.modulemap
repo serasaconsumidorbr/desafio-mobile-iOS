@@ -1,0 +1,6 @@
+framework module Pods_characterappUITests {
+  umbrella header "Pods-characterappUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
