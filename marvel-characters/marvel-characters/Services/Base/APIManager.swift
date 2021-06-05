@@ -7,10 +7,15 @@
 
 import Foundation
 
+enum BuildType {
+    case useKeys, ignoreKeys
+}
+
 struct APIManager {
     private let publicKey: String
     private let privateKey: String
     private let baseURL = "http://gateway.marvel.com"
+    private let buildType: BuildType = .ignoreKeys
     
     init() {
         var keys: NSDictionary?
@@ -18,7 +23,7 @@ struct APIManager {
         if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
                 keys = NSDictionary(contentsOfFile: path)
             }
-        if let dict = keys {
+        if let dict = keys, buildType == .useKeys {
             publicKey = dict["publicKey"] as? String ?? ""
             privateKey = dict["privateKey"] as? String ?? ""
         } else {

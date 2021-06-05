@@ -11,9 +11,13 @@ class CharactersListViewController: UIViewController {
 
     let viewModel = CharactersListViewModel()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let _ = viewModel.getCharactersList()
+//        let _ = viewModel.getCharactersList()
+        view = CharactersListView()
+        (view as? CharactersListView)?.viewModel = CharactersListViewModel()
     }
 
 

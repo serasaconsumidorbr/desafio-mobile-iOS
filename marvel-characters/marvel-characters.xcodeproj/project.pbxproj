@@ -28,6 +28,9 @@
 		C6E534D9266BEF2400B35A6F /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534D8266BEF2400B35A6F /* String+MD5.swift */; };
 		C6E534DE266BEF5300B35A6F /* Date+TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534DD266BEF5300B35A6F /* Date+TimeStamp.swift */; };
 		C6E534E4266BEFEB00B35A6F /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534E3266BEFEB00B35A6F /* CharactersListRouter.swift */; };
+		C6E534EF266BF74B00B35A6F /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534EE266BF74A00B35A6F /* CharactersListView.swift */; };
+		C6E534F7266BFF5C00B35A6F /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534F6266BFF5C00B35A6F /* Constraints.swift */; };
+		C6E534FC266C013800B35A6F /* CharactersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E534FB266C013800B35A6F /* CharactersListCell.swift */; };
 		EDEDE90E9440342D6B5AB109 /* Pods_marvel_charactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B88FF91C0FE38E5AC02E2B /* Pods_marvel_charactersTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,9 @@
 		C6E534D8266BEF2400B35A6F /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		C6E534DD266BEF5300B35A6F /* Date+TimeStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeStamp.swift"; sourceTree = "<group>"; };
 		C6E534E3266BEFEB00B35A6F /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
+		C6E534EE266BF74A00B35A6F /* CharactersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
+		C6E534F6266BFF5C00B35A6F /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		C6E534FB266C013800B35A6F /* CharactersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListCell.swift; sourceTree = "<group>"; };
 		E5FA5BDBEBF040FC6A9ED91C /* Pods_marvel_characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marvel_characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -226,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				C6E534A0266B397A00B35A6F /* CharactersListViewController.swift */,
+				C6E534EE266BF74A00B35A6F /* CharactersListView.swift */,
+				C6E534FB266C013800B35A6F /* CharactersListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			children = (
 				C6E534D8266BEF2400B35A6F /* String+MD5.swift */,
 				C6E534DD266BEF5300B35A6F /* Date+TimeStamp.swift */,
+				C6E534F6266BFF5C00B35A6F /* Constraints.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -515,6 +524,7 @@
 				C6E534D3266BEEB800B35A6F /* APIManager.swift in Sources */,
 				C6E534DE266BEF5300B35A6F /* Date+TimeStamp.swift in Sources */,
 				C6E534A1266B397A00B35A6F /* CharactersListViewController.swift in Sources */,
+				C6E534F7266BFF5C00B35A6F /* Constraints.swift in Sources */,
 				C6E5348D266B2BB900B35A6F /* Service.swift in Sources */,
 				C6E5341A266B192600B35A6F /* AppDelegate.swift in Sources */,
 				C6E5341C266B192600B35A6F /* SceneDelegate.swift in Sources */,
@@ -522,8 +532,10 @@
 				C6E53467266B230D00B35A6F /* ServiceProtocol.swift in Sources */,
 				C6E53492266B327400B35A6F /* CharacterDataWrapper.swift in Sources */,
 				C6E534E4266BEFEB00B35A6F /* CharactersListRouter.swift in Sources */,
+				C6E534EF266BF74B00B35A6F /* CharactersListView.swift in Sources */,
 				C6E5345D266B1B2B00B35A6F /* Character.swift in Sources */,
 				C6E53498266B374100B35A6F /* CharactersListViewModel.swift in Sources */,
+				C6E534FC266C013800B35A6F /* CharactersListCell.swift in Sources */,
 				C6E53462266B22FB00B35A6F /* CharactersListService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
