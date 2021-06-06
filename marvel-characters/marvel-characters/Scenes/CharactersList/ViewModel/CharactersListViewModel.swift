@@ -35,10 +35,11 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
                 events: EventList(available: nil, collectionURI: nil, items: nil, returned: 0),
                 urls: [URLElement(type: "detail", url: "http://marvel.com/characters/76/a-bomb?utm_campaign=apiRef&utm_source=007adb4eff0030e2e522cbc7f3c3e4d7"), URLElement(type: "comiclink", url: "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=007adb4eff0030e2e522cbc7f3c3e4d7")])
         ]
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Homem de Ferro", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/4/60/52695285d6e7e", thumbnailExtension: "jpg"), resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/3/80/4c00358ec7548", thumbnailExtension: "jpg"), resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América com o nome gigante", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg"), resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Spider Man", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c0042121d790", thumbnailExtension: "jpg"), resourceURI: nil))
         favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Homem de Ferro", thumbnail: nil, resourceURI: nil))
-        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América", thumbnail: nil, resourceURI: nil))
-        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América com o nome gigante", thumbnail: nil, resourceURI: nil))
-        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Spider Man", thumbnail: nil, resourceURI: nil))
     }
     
     func getCharactersList(comletion: @escaping () -> Void) {

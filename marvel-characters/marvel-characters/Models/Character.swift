@@ -96,6 +96,10 @@ struct Thumbnail: Decodable {
         case path
         case thumbnailExtension = "extension"
     }
+    
+    func getDownloadInfos() -> (path: String, pathExtension: String) {
+        return (path: path ?? "", pathExtension: thumbnailExtension ?? "")
+    }
 }
 
 // MARK: - URLElement

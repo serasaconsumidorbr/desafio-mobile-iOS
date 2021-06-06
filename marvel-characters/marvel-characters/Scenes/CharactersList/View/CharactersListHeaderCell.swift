@@ -10,12 +10,12 @@ import UIKit
 class CharactersListHeaderCell: UICollectionViewCell {
     static let identifier = "CharactersListHeaderCell"
     
-    let characterImageView: UIImageView
+    let characterImageView: CharacterImage
     let backgroundTitleView: UIView
     let titleLabel: UILabel
     
     override init(frame: CGRect) {
-        characterImageView = UIImageView()
+        characterImageView = CharacterImage(frame: .zero)
         backgroundTitleView = UIView()
         titleLabel = UILabel()
         super.init(frame: frame)
@@ -68,11 +68,6 @@ class CharactersListHeaderCell: UICollectionViewCell {
         
         backgroundTitleView.backgroundColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
         
-        characterImageView.contentMode = .scaleAspectFill
-        characterImageView.image = UIImage(imageLiteralResourceName: "marvel")
-        characterImageView.layer.cornerRadius = 10
-        characterImageView.layer.masksToBounds = true
-        
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         titleLabel.textColor = .red
         titleLabel.numberOfLines = 3
@@ -80,5 +75,11 @@ class CharactersListHeaderCell: UICollectionViewCell {
     
     func setupData(with character: FavoriteCharacter) {
         titleLabel.text = character.name
+        if let downloadInfos = character.thumbnail?.getDownloadInfos() {
+            characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)
+        } else {
+            characterImageView.setDefaultImage()
+        }
+        
     }
 }

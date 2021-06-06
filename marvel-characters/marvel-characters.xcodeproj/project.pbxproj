@@ -41,6 +41,8 @@
 		C6E53540266D28D800B35A6F /* CharactersListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5353F266D28D700B35A6F /* CharactersListHeaderView.swift */; };
 		C6E53545266D3FEB00B35A6F /* CharactersListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E53544266D3FEB00B35A6F /* CharactersListHeaderCell.swift */; };
 		C6E5354A266D473600B35A6F /* FavoriteCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E53549266D473600B35A6F /* FavoriteCharacter.swift */; };
+		C6E5354F266D4E2A00B35A6F /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5354E266D4E2A00B35A6F /* CharacterImage.swift */; };
+		C6E5355D266D604700B35A6F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5355C266D604700B35A6F /* ImageCache.swift */; };
 		EDEDE90E9440342D6B5AB109 /* Pods_marvel_charactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B88FF91C0FE38E5AC02E2B /* Pods_marvel_charactersTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		C6E5353F266D28D700B35A6F /* CharactersListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListHeaderView.swift; sourceTree = "<group>"; };
 		C6E53544266D3FEB00B35A6F /* CharactersListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListHeaderCell.swift; sourceTree = "<group>"; };
 		C6E53549266D473600B35A6F /* FavoriteCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharacter.swift; sourceTree = "<group>"; };
+		C6E5354E266D4E2A00B35A6F /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
+		C6E5355C266D604700B35A6F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E5FA5BDBEBF040FC6A9ED91C /* Pods_marvel_characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marvel_characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -268,6 +272,8 @@
 				C6E534D8266BEF2400B35A6F /* String+MD5.swift */,
 				C6E534DD266BEF5300B35A6F /* Date+TimeStamp.swift */,
 				C6E534F6266BFF5C00B35A6F /* Constraints.swift */,
+				C6E5354E266D4E2A00B35A6F /* CharacterImage.swift */,
+				C6E5355C266D604700B35A6F /* ImageCache.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				C6E5341C266B192600B35A6F /* SceneDelegate.swift in Sources */,
 				C6E53536266C76FA00B35A6F /* CharacterInfoSectionHeaderView.swift in Sources */,
 				C6E53488266B2A6D00B35A6F /* Router.swift in Sources */,
+				C6E5354F266D4E2A00B35A6F /* CharacterImage.swift in Sources */,
 				C6E53467266B230D00B35A6F /* ServiceProtocol.swift in Sources */,
 				C6E53492266B327400B35A6F /* CharacterDataWrapper.swift in Sources */,
 				C6E534E4266BEFEB00B35A6F /* CharactersListRouter.swift in Sources */,
@@ -601,6 +608,7 @@
 				C6E534FC266C013800B35A6F /* CharactersListCell.swift in Sources */,
 				C6E53545266D3FEB00B35A6F /* CharactersListHeaderCell.swift in Sources */,
 				C6E53462266B22FB00B35A6F /* CharactersListService.swift in Sources */,
+				C6E5355D266D604700B35A6F /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import UIKit
 
 protocol CharacterInfoHeaderViewModelProtocol {
     func getCharacterName() -> String?
-    func getCharacterImage() -> UIImage
+    func getCharacterImageInfos() -> (path: String, pathExtension: String)
 }
 
 class CharacterInfoHeaderViewModel: CharacterInfoHeaderViewModelProtocol {
@@ -23,7 +23,12 @@ class CharacterInfoHeaderViewModel: CharacterInfoHeaderViewModelProtocol {
         return selectedCharacter.name
     }
     
-    func getCharacterImage() -> UIImage {
-        return UIImage(imageLiteralResourceName: "marvel")
+    func getCharacterImageInfos() -> (path: String, pathExtension: String) {
+        let downloadInfos = selectedCharacter.thumbnail?.getDownloadInfos()
+        let infos = (
+            path: downloadInfos?.path ?? "",
+            pathExtension: downloadInfos?.pathExtension ?? ""
+        )
+        return infos
     }
 }

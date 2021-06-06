@@ -14,12 +14,12 @@ class CharacterInfoHeaderView: UIView {
         }
     }
     
-    let characterImageView: UIImageView
+    let characterImageView: CharacterImage
     let backgroundImageView: UIImageView
     let titleLabel: UILabel
     
     override init(frame: CGRect) {
-        characterImageView = UIImageView()
+        characterImageView = CharacterImage(frame: .zero)
         backgroundImageView = UIImageView()
         titleLabel = UILabel()
         super.init(frame: frame)
@@ -31,8 +31,12 @@ class CharacterInfoHeaderView: UIView {
     }
     
     private func update() {
-        titleLabel.text = viewModel?.getCharacterName()
-        characterImageView.image = viewModel?.getCharacterImage()
+        guard let viewModel = viewModel else {
+            return
+        }
+        titleLabel.text = viewModel.getCharacterName()
+        let downloadInfos = viewModel.getCharacterImageInfos()
+        characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)
     }
     
     private func setupView() {
@@ -79,11 +83,6 @@ class CharacterInfoHeaderView: UIView {
         backgroundImageView.alpha = 0.4
         backgroundImageView.image = UIImage(imageLiteralResourceName: "background3")
         backgroundImageView.layer.masksToBounds = true
-        
-        characterImageView.contentMode = .scaleAspectFill
-        characterImageView.layer.cornerRadius = 10
-        characterImageView.layer.masksToBounds = true
-        characterImageView.image = UIImage(imageLiteralResourceName: "marvel")
         
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         titleLabel.textColor = .red
