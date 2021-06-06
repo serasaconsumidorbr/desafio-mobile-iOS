@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharactersListViewDelegateProtocol: AnyObject {
     func didSelectCharacter(_ character: Character)
+    func didSelectFavoriteCharacter(_ favoriteCharacter: FavoriteCharacter)
 }
 
 class CharactersListView: UIView {
@@ -38,6 +39,7 @@ class CharactersListView: UIView {
 //        viewModel.getCharactersList { [weak self] in
 //            self?.tableView.reloadData()
 //        }
+        setHeader()
     }
     
     private func setupView() {
@@ -71,12 +73,19 @@ class CharactersListView: UIView {
         tableView.register(CharactersListCell.self, forCellReuseIdentifier: CharactersListCell.identifier)
         tableView.separatorStyle = .none
     }
+    
+    private func setHeader() {
+        let header = CharactersListHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+        header.viewModel = viewModel
+        header.delegate = delegate
+        tableView.tableHeaderView = header
+    }
 }
 
 extension CharactersListView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else {
-            return 1
+            return 0
         }
         return viewModel.getNumberOfCharacters()
     }

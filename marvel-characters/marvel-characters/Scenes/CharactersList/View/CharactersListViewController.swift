@@ -18,8 +18,8 @@ class CharactersListViewController: UIViewController {
         super.viewDidLoad()
 //        let _ = viewModel.getCharactersList()
         view = CharactersListView()
-        theView.viewModel = CharactersListViewModel()
         theView.delegate = self
+        theView.viewModel = CharactersListViewModel()
         
         title = "Marvel Characters"
     }
@@ -30,6 +30,11 @@ class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListViewDelegateProtocol {
     func didSelectCharacter(_ character: Character) {
         let controller = CharacterInfoViewController(selectedCharacter: character)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func didSelectFavoriteCharacter(_ favoriteCharacter: FavoriteCharacter) {
+        let controller = CharacterInfoViewController(selectedCharacter: (theView.viewModel?.getCharacterAt(0))!)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -59,7 +59,8 @@ class CharacterInfoHeaderView: UIView {
         characterImageView.anchor(
             left: (leftAnchor, 16),
             bottom: (bottomAnchor, 16),
-            width: 168
+            width: 168,
+            height: 250
         )
         
         titleLabel.anchor(

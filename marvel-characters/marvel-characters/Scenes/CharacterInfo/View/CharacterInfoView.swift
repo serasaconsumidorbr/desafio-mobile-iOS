@@ -61,7 +61,7 @@ class CharacterInfoView: UIView {
     private func render() {
         tableView.backgroundColor = UIColor.black
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 100
         tableView.register(CharacterInfoCell.self, forCellReuseIdentifier: CharacterInfoCell.identifier)
         tableView.separatorStyle = .none
         tableView.allowsSelection = false

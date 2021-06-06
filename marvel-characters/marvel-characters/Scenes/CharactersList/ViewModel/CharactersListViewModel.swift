@@ -11,14 +11,18 @@ protocol CharactersListViewModelProtocol {
     func getCharactersList(comletion: @escaping () -> Void)
     func getNumberOfCharacters() -> Int
     func getCharacterAt(_ index: Int) -> Character?
+    func getNumberOfFavoriteCharacters() -> Int
+    func getFavoriteCharacterAt(_ index: Int) -> FavoriteCharacter?
 }
 
 class CharactersListViewModel: CharactersListViewModelProtocol {
     let service: CharactersListServiceProtocol
     private (set) var charactersList: [Character]
+    private (set) var favoriteCharactersList: [FavoriteCharacter]
     
     init(service: CharactersListServiceProtocol = CharactersListService()) {
         self.service = service
+        favoriteCharactersList = []
         charactersList = [
             Character(
                 id: 1017100,
@@ -31,6 +35,10 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
                 events: EventList(available: nil, collectionURI: nil, items: nil, returned: 0),
                 urls: [URLElement(type: "detail", url: "http://marvel.com/characters/76/a-bomb?utm_campaign=apiRef&utm_source=007adb4eff0030e2e522cbc7f3c3e4d7"), URLElement(type: "comiclink", url: "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=007adb4eff0030e2e522cbc7f3c3e4d7")])
         ]
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Homem de Ferro", thumbnail: nil, resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América", thumbnail: nil, resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Capitão América com o nome gigante", thumbnail: nil, resourceURI: nil))
+        favoriteCharactersList.append(FavoriteCharacter(id: nil, name: "Spider Man", thumbnail: nil, resourceURI: nil))
     }
     
     func getCharactersList(comletion: @escaping () -> Void) {
@@ -52,6 +60,17 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
     func getCharacterAt(_ index: Int) -> Character? {
         if index >= 0 && index < charactersList.count {
             return charactersList[index]
+        }
+        return nil
+    }
+    
+    func getNumberOfFavoriteCharacters() -> Int {
+        return favoriteCharactersList.count
+    }
+    
+    func getFavoriteCharacterAt(_ index: Int) -> FavoriteCharacter? {
+        if index >= 0 && index < favoriteCharactersList.count {
+            return favoriteCharactersList[index]
         }
         return nil
     }
