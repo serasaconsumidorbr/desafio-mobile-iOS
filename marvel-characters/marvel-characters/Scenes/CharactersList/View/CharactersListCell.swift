@@ -120,7 +120,7 @@ class CharactersListCell: UITableViewCell {
         setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_comic_book"), for: comicIconImageView)
         setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_story"), for: storiesIconImageView)
         setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_event"), for: eventIconImageView)
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_book"), for: seriesIconImageView)
+        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_series"), for: seriesIconImageView)
         setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_url"), for: urlIconImageView)
         
         arrowIconImageView.tintColor = .gray

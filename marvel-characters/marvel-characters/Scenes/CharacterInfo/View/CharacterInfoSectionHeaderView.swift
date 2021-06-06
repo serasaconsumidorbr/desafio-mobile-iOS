@@ -42,11 +42,11 @@ enum CharacterInfoSectionHederType {
     var image: UIImage {
         switch self {
         case .description:
-            return UIImage(imageLiteralResourceName: "icon_favorite")
+            return UIImage(imageLiteralResourceName: "icon_info")
         case .comics:
             return UIImage(imageLiteralResourceName: "icon_comic_book")
         case .series:
-            return UIImage(imageLiteralResourceName: "icon_book")
+            return UIImage(imageLiteralResourceName: "icon_series")
         case .stories:
             return UIImage(imageLiteralResourceName: "icon_story")
         case .events:
@@ -82,8 +82,14 @@ class CharacterInfoSectionHeaderView: UIControl {
     }
     
     private func update() {
-        titleLabel.text = section?.type.title
-        iconImageView.image = section?.type.image
+        guard let section = section else {
+            return
+        }
+        titleLabel.text = section.type.title
+        iconImageView.image = section.type.image
+        if section.isOpen {
+            arrowImageView.transform = arrowImageView.transform.rotated(by: .pi)
+        }
     }
     
     private func setupView() {
@@ -146,6 +152,7 @@ class CharacterInfoSectionHeaderView: UIControl {
         arrowImageView.contentMode = .scaleAspectFit
         arrowImageView.tintColor = .lightGray
         arrowImageView.image = UIImage(imageLiteralResourceName: "icon_arrow")
+        arrowImageView.transform = arrowImageView.transform.rotated(by: .pi / 2)
     }
 }
 

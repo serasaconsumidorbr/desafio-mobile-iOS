@@ -10,6 +10,7 @@ import UIKit
 protocol CharacterInfoHeaderViewModelProtocol {
     func getCharacterName() -> String?
     func getCharacterImageInfos() -> (path: String, pathExtension: String)
+    func getBackgroundImage() -> UIImage
 }
 
 class CharacterInfoHeaderViewModel: CharacterInfoHeaderViewModelProtocol {
@@ -30,5 +31,10 @@ class CharacterInfoHeaderViewModel: CharacterInfoHeaderViewModelProtocol {
             pathExtension: downloadInfos?.pathExtension ?? ""
         )
         return infos
+    }
+    
+    func getBackgroundImage() -> UIImage {
+        let random = Int.random(in: 1..<4)
+        return UIImage(imageLiteralResourceName: "background" + String(random))
     }
 }

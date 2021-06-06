@@ -37,12 +37,12 @@ class CharacterInfoHeaderView: UIView {
         titleLabel.text = viewModel.getCharacterName()
         let downloadInfos = viewModel.getCharacterImageInfos()
         characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)
+        backgroundImageView.image = viewModel.getBackgroundImage()
     }
     
     private func setupView() {
         buildViewHierarchy()
         buildViewConstraints()
-        configure()
         render()
     }
     
@@ -74,14 +74,11 @@ class CharacterInfoHeaderView: UIView {
         )
     }
     
-    private func configure() {}
-    
     private func render() {
         backgroundColor = .black
         
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.alpha = 0.4
-        backgroundImageView.image = UIImage(imageLiteralResourceName: "background3")
         backgroundImageView.layer.masksToBounds = true
         
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
