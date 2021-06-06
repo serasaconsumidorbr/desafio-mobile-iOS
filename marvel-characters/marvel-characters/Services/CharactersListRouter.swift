@@ -10,7 +10,7 @@ import Foundation
 
 enum CharactersListRouter: Router {
 
-    case charactersList
+    case charactersList(Int)
     
     var path: String {
         switch self {
@@ -20,7 +20,10 @@ enum CharactersListRouter: Router {
     }
     
     var parameters: [String : String]? {
-        return nil
+        switch self {
+        case .charactersList(let offset):
+            return ["offset" : String(offset)]
+        }
     }
     
     var method: HTTPMethod {

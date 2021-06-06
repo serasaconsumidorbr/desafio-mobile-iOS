@@ -9,7 +9,6 @@ import UIKit
 
 protocol CharactersListViewDelegateProtocol: AnyObject {
     func didSelectCharacter(_ character: Character)
-    func didSelectFavoriteCharacter(_ favoriteCharacter: FavoriteCharacter)
 }
 
 class CharactersListView: UIView {
@@ -33,13 +32,17 @@ class CharactersListView: UIView {
     }
     
     private func update() {
-//        guard let viewModel = viewModel else {
-//            return
-//        }
-//        viewModel.getCharactersList { [weak self] in
-//            self?.tableView.reloadData()
-//        }
-        setHeader()
+        guard let viewModel = viewModel else {
+            return
+        }
+        viewModel.getCharactersList { [weak self] in
+            self?.tableView.reloadData()
+            if self?.tableView.tableHeaderView == nil {
+                self?.setHeader()
+            }
+            self?.setupTableFooter(isLoading: false)
+        }
+        
     }
     
     private func setupView() {
@@ -80,6 +83,23 @@ class CharactersListView: UIView {
         header.delegate = delegate
         tableView.tableHeaderView = header
     }
+    
+    private func loadMoreItems() {
+        setupTableFooter(isLoading: true)
+        update()
+    }
+    
+    private func setupTableFooter(isLoading: Bool) {
+        var footer: CharactersListFooterView?
+        if isLoading {
+            footer = CharactersListFooterView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 80))
+            footer?.setupLoader()
+        }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.tableFooterView = footer
+        }
+    }
 }
 
 extension CharactersListView: UITableViewDataSource, UITableViewDelegate {
@@ -105,5 +125,20 @@ extension CharactersListView: UITableViewDataSource, UITableViewDelegate {
         }
         delegate?.didSelectCharacter(character)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension CharactersListView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let viewModel = viewModel else {
+            return
+        }
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        guard translation.y < 0 else { return }
+        let position = scrollView.contentOffset.y
+        let bottomSpace = tableView.contentSize.height - 20 - scrollView.frame.size.height
+        if position > bottomSpace, viewModel.hasItemsToLoad, !viewModel.isLoadingRequest {
+            self.loadMoreItems()
+        }
     }
 }

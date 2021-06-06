@@ -73,7 +73,7 @@ class CharactersListHeaderCell: UICollectionViewCell {
         titleLabel.numberOfLines = 3
     }
     
-    func setupData(with character: FavoriteCharacter) {
+    func setupData(with character: Character) {
         titleLabel.text = character.name
         if let downloadInfos = character.thumbnail?.getDownloadInfos() {
             characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)

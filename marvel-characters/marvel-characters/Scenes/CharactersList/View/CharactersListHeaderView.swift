@@ -72,12 +72,12 @@ extension CharactersListHeaderView: UICollectionViewDataSource, UICollectionView
         guard let viewModel = viewModel else {
             return 0
         }
-        return viewModel.getNumberOfFavoriteCharacters()
+        return viewModel.getNumberOfFirstsCharacters()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharactersListHeaderCell.identifier, for: indexPath) as? CharactersListHeaderCell, let viewModel = viewModel,
-              let character = viewModel.getFavoriteCharacterAt(indexPath.row) else {
+              let character = viewModel.getFirstsCharacterAt(indexPath.row) else {
             return UICollectionViewCell()
         }
         cell.setupData(with: character)
@@ -89,9 +89,9 @@ extension CharactersListHeaderView: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewModel = viewModel, let favoriteCharacter = viewModel.getFavoriteCharacterAt(indexPath.row) else {
+        guard let viewModel = viewModel, let character = viewModel.getFirstsCharacterAt(indexPath.row) else {
             return
         }
-        delegate?.didSelectFavoriteCharacter(favoriteCharacter)
+        delegate?.didSelectCharacter(character)
     }
 }
