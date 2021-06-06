@@ -40,6 +40,19 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
         
         firtsCharactersList = []
         charactersList = []
+        
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        charactersList.append(defaultCharacter())
+        
+        firtsCharactersList.append(defaultCharacter())
+        firtsCharactersList.append(defaultCharacter())
+        
     }
     
     func getCharactersList(comletion: @escaping () -> Void) {
@@ -102,7 +115,7 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
     func defaultCharacter() -> Character {
         return Character(
             id: 1017100,
-            name: "A-Bomb (HAS)",
+            name: "A-Bomb (HAS) with a big name on screen",
             characterDescription: "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!",
             thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16", thumbnailExtension: "jpg"), resourceURI: "http://gateway.marvel.com/v1/public/characters/1017100",
             comics: ComicList(available: 10, collectionURI: "http://gateway.marvel.com/v1/public/characters/1017100/comics", items: [ComicSummary(resourceURI: "http://gateway.marvel.com/v1/public/comics/40632", name: "Hulk (2008) #53"), ComicSummary(resourceURI: "http://gateway.marvel.com/v1/public/comics/40630", name: "Hulk (2008) #54"), ComicSummary(resourceURI: "http://gateway.marvel.com/v1/public/comics/40628", name: "Hulk (2008) #55")], returned: 3),

@@ -19,7 +19,6 @@ class CharactersListCell: UITableViewCell {
     var seriesIconImageView: UIImageView
     var eventIconImageView: UIImageView
     var urlIconImageView: UIImageView
-    var favoriteButton: UIButton
     var arrowIconImageView: UIImageView
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,7 +31,6 @@ class CharactersListCell: UITableViewCell {
         seriesIconImageView = UIImageView()
         eventIconImageView = UIImageView()
         urlIconImageView = UIImageView()
-        favoriteButton = UIButton()
         arrowIconImageView = UIImageView()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = false
@@ -46,7 +44,6 @@ class CharactersListCell: UITableViewCell {
     private func setupView() {
         buildViewHierarchy()
         buildViewConstraints()
-        configure()
         render()
     }
     
@@ -56,7 +53,6 @@ class CharactersListCell: UITableViewCell {
         cardView.addSubview(titleLabel)
         cardView.addSubview(iconsStackView)
         cardView.addSubview(arrowIconImageView)
-        cardView.addSubview(favoriteButton)
         iconsStackView.addArrangedSubview(comicIconImageView)
         iconsStackView.addArrangedSubview(seriesIconImageView)
         iconsStackView.addArrangedSubview(storiesIconImageView)
@@ -82,7 +78,7 @@ class CharactersListCell: UITableViewCell {
         titleLabel.anchor(
             top: (cardView.topAnchor, 8),
             left: (lineView.rightAnchor, 16),
-            right: (cardView.rightAnchor, 8)
+            right: (arrowIconImageView.leftAnchor, 8)
         )
         
         iconsStackView.anchor(
@@ -97,28 +93,6 @@ class CharactersListCell: UITableViewCell {
             width: 22,
             height: 22
         )
-        
-        favoriteButton.anchor(
-            centerY: (centerYAnchor, 0),
-            right: (arrowIconImageView.leftAnchor, 16),
-            width: 32,
-            height: 32
-        )
-    }
-    
-    @objc func testButton() {
-        let currentIcon = favoriteButton.image(for: .normal)
-        let favoriteIcon = UIImage(imageLiteralResourceName: "icon_favorite")
-        let favoriteIconFull = UIImage(imageLiteralResourceName: "icon_favorite_full")
-        let finalIcon = currentIcon == favoriteIcon ? favoriteIconFull : favoriteIcon
-        
-        DispatchQueue.main.async {
-            self.favoriteButton.setImage(finalIcon, for: .normal)
-        }
-    }
-    
-    private func configure() {
-        favoriteButton.addTarget(self, action: #selector(testButton), for: .touchUpInside)
     }
     
     private func render() {
@@ -152,9 +126,6 @@ class CharactersListCell: UITableViewCell {
         arrowIconImageView.tintColor = .gray
         arrowIconImageView.contentMode = .scaleAspectFit
         arrowIconImageView.image = UIImage(imageLiteralResourceName: "icon_arrow")
-        
-        favoriteButton.tintColor = .red
-        favoriteButton.setImage(UIImage(imageLiteralResourceName: "icon_favorite"), for: .normal)
     }
     
     private func setupIconImageView(with image: UIImage, size: CGFloat = 20, for imageView: UIImageView) {
