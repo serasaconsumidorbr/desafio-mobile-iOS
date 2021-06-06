@@ -52,7 +52,6 @@ struct StoryList: Decodable {
 struct StorySummary: Decodable {
     let resourceURI: String?
     let name: String?
-//    let type: StoryType?
 }
 
 enum StoryType: String, Codable {

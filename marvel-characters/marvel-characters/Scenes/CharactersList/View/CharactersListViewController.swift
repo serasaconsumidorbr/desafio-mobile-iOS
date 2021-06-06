@@ -8,17 +8,28 @@
 import UIKit
 
 class CharactersListViewController: UIViewController {
-
-    let viewModel = CharactersListViewModel()
     
+    var theView: CharactersListView {
+        return view as! CharactersListView
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let _ = viewModel.getCharactersList()
         view = CharactersListView()
-        (view as? CharactersListView)?.viewModel = CharactersListViewModel()
+        theView.viewModel = CharactersListViewModel()
+        theView.delegate = self
+        
+        title = "Marvel Characters"
     }
 
 
+}
+
+extension CharactersListViewController: CharactersListViewDelegateProtocol {
+    func didSelectCharacter(_ character: Character) {
+        let controller = CharacterInfoViewController(selectedCharacter: character)
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

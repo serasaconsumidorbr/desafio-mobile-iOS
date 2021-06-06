@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol CharactersListViewDelegateProtocol: AnyObject {
+    func didSelectCharacter(_ character: Character)
+}
+
 class CharactersListView: UIView {
     var viewModel: CharactersListViewModelProtocol? {
         didSet {
             update()
         }
     }
+    weak var delegate: CharactersListViewDelegateProtocol?
     
     let tableView: UITableView
     
@@ -26,7 +31,14 @@ class CharactersListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func update() {}
+    private func update() {
+//        guard let viewModel = viewModel else {
+//            return
+//        }
+//        viewModel.getCharactersList { [weak self] in
+//            self?.tableView.reloadData()
+//        }
+    }
     
     private func setupView() {
         buildViewHierarchy()
@@ -77,5 +89,12 @@ extension CharactersListView: UITableViewDataSource, UITableViewDelegate {
         }
         cell.setupData(with: character)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel, let character = viewModel.getCharacterAt(indexPath.row) else {
+            return
+        }
+        delegate?.didSelectCharacter(character)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

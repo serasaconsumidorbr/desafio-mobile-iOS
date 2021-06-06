@@ -35,6 +35,7 @@ class CharactersListCell: UITableViewCell {
         favoriteButton = UIButton()
         arrowIconImageView = UIImageView()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.isUserInteractionEnabled = false
         setupView()
     }
     
@@ -105,7 +106,20 @@ class CharactersListCell: UITableViewCell {
         )
     }
     
-    private func configure() {}
+    @objc func testButton() {
+        let currentIcon = favoriteButton.image(for: .normal)
+        let favoriteIcon = UIImage(imageLiteralResourceName: "icon_favorite")
+        let favoriteIconFull = UIImage(imageLiteralResourceName: "icon_favorite_full")
+        let finalIcon = currentIcon == favoriteIcon ? favoriteIconFull : favoriteIcon
+        
+        DispatchQueue.main.async {
+            self.favoriteButton.setImage(finalIcon, for: .normal)
+        }
+    }
+    
+    private func configure() {
+        favoriteButton.addTarget(self, action: #selector(testButton), for: .touchUpInside)
+    }
     
     private func render() {
         backgroundColor = .black
