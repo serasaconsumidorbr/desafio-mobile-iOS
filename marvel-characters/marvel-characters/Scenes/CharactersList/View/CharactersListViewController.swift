@@ -7,34 +7,116 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
-    
-    var theView: CharactersListView {
-        return view as! CharactersListView
+protocol CharactersListViewDelegateProtocol: AnyObject {
+    func didSelectCharacter(_ character: Character)
+}
+
+class CharactersListViewController: UITableViewController {
+    var viewModel: CharactersListViewModelProtocol? {
+        didSet {
+            update()
+        }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let _ = viewModel.getCharactersList()
-        view = CharactersListView()
-        theView.delegate = self
-        theView.viewModel = CharactersListViewModel()
-        
+        render()
+        viewModel = CharactersListViewModel()
         title = "Marvel Characters"
     }
 
+    private func update() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        viewModel.getCharactersList { [weak self] in
+            self?.tableView.reloadData()
+            if self?.tableView.tableHeaderView == nil {
+                self?.setHeader()
+            }
+            self?.setupTableFooter(isLoading: false)
+        }
+        
+    }
+    
+    private func render() {
+        tableView.backgroundColor = UIColor.black
+        tableView.rowHeight = 100
+        tableView.register(CharactersListCell.self, forCellReuseIdentifier: CharactersListCell.identifier)
+        tableView.separatorStyle = .none
+    }
+    
+    private func setHeader() {
+        let header = CharactersListHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+        header.viewModel = viewModel
+        header.delegate = self
+        tableView.tableHeaderView = header
+    }
+    
+    private func loadMoreItems() {
+        setupTableFooter(isLoading: true)
+        update()
+    }
+    
+    private func setupTableFooter(isLoading: Bool) {
+        var footer: CharactersListFooterView?
+        if isLoading {
+            footer = CharactersListFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 80))
+            footer?.setupLoader()
+        }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.tableFooterView = footer
+        }
+    }
+}
 
+extension CharactersListViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.getNumberOfCharacters()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListCell.identifier, for: indexPath) as? CharactersListCell,
+              let viewModel = viewModel,
+              let character = viewModel.getCharacterAt(indexPath.row) else {
+            return UITableViewCell()
+        }
+        cell.setupData(with: character)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel, let character = viewModel.getCharacterAt(indexPath.row) else {
+            return
+        }
+        didSelectCharacter(character)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension CharactersListViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let viewModel = viewModel else {
+            return
+        }
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        guard translation.y < 0 else { return }
+        let position = scrollView.contentOffset.y
+        let bottomSpace = tableView.contentSize.height - 20 - scrollView.frame.size.height
+        if position > bottomSpace, viewModel.hasItemsToLoad, !viewModel.isLoadingRequest {
+            self.loadMoreItems()
+        }
+    }
 }
 
 extension CharactersListViewController: CharactersListViewDelegateProtocol {
     func didSelectCharacter(_ character: Character) {
-        let controller = CharacterInfoViewController(selectedCharacter: character)
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func didSelectFavoriteCharacter(_ favoriteCharacter: FavoriteCharacter) {
-        let controller = CharacterInfoViewController(selectedCharacter: (theView.viewModel?.getCharacterAt(0))!)
+        let controller = CharacterInfoViewController()
+        controller.viewModel = CharacterInfoViewModel(character: character)
         navigationController?.pushViewController(controller, animated: true)
     }
 }
