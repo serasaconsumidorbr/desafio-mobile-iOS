@@ -30,7 +30,6 @@ class CharacterInfoViewControllerTestCase: XCTestCase {
     }
     
     func testRender() {
-        XCTAssertEqual(sut.tableView.backgroundColor, .black)
         XCTAssertEqual(sut.tableView.rowHeight, UITableView.automaticDimension)
         XCTAssertEqual(sut.tableView.estimatedRowHeight, 100)
         XCTAssertEqual(sut.tableView.separatorStyle, .none)
@@ -39,7 +38,6 @@ class CharacterInfoViewControllerTestCase: XCTestCase {
     
     func testUpdate() {
         sut.update()
-        XCTAssertEqual(sut.title, "Test Character regular")
         XCTAssertNotNil(sut.tableView.tableHeaderView)
     }
     

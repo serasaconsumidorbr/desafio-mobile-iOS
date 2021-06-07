@@ -28,7 +28,7 @@ class CharacterInfoViewController: UITableViewController {
     }
     
     private func render() {
-        tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.register(CharacterInfoCell.self, forCellReuseIdentifier: CharacterInfoCell.identifier)

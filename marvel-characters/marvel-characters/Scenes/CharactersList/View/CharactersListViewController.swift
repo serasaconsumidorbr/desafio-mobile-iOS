@@ -66,7 +66,7 @@ class CharactersListViewController: UITableViewController {
     }
     
     private func setUpTableView() {
-        tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = .black
         tableView.rowHeight = 100
         tableView.register(CharactersListCell.self, forCellReuseIdentifier: CharactersListCell.identifier)
         tableView.separatorStyle = .none

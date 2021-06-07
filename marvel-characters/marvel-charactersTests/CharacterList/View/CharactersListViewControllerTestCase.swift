@@ -31,7 +31,6 @@ class CharactersListViewControllerTestCase: XCTestCase {
     }
     
     func testRender() {
-        XCTAssertEqual(sut.tableView.backgroundColor, .black)
         XCTAssertEqual(sut.tableView.rowHeight, 100)
         XCTAssertEqual(sut.tableView.separatorStyle, .none)
         
