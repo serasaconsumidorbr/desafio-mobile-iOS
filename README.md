@@ -12,6 +12,9 @@ Na listagem, já são apresentados alguns ícones que dizem respeito as informa�
 
 Ao selecionar algum personagem, a tela de informações é exibida, contendo toda a listagem de items, para que o usuário possa consumir os detalhes por categoria, além de visualizar uma imagem do personagem.
 
+### Acessibilidade ♿️🔊
+O app foi construído com ferramentas nativas e com os devidos cuidados para que seja acessível através da ferramenta de leitura de tela (VoiceOver).
+
 ### Capturas de tela
 <img src="https://github.com/pauloatavila/marvel-characters/blob/main/screenshots/marvel_app.png" alt="Screenshot" width="782" height="500">
 
