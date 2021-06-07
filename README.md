@@ -1,58 +1,30 @@
-<!-- Header-->
-<br />
-<p align="center">
-  <a href="https://github.com/serasaconsumidorbr/desafio-mobile-iOS">
-    <img src="https://turismoemfoco.com.br/v1/wp-content/uploads/2020/05/serasa-logo-nova22.png" alt="Logo" width="180" height="80">
-  </a>
-
-  <h3 align="center">Desafio - iOS Developer </h3>
-
-  <p align="center">
-    O nosso aplicativo é uma das nossas soluções para mudar a vida financeira de milhões de brasileiros. <b>Venha fazer parte desse time</b> muito engajado que
-  trabalha para que esse aplicativo chegue da melhor forma na mão dos consumidores.
-  </p>
-</p>
-
 ## Sobre
-<p> Utilizamos este desafio para avaliar a qualidade do seu código, arquitetura, a forma que você organiza os seus pensamentos dentro do git e muitas outras coisas, por isso, sinta-se a vontade e dê o seu melhor! O tempo médio para a entrega deste desafio é de uma semana.</p>
+Este é um app que utiliza a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">API da Marvel</a></b> para fazer uma listagem de personagens.
 
-<p>Neste desafio você irá desenvolver um app que deverá mostrar os <b>personagens</b> da <a href="https://www.marvel.com/characters">Marvel</a>. 
-  
-<p>Para começar a fazer requests utilizando este serviço, siga esta <a href="https://developer.marvel.com/documentation/authorization">documentação</a>. O endpoint que deverá ser utilizado para popular as listas do app será a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">/v1/public/characters</a></b>. </p>
+Na home do app, está listado, logo no topo, um carrossel com os 5 primeiros personagens, e logo em seguida os demais. Conforme o usuário interage com a lista e vai chegando ao seu  fim, novos personagens vão sendo carregados.
 
+Na listagem, já são apresentados alguns ícones que dizem respeito as informações disponíveis para o determinado personagem, como:
+- Histórias em quadrinho que ele aparece;
+- Histórias que o personagem aparece;
+- Eventos que ele esteve presente;
+- Séries; e
+- Links onde é possível encontrar mais informações sobre ele.
 
-## Requisitos
-<p>Estes requisitos básicos são utilizados para ver como você lida com cada um desses itens. A falta de qualquer um desses requisitos compromete a sua avaliação no final.</p>
+Ao selecionar algum personagem, a tela de informações é exibida, contendo toda a listagem de items, para que o usuário possa consumir os detalhes por categoria, além de visualizar uma imagem do personagem.
 
+### Acessibilidade ♿️🔊
+O app foi construído com ferramentas nativas e com os devidos cuidados para que seja acessível através da ferramenta de leitura de tela (VoiceOver).
 
-* Swift 5+ 
-* Xcode 11+ 
-* Arquitetura
-* Auto-layout
-* Carthage ou Cocoapods
-* Testes unitários
+### Capturas de tela
+<img src="https://github.com/pauloatavila/marvel-characters/blob/main/screenshots/marvel_app.png" alt="Screenshot" width="782" height="500">
 
-## Será um diferencial 
-* Persistencia de dados (CoreData, Realm...)
-* Animações customizadas (Lottie, Hero, UIViewAnimate etc..)
+## Vem por aí
+Uma melhoria simples e que já pode dar outro significado para a apresentação dos links extras, é a abertura deles diretamente no navegador do usuário, item que será feito em breve.
 
-## O projeto deverá conter
-* Carrossel superior com **5** personagens
-* Uma lista **vertical** abaixo do carrossel **com os personagens seguintes, sem repetir**
-* Scroll infinito
+Uma feature legal para ser desenvolvida também, é um filtro de busca avançado: onde seja possível (de acordo com o permitido pela API da Marvel) selecionar determinados campos e parâmetros, tudo em uma interface agradável e fácil de mexer para o usuário.
 
-<b>Atente-se aos detalhes que ache interessante mostrar, por exemplo, nome, descrição, imagens ou outras informações dos personagens</b>
+## Papo de dev
+Para criação do app, estão sendo utilizados como dependências o `Alamofire (5.2)` e `AlamofireImage (4.1)`, para facilitar a criação e tratamento de requisições e o controle de cache para as imagens, respectivamente. O gerenciador de dependências utilizado é o Cocoa Pods.
 
-## Importante
-* **Sua criatividade:** Utilize as considerações acima para criar o projeto do seu jeito, **utilizando as dependências que quiser**. Apenas saiba explicar o motivo das suas escolhas. 
-
-* **Documentação:** Ao finalizar o projeto, não se esqueça de documenta-lo. É Muito importante escrever o seu fluxo de pensamentos, **anexar imagens do aplicativo**, inserir as **bibliotecas** e versões que estão sendo utilizadas, **roadmap** de features que você gostaria de colocar e **melhorias que gostaria de fazer**...
-
-## Por fim, envie seu teste!
-* Crie um `fork`, de preferencia público, desse repositório.
-* Tente seguir o <b><a href="https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow#:~:text=Como%20afirma%20Vincent%20Driessen%20(2010,o%20trunk%20e%20o%20branch.">gitflow</a></b> para o seu fluxo de desenvolvimento.
-* Ao finalizar, faça o **pull request** para este repositório
-
-Agora é só torcer!
-
-**Ultimo recadinho:** não utilize o nome da Serasa dentro de seu projeto 😉
+Para executar o projeto, basta fazer um clone, entrar na subpasta `/marvel-characters` e rodar o comando `pod install`.
+Em seguida, adicione as chaves pública e privada da API no arquivo `Keys.plist`, caso contrário o app não terá o comportamento esperado.
