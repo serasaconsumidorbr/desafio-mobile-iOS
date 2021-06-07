@@ -50,6 +50,11 @@
 		C6E535B4266DC29E00B35A6F /* CharacterInfoViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535B3266DC29E00B35A6F /* CharacterInfoViewModelTestCase.swift */; };
 		C6E535BC266DC33D00B35A6F /* Infos+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535BB266DC33D00B35A6F /* Infos+Dummy.swift */; };
 		C6E535C1266DC98D00B35A6F /* CharacterInfoHeaderViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535C0266DC98D00B35A6F /* CharacterInfoHeaderViewModelTestCase.swift */; };
+		C6E535C7266DCCDF00B35A6F /* CharactersListViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535C6266DCCDF00B35A6F /* CharactersListViewControllerTestCase.swift */; };
+		C6E535CF266DD1F500B35A6F /* CharactersListViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535CE266DD1F500B35A6F /* CharactersListViewModelSpy.swift */; };
+		C6E535D4266DD36A00B35A6F /* CharactersListCellTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535D3266DD36A00B35A6F /* CharactersListCellTestCase.swift */; };
+		C6E535D9266DD7CB00B35A6F /* CharactersListHeaderViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535D8266DD7CB00B35A6F /* CharactersListHeaderViewTestCase.swift */; };
+		C6E535E3266DDC7B00B35A6F /* CharactersListHeaderCellTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E535E2266DDC7B00B35A6F /* CharactersListHeaderCellTestCase.swift */; };
 		EDEDE90E9440342D6B5AB109 /* Pods_marvel_charactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B88FF91C0FE38E5AC02E2B /* Pods_marvel_charactersTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +131,11 @@
 		C6E535B3266DC29E00B35A6F /* CharacterInfoViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewModelTestCase.swift; sourceTree = "<group>"; };
 		C6E535BB266DC33D00B35A6F /* Infos+Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infos+Dummy.swift"; sourceTree = "<group>"; };
 		C6E535C0266DC98D00B35A6F /* CharacterInfoHeaderViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoHeaderViewModelTestCase.swift; sourceTree = "<group>"; };
+		C6E535C6266DCCDF00B35A6F /* CharactersListViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewControllerTestCase.swift; sourceTree = "<group>"; };
+		C6E535CE266DD1F500B35A6F /* CharactersListViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModelSpy.swift; sourceTree = "<group>"; };
+		C6E535D3266DD36A00B35A6F /* CharactersListCellTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListCellTestCase.swift; sourceTree = "<group>"; };
+		C6E535D8266DD7CB00B35A6F /* CharactersListHeaderViewTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListHeaderViewTestCase.swift; sourceTree = "<group>"; };
+		C6E535E2266DDC7B00B35A6F /* CharactersListHeaderCellTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListHeaderCellTestCase.swift; sourceTree = "<group>"; };
 		E5FA5BDBEBF040FC6A9ED91C /* Pods_marvel_characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_marvel_characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -338,6 +348,7 @@
 		C6E5356C266DA02E00B35A6F /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
+				C6E535C5266DCCCE00B35A6F /* View */,
 				C6E5356D266DA04700B35A6F /* ViewModel */,
 			);
 			path = CharacterList;
@@ -359,6 +370,7 @@
 				C6E53587266DB9DF00B35A6F /* CharacterDataWrapper+Dummy.swift */,
 				C6E5358C266DBA4F00B35A6F /* Character+Dummy.swift */,
 				C6E535BB266DC33D00B35A6F /* Infos+Dummy.swift */,
+				C6E535CE266DD1F500B35A6F /* CharactersListViewModelSpy.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -378,6 +390,17 @@
 				C6E535C0266DC98D00B35A6F /* CharacterInfoHeaderViewModelTestCase.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6E535C5266DCCCE00B35A6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6E535C6266DCCDF00B35A6F /* CharactersListViewControllerTestCase.swift */,
+				C6E535D3266DD36A00B35A6F /* CharactersListCellTestCase.swift */,
+				C6E535D8266DD7CB00B35A6F /* CharactersListHeaderViewTestCase.swift */,
+				C6E535E2266DDC7B00B35A6F /* CharactersListHeaderCellTestCase.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E6F6FF1FD5B9A56BF62F4EC1 /* Frameworks */ = {
@@ -680,10 +703,15 @@
 				C6E5356F266DA06000B35A6F /* CharactersListViewModelTestCase.swift in Sources */,
 				C6E535BC266DC33D00B35A6F /* Infos+Dummy.swift in Sources */,
 				C6E53431266B192B00B35A6F /* marvel_charactersTests.swift in Sources */,
+				C6E535D9266DD7CB00B35A6F /* CharactersListHeaderViewTestCase.swift in Sources */,
+				C6E535C7266DCCDF00B35A6F /* CharactersListViewControllerTestCase.swift in Sources */,
 				C6E53583266DB7E200B35A6F /* CharactersListServiceStub.swift in Sources */,
+				C6E535D4266DD36A00B35A6F /* CharactersListCellTestCase.swift in Sources */,
 				C6E535B4266DC29E00B35A6F /* CharacterInfoViewModelTestCase.swift in Sources */,
 				C6E535C1266DC98D00B35A6F /* CharacterInfoHeaderViewModelTestCase.swift in Sources */,
 				C6E5358D266DBA4F00B35A6F /* Character+Dummy.swift in Sources */,
+				C6E535CF266DD1F500B35A6F /* CharactersListViewModelSpy.swift in Sources */,
+				C6E535E3266DDC7B00B35A6F /* CharactersListHeaderCellTestCase.swift in Sources */,
 				C6E535AD266DBE7E00B35A6F /* CharactersListViewModelFailureTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

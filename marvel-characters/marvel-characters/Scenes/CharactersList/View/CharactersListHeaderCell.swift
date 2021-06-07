@@ -29,7 +29,6 @@ class CharactersListHeaderCell: UICollectionViewCell {
     private func setupView() {
         buildViewHierarchy()
         buildViewConstraints()
-        configure()
         render()
     }
     
@@ -61,8 +60,6 @@ class CharactersListHeaderCell: UICollectionViewCell {
         )
     }
     
-    private func configure() {}
-    
     private func render() {
         backgroundColor = .black
         
@@ -80,6 +77,5 @@ class CharactersListHeaderCell: UICollectionViewCell {
         } else {
             characterImageView.setDefaultImage()
         }
-        
     }
 }

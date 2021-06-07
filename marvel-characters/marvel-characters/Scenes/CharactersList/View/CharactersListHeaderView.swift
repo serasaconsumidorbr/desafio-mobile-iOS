@@ -62,7 +62,6 @@ class CharactersListHeaderView: UIView {
     
     private func render() {
         backgroundColor = .black
-        
         collectionView.showsHorizontalScrollIndicator = false
     }
 }

@@ -19,15 +19,23 @@ class CharactersListViewController: UITableViewController {
     }
     var loader = UIActivityIndicatorView()
     
+    init(viewModel: CharactersListViewModelProtocol = CharactersListViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         setInitialLoader()
-        viewModel = CharactersListViewModel()
         title = "Marvel Characters"
     }
 
-    private func update() {
+    func update() {
         guard let viewModel = viewModel else {
             return
         }
@@ -69,7 +77,7 @@ class CharactersListViewController: UITableViewController {
         tableView.tableHeaderView = header
     }
     
-    private func loadMoreItems() {
+    func loadMoreItems() {
         setupTableFooter(isLoading: true)
         update()
     }
