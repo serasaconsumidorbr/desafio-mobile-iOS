@@ -13,6 +13,7 @@ class CharacterInfoViewController: UITableViewController {
             update()
         }
     }
+    private var isShowingCharacterTitle: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,6 @@ class CharacterInfoViewController: UITableViewController {
         guard let viewModel = viewModel else {
             return
         }
-        title = viewModel.selectedCharacter.name
         setHeader(with: viewModel.selectedCharacter)
     }
     
@@ -40,6 +40,15 @@ class CharacterInfoViewController: UITableViewController {
         let header = CharacterInfoHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 300))
         header.viewModel = CharacterInfoHeaderViewModel(with: character)
         tableView.tableHeaderView = header
+    }
+    
+    private func chageTitle(to title: String?){
+        let fadeTextAnimation = CATransition()
+        fadeTextAnimation.duration = 0.3
+        fadeTextAnimation.type = .fade
+            
+        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+        navigationItem.title = title
     }
 }
 
@@ -77,6 +86,19 @@ extension CharacterInfoViewController {
         }
         cell.setupData(with: item)
         return cell
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let viewModel = viewModel else { return }
+        if tableView.contentOffset.y > 180 && !isShowingCharacterTitle {
+            isShowingCharacterTitle = true
+            chageTitle(to: viewModel.selectedCharacter.name)
+            
+        } else if tableView.contentOffset.y < 180 && isShowingCharacterTitle {
+            isShowingCharacterTitle = false
+            chageTitle(to: String())
+            
+        }
     }
 }
 

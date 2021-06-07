@@ -28,7 +28,7 @@ class CharactersListViewController: UITableViewController {
         super.viewDidLoad()
         setUpTableView()
         setInitialLoader()
-        title = "Marvel Characters"
+        setupNavigation()
         update()
     }
 
@@ -38,13 +38,30 @@ class CharactersListViewController: UITableViewController {
         }
         viewModel.getCharactersList { [weak self] in
             self?.loader.stopAnimating()
-            self?.tableView.reloadData()
-            if self?.tableView.tableHeaderView == nil {
-                self?.setHeader()
+            
+            if viewModel.lastRequestSuccess {
+                self?.tableView.reloadData()
+                if self?.tableView.tableHeaderView == nil {
+                    self?.setHeader()
+                }
+                self?.setupTableFooter(isLoading: false)
+            } else {
+                self?.presentWarningAlert(title: "Error to handle with your action", message: "", buttonTitle: "Try again", action: { _ in
+                    self?.loader.startAnimating()
+                    self?.update()
+                })
             }
-            self?.setupTableFooter(isLoading: false)
         }
         
+    }
+    
+    private func setupNavigation() {
+        title = "Marvel Characters"
+        self.navigationController?.navigationBar.tintColor = .red
+        self.navigationController?.navigationBar.barStyle = .black
+        let backItem = UIBarButtonItem()
+        backItem.title = String()
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     private func setUpTableView() {

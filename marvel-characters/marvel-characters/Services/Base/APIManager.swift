@@ -15,7 +15,7 @@ struct APIManager {
     private let publicKey: String
     private let privateKey: String
     private let baseURL = "http://gateway.marvel.com"
-    private let buildType: BuildType = .useKeys
+    private let buildType: BuildType = .ignoreKeys
     
     init(bundle: Bundle = Bundle.main) {
         var keys: NSDictionary?
@@ -27,8 +27,6 @@ struct APIManager {
             print(dict["privateKey"] as? String ?? "")
             publicKey = dict["publicKey"] as? String ?? ""
             privateKey = dict["privateKey"] as? String ?? ""
-//            publicKey = ""
-//            privateKey = ""
         } else {
             publicKey = String()
             privateKey = String()

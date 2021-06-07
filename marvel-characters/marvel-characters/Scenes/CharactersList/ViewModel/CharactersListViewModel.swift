@@ -15,6 +15,7 @@ protocol CharactersListViewModelProtocol {
     func getFirstsCharacterAt(_ index: Int) -> Character?
     var hasItemsToLoad: Bool { get }
     var isLoadingRequest: Bool { get }
+    var lastRequestSuccess: Bool { get }
 }
 
 class CharactersListViewModel: CharactersListViewModelProtocol {
@@ -29,9 +30,11 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
         return totalReceived < totalItemsToBeReceived
     }
     var isLoadingRequest: Bool
+    var lastRequestSuccess: Bool
     
     init(service: CharactersListServiceProtocol = CharactersListService()) {
         self.service = service
+        lastRequestSuccess = true
         isLoadingRequest = false
         maxNumberOfFirstItems = 5
         totalItemsToBeReceived = 0
@@ -49,6 +52,7 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
             
             switch result {
             case .success(let data):
+                self?.lastRequestSuccess = true
                 self?.totalItemsToBeReceived = data.data?.total ?? 0
                 self?.returnedAmount += data.data?.count ?? 0
                 
@@ -64,6 +68,7 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
                     self?.charactersList.append(contentsOf: items)
                 }
             case .failure(_):
+                self?.lastRequestSuccess = false
                 self?.charactersList = []
                 self?.firtsCharactersList = []
             }

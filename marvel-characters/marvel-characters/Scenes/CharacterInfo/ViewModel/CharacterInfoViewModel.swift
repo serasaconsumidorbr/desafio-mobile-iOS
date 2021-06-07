@@ -126,7 +126,7 @@ class CharacterInfoViewModel: CharacterInfoViewModelProtocol{
             guard let item = selectedCharacter.urls?[indexPath.row] else {
                 return nil
             }
-            return CharacterInfo(title: "Link to: \(item.type ?? "")", type: .text)
+            return CharacterInfo(title: "\(item.type ?? ""): \(item.url ?? "")", type: .text)
         }
     }
 }
