@@ -27,3 +27,4 @@ Uma feature legal para ser desenvolvida também, é um filtro de busca avançado
 Para criação do app, estão sendo utilizados como dependências o `Alamofire (5.2)` e `AlamofireImage (4.1)`, para facilitar a criação e tratamento de requisições e o controle de cache para as imagens, respectivamente. O gerenciador de dependências utilizado é o Cocoa Pods.
 
 Para executar o projeto, basta fazer um clone, entrar na subpasta `/marvel-characters` e rodar o comando `pod install`.
+Em seguida, adicione as chaves pública e privada da API no arquivo `Keys.plist`, caso contrário o app não terá o comportamento esperado.
