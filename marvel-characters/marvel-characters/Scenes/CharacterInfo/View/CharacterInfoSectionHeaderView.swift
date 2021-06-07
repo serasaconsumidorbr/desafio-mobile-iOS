@@ -90,6 +90,13 @@ class CharacterInfoSectionHeaderView: UIControl {
         if section.isOpen {
             arrowImageView.transform = arrowImageView.transform.rotated(by: .pi)
         }
+        updateAccessibility(with: section)
+    }
+    
+    private func updateAccessibility(with section: CharacterInfoSectionHeader) {
+        var text = section.type.title
+        text += section.isOpen ? " open section. Touch twice to close section." : " closed section. Touch twice to read more details."
+        accessibilityLabel = text
     }
     
     private func setupView() {
@@ -97,6 +104,7 @@ class CharacterInfoSectionHeaderView: UIControl {
         buildViewConstraints()
         configure()
         render()
+        configureAccessibility()
     }
     
     private func buildViewHierarchy() {
@@ -153,6 +161,13 @@ class CharacterInfoSectionHeaderView: UIControl {
         arrowImageView.tintColor = .lightGray
         arrowImageView.image = UIImage(imageLiteralResourceName: "icon_arrow")
         arrowImageView.transform = arrowImageView.transform.rotated(by: .pi / 2)
+    }
+    
+    private func configureAccessibility() {
+        isAccessibilityElement = true
+        titleLabel.isAccessibilityElement = false
+        iconImageView.isAccessibilityElement = false
+        arrowImageView.isAccessibilityElement = false
     }
 }
 

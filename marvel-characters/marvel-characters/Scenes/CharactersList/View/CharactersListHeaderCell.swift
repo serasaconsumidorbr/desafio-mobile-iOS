@@ -30,6 +30,7 @@ class CharactersListHeaderCell: UICollectionViewCell {
         buildViewHierarchy()
         buildViewConstraints()
         render()
+        configureAccessibility()
     }
     
     private func buildViewHierarchy() {
@@ -71,11 +72,24 @@ class CharactersListHeaderCell: UICollectionViewCell {
     }
     
     func setupData(with character: Character) {
-        titleLabel.text = character.name
+        let name = character.name
+        titleLabel.text = name
         if let downloadInfos = character.thumbnail?.getDownloadInfos() {
             characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)
         } else {
             characterImageView.setDefaultImage()
         }
+        setupAccessibility(with: name)
+    }
+    
+    func setupAccessibility(with name: String?) {
+        accessibilityLabel = "\(name ?? ""). Touch twice to see more details"
+    }
+    
+    private func configureAccessibility() {
+        isAccessibilityElement = true
+        titleLabel.isAccessibilityElement = false
+        characterImageView.isAccessibilityElement = false
+        backgroundTitleView.isAccessibilityElement = false
     }
 }

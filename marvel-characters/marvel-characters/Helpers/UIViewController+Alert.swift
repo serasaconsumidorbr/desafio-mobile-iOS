@@ -16,4 +16,13 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    public func createAnnouncement(with text: String){
+        let message = NSAttributedString(
+            string: text,
+            attributes: [.accessibilitySpeechPitch: 1.0,
+                         .accessibilitySpeechQueueAnnouncement: true])
+        UIAccessibility.post(notification: .announcement,
+                             argument: message)
+    }
 }

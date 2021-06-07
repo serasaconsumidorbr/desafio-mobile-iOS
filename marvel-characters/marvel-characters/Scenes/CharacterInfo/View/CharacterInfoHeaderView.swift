@@ -34,10 +34,12 @@ class CharacterInfoHeaderView: UIView {
         guard let viewModel = viewModel else {
             return
         }
-        titleLabel.text = viewModel.getCharacterName()
+        let name = viewModel.getCharacterName()
+        titleLabel.text = name
         let downloadInfos = viewModel.getCharacterImageInfos()
         characterImageView.loadImage(from: downloadInfos.path, with: downloadInfos.pathExtension)
         backgroundImageView.image = viewModel.getBackgroundImage()
+        titleLabel.accessibilityLabel = "\(name ?? ""). Title."
     }
     
     private func setupView() {

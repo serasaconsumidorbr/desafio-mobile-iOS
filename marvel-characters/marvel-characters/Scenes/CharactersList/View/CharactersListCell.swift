@@ -157,5 +157,18 @@ class CharactersListCell: UITableViewCell {
         storiesIconImageView.isHidden = !(character.stories?.returned ?? 0 > 0)
         eventIconImageView.isHidden = !(character.events?.returned ?? 0 > 0)
         urlIconImageView.isHidden = !(character.urls?.count ?? 0 > 0)
+        
+        setupAccessibility(with: character)
+    }
+    
+    func setupAccessibility(with character: Character) {
+        var text = "\(character.name ?? ""). Items available:"
+        text += character.comics?.returned ?? 0 > 0 ? " Comics," : ""
+        text += character.series?.returned ?? 0 > 0 ? " Series," : ""
+        text += character.stories?.returned ?? 0 > 0 ? " Stories," : ""
+        text += character.events?.returned ?? 0 > 0 ? " Events," : ""
+        text += character.urls?.count ?? 0 > 0 ? " Other infos" : ""
+        text += ". Touch twice to read more details"
+        accessibilityLabel = text
     }
 }

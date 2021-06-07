@@ -36,6 +36,7 @@ class CharactersListViewController: UITableViewController {
         guard let viewModel = viewModel else {
             return
         }
+        createAnnouncement(with: "Loading characters list")
         viewModel.getCharactersList { [weak self] in
             self?.loader.stopAnimating()
             
@@ -91,16 +92,17 @@ class CharactersListViewController: UITableViewController {
         tableView.tableHeaderView = header
     }
     
-    func loadMoreItems() {
-        setupTableFooter(isLoading: true)
-        update()
-    }
-    
     private func setupTableFooter(isLoading: Bool) {
-        var footer: CharactersListFooterView?
+        var footer: CharactersListFooterView
         if isLoading {
             footer = CharactersListFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 80))
-            footer?.setupLoader()
+            footer.setupLoader()
+        } else {
+            footer = CharactersListFooterView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 1))
+            footer.delegate = self
+            if let viewModel = viewModel, viewModel.hasItemsToLoad {
+                footer.setupAccessibilityItem()
+            }
         }
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -156,5 +158,12 @@ extension CharactersListViewController: CharactersListViewDelegateProtocol {
         let controller = CharacterInfoViewController()
         controller.viewModel = CharacterInfoViewModel(character: character)
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+extension CharactersListViewController: CharactersListFooterViewDelegate {
+    func loadMoreItems() {
+        setupTableFooter(isLoading: true)
+        update()
     }
 }
