@@ -9,7 +9,6 @@ import Foundation
 
 protocol CharacterInfoViewModelProtocol {
     var selectedCharacter: Character { get }
-    var sections: [CharacterInfoSectionHeader] { get }
     func getNumberOfSections() -> Int
     func getSectionAt(_ index: Int) -> CharacterInfoSectionHeader?
     func toggleSectionAt(_ index: Int)
@@ -19,7 +18,7 @@ protocol CharacterInfoViewModelProtocol {
 
 class CharacterInfoViewModel: CharacterInfoViewModelProtocol{
     let selectedCharacter: Character
-    var sections: [CharacterInfoSectionHeader]
+    private var sections: [CharacterInfoSectionHeader]
     
     init(character: Character) {
         selectedCharacter = character
@@ -84,9 +83,6 @@ class CharacterInfoViewModel: CharacterInfoViewModelProtocol{
         case .description:
             return 1
         case .comics:
-//            let available = selectedCharacter.comics?.available ?? 0
-//            let returned = selectedCharacter.comics?.returned ?? 0
-//            return returned < available ? returned + 1 : returned
             return selectedCharacter.comics?.returned ?? 0
         case .series:
             return selectedCharacter.series?.returned ?? 0
@@ -103,14 +99,10 @@ class CharacterInfoViewModel: CharacterInfoViewModelProtocol{
         guard let section = getSectionAt(indexPath.section) else {
             return nil
         }
-        let seeMore: CharacterInfo = CharacterInfo(title: nil, type: .button)
         switch section.type {
         case .description:
             return CharacterInfo(title: selectedCharacter.characterDescription, type: .text)
         case .comics:
-//            if indexPath.row >= selectedCharacter.comics?.returned ?? 0 - 1 {
-//                return seeMore
-//            }
             guard let item = selectedCharacter.comics?.items?[indexPath.row] else {
                 return nil
             }

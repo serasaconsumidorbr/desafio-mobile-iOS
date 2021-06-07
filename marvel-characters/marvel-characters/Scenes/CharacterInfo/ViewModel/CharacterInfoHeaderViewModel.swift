@@ -14,7 +14,7 @@ protocol CharacterInfoHeaderViewModelProtocol {
 }
 
 class CharacterInfoHeaderViewModel: CharacterInfoHeaderViewModelProtocol {
-    let selectedCharacter: Character
+    private let selectedCharacter: Character
     
     init(with character: Character) {
         selectedCharacter = character

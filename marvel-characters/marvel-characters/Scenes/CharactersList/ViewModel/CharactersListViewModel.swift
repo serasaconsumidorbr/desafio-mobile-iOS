@@ -19,10 +19,9 @@ protocol CharactersListViewModelProtocol {
 
 class CharactersListViewModel: CharactersListViewModelProtocol {
     let service: CharactersListServiceProtocol
-    private (set) var charactersList: [Character]
-    private (set) var firtsCharactersList: [Character]
-    private let maxNumberOfFirstItems: Int
-    
+    let maxNumberOfFirstItems: Int
+    private var charactersList: [Character]
+    private var firtsCharactersList: [Character]
     private var totalItemsToBeReceived: Int
     private var returnedAmount: Int
     var hasItemsToLoad: Bool {
@@ -40,19 +39,6 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
         
         firtsCharactersList = []
         charactersList = []
-        
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        charactersList.append(defaultCharacter())
-//        
-//        firtsCharactersList.append(defaultCharacter())
-//        firtsCharactersList.append(defaultCharacter())
-        
     }
     
     func getCharactersList(comletion: @escaping () -> Void) {
@@ -69,14 +55,17 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
                 if var items = data.data?.results {
                     if self?.firtsCharactersList.count == 0 {
                         self?.firtsCharactersList = Array(items.prefix(5))
-                        let last = items.count > 5 ? (self?.maxNumberOfFirstItems ?? 1 - 1) : (items.count - 1)
-                        items.removeSubrange(0...last)
+                        if items.count > 5 {
+                            items.removeSubrange(0...4)
+                        } else {
+                            items.removeAll()
+                        }
                     }
                     self?.charactersList.append(contentsOf: items)
                 }
             case .failure(_):
-//                self.charactersList = []
-                break
+                self?.charactersList = []
+                self?.firtsCharactersList = []
             }
             comletion()
         }
