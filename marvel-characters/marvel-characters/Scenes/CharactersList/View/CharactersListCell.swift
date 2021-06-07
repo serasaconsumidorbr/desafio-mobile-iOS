@@ -117,15 +117,15 @@ class CharactersListCell: UITableViewCell {
         iconsStackView.distribution = .fill
         iconsStackView.spacing = 16
         
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_comic_book"), for: comicIconImageView)
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_story"), for: storiesIconImageView)
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_event"), for: eventIconImageView)
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_series"), for: seriesIconImageView)
-        setupIconImageView(with: UIImage(imageLiteralResourceName: "icon_url"), for: urlIconImageView)
+        setupIconImageView(with: Icons.comic.image, for: comicIconImageView)
+        setupIconImageView(with: Icons.story.image, for: storiesIconImageView)
+        setupIconImageView(with: Icons.event.image, for: eventIconImageView)
+        setupIconImageView(with: Icons.series.image, for: seriesIconImageView)
+        setupIconImageView(with: Icons.url.image, for: urlIconImageView)
         
         arrowIconImageView.tintColor = .gray
         arrowIconImageView.contentMode = .scaleAspectFit
-        arrowIconImageView.image = UIImage(imageLiteralResourceName: "icon_arrow")
+        arrowIconImageView.image = Icons.arrow.image
     }
     
     private func setupIconImageView(with image: UIImage, size: CGFloat = 20, for imageView: UIImageView) {

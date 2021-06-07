@@ -51,7 +51,7 @@ class CharacterImage: UIImageView {
     
     func setDefaultImage() {
         DispatchQueue.main.async {
-            self.image = UIImage(imageLiteralResourceName: "character_default")
+            self.image = Icons.defaultCharacter.image
         }
     }
     

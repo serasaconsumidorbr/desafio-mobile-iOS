@@ -7,56 +7,6 @@
 
 import UIKit
 
-struct CharacterInfoSectionHeader {
-    let type: CharacterInfoSectionHederType
-    var isOpen: Bool
-    var section: Int
-    
-    init(type: CharacterInfoSectionHederType, section: Int = 0) {
-        self.type = type
-        isOpen = false
-        self.section = section
-    }
-}
-
-enum CharacterInfoSectionHederType {
-    case description, comics, series, stories, events, urls
-    
-    var title: String {
-        switch self {
-        case .description:
-            return "Description"
-        case .comics:
-            return "Comics"
-        case .series:
-            return "Series"
-        case .stories:
-            return "Stories"
-        case .events:
-            return "Events"
-        case .urls:
-            return "Other infos"
-        }
-    }
-    
-    var image: UIImage {
-        switch self {
-        case .description:
-            return UIImage(imageLiteralResourceName: "icon_info")
-        case .comics:
-            return UIImage(imageLiteralResourceName: "icon_comic_book")
-        case .series:
-            return UIImage(imageLiteralResourceName: "icon_series")
-        case .stories:
-            return UIImage(imageLiteralResourceName: "icon_story")
-        case .events:
-            return UIImage(imageLiteralResourceName: "icon_event")
-        case .urls:
-            return UIImage(imageLiteralResourceName: "icon_url")
-        }
-    }
-}
-
 class CharacterInfoSectionHeaderView: UIControl {
     var section: CharacterInfoSectionHeader? {
         didSet {
@@ -159,7 +109,7 @@ class CharacterInfoSectionHeaderView: UIControl {
         
         arrowImageView.contentMode = .scaleAspectFit
         arrowImageView.tintColor = .lightGray
-        arrowImageView.image = UIImage(imageLiteralResourceName: "icon_arrow")
+        arrowImageView.image = Icons.arrow.image
         arrowImageView.transform = arrowImageView.transform.rotated(by: .pi / 2)
     }
     
