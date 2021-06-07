@@ -12,11 +12,7 @@ protocol CharactersListViewDelegateProtocol: AnyObject {
 }
 
 class CharactersListViewController: UITableViewController {
-    var viewModel: CharactersListViewModelProtocol? {
-        didSet {
-            update()
-        }
-    }
+    var viewModel: CharactersListViewModelProtocol?
     var loader = UIActivityIndicatorView()
     
     init(viewModel: CharactersListViewModelProtocol = CharactersListViewModel()) {
@@ -33,6 +29,7 @@ class CharactersListViewController: UITableViewController {
         setUpTableView()
         setInitialLoader()
         title = "Marvel Characters"
+        update()
     }
 
     func update() {

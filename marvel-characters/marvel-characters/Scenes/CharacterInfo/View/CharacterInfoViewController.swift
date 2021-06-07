@@ -19,7 +19,7 @@ class CharacterInfoViewController: UITableViewController {
         render()
     }
     
-    private func update() {
+    func update() {
         guard let viewModel = viewModel else {
             return
         }

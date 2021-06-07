@@ -41,16 +41,15 @@ class CharactersListViewControllerTestCase: XCTestCase {
     }
     
     func testUpdate() {
-        sut.update()
-        XCTAssertEqual(viewModelSpy.requestCalledCount, 1)
         XCTAssertNotNil(sut.tableView.tableHeaderView)
         XCTAssertNil(sut.tableView.tableFooterView)
         XCTAssertEqual(sut.tableView.numberOfSections, 1)
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 3)
+        XCTAssertEqual(viewModelSpy.requestCalledCount, 1)
     }
     
     func testLoadMoreItens() {
         sut.loadMoreItems()
-        XCTAssertEqual(viewModelSpy.requestCalledCount, 1)
+        XCTAssertEqual(viewModelSpy.requestCalledCount, 2)
     }
 }

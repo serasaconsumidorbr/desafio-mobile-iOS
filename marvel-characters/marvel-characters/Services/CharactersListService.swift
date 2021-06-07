@@ -13,8 +13,14 @@ protocol CharactersListServiceProtocol {
 }
 
 struct CharactersListService: CharactersListServiceProtocol {
+    let service: ServiceProtocol
+    
+    init(service: ServiceProtocol = Service()) {
+        self.service = service
+    }
+    
     func fetchCharctersList(offset: Int, completion: @escaping (Result<CharacterDataWrapper, AFError>) -> Void) {
-        Service.shared.fetch(router: CharactersListRouter.charactersList(offset), of: CharacterDataWrapper.self) { result in
+        service.fetch(router: CharactersListRouter.charactersList(offset), of: CharacterDataWrapper.self) { result in
             completion(result)
         }
     }

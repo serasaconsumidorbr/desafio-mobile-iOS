@@ -17,15 +17,18 @@ struct APIManager {
     private let baseURL = "http://gateway.marvel.com"
     private let buildType: BuildType = .useKeys
     
-    init() {
+    init(bundle: Bundle = Bundle.main) {
         var keys: NSDictionary?
-        
-        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+        if let path = bundle.path(forResource: "Keys", ofType: "plist") {
                 keys = NSDictionary(contentsOfFile: path)
             }
         if let dict = keys, buildType == .useKeys {
+            print(dict["publicKey"] as? String ?? "")
+            print(dict["privateKey"] as? String ?? "")
             publicKey = dict["publicKey"] as? String ?? ""
             privateKey = dict["privateKey"] as? String ?? ""
+//            publicKey = ""
+//            privateKey = ""
         } else {
             publicKey = String()
             privateKey = String()

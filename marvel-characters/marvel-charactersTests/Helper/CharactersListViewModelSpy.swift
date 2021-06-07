@@ -8,10 +8,14 @@
 @testable import marvel_characters
 
 class CharactersListViewModelSpy: CharactersListViewModel {
-    var requestCalledCount: Int = 0
+    private (set) var requestCalledCount: Int = 0
     
     override func getCharactersList(comletion: @escaping () -> Void) {
         requestCalledCount += 1
         super.getCharactersList(comletion: comletion)
+    }
+    
+    func resetRequestCalledCount() {
+        requestCalledCount = 0
     }
 }

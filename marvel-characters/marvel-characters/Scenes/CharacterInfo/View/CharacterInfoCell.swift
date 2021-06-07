@@ -40,7 +40,6 @@ class CharacterInfoCell: UITableViewCell {
     private func setupView() {
         buildViewHierarchy()
         buildViewConstraints()
-        configure()
         render()
     }
     
@@ -64,8 +63,6 @@ class CharacterInfoCell: UITableViewCell {
             bottom: (cardView.bottomAnchor, 16)
         )
     }
-    
-    private func configure() {}
     
     private func render() {
         backgroundColor = .black
