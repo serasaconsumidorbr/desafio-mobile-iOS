@@ -15,7 +15,7 @@ struct APIManager {
     private let publicKey: String
     private let privateKey: String
     private let baseURL = "http://gateway.marvel.com"
-    private let buildType: BuildType = .ignoreKeys
+    private let buildType: BuildType = .useKeys
     
     init() {
         var keys: NSDictionary?

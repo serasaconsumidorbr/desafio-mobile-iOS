@@ -41,17 +41,17 @@ class CharactersListViewModel: CharactersListViewModelProtocol {
         firtsCharactersList = []
         charactersList = []
         
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        charactersList.append(defaultCharacter())
-        
-        firtsCharactersList.append(defaultCharacter())
-        firtsCharactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        charactersList.append(defaultCharacter())
+//        
+//        firtsCharactersList.append(defaultCharacter())
+//        firtsCharactersList.append(defaultCharacter())
         
     }
     

@@ -17,10 +17,12 @@ class CharactersListViewController: UITableViewController {
             update()
         }
     }
+    var loader = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        render()
+        setUpTableView()
+        setInitialLoader()
         viewModel = CharactersListViewModel()
         title = "Marvel Characters"
     }
@@ -30,6 +32,7 @@ class CharactersListViewController: UITableViewController {
             return
         }
         viewModel.getCharactersList { [weak self] in
+            self?.loader.stopAnimating()
             self?.tableView.reloadData()
             if self?.tableView.tableHeaderView == nil {
                 self?.setHeader()
@@ -39,11 +42,24 @@ class CharactersListViewController: UITableViewController {
         
     }
     
-    private func render() {
+    private func setUpTableView() {
         tableView.backgroundColor = UIColor.black
         tableView.rowHeight = 100
         tableView.register(CharactersListCell.self, forCellReuseIdentifier: CharactersListCell.identifier)
         tableView.separatorStyle = .none
+    }
+    
+    private func setInitialLoader() {
+        view.addSubview(loader)
+        loader.color = .white
+        loader.style = .large
+        loader.hidesWhenStopped = true
+        loader.startAnimating()
+        
+        loader.anchor(
+            centerX: (view.centerXAnchor, 0),
+            centerY: (view.centerYAnchor, 0)
+        )
     }
     
     private func setHeader() {
