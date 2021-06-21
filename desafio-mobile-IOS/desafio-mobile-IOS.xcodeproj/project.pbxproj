@@ -24,6 +24,8 @@
 		D3CA2DED26784B340060250B /* CharactersHomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DEC26784B340060250B /* CharactersHomeConfigurator.swift */; };
 		D3CA2DEF267AE70C0060250B /* CharactersHomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DEE267AE70C0060250B /* CharactersHomeWorker.swift */; };
 		D3CA2DF1267C43730060250B /* CharactersHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DF0267C43730060250B /* CharactersHomeModel.swift */; };
+		D3EE87A22680B631002F3ACC /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EE87A12680B631002F3ACC /* CharacterTableViewCell.swift */; };
+		D3EE87A52680BDB1002F3ACC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EE87A42680BDB1002F3ACC /* Image.swift */; };
 		F3E4DD5A6FB3C5914DEDDD8C /* Pods_desafio_mobile_IOS_desafio_mobile_IOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B687792345648D338050E0BE /* Pods_desafio_mobile_IOS_desafio_mobile_IOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		D3CA2DEC26784B340060250B /* CharactersHomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomeConfigurator.swift; sourceTree = "<group>"; };
 		D3CA2DEE267AE70C0060250B /* CharactersHomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomeWorker.swift; sourceTree = "<group>"; };
 		D3CA2DF0267C43730060250B /* CharactersHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomeModel.swift; sourceTree = "<group>"; };
+		D3EE87A12680B631002F3ACC /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		D3EE87A42680BDB1002F3ACC /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,9 +157,11 @@
 		D3CA2DAE267849E00060250B /* desafio-mobile-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				D3CA2DBB267849E30060250B /* Assets.xcassets */,
+				D3EE87A32680BD96002F3ACC /* Extensions */,
+				D3EE87A02680B604002F3ACC /* Cells */,
 				D3CA2DE526784A680060250B /* HeroDetailsPopup */,
 				D3CA2DE426784A5E0060250B /* CharactersHome */,
+				D3CA2DBB267849E30060250B /* Assets.xcassets */,
 				D3CA2DAF267849E00060250B /* AppDelegate.swift */,
 				D3CA2DB1267849E00060250B /* SceneDelegate.swift */,
 				D3CA2DBD267849E30060250B /* LaunchScreen.storyboard */,
@@ -203,6 +209,22 @@
 			children = (
 			);
 			path = HeroDetailsPopup;
+			sourceTree = "<group>";
+		};
+		D3EE87A02680B604002F3ACC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D3EE87A12680B631002F3ACC /* CharacterTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3EE87A32680BD96002F3ACC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3EE87A42680BDB1002F3ACC /* Image.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,11 +465,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EE87A52680BDB1002F3ACC /* Image.swift in Sources */,
 				D3CA2DB4267849E00060250B /* ViewController.swift in Sources */,
 				D3CA2DED26784B340060250B /* CharactersHomeConfigurator.swift in Sources */,
 				D3CA2DE726784AF70060250B /* CharactersHomeInteractor.swift in Sources */,
 				D3CA2DB0267849E00060250B /* AppDelegate.swift in Sources */,
 				D3CA2DB2267849E00060250B /* SceneDelegate.swift in Sources */,
+				D3EE87A22680B631002F3ACC /* CharacterTableViewCell.swift in Sources */,
 				D3CA2DBA267849E00060250B /* desafio_mobile_IOS.xcdatamodeld in Sources */,
 				D3CA2DF1267C43730060250B /* CharactersHomeModel.swift in Sources */,
 				D3CA2DE926784B080060250B /* CharactersHomePresenter.swift in Sources */,
