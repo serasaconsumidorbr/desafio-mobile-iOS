@@ -36,5 +36,4 @@ struct MarvelCharacter: Codable {
 
 struct MarvelCharacterImage: Codable {
     var path: String?
-    var extenseion: String?
 }

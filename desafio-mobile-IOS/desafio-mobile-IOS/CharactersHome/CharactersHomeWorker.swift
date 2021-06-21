@@ -26,4 +26,16 @@ final class CharactersHomeWorker{
             }
         }
     }
+    
+    func downloadImageCharacter(path: String, completion: @escaping (Result<UIImage,Error>)->Void){
+        guard let url = URL(string: "\(path).jpg") else {return}
+        UIImage.loadImageWithURL(from: url) { result in
+            switch result {
+            case .success(let image):
+                completion(.success(image))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
