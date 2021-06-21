@@ -20,8 +20,6 @@ Pods/
 ### Swift ###
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-.DS_Store
-.xcuserstate
 ## User settings
 xcuserdata/
 
@@ -105,8 +103,10 @@ iOSInjectionProject/
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-
-
+.DS_Store
+.xcuserstate
+.xcworkspace
+.build/
 
 ## Gcc Patch
 /*.gcno
@@ -120,8 +120,7 @@ iOSInjectionProject/
 
 ### XcodeInjection ###
 # Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
+/iOSInjectionProject
 
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods,xcodeinjection,carthage
