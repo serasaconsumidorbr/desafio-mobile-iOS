@@ -7,13 +7,15 @@
 
 import Foundation
 
-class HeroesHomeConfigurator{
+class CharactersHomeConfigurator{
     static func config(vc: ViewController){
-        let interactor = HeroesHomeInteractor()
-        let presenter = HeroesHomePresenter()
-        let router = HeroesHomeRouter()
+        let interactor = CharactersHomeInteractor()
+        let presenter = CharactersHomePresenter()
+        let router = CharactersHomeRouter()
+        let worker = CharactersHomeWorker()
         presenter.controller = vc
         interactor.presenter = presenter
+        interactor.worker = worker
         vc.interactor = interactor
         vc.router = router
         router.controller = vc

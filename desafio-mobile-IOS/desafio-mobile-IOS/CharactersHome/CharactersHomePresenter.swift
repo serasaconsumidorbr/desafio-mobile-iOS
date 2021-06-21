@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol HeroesHomePresentationLogic{
+protocol CharactersHomePresentationLogic{
     
 }
 
-class HeroesHomePresenter: HeroesHomePresentationLogic{
+class CharactersHomePresenter: CharactersHomePresentationLogic{
     var controller: ViewController?
 }

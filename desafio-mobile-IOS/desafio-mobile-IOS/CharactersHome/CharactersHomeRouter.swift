@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol HeroesHomeRoutingLogic{
+protocol CharactersHomeRoutingLogic{
     func routeToHeroDetailsPopup()
 }
 
-class HeroesHomeRouter: HeroesHomeRoutingLogic{
+class CharactersHomeRouter: CharactersHomeRoutingLogic{
     weak var controller: ViewController?
     
     func routeToHeroDetailsPopup() {

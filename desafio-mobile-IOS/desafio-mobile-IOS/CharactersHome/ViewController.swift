@@ -8,13 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var router: HeroesHomeRoutingLogic?
-    var interactor: HeroesHomeBusinessLogic?
+    var router: CharactersHomeRoutingLogic?
+    var interactor: CharactersHomeBusinessLogic?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HeroesHomeConfigurator.config(vc: self)
+        CharactersHomeConfigurator.config(vc: self)
+        interactor?.downloadMarvelCharacters()
+        
     }
 
 
