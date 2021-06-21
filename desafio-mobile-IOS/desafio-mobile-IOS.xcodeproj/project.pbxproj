@@ -16,8 +16,6 @@
 		D3CA2DBA267849E00060250B /* desafio_mobile_IOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DB8267849E00060250B /* desafio_mobile_IOS.xcdatamodeld */; };
 		D3CA2DBC267849E30060250B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA2DBB267849E30060250B /* Assets.xcassets */; };
 		D3CA2DBF267849E30060250B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CA2DBD267849E30060250B /* LaunchScreen.storyboard */; };
-		D3CA2DCA267849E40060250B /* desafio_mobile_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DC9267849E40060250B /* desafio_mobile_IOSTests.swift */; };
-		D3CA2DD5267849E40060250B /* desafio_mobile_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DD4267849E40060250B /* desafio_mobile_IOSUITests.swift */; };
 		D3CA2DE726784AF70060250B /* CharactersHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DE626784AF70060250B /* CharactersHomeInteractor.swift */; };
 		D3CA2DE926784B080060250B /* CharactersHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DE826784B080060250B /* CharactersHomePresenter.swift */; };
 		D3CA2DEB26784B230060250B /* CharactersHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA2DEA26784B230060250B /* CharactersHomeRouter.swift */; };
@@ -66,11 +64,7 @@
 		D3CA2DBE267849E30060250B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3CA2DC0267849E30060250B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CA2DC5267849E40060250B /* desafio-mobile-IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-mobile-IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3CA2DC9267849E40060250B /* desafio_mobile_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_mobile_IOSTests.swift; sourceTree = "<group>"; };
-		D3CA2DCB267849E40060250B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CA2DD0267849E40060250B /* desafio-mobile-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-mobile-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3CA2DD4267849E40060250B /* desafio_mobile_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafio_mobile_IOSUITests.swift; sourceTree = "<group>"; };
-		D3CA2DD6267849E40060250B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CA2DE626784AF70060250B /* CharactersHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomeInteractor.swift; sourceTree = "<group>"; };
 		D3CA2DE826784B080060250B /* CharactersHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomePresenter.swift; sourceTree = "<group>"; };
 		D3CA2DEA26784B230060250B /* CharactersHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHomeRouter.swift; sourceTree = "<group>"; };
@@ -136,8 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				D3CA2DAE267849E00060250B /* desafio-mobile-IOS */,
-				D3CA2DC8267849E40060250B /* desafio-mobile-IOSTests */,
-				D3CA2DD3267849E40060250B /* desafio-mobile-IOSUITests */,
 				D3CA2DAD267849E00060250B /* Products */,
 				B71D28C465C3679D7D8FB1E4 /* Pods */,
 				6B9CE9B547C32EC590CCAC20 /* Frameworks */,
@@ -159,7 +151,6 @@
 			children = (
 				D3EE87A32680BD96002F3ACC /* Extensions */,
 				D3EE87A02680B604002F3ACC /* Cells */,
-				D3CA2DE526784A680060250B /* HeroDetailsPopup */,
 				D3CA2DE426784A5E0060250B /* CharactersHome */,
 				D3CA2DBB267849E30060250B /* Assets.xcassets */,
 				D3CA2DAF267849E00060250B /* AppDelegate.swift */,
@@ -169,24 +160,6 @@
 				D3CA2DB8267849E00060250B /* desafio_mobile_IOS.xcdatamodeld */,
 			);
 			path = "desafio-mobile-IOS";
-			sourceTree = "<group>";
-		};
-		D3CA2DC8267849E40060250B /* desafio-mobile-IOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				D3CA2DC9267849E40060250B /* desafio_mobile_IOSTests.swift */,
-				D3CA2DCB267849E40060250B /* Info.plist */,
-			);
-			path = "desafio-mobile-IOSTests";
-			sourceTree = "<group>";
-		};
-		D3CA2DD3267849E40060250B /* desafio-mobile-IOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D3CA2DD4267849E40060250B /* desafio_mobile_IOSUITests.swift */,
-				D3CA2DD6267849E40060250B /* Info.plist */,
-			);
-			path = "desafio-mobile-IOSUITests";
 			sourceTree = "<group>";
 		};
 		D3CA2DE426784A5E0060250B /* CharactersHome */ = {
@@ -202,13 +175,6 @@
 				D3CA2DF0267C43730060250B /* CharactersHomeModel.swift */,
 			);
 			path = CharactersHome;
-			sourceTree = "<group>";
-		};
-		D3CA2DE526784A680060250B /* HeroDetailsPopup */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HeroDetailsPopup;
 			sourceTree = "<group>";
 		};
 		D3EE87A02680B604002F3ACC /* Cells */ = {
@@ -484,7 +450,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3CA2DCA267849E40060250B /* desafio_mobile_IOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +457,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3CA2DD5267849E40060250B /* desafio_mobile_IOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
