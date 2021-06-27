@@ -17,6 +17,8 @@ struct Character : Codable, Identifiable {
     
     let thumbnail : Thumbnail?
     
+    let modified : String?
+    
 }
 
 extension Character {
@@ -25,5 +27,6 @@ extension Character {
         case name
         case description
         case thumbnail
+        case modified
     }
 }

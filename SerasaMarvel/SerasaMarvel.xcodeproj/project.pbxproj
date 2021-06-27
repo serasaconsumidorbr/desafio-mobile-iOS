@@ -27,6 +27,10 @@
 		9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCF82686C77A0077F88E /* ResultState.swift */; };
 		9D6EDD732687B3C70045D528 /* Data+MillisecondsSince1970.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */; };
 		9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */; };
+		9D9C534C2688D943006AF9FF /* CharacterSpotlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534B2688D943006AF9FF /* CharacterSpotlightCell.swift */; };
+		9D9C534E2688D94E006AF9FF /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534D2688D94E006AF9FF /* CharacterCell.swift */; };
+		9D9C5350268902C5006AF9FF /* UIView+Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534F268902C5006AF9FF /* UIView+Percent.swift */; };
+		9D9C535226890D92006AF9FF /* UIImageView+loadByUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		9D6BDCF82686C77A0077F88E /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
 		9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+MillisecondsSince1970.swift"; sourceTree = "<group>"; };
 		9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+setQueryitems.swift"; sourceTree = "<group>"; };
+		9D9C534B2688D943006AF9FF /* CharacterSpotlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSpotlightCell.swift; sourceTree = "<group>"; };
+		9D9C534D2688D94E006AF9FF /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		9D9C534F268902C5006AF9FF /* UIView+Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Percent.swift"; sourceTree = "<group>"; };
+		9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadByUrl.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +134,8 @@
 				9D6EDD762687B65C0045D528 /* extensions */,
 				9D6BDCF32686B21C0077F88E /* data */,
 				9D6BDCDC2686A8CD0077F88E /* coordinators */,
+				9D9C534A2688D690006AF9FF /* views */,
 				9D6BDCA92686A5C80077F88E /* AppDelegate.swift */,
-				9D6BDCAD2686A5C80077F88E /* AppViewController.swift */,
 				9D6BDCB52686A5C90077F88E /* Assets.xcassets */,
 				9D6BDCB72686A5C90077F88E /* LaunchScreen.storyboard */,
 				9D6BDCBA2686A5CA0077F88E /* Info.plist */,
@@ -208,8 +216,20 @@
 				9D6BDCE32686AE5A0077F88E /* String+md5.swift */,
 				9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */,
 				9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */,
+				9D9C534F268902C5006AF9FF /* UIView+Percent.swift */,
+				9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		9D9C534A2688D690006AF9FF /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCAD2686A5C80077F88E /* AppViewController.swift */,
+				9D9C534B2688D943006AF9FF /* CharacterSpotlightCell.swift */,
+				9D9C534D2688D94E006AF9FF /* CharacterCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,12 +364,16 @@
 				9D6BDCF22686B20D0077F88E /* MavenViewModel.swift in Sources */,
 				9D6BDCE02686A9010077F88E /* BoardedCoordinator.swift in Sources */,
 				9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */,
+				9D9C534E2688D94E006AF9FF /* CharacterCell.swift in Sources */,
 				9D6BDCE42686AE5B0077F88E /* String+md5.swift in Sources */,
 				9D6BDCDE2686A8E30077F88E /* AppCoordinator.swift in Sources */,
 				9D6BDCE22686A92E0077F88E /* Coordinator.swift in Sources */,
 				9D6BDCE82686B19F0077F88E /* Characters.swift in Sources */,
 				9D6BDCAE2686A5C80077F88E /* AppViewController.swift in Sources */,
 				9D6BDCAA2686A5C80077F88E /* AppDelegate.swift in Sources */,
+				9D9C534C2688D943006AF9FF /* CharacterSpotlightCell.swift in Sources */,
+				9D9C535226890D92006AF9FF /* UIImageView+loadByUrl.swift in Sources */,
+				9D9C5350268902C5006AF9FF /* UIView+Percent.swift in Sources */,
 				9D6BDCB42686A5C80077F88E /* SerasaMarvel.xcdatamodeld in Sources */,
 				9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */,
 				9D6BDCEA2686B1AE0077F88E /* Thumbnail.swift in Sources */,
