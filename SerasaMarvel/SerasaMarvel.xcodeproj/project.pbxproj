@@ -18,6 +18,15 @@
 		9D6BDCE02686A9010077F88E /* BoardedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCDF2686A9010077F88E /* BoardedCoordinator.swift */; };
 		9D6BDCE22686A92E0077F88E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE12686A92E0077F88E /* Coordinator.swift */; };
 		9D6BDCE42686AE5B0077F88E /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE32686AE5A0077F88E /* String+md5.swift */; };
+		9D6BDCE62686B18F0077F88E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE52686B18F0077F88E /* Character.swift */; };
+		9D6BDCE82686B19F0077F88E /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE72686B19F0077F88E /* Characters.swift */; };
+		9D6BDCEA2686B1AE0077F88E /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE92686B1AE0077F88E /* Thumbnail.swift */; };
+		9D6BDCEC2686B1C20077F88E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCEB2686B1C20077F88E /* APIError.swift */; };
+		9D6BDCF02686B1FE0077F88E /* MavenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */; };
+		9D6BDCF22686B20D0077F88E /* MavenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCF12686B20D0077F88E /* MavenViewModel.swift */; };
+		9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCF82686C77A0077F88E /* ResultState.swift */; };
+		9D6EDD732687B3C70045D528 /* Data+MillisecondsSince1970.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */; };
+		9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +64,15 @@
 		9D6BDCDF2686A9010077F88E /* BoardedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardedCoordinator.swift; sourceTree = "<group>"; };
 		9D6BDCE12686A92E0077F88E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		9D6BDCE32686AE5A0077F88E /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
+		9D6BDCE52686B18F0077F88E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		9D6BDCE72686B19F0077F88E /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		9D6BDCE92686B1AE0077F88E /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		9D6BDCEB2686B1C20077F88E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavenRepository.swift; sourceTree = "<group>"; };
+		9D6BDCF12686B20D0077F88E /* MavenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavenViewModel.swift; sourceTree = "<group>"; };
+		9D6BDCF82686C77A0077F88E /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
+		9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+MillisecondsSince1970.swift"; sourceTree = "<group>"; };
+		9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+setQueryitems.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +123,8 @@
 		9D6BDCA82686A5C80077F88E /* SerasaMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				9D6EDD762687B65C0045D528 /* extensions */,
+				9D6BDCF32686B21C0077F88E /* data */,
 				9D6BDCDC2686A8CD0077F88E /* coordinators */,
 				9D6BDCA92686A5C80077F88E /* AppDelegate.swift */,
 				9D6BDCAD2686A5C80077F88E /* AppViewController.swift */,
@@ -112,7 +132,6 @@
 				9D6BDCB72686A5C90077F88E /* LaunchScreen.storyboard */,
 				9D6BDCBA2686A5CA0077F88E /* Info.plist */,
 				9D6BDCB22686A5C80077F88E /* SerasaMarvel.xcdatamodeld */,
-				9D6BDCE32686AE5A0077F88E /* String+md5.swift */,
 			);
 			path = SerasaMarvel;
 			sourceTree = "<group>";
@@ -143,6 +162,54 @@
 				9D6BDCE12686A92E0077F88E /* Coordinator.swift */,
 			);
 			path = coordinators;
+			sourceTree = "<group>";
+		};
+		9D6BDCF32686B21C0077F88E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCF72686B2510077F88E /* viewmodels */,
+				9D6BDCF62686B2490077F88E /* repositories */,
+				9D6BDCF52686B2440077F88E /* models */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		9D6BDCF52686B2440077F88E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCE52686B18F0077F88E /* Character.swift */,
+				9D6BDCE72686B19F0077F88E /* Characters.swift */,
+				9D6BDCE92686B1AE0077F88E /* Thumbnail.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		9D6BDCF62686B2490077F88E /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCEB2686B1C20077F88E /* APIError.swift */,
+				9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */,
+				9D6BDCF82686C77A0077F88E /* ResultState.swift */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		9D6BDCF72686B2510077F88E /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCF12686B20D0077F88E /* MavenViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		9D6EDD762687B65C0045D528 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BDCE32686AE5A0077F88E /* String+md5.swift */,
+				9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */,
+				9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,13 +341,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6BDCF22686B20D0077F88E /* MavenViewModel.swift in Sources */,
 				9D6BDCE02686A9010077F88E /* BoardedCoordinator.swift in Sources */,
+				9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */,
 				9D6BDCE42686AE5B0077F88E /* String+md5.swift in Sources */,
 				9D6BDCDE2686A8E30077F88E /* AppCoordinator.swift in Sources */,
 				9D6BDCE22686A92E0077F88E /* Coordinator.swift in Sources */,
+				9D6BDCE82686B19F0077F88E /* Characters.swift in Sources */,
 				9D6BDCAE2686A5C80077F88E /* AppViewController.swift in Sources */,
 				9D6BDCAA2686A5C80077F88E /* AppDelegate.swift in Sources */,
 				9D6BDCB42686A5C80077F88E /* SerasaMarvel.xcdatamodeld in Sources */,
+				9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */,
+				9D6BDCEA2686B1AE0077F88E /* Thumbnail.swift in Sources */,
+				9D6BDCE62686B18F0077F88E /* Character.swift in Sources */,
+				9D6EDD732687B3C70045D528 /* Data+MillisecondsSince1970.swift in Sources */,
+				9D6BDCF02686B1FE0077F88E /* MavenRepository.swift in Sources */,
+				9D6BDCEC2686B1C20077F88E /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,7 @@ class BoardedCoordinator: Coordinator {
     
     func start() {
         let vc = AppViewController(nibName: nil, bundle: nil)
-//        vc.viewModel = BoardingViewModel()
+        vc.viewModel = MavenViewModel(repository: MavenRepository())
         window.rootViewController = vc
     }
     
