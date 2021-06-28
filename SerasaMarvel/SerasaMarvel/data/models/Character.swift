@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Character : Codable, Identifiable {
-    
+struct Character : Codable, Identifiable, Hashable {
+        
     let id = UUID()
     
     let name : String?
