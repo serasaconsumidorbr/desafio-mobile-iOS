@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Thumbnail : Codable, Hashable {
+struct Thumbnail : Codable, Identifiable, Hashable {
+    
+    let id = UUID()
     
     let path : String?
     
@@ -17,6 +19,7 @@ struct Thumbnail : Codable, Hashable {
 
 extension Thumbnail {
     enum CodingKeys: String, CodingKey {
+        case id
         case path
         case ext = "extension"
     }

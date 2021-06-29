@@ -7,17 +7,21 @@
 
 import Foundation
 
-struct CharactersResult : Codable {
+struct CharactersResult : Codable, Identifiable, Hashable {
+    let id = UUID()
     let data : Characters?
 }
 
 extension CharactersResult {
     enum CodingKeys: String, CodingKey {
+        case id
         case data
     }
 }
 
-struct Characters : Codable {
+struct Characters : Codable, Identifiable, Hashable {
+    
+    let id = UUID()
     
     let offset : Int?
     
@@ -33,6 +37,7 @@ struct Characters : Codable {
 
 extension Characters {
     enum CodingKeys: String, CodingKey {
+        case id
         case offset
         case limit
         case total

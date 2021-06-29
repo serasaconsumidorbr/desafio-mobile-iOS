@@ -16,45 +16,30 @@ protocol MavenRepositoryImpl {
     func mavenPublicKey () -> String
     func mavenTS () -> String
     func mavenHash () -> String
+    func mavenLimit () -> Int
     
-    func getAllCharacters() -> AnyPublisher<Characters, APIError>
+    func getAllCharacters(page: Int?) -> AnyPublisher<Characters, APIError>
     
 }
 
 struct MavenRepository : MavenRepositoryImpl {
     
-    func urlScheme() -> String {
-        return "http"
-    }
-    
-    func urlHost() -> String {
-        return "gateway.marvel.com"
-    }
-    
-    func mavenPrivateKey() -> String {
-        return "94db8eda792e6708856d39dc692b1691168c4c75"
-    }
-    
-    func mavenPublicKey() -> String {
-        return "15cdf9ca9aead5525511c47bfceb13b9"
-    }
-    
-    func mavenTS() -> String {
-        return "1"
-    }
-    
-    func mavenHash() -> String {
-        return (mavenTS()+mavenPrivateKey()+mavenPublicKey()).MD5
-    }
     
     
-    func getAllCharacters() -> AnyPublisher<Characters, APIError> {
+    func getAllCharacters(page: Int?) -> AnyPublisher<Characters, APIError> {
         
-        let queryParams: [String: String] = [
+        var queryParams: [String: String] = [
             "ts": self.mavenTS(),
             "apikey": self.mavenPublicKey(),
             "hash": self.mavenHash()
         ]
+        
+        // Adicionando paginação
+        if let _page = page{
+            let offsetLimit = mavenLimit() * _page
+            queryParams["limit"] = mavenLimit().description
+            queryParams["offset"] = offsetLimit.description   
+        }
         
         var components = URLComponents()
         components.scheme = self.urlScheme()
@@ -89,6 +74,34 @@ struct MavenRepository : MavenRepositoryImpl {
                 
             }.eraseToAnyPublisher()
         
+    }
+    
+    func mavenLimit() -> Int {
+        return 20
+    }
+
+    func urlScheme() -> String {
+        return "http"
+    }
+    
+    func urlHost() -> String {
+        return "gateway.marvel.com"
+    }
+    
+    func mavenPrivateKey() -> String {
+        return "94db8eda792e6708856d39dc692b1691168c4c75"
+    }
+    
+    func mavenPublicKey() -> String {
+        return "15cdf9ca9aead5525511c47bfceb13b9"
+    }
+    
+    func mavenTS() -> String {
+        return "1"
+    }
+    
+    func mavenHash() -> String {
+        return (mavenTS()+mavenPrivateKey()+mavenPublicKey()).MD5
     }
     
 }

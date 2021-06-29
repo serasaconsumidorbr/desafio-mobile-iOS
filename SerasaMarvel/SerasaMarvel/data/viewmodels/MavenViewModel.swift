@@ -10,16 +10,16 @@ import Combine
 
 protocol MavenViewModelImpl {
     
-    func getAllCharacters()
+    func getAllCharacters(page: Int?)
     
 }
 
 class MavenViewModel : ObservableObject, MavenViewModelImpl {
     
     private let repository : MavenRepository
-    
-    private(set) var characters = [Character]()
     private var subscriptions : Set<AnyCancellable> = .init()
+    private(set) var totalItensOfList : Int? = nil
+    private(set) var characters = [Character]()
     
     @Published private(set) var state : ResultState = .loading
     
@@ -27,12 +27,19 @@ class MavenViewModel : ObservableObject, MavenViewModelImpl {
         self.repository = repository
     }
     
-    func getAllCharacters() {
+    func getAllCharacters(page: Int?) {
         
         self.state = .loading
         
+        if let _totalItensOfList = totalItensOfList {
+            if self.characters.count >= _totalItensOfList {
+                self.state = .failed(error: APIError.errorMesage("Todos os itens carregados."))
+                return
+            }
+        }
+        
         repository
-            .getAllCharacters()
+            .getAllCharacters(page: page)
             .sink { [weak self] completing in
                 switch completing {
                     case .finished:
@@ -43,7 +50,10 @@ class MavenViewModel : ObservableObject, MavenViewModelImpl {
                         break
                 }
             } receiveValue: { [weak self] response in
-                if let data = response.results { self?.characters = data }
+                self?.totalItensOfList = response.total
+                if let data = response.results {
+                    self?.characters.append(contentsOf: data)
+                }
             }.store(in: &subscriptions)
     }
     
