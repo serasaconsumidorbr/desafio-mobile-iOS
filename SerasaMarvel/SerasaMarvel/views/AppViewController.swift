@@ -94,13 +94,18 @@ extension AppViewController {
                     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                                         heightDimension: .fractionalHeight(1)))
                     
-                    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                                     heightDimension: .absolute(300)),
+                    item.contentInsets.trailing = 4
+                    
+                    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.98),
+                                                                                     heightDimension: .fractionalHeight(0.3)),
                                                                    subitems: [item])
                     
                     let section = NSCollectionLayoutSection(group: group)
                     
-                    section.orthogonalScrollingBehavior = .continuous
+                    section.orthogonalScrollingBehavior = .groupPagingCentered
+                    
+                    section.contentInsets.bottom = 16
+                    section.contentInsets.top = 16
                     
                     return section
                 case .normal:

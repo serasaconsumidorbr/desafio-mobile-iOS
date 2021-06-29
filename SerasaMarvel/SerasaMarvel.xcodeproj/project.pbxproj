@@ -31,6 +31,7 @@
 		9D9C534E2688D94E006AF9FF /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534D2688D94E006AF9FF /* CharacterCell.swift */; };
 		9D9C5350268902C5006AF9FF /* UIView+Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534F268902C5006AF9FF /* UIView+Percent.swift */; };
 		9D9C535226890D92006AF9FF /* UIImageView+loadByUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */; };
+		9DC40311268A96AD001C069F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC40310268A96AD001C069F /* Date+Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		9D9C534D2688D94E006AF9FF /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		9D9C534F268902C5006AF9FF /* UIView+Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Percent.swift"; sourceTree = "<group>"; };
 		9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadByUrl.swift"; sourceTree = "<group>"; };
+		9DC40310268A96AD001C069F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */,
 				9D9C534F268902C5006AF9FF /* UIView+Percent.swift */,
 				9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */,
+				9DC40310268A96AD001C069F /* Date+Format.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				9D9C534E2688D94E006AF9FF /* CharacterCell.swift in Sources */,
 				9D6BDCE42686AE5B0077F88E /* String+md5.swift in Sources */,
 				9D6BDCDE2686A8E30077F88E /* AppCoordinator.swift in Sources */,
+				9DC40311268A96AD001C069F /* Date+Format.swift in Sources */,
 				9D6BDCE22686A92E0077F88E /* Coordinator.swift in Sources */,
 				9D6BDCE82686B19F0077F88E /* Characters.swift in Sources */,
 				9D6BDCAE2686A5C80077F88E /* AppViewController.swift in Sources */,

@@ -7,30 +7,27 @@
 
 import UIKit
 
-protocol BoardedCoordinatorDelegate: class {
-    
-}
-
 class BoardedCoordinator: Coordinator {
     
-    weak var delegate: BoardedCoordinatorDelegate?
     var childCoordinator = [String:Coordinator]()
     var window: UIWindow
-    var schedulingsNavController: UINavigationController?
-    var schedulerNavController: UINavigationController?
+    var boardedNavController: UINavigationController?
     
     init(window: UIWindow) {
         self.window = window
     }
     
     func start() {
+        
         let vc = AppViewController(nibName: nil, bundle: nil)
         vc.viewModel = MavenViewModel(repository: MavenRepository())
-        window.rootViewController = vc
-    }
-    
-    func segueToSchedulingDetail(scheduling : String) {
         
+        boardedNavController = UINavigationController(rootViewController: vc)
+        boardedNavController?.navigationBar.isTranslucent = false
+        
+        boardedNavController?.navigationBar.topItem?.title = "Serasa Marvel - API"
+        
+        window.rootViewController = boardedNavController
     }
     
 }

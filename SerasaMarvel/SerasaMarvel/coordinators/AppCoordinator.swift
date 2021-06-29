@@ -24,14 +24,9 @@ class AppCoordinator : Coordinator {
     
     func start() { showBoarded() }
     
-}
-
-extension AppCoordinator : BoardedCoordinatorDelegate {
-    
     func showBoarded() {
         let boardCoordinator = BoardedCoordinator(window: window)
         childCoordinator[APP_KEY] = boardCoordinator
-        boardCoordinator.delegate = self
         boardCoordinator.start()
     }
     

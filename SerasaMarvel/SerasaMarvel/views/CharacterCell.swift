@@ -14,28 +14,32 @@ class CharacterCell : UICollectionViewCell {
     var surfaceView : UIView = {
         let element = UIView(frame: .zero)
         element.layer.cornerRadius = 4.0
-        element.backgroundColor = UIColor(named: "cellBGColor")
+        element.backgroundColor = UIColor(named: "cellBG")
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
     var thumbImage : UIImageView = {
         let element = UIImageView(frame: .zero)
-        element.backgroundColor = .red
+        element.layer.masksToBounds = true
+        element.layer.cornerRadius = 4.0
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
     var titleLabel : UILabel = {
         let element = UILabel(frame: .zero)
-        element.text = "Iron man"
+        element.textColor = UIColor(named: "fontTitleColor")
+        element.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
     var subTitleLabel : UILabel = {
         let element = UILabel(frame: .zero)
-        element.text = "Atualizado em 27 de junho de 2021"
+        element.textColor = UIColor(named: "fontSubTitleColor")
+        element.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2)
+//        element.text = "Atualizado em 27 de junho de 2021"
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -87,7 +91,9 @@ class CharacterCell : UICollectionViewCell {
                 self.titleLabel.text = name
              }
             if let updatedAt = character?.modified {
-                self.subTitleLabel.text = updatedAt
+                
+                
+                self.subTitleLabel.text = updatedAt.dateFormat(formatTo: "yyyy-MM-dd'T'HH:mm-ssZ", formatFrom: "'Atualizado em 'dd' de junho de 'yyyy")
             }
             if let thumbnail = character?.thumbnail,
                let path = thumbnail.path,
