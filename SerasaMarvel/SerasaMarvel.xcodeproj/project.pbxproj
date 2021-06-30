@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2E6ABCE78938C5148CC88C /* Pods_SerasaMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576A2EAA736673039987D7BA /* Pods_SerasaMarvelTests.framework */; };
+		664F4A606DB810DCB2322D3F /* Pods_SerasaMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF24AC7CC877053AB3A662 /* Pods_SerasaMarvel.framework */; };
 		9D6BDCAA2686A5C80077F88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCA92686A5C80077F88E /* AppDelegate.swift */; };
 		9D6BDCAE2686A5C80077F88E /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCAD2686A5C80077F88E /* AppViewController.swift */; };
 		9D6BDCB42686A5C80077F88E /* SerasaMarvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCB22686A5C80077F88E /* SerasaMarvel.xcdatamodeld */; };
@@ -32,6 +34,7 @@
 		9D9C5350268902C5006AF9FF /* UIView+Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534F268902C5006AF9FF /* UIView+Percent.swift */; };
 		9D9C535226890D92006AF9FF /* UIImageView+loadByUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */; };
 		9DC40311268A96AD001C069F /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC40310268A96AD001C069F /* Date+Format.swift */; };
+		9DC61A0A268CE9F900327F58 /* ironman-reveal.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC61A07268CE9F900327F58 /* ironman-reveal.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03DF24AC7CC877053AB3A662 /* Pods_SerasaMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SerasaMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B2FD7EFF7D1F073BC926207 /* Pods-SerasaMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerasaMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-SerasaMarvelTests/Pods-SerasaMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2CF46CD3C08C9819F41EE702 /* Pods-SerasaMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerasaMarvel.debug.xcconfig"; path = "Target Support Files/Pods-SerasaMarvel/Pods-SerasaMarvel.debug.xcconfig"; sourceTree = "<group>"; };
+		5128DDA2760CF2052D6723BE /* Pods-SerasaMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerasaMarvel.release.xcconfig"; path = "Target Support Files/Pods-SerasaMarvel/Pods-SerasaMarvel.release.xcconfig"; sourceTree = "<group>"; };
+		576A2EAA736673039987D7BA /* Pods_SerasaMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SerasaMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6BDCA62686A5C80077F88E /* SerasaMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SerasaMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6BDCA92686A5C80077F88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6BDCAD2686A5C80077F88E /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,8 @@
 		9D9C534F268902C5006AF9FF /* UIView+Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Percent.swift"; sourceTree = "<group>"; };
 		9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadByUrl.swift"; sourceTree = "<group>"; };
 		9DC40310268A96AD001C069F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		9DC61A07268CE9F900327F58 /* ironman-reveal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ironman-reveal.json"; sourceTree = "<group>"; };
+		F7B543AA39BA590241B523E4 /* Pods-SerasaMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SerasaMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-SerasaMarvelTests/Pods-SerasaMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664F4A606DB810DCB2322D3F /* Pods_SerasaMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,18 +99,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B2E6ABCE78938C5148CC88C /* Pods_SerasaMarvelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		087F05ACEAAE202FF930C114 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03DF24AC7CC877053AB3A662 /* Pods_SerasaMarvel.framework */,
+				576A2EAA736673039987D7BA /* Pods_SerasaMarvelTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		665D4D367AF4A0152073FA5D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CF46CD3C08C9819F41EE702 /* Pods-SerasaMarvel.debug.xcconfig */,
+				5128DDA2760CF2052D6723BE /* Pods-SerasaMarvel.release.xcconfig */,
+				1B2FD7EFF7D1F073BC926207 /* Pods-SerasaMarvelTests.debug.xcconfig */,
+				F7B543AA39BA590241B523E4 /* Pods-SerasaMarvelTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9D6BDC9D2686A5C80077F88E = {
 			isa = PBXGroup;
 			children = (
 				9D6BDCA82686A5C80077F88E /* SerasaMarvel */,
 				9D6BDCC22686A5CA0077F88E /* SerasaMarvelTests */,
 				9D6BDCA72686A5C80077F88E /* Products */,
+				665D4D367AF4A0152073FA5D /* Pods */,
+				087F05ACEAAE202FF930C114 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +149,7 @@
 		9D6BDCA82686A5C80077F88E /* SerasaMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				9DC61A02268CE5B400327F58 /* animations */,
 				9D6EDD762687B65C0045D528 /* extensions */,
 				9D6BDCF32686B21C0077F88E /* data */,
 				9D6BDCDC2686A8CD0077F88E /* coordinators */,
@@ -209,6 +244,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		9DC61A02268CE5B400327F58 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				9DC61A07268CE9F900327F58 /* ironman-reveal.json */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,9 +259,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D6BDCD32686A5CA0077F88E /* Build configuration list for PBXNativeTarget "SerasaMarvel" */;
 			buildPhases = (
+				7FE7FB34B715FD5AF65CA8F7 /* [CP] Check Pods Manifest.lock */,
 				9D6BDCA22686A5C80077F88E /* Sources */,
 				9D6BDCA32686A5C80077F88E /* Frameworks */,
 				9D6BDCA42686A5C80077F88E /* Resources */,
+				B5F14F4979CE46DB75F9CF0F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D6BDCD62686A5CA0077F88E /* Build configuration list for PBXNativeTarget "SerasaMarvelTests" */;
 			buildPhases = (
+				5E34D99010D525B81FBEA327 /* [CP] Check Pods Manifest.lock */,
 				9D6BDCBB2686A5CA0077F88E /* Sources */,
 				9D6BDCBC2686A5CA0077F88E /* Frameworks */,
 				9D6BDCBD2686A5CA0077F88E /* Resources */,
@@ -291,6 +337,7 @@
 			files = (
 				9D6BDCB92686A5C90077F88E /* LaunchScreen.storyboard in Resources */,
 				9D6BDCB62686A5C90077F88E /* Assets.xcassets in Resources */,
+				9DC61A0A268CE9F900327F58 /* ironman-reveal.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +349,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E34D99010D525B81FBEA327 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SerasaMarvelTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FE7FB34B715FD5AF65CA8F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SerasaMarvel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F14F4979CE46DB75F9CF0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SerasaMarvel/Pods-SerasaMarvel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SerasaMarvel/Pods-SerasaMarvel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SerasaMarvel/Pods-SerasaMarvel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D6BDCA22686A5C80077F88E /* Sources */ = {
@@ -481,12 +592,14 @@
 		};
 		9D6BDCD42686A5CA0077F88E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CF46CD3C08C9819F41EE702 /* Pods-SerasaMarvel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2YW39FUHV;
 				INFOPLIST_FILE = SerasaMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,18 +607,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.serasa.marvel.SerasaMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9D6BDCD52686A5CA0077F88E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5128DDA2760CF2052D6723BE /* Pods-SerasaMarvel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S2YW39FUHV;
 				INFOPLIST_FILE = SerasaMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,12 +628,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.serasa.marvel.SerasaMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		9D6BDCD72686A5CA0077F88E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B2FD7EFF7D1F073BC926207 /* Pods-SerasaMarvelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,6 +657,7 @@
 		};
 		9D6BDCD82686A5CA0077F88E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7B543AA39BA590241B523E4 /* Pods-SerasaMarvelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

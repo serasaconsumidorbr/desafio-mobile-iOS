@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Lottie
 
 fileprivate enum Section: Int, Hashable, CaseIterable {
     case spotlight
@@ -40,6 +41,15 @@ class AppViewController: UIViewController {
         return element
     }()
     
+    private lazy var loadingAnimation : AnimationView = {
+        let element = AnimationView(frame: .zero)
+        element.frame = CGRect(x: 0, y: 0, width: view.percentOfWidth(percente: 100), height: view.percentOfHeight(percente: 50))
+        element.animation = Animation.named("ironman-reveal")
+        element.contentMode = .scaleAspectFit
+        element.loopMode = .loop
+        return element
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,10 +62,14 @@ class AppViewController: UIViewController {
             
             switch value {
             case .loading:
-                self?.loadingUI()
+                if (self?.page == 0) { self?.startLoadingUI() } else { self?.startSpinnerUI() }
             case .failed(let error):
+                self?.stopLoadingUI()
+                self?.stopSpinnerUI()
                 self?.failedUI(from: error)
             case .success(let value):
+                self?.stopLoadingUI()
+                self?.stopSpinnerUI()
                 self?.createSnapShot(from: value)
                 break
             }
@@ -64,6 +78,9 @@ class AppViewController: UIViewController {
         
         viewModel?.getAllCharacters(page: nil)
         
+//        startLoadingUI()
+//        startSpinnerUI()
+        
     }
     
     func setUpViewUI() {
@@ -71,6 +88,7 @@ class AppViewController: UIViewController {
         view.backgroundColor = .white
         
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.loadingAnimation)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.spinner)
         
         constraints.append(collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor))
@@ -90,9 +108,24 @@ class AppViewController: UIViewController {
         collectionView.backgroundColor = UIColor.clear
     }
     
-    func loadingUI() {
+    private func startLoadingUI() {
+        self.loadingAnimation.play()
+        self.loadingAnimation.isHidden = false
+    }
+    
+    private func stopLoadingUI() {
+        self.loadingAnimation.stop()
+        self.loadingAnimation.isHidden = true
+    }
+    
+    private func startSpinnerUI() {
         self.collectionView.isScrollEnabled = false
-        spinner.startAnimating()
+        self.spinner.startAnimating()
+    }
+    
+    private func stopSpinnerUI() {
+        self.collectionView.isScrollEnabled = true
+        self.spinner.stopAnimating()
     }
     
     func failedUI(from error : Error) {
@@ -152,9 +185,6 @@ extension AppViewController {
     }
     
     private func createSnapShot(from characters: [Character]) {
-        
-        self.collectionView.isScrollEnabled = true
-        self.spinner.stopAnimating()
         
         var snapshot = characterSnapshot()
         snapshot.appendSections(Section.allCases)
