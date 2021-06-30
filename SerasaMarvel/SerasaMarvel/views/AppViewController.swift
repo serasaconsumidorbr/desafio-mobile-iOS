@@ -78,14 +78,11 @@ class AppViewController: UIViewController {
         
         viewModel?.getAllCharacters(page: nil)
         
-//        startLoadingUI()
-//        startSpinnerUI()
-        
     }
     
     func setUpViewUI() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "bg")
         
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.loadingAnimation)
