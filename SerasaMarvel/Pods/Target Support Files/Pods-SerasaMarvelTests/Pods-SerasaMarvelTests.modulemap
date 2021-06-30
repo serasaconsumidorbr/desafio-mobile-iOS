@@ -1,6 +1,0 @@
-framework module Pods_SerasaMarvelTests {
-  umbrella header "Pods-SerasaMarvelTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
