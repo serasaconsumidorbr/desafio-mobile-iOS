@@ -9,8 +9,6 @@ import Foundation
 
 extension String {
     
-    // "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    // "yyyy-MM-dd'T'HH:mm:ss"
     func dateFormat(formatTo : String, formatFrom : String) -> String {
         
         let GMTFormat = DateFormatter()

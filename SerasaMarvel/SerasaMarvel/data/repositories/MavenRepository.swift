@@ -9,45 +9,34 @@ import UIKit
 import Combine
 
 protocol MavenRepositoryImpl {
-    
-    func urlScheme() -> String
-    func urlHost () -> String
-    func mavenPrivateKey () -> String
-    func mavenPublicKey () -> String
-    func mavenTS () -> String
-    func mavenHash () -> String
-    func mavenLimit () -> Int
-    
+        
     func getAllCharacters(page: Int?) -> AnyPublisher<Characters, APIError>
     
 }
 
 struct MavenRepository : MavenRepositoryImpl {
     
-    
-    
     func getAllCharacters(page: Int?) -> AnyPublisher<Characters, APIError> {
         
         var queryParams: [String: String] = [
-            "ts": self.mavenTS(),
-            "apikey": self.mavenPublicKey(),
-            "hash": self.mavenHash()
+            "ts": API.mavenTS(),
+            "apikey": API.mavenPublicKey(),
+            "hash": API.mavenHash()
         ]
         
         // Adicionando paginação
         if let _page = page{
-            let offsetLimit = mavenLimit() * _page
-            queryParams["limit"] = mavenLimit().description
+            let offsetLimit = API.mavenLimit() * _page
+            queryParams["limit"] = API.mavenLimit().description
             queryParams["offset"] = offsetLimit.description   
         }
         
         var components = URLComponents()
-        components.scheme = self.urlScheme()
-        components.host = self.urlHost()
+        components.scheme = API.urlScheme()
+        components.host = API.urlHost()
         components.path = "/v1/public/characters"
         components.setQueryItems(with: queryParams)
             
-    
         // montar a url com o path
         let url = URL(string: components.string!)!
         
@@ -69,39 +58,11 @@ struct MavenRepository : MavenRepositoryImpl {
                         .flatMap { data in return Just(data.data!).eraseToAnyPublisher() }
                         .eraseToAnyPublisher()
                 } else {
-                    return Fail(error: APIError.errorCode(response.statusCode)).eraseToAnyPublisher()
+                    return Fail(error: APIError.errorMesage("Ocorreu um error \(response.statusCode)")).eraseToAnyPublisher()
                 }
                 
             }.eraseToAnyPublisher()
         
-    }
-    
-    func mavenLimit() -> Int {
-        return 20
-    }
-
-    func urlScheme() -> String {
-        return "http"
-    }
-    
-    func urlHost() -> String {
-        return "gateway.marvel.com"
-    }
-    
-    func mavenPrivateKey() -> String {
-        return "94db8eda792e6708856d39dc692b1691168c4c75"
-    }
-    
-    func mavenPublicKey() -> String {
-        return "15cdf9ca9aead5525511c47bfceb13b9"
-    }
-    
-    func mavenTS() -> String {
-        return "1"
-    }
-    
-    func mavenHash() -> String {
-        return (mavenTS()+mavenPrivateKey()+mavenPublicKey()).MD5
     }
     
 }

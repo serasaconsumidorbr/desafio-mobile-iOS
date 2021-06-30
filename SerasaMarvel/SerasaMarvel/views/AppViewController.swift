@@ -97,6 +97,8 @@ class AppViewController: UIViewController {
     
     func failedUI(from error : Error) {
         print("Failed \(error.localizedDescription)")
+        self.collectionView.isScrollEnabled = true
+        self.spinner.stopAnimating()
     }
     
 }

@@ -13,7 +13,6 @@
 		9D6BDCB62686A5C90077F88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6BDCB52686A5C90077F88E /* Assets.xcassets */; };
 		9D6BDCB92686A5C90077F88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6BDCB72686A5C90077F88E /* LaunchScreen.storyboard */; };
 		9D6BDCC42686A5CA0077F88E /* SerasaMarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCC32686A5CA0077F88E /* SerasaMarvelTests.swift */; };
-		9D6BDCCF2686A5CA0077F88E /* SerasaMarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCCE2686A5CA0077F88E /* SerasaMarvelUITests.swift */; };
 		9D6BDCDE2686A8E30077F88E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCDD2686A8E30077F88E /* AppCoordinator.swift */; };
 		9D6BDCE02686A9010077F88E /* BoardedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCDF2686A9010077F88E /* BoardedCoordinator.swift */; };
 		9D6BDCE22686A92E0077F88E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCE12686A92E0077F88E /* Coordinator.swift */; };
@@ -25,8 +24,9 @@
 		9D6BDCF02686B1FE0077F88E /* MavenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */; };
 		9D6BDCF22686B20D0077F88E /* MavenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCF12686B20D0077F88E /* MavenViewModel.swift */; };
 		9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BDCF82686C77A0077F88E /* ResultState.swift */; };
-		9D6EDD732687B3C70045D528 /* Data+MillisecondsSince1970.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */; };
 		9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */; };
+		9D99E5B3268C064200DDC368 /* MavenRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D99E5B2268C064200DDC368 /* MavenRepositoryMock.swift */; };
+		9D99E5B5268C077C00DDC368 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D99E5B4268C077C00DDC368 /* API.swift */; };
 		9D9C534C2688D943006AF9FF /* CharacterSpotlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534B2688D943006AF9FF /* CharacterSpotlightCell.swift */; };
 		9D9C534E2688D94E006AF9FF /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534D2688D94E006AF9FF /* CharacterCell.swift */; };
 		9D9C5350268902C5006AF9FF /* UIView+Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C534F268902C5006AF9FF /* UIView+Percent.swift */; };
@@ -36,13 +36,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		9D6BDCC02686A5CA0077F88E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D6BDC9E2686A5C80077F88E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D6BDCA52686A5C80077F88E;
-			remoteInfo = SerasaMarvel;
-		};
-		9D6BDCCB2686A5CA0077F88E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D6BDC9E2686A5C80077F88E /* Project object */;
 			proxyType = 1;
@@ -62,9 +55,6 @@
 		9D6BDCBF2686A5CA0077F88E /* SerasaMarvelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerasaMarvelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6BDCC32686A5CA0077F88E /* SerasaMarvelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerasaMarvelTests.swift; sourceTree = "<group>"; };
 		9D6BDCC52686A5CA0077F88E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D6BDCCA2686A5CA0077F88E /* SerasaMarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerasaMarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D6BDCCE2686A5CA0077F88E /* SerasaMarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerasaMarvelUITests.swift; sourceTree = "<group>"; };
-		9D6BDCD02686A5CA0077F88E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6BDCDD2686A8E30077F88E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9D6BDCDF2686A9010077F88E /* BoardedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardedCoordinator.swift; sourceTree = "<group>"; };
 		9D6BDCE12686A92E0077F88E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -76,8 +66,9 @@
 		9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavenRepository.swift; sourceTree = "<group>"; };
 		9D6BDCF12686B20D0077F88E /* MavenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavenViewModel.swift; sourceTree = "<group>"; };
 		9D6BDCF82686C77A0077F88E /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
-		9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+MillisecondsSince1970.swift"; sourceTree = "<group>"; };
 		9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+setQueryitems.swift"; sourceTree = "<group>"; };
+		9D99E5B2268C064200DDC368 /* MavenRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavenRepositoryMock.swift; sourceTree = "<group>"; };
+		9D99E5B4268C077C00DDC368 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9D9C534B2688D943006AF9FF /* CharacterSpotlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSpotlightCell.swift; sourceTree = "<group>"; };
 		9D9C534D2688D94E006AF9FF /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		9D9C534F268902C5006AF9FF /* UIView+Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Percent.swift"; sourceTree = "<group>"; };
@@ -100,13 +91,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D6BDCC72686A5CA0077F88E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,7 +99,6 @@
 			children = (
 				9D6BDCA82686A5C80077F88E /* SerasaMarvel */,
 				9D6BDCC22686A5CA0077F88E /* SerasaMarvelTests */,
-				9D6BDCCD2686A5CA0077F88E /* SerasaMarvelUITests */,
 				9D6BDCA72686A5C80077F88E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +108,6 @@
 			children = (
 				9D6BDCA62686A5C80077F88E /* SerasaMarvel.app */,
 				9D6BDCBF2686A5CA0077F88E /* SerasaMarvelTests.xctest */,
-				9D6BDCCA2686A5CA0077F88E /* SerasaMarvelUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,17 +133,9 @@
 			children = (
 				9D6BDCC32686A5CA0077F88E /* SerasaMarvelTests.swift */,
 				9D6BDCC52686A5CA0077F88E /* Info.plist */,
+				9D99E5B2268C064200DDC368 /* MavenRepositoryMock.swift */,
 			);
 			path = SerasaMarvelTests;
-			sourceTree = "<group>";
-		};
-		9D6BDCCD2686A5CA0077F88E /* SerasaMarvelUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9D6BDCCE2686A5CA0077F88E /* SerasaMarvelUITests.swift */,
-				9D6BDCD02686A5CA0077F88E /* Info.plist */,
-			);
-			path = SerasaMarvelUITests;
 			sourceTree = "<group>";
 		};
 		9D6BDCDC2686A8CD0077F88E /* coordinators */ = {
@@ -200,6 +174,7 @@
 				9D6BDCEB2686B1C20077F88E /* APIError.swift */,
 				9D6BDCEF2686B1FE0077F88E /* MavenRepository.swift */,
 				9D6BDCF82686C77A0077F88E /* ResultState.swift */,
+				9D99E5B4268C077C00DDC368 /* API.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -216,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				9D6BDCE32686AE5A0077F88E /* String+md5.swift */,
-				9D6EDD722687B3C70045D528 /* Data+MillisecondsSince1970.swift */,
 				9D6EDD742687B5CD0045D528 /* URLComponents+setQueryitems.swift */,
 				9D9C534F268902C5006AF9FF /* UIView+Percent.swift */,
 				9D9C535126890D92006AF9FF /* UIImageView+loadByUrl.swift */,
@@ -273,24 +247,6 @@
 			productReference = 9D6BDCBF2686A5CA0077F88E /* SerasaMarvelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9D6BDCC92686A5CA0077F88E /* SerasaMarvelUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9D6BDCD92686A5CA0077F88E /* Build configuration list for PBXNativeTarget "SerasaMarvelUITests" */;
-			buildPhases = (
-				9D6BDCC62686A5CA0077F88E /* Sources */,
-				9D6BDCC72686A5CA0077F88E /* Frameworks */,
-				9D6BDCC82686A5CA0077F88E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9D6BDCCC2686A5CA0077F88E /* PBXTargetDependency */,
-			);
-			name = SerasaMarvelUITests;
-			productName = SerasaMarvelUITests;
-			productReference = 9D6BDCCA2686A5CA0077F88E /* SerasaMarvelUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -304,10 +260,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					9D6BDCBE2686A5CA0077F88E = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 9D6BDCA52686A5C80077F88E;
-					};
-					9D6BDCC92686A5CA0077F88E = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 9D6BDCA52686A5C80077F88E;
 					};
@@ -328,7 +280,6 @@
 			targets = (
 				9D6BDCA52686A5C80077F88E /* SerasaMarvel */,
 				9D6BDCBE2686A5CA0077F88E /* SerasaMarvelTests */,
-				9D6BDCC92686A5CA0077F88E /* SerasaMarvelUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -350,13 +301,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D6BDCC82686A5CA0077F88E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -364,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D99E5B5268C077C00DDC368 /* API.swift in Sources */,
 				9D6BDCF22686B20D0077F88E /* MavenViewModel.swift in Sources */,
 				9D6BDCE02686A9010077F88E /* BoardedCoordinator.swift in Sources */,
 				9D6BDCF92686C77A0077F88E /* ResultState.swift in Sources */,
@@ -382,7 +327,6 @@
 				9D6EDD752687B5CD0045D528 /* URLComponents+setQueryitems.swift in Sources */,
 				9D6BDCEA2686B1AE0077F88E /* Thumbnail.swift in Sources */,
 				9D6BDCE62686B18F0077F88E /* Character.swift in Sources */,
-				9D6EDD732687B3C70045D528 /* Data+MillisecondsSince1970.swift in Sources */,
 				9D6BDCF02686B1FE0077F88E /* MavenRepository.swift in Sources */,
 				9D6BDCEC2686B1C20077F88E /* APIError.swift in Sources */,
 			);
@@ -393,14 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D6BDCC42686A5CA0077F88E /* SerasaMarvelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D6BDCC62686A5CA0077F88E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D6BDCCF2686A5CA0077F88E /* SerasaMarvelUITests.swift in Sources */,
+				9D99E5B3268C064200DDC368 /* MavenRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,11 +348,6 @@
 			isa = PBXTargetDependency;
 			target = 9D6BDCA52686A5C80077F88E /* SerasaMarvel */;
 			targetProxy = 9D6BDCC02686A5CA0077F88E /* PBXContainerItemProxy */;
-		};
-		9D6BDCCC2686A5CA0077F88E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9D6BDCA52686A5C80077F88E /* SerasaMarvel */;
-			targetProxy = 9D6BDCCB2686A5CA0077F88E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -629,46 +561,6 @@
 			};
 			name = Release;
 		};
-		9D6BDCDA2686A5CA0077F88E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S2YW39FUHV;
-				INFOPLIST_FILE = SerasaMarvelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.serasa.marvel.SerasaMarvelUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SerasaMarvel;
-			};
-			name = Debug;
-		};
-		9D6BDCDB2686A5CA0077F88E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S2YW39FUHV;
-				INFOPLIST_FILE = SerasaMarvelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.serasa.marvel.SerasaMarvelUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SerasaMarvel;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -695,15 +587,6 @@
 			buildConfigurations = (
 				9D6BDCD72686A5CA0077F88E /* Debug */,
 				9D6BDCD82686A5CA0077F88E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9D6BDCD92686A5CA0077F88E /* Build configuration list for PBXNativeTarget "SerasaMarvelUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D6BDCDA2686A5CA0077F88E /* Debug */,
-				9D6BDCDB2686A5CA0077F88E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -93,7 +93,7 @@ class CharacterCell : UICollectionViewCell {
             if let updatedAt = character?.modified {
                 
                 
-                self.subTitleLabel.text = updatedAt.dateFormat(formatTo: "yyyy-MM-dd'T'HH:mm-ssZ", formatFrom: "'Atualizado em 'dd' de junho de 'yyyy")
+                self.subTitleLabel.text = updatedAt.dateFormat(formatTo: "yyyy-MM-dd'T'HH:mm-ssZ", formatFrom: "'Atualizado em 'dd' de 'MMMM' de 'yyyy")
             }
             if let thumbnail = character?.thumbnail,
                let path = thumbnail.path,

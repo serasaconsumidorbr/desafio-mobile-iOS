@@ -16,14 +16,14 @@ protocol MavenViewModelImpl {
 
 class MavenViewModel : ObservableObject, MavenViewModelImpl {
     
-    private let repository : MavenRepository
+    private let repository : MavenRepositoryImpl
     private var subscriptions : Set<AnyCancellable> = .init()
     private(set) var totalItensOfList : Int? = nil
     private(set) var characters = [Character]()
     
     @Published private(set) var state : ResultState = .loading
     
-    init(repository : MavenRepository) {
+    init(repository : MavenRepositoryImpl) {
         self.repository = repository
     }
     
