@@ -30,17 +30,20 @@ class AppViewController: UIViewController {
     private(set) var page = 0
     
     private lazy var collectionView : UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: AppViewController.createLayout())
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
+        let element = UICollectionView(frame: .zero, collectionViewLayout: AppViewController.createLayout())
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private lazy var spinner : UIActivityIndicatorView = {
+        let element = UIActivityIndicatorView(style: .medium)
+        return element
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         setUpViewUI()
-        setupCollectionViewUI()
         
         setupCollectionViewBuild()
         dataSource = createDataSource()
@@ -61,21 +64,21 @@ class AppViewController: UIViewController {
         
         viewModel?.getAllCharacters(page: nil)
         
-        NSLayoutConstraint.activate(self.constraints)
-        
     }
     
-    func setupCollectionViewUI() {
+    func setUpViewUI() {
+        
+        view.backgroundColor = .white
+        
+        self.view.addSubview(self.collectionView)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.spinner)
+        
         constraints.append(collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor))
         constraints.append(collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
         constraints.append(collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor))
         constraints.append(collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
         
-        self.view.addSubview(self.collectionView)
-    }
-    
-    func setUpViewUI() {
-        view.backgroundColor = .white
+        NSLayoutConstraint.activate(self.constraints)
     }
     
     func setupCollectionViewBuild() {
@@ -89,6 +92,7 @@ class AppViewController: UIViewController {
     
     func loadingUI() {
         self.collectionView.isScrollEnabled = false
+        spinner.startAnimating()
     }
     
     func failedUI(from error : Error) {
@@ -146,7 +150,10 @@ extension AppViewController {
     }
     
     private func createSnapShot(from characters: [Character]) {
+        
         self.collectionView.isScrollEnabled = true
+        self.spinner.stopAnimating()
+        
         var snapshot = characterSnapshot()
         snapshot.appendSections(Section.allCases)
         
