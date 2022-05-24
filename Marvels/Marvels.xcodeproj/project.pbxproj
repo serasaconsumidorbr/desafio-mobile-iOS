@@ -29,6 +29,7 @@
 		9915AFFA283C445600D3586B /* MyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9915AFF9283C445600D3586B /* MyResponse.swift */; };
 		9915B001283C5BC900D3586B /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9915B000283C5BC900D3586B /* ApiError.swift */; };
 		9915B003283C605300D3586B /* CharacterCarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9915B002283C605300D3586B /* CharacterCarouselViewCell.swift */; };
+		9915B009283D285200D3586B /* ImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9915B008283D285100D3586B /* ImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		9915AFF9283C445600D3586B /* MyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyResponse.swift; sourceTree = "<group>"; };
 		9915B000283C5BC900D3586B /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		9915B002283C605300D3586B /* CharacterCarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCarouselViewCell.swift; sourceTree = "<group>"; };
+		9915B008283D285100D3586B /* ImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				9915AFDF283C353200D3586B /* String+.swift */,
 				9915AFE1283C35B700D3586B /* Formatter+.swift */,
 				9915AFF6283C437D00D3586B /* Data+.swift */,
+				9915B008283D285100D3586B /* ImageView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				9915AFF2283C40F600D3586B /* CharacterView.swift in Sources */,
 				9915AFF0283C404E00D3586B /* Coordinator.swift in Sources */,
 				9915AFFA283C445600D3586B /* MyResponse.swift in Sources */,
+				9915B009283D285200D3586B /* ImageView+.swift in Sources */,
 				9915AFF5283C414300D3586B /* CharacterViewModel.swift in Sources */,
 				9915AFF7283C437D00D3586B /* Data+.swift in Sources */,
 				9915AFB0283C2EAC00D3586B /* Marvels.xcdatamodeld in Sources */,

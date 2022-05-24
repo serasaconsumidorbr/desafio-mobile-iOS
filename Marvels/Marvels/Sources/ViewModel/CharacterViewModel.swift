@@ -6,16 +6,35 @@
 //
 
 import Foundation
+import UIKit
 
 struct CharacterViewModel {
-    var model: CharacterView?
+    var model: CharacterModel?
     
-    init(model: CharacterView) {
+    init(model: CharacterModel) {
         self.model = model
     }
     
     init() {
-        self.model = CharacterView()
+//        self.model = CharacterModel()
+    }
+    
+    func getName(row: Int) -> String {
+        model?.data?.results?[row].name ?? ""
+    }
+    
+    func getDescription(row: Int) -> String {
+        model?.data?.results?[row].resultDescription ?? ""
+    }
+    
+    func getThumbnail(row: Int) -> String {
+        if model?.data?.results?[row].thumbnail?.path.count ?? 0 > 0 {
+            let ext = model?.data?.results?[row].thumbnail?.thumbnailExtension?.rawValue ?? ""
+            let path = model?.data?.results?[row].thumbnail?.path ?? ""
+            return "\(path).\(ext)"
+        }
+        
+        return ""
     }
     
     func request(completionHandler: @escaping CharacterAPICompletionHandler) {
@@ -23,7 +42,7 @@ struct CharacterViewModel {
         let apiKey = "\(Constants.MarvelApi.apiKey)=\(Constants.Credentials.apiPublicKey)"
         let hash = "\(Constants.MarvelApi.hash)=\(Constants.Credentials.hash)"
         let ts = "\(Constants.MarvelApi.timeStamp)=\(Constants.Credentials.timeStamp)"
-        let limit = "\(Constants.MarvelApi.limit)=100"
+        let limit = "\(Constants.MarvelApi.limit)=10"
         let params = "\(resource)&\(apiKey)&\(hash)&\(ts)&\(limit)"
         
         let parameters: [AnyHashable: Any] = [Constants.MarvelApi.params: params]

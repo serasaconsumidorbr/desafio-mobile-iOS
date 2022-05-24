@@ -21,7 +21,7 @@ final class CharacterProvider: CharacterProviderProtocol {
         
         let urlStr = "\(Constants.MarvelApi.urlBase)\(params)"
 
-//        debugPrint(urlStr)
+        debugPrint(urlStr)
         
         let urlRequest = NSMutableURLRequest(url: URL(string: urlStr)!)
         urlRequest.httpMethod = "GET"

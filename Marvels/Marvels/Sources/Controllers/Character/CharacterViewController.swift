@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 
 class CharacterViewController: UIViewController {
+    // MARK: - Properts
+    var charactersViewModel = CharacterViewModel() {
+        didSet {
+            characterView.setData(viewModel: self.charactersViewModel)
+        }
+    }
+    
     private lazy var characterView: CharacterView = {
         let view = CharacterView()
         self.view.backgroundColor = .systemBackground

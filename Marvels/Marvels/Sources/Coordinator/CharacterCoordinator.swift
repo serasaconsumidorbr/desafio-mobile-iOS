@@ -19,8 +19,13 @@ class CharacterCoordinator: Coordinator {
         let viewController = CharacterViewController()
         self.navigationController.pushViewController(viewController, animated: true)
         
-//        CharacterViewModel().request { result in
-//            
-//        }
+        CharacterViewModel().request { result in
+            switch result {
+            case .success(let model):
+                viewController.charactersViewModel = CharacterViewModel(model: model)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
     }
 }
