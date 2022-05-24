@@ -19,13 +19,14 @@ class CharacterViewController: UIViewController {
     
     private lazy var characterView: CharacterView = {
         let view = CharacterView()
-        self.view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         return view
     }()
     
     override func loadView() {
         super.loadView()
+        
         self.view = characterView
     }
 }

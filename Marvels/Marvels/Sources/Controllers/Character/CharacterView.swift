@@ -2,38 +2,58 @@
 //  CharacterView.swift
 //  Marvels
 //
-//  Created by Moacir Ezequiel Lamego on 23/05/2022.
+//  Created by Moacir Ezequiel Lamego on 24/05/2022.
 //
 
 import Foundation
-
 import UIKit
+import iCarousel
 
 class CharacterView: UIView {
     // MARK: - Closures
     
-    // MARK: - Constants
-    
     // MARK: - Properts
     private var characterViewModel: CharacterViewModel?
-    lazy private var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+    private var results: [Results]?
+
+    lazy private var myCarousel: iCarousel = {
+        let view = iCarousel()
+        view.type = .rotary
+        view.dataSource = self
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        collectionView.register(CharacterCarouselViewCell.self, forCellWithReuseIdentifier: CharacterCarouselViewCell.identifier)
-        
-        collectionView.backgroundColor = .systemBlue
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        return collectionView
+        return view
     }()
     
+    lazy var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.backgroundColor = .lightGray
+        tv.dataSource = self
+        tv.register(CharacterViewCell.self, forCellReuseIdentifier: CharacterViewCell.identified)
+        
+        let lb: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = 0.5
+            label.textColor = .white
+            label.text = "Personagens"
+            
+            return label
+        }()
+        
+        tv.tableHeaderView = lb
+        tv.tableHeaderView?.frame.size.height = 30
+        
+        tv.backgroundColor = .white
+        
+        tv.rowHeight = 400
+        tv.estimatedRowHeight = 400
+        
+        return tv
+    }()
     
     
     //MARK: Inits
@@ -48,59 +68,97 @@ class CharacterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setElementsVisual() {
-        setCollectionView()
+        setCarousel()
+        setTableView()
     }
     
-    private func setCollectionView() {
-        self.addSubview(collectionView)
+    private func setCarousel() {
+        self.addSubview(myCarousel)
+        
+        let kHeight = UIScreen.main.bounds.height * 0.40
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 400)
+            myCarousel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
+            myCarousel.leftAnchor.constraint(equalTo: self.leftAnchor),
+            myCarousel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            myCarousel.heightAnchor.constraint(equalToConstant: kHeight)
+        ])
+    }
+    
+    private func setTableView() {
+        self.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: myCarousel.bottomAnchor, constant: 20),
+            tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
     
     // MARK: - Publics
+    
     func setData(viewModel: CharacterViewModel) {
         self.characterViewModel = viewModel
         
+        let rSlice = viewModel.results?[5...]
+
+        guard let rSlice = rSlice else { return }
+        
+        self.results = Array(rSlice)
+        
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.myCarousel.reloadData()
+            self.tableView.reloadData()
         }
     }
 }
 
-extension CharacterView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.characterViewModel != nil { return 3 } else { return 0 }
+extension CharacterView: iCarouselDataSource {
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        let result = self.characterViewModel == nil ? 0 : 5
+        
+        return result
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCarouselViewCell.identifier, for: indexPath) as? CharacterCarouselViewCell else {
-            fatalError()
-        }
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let kHeight = UIScreen.main.bounds.height * 0.40
+        let kWidth = UIScreen.main.bounds.width * 0.62
         
-        let url = self.characterViewModel?.getThumbnail(row: indexPath.row)
-        debugPrint(url ?? "")
+        let url = self.characterViewModel?.getThumbnail(row: index) ?? ""
+        let title = self.characterViewModel?.getName(row: index) ?? ""
+        let description = self.characterViewModel?.getDescription(row: index) ?? ""
+        let view = ViewCarousel(frame: CGRect(x: 0, y: 0, width: kWidth, height: kHeight),
+                                url: url,
+                                title: title,
+                                description: description )
 
-        if url?.count ?? 0 > 0 {
-            cell.imageView.loadImageUsingCache(withUrl: url!)
-        }
+        view.backgroundColor = .black
         
-        cell.titleLabel.text = self.characterViewModel?.getName(row: indexPath.row)
-        cell.descriptionLabel.text = self.characterViewModel?.getDescription(row:  indexPath.row)
-
-        return cell
+        return view
     }
 }
 
-extension CharacterView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = self.frame.size.width/3
-        return CGSize(width: width, height: width*1.5)
+extension CharacterView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  self.results?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CharacterViewCell.identified, for: indexPath) as! CharacterViewCell
+
+        guard let res = self.results?[indexPath.row] else { return cell }
+        
+        let ext = res.thumbnail?.thumbnailExtension?.rawValue ?? ""
+        let path = res.thumbnail?.path ?? ""
+        let url = "\(path).\(ext)"
+        
+        let title = res.name
+        let description = res.resultDescription
+        
+        cell.setData(url: url, title: title, description: description)
+        
+        return cell
     }
 }

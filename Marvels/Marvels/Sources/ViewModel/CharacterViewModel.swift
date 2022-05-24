@@ -37,6 +37,10 @@ struct CharacterViewModel {
         return ""
     }
     
+    var results: [Results]? {
+        model?.data?.results
+    }
+    
     func request(completionHandler: @escaping CharacterAPICompletionHandler) {
         let resource = Constants.MarvelApi.resource
         let apiKey = "\(Constants.MarvelApi.apiKey)=\(Constants.Credentials.apiPublicKey)"
