@@ -34,8 +34,8 @@ class CharacterView: UIView {
                
         tv.backgroundColor = .white
         
-        tv.rowHeight = 260
-        tv.estimatedRowHeight = 260
+        tv.rowHeight = 360
+        tv.estimatedRowHeight = 360
         
         return tv
     }()
