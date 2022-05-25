@@ -8,12 +8,17 @@
 import Foundation
 
 extension Data {
-    func prettyPrintedJSONString() -> String {
-        if let json = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers),
-           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
-            return String(decoding: jsonData, as: UTF8.self)
-        } else {
-            return "Error: Cannot convert JSON to DATA"
+    func toPrettyJSON() {
+            do {
+                let json = try JSONSerialization.jsonObject(with: self, options: [])
+                let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+                guard let jsonString = String(data: data, encoding: .utf8) else {
+                    print("Inavlid data")
+                    return
+                }
+                print(jsonString)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
         }
-    }
 }

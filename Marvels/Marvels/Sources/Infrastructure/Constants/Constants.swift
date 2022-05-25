@@ -18,7 +18,7 @@ struct Constants {
     }
 
     struct MarvelApi {
-        static let resource = "characters?"
+        static let resource = "characters?orderBy=modified&"
         static let apiKey = "apikey"
         static let hash = "hash"
         static let timeStamp = "ts"

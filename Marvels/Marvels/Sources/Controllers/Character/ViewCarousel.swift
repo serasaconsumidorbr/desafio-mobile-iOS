@@ -79,8 +79,7 @@ class ViewCarousel: UIView {
     private func setImageView() {
         self.addSubview(imageView)
         
-        let kHeight = UIScreen.main.bounds.height * 0.25
-        print(kHeight)
+        let kHeight = UIScreen.main.bounds.height * 0.35
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),

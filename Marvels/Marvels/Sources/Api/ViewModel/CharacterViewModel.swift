@@ -8,6 +8,22 @@
 import Foundation
 import UIKit
 
+enum ImageVariants: String {
+    case portrait_small
+    case portrait_medium
+    case portrait_xlarge
+    case portrait_fantastic
+    case portrait_uncanny
+    case portrait_incredible
+    
+    case landscape_small
+    case landscape_medium
+    case landscape_large
+    case landscape_xlarge
+    case landscape_amazing
+    case landscape_incredible
+}
+
 struct CharacterViewModel {
     var model: CharacterModel?
     
@@ -27,11 +43,11 @@ struct CharacterViewModel {
         model?.data?.results?[row].resultDescription ?? ""
     }
     
-    func getThumbnail(row: Int) -> String {
-        if model?.data?.results?[row].thumbnail?.path.count ?? 0 > 0 {
-            let ext = model?.data?.results?[row].thumbnail?.thumbnailExtension?.rawValue ?? ""
+    func getThumbnail(row: Int, imageVariants: ImageVariants) -> String {
+        if model?.data?.results?[row].thumbnail?.path?.count ?? 0 > 0 {
+            let ext = model?.data?.results?[row].thumbnail?.thumbnailExtension ?? ""
             let path = model?.data?.results?[row].thumbnail?.path ?? ""
-            return "\(path).\(ext)"
+            return "\(path)/\(imageVariants.rawValue).\(ext)"
         }
         
         return ""
@@ -46,7 +62,7 @@ struct CharacterViewModel {
         let apiKey = "\(Constants.MarvelApi.apiKey)=\(Constants.Credentials.apiPublicKey)"
         let hash = "\(Constants.MarvelApi.hash)=\(Constants.Credentials.hash)"
         let ts = "\(Constants.MarvelApi.timeStamp)=\(Constants.Credentials.timeStamp)"
-        let limit = "\(Constants.MarvelApi.limit)=10"
+        let limit = "\(Constants.MarvelApi.limit)=1000"
         let params = "\(resource)&\(apiKey)&\(hash)&\(ts)&\(limit)"
         
         let parameters: [AnyHashable: Any] = [Constants.MarvelApi.params: params]
@@ -56,8 +72,8 @@ struct CharacterViewModel {
             do {
                 let result = try result()
                 let apiResponse = try JSONDecoder().decode(CharacterModel.self, from: result.data)
+                
                 completionHandler(.success(apiResponse))
-//                debugPrint(result.data.prettyPrintedJSONString())
             } catch {
                 debugPrint(error)
                 completionHandler(.failure(error))
@@ -65,3 +81,33 @@ struct CharacterViewModel {
         }
     }
 }
+
+struct ResultsViewModel {
+    var model: Results?
+    
+    init(model: Results) {
+        self.model = model
+    }
+    
+    var name: String {
+        model?.name ?? ""
+    }
+
+    var resultDescription: String {
+        guard let description = model?.resultDescription else { return "" }
+        
+        return description.count < 1 ? "" : description
+    }
+
+    func getThumbnail(imageVariants: ImageVariants) -> String {
+        if model?.thumbnail?.path?.count ?? 0 > 0 {
+            let ext = model?.thumbnail?.thumbnailExtension ?? ""
+            let path = model?.thumbnail?.path ?? ""
+            return "\(path)/\(imageVariants).\(ext)"
+        }
+        
+        return ""
+    }
+}
+    
+   

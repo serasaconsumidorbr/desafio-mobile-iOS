@@ -2,16 +2,7 @@
   "images" : [
     {
       "filename" : "quadro-marvel-logo-tamanho-grande-35x25-cm-quadro-homem-de-ferro.jpg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

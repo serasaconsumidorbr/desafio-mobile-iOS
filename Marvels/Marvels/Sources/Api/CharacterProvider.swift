@@ -37,7 +37,7 @@ final class CharacterProvider: CharacterProviderProtocol {
                 }
                 
                 if data != nil {
-                //    debugPrint(data.prettyPrintedJSONString())
+               //     data?.toPrettyJSON()
                     completion { try self.handlerresponse(myResponse) }
                 } else {
                     debugPrint("Error ao Executar uma chamda de API")

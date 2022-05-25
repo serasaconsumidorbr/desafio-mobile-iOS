@@ -9,8 +9,8 @@ import Foundation
 
 class CharacterModel: Codable {
         let code: Int?
-        let status, copyright, attributionText, attributionHTML: String
-        let etag: String
+        let status, copyright, attributionText, attributionHTML: String?
+        let etag: String?
         let data: DataClass?
     }
 
@@ -23,51 +23,51 @@ class CharacterModel: Codable {
     // MARK: - Result
     struct Results: Codable {
         let id: Int?
-        let name, resultDescription: String
-        let modified: String
+        let name, resultDescription: String?
+//        let modified: String?
         let thumbnail: Thumbnail?
-        let resourceURI: String
-        let comics, series: Comics?
-        let stories: Stories?
-        let events: Comics?
-        let urls: [URLElement]?
+//        let resourceURI: String?
+//        let comics, series: Comics?
+//        let stories: Stories?
+//        let events: Comics?
+//        let urls: [URLElement]?
 
         enum CodingKeys: String, CodingKey {
             case id, name
             case resultDescription = "description"
-            case modified
+//            case modified
             case thumbnail
-            case resourceURI
-            case comics, series, stories, events, urls
+//            case resourceURI
+//            case comics, series, stories, events, urls
         }
     }
 
     // MARK: - Comics
     struct Comics: Codable {
         let available: Int?
-        let collectionURI: String
+        let collectionURI: String?
         let items: [ComicsItem]?
         let returned: Int?
     }
 
     // MARK: - ComicsItem
     struct ComicsItem: Codable {
-        let resourceURI: String
-        let name: String
+        let resourceURI: String?
+        let name: String?
     }
 
     // MARK: - Stories
     struct Stories: Codable {
         let available: Int?
-        let collectionURI: String
+        let collectionURI: String?
         let items: [StoriesItem]?
         let returned: Int?
     }
 
     // MARK: - StoriesItem
     struct StoriesItem: Codable {
-        let resourceURI: String
-        let name: String
+        let resourceURI: String?
+        let name: String?
         let type: ItemType?
     }
 
@@ -83,24 +83,19 @@ class CharacterModel: Codable {
 
     // MARK: - Thumbnail
     struct Thumbnail: Codable {
-        let path: String
-        let thumbnailExtension: Extension?
+        let path: String?
+        let thumbnailExtension: String?
 
         enum CodingKeys: String, CodingKey {
             case path
             case thumbnailExtension = "extension"
         }
     }
-
-    enum Extension: String, Codable {
-        case gif = "gif"
-        case jpg = "jpg"
-    }
-
+    
     // MARK: - URLElement
     struct URLElement: Codable {
-        let type: URLType
-        let url: String
+        let type: URLType?
+        let url: String?
     }
 
     enum URLType: String, Codable {

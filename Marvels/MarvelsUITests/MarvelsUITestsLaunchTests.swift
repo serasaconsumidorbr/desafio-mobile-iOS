@@ -29,4 +29,10 @@ class MarvelsUITestsLaunchTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
+    
+    func testSample() {
+        XCUIApplication().tables.cells.containing(.staticText, identifier:"Sleeper").staticTexts["Sem detalhes"].swipeUp()
+        
+                                                
+    }
 }

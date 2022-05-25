@@ -17,7 +17,7 @@ class CharacterViewController: UIViewController {
         }
     }
     
-    private lazy var characterView: CharacterView = {
+    lazy var characterView: CharacterView = {
         let view = CharacterView()
         view.backgroundColor = .white
         

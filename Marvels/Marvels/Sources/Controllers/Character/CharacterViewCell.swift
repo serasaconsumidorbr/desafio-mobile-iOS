@@ -45,7 +45,7 @@ class CharacterViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.numberOfLines = 3
+        label.numberOfLines = 2
         label.lineBreakMode = .byTruncatingTail
         label.textColor = .white
         label.textAlignment = .center
@@ -81,7 +81,6 @@ class CharacterViewCell: UITableViewCell {
         self.addSubview(thunbView)
         
         let kHeight = UIScreen.main.bounds.height * 0.3
-        print(kHeight)
         
         NSLayoutConstraint.activate([
             thunbView.topAnchor.constraint(equalTo: self.topAnchor),

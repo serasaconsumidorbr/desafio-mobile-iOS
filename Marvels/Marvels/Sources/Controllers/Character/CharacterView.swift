@@ -16,7 +16,7 @@ class CharacterView: UIView {
     private var characterViewModel: CharacterViewModel?
     private var results: [Results]?
 
-    lazy private var myCarousel: iCarousel = {
+    lazy var myCarousel: iCarousel = {
         let view = iCarousel()
         view.type = .rotary
         view.dataSource = self
@@ -30,27 +30,12 @@ class CharacterView: UIView {
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .lightGray
         tv.dataSource = self
-        tv.register(CharacterViewCell.self, forCellReuseIdentifier: CharacterViewCell.identified)
-        
-        let lb: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-            label.adjustsFontSizeToFitWidth = true
-            label.minimumScaleFactor = 0.5
-            label.textColor = .white
-            label.text = "Personagens"
-            
-            return label
-        }()
-        
-        tv.tableHeaderView = lb
-        tv.tableHeaderView?.frame.size.height = 30
-        
+        tv.register(CharacterViewCell.self, forCellReuseIdentifier: CharacterViewCell.identified)        
+               
         tv.backgroundColor = .white
         
-        tv.rowHeight = 400
-        tv.estimatedRowHeight = 400
+        tv.rowHeight = 260
+        tv.estimatedRowHeight = 260
         
         return tv
     }()
@@ -76,7 +61,7 @@ class CharacterView: UIView {
     private func setCarousel() {
         self.addSubview(myCarousel)
         
-        let kHeight = UIScreen.main.bounds.height * 0.40
+        let kHeight = UIScreen.main.bounds.height * 0.50
         
         NSLayoutConstraint.activate([
             myCarousel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
@@ -123,10 +108,10 @@ extension CharacterView: iCarouselDataSource {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let kHeight = UIScreen.main.bounds.height * 0.40
+        let kHeight = UIScreen.main.bounds.height * 0.55
         let kWidth = UIScreen.main.bounds.width * 0.62
         
-        let url = self.characterViewModel?.getThumbnail(row: index) ?? ""
+        let url = self.characterViewModel?.getThumbnail(row: index, imageVariants: ImageVariants.portrait_uncanny) ?? ""
         let title = self.characterViewModel?.getName(row: index) ?? ""
         let description = self.characterViewModel?.getDescription(row: index) ?? ""
         let view = ViewCarousel(frame: CGRect(x: 0, y: 0, width: kWidth, height: kHeight),
@@ -148,14 +133,12 @@ extension CharacterView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterViewCell.identified, for: indexPath) as! CharacterViewCell
 
-        guard let res = self.results?[indexPath.row] else { return cell }
+        guard let model = self.results?[indexPath.row] else { return cell }
+        let viewModel = ResultsViewModel(model: model)
         
-        let ext = res.thumbnail?.thumbnailExtension?.rawValue ?? ""
-        let path = res.thumbnail?.path ?? ""
-        let url = "\(path).\(ext)"
-        
-        let title = res.name
-        let description = res.resultDescription
+        let title = viewModel.name
+        let description = viewModel.resultDescription
+        let url = viewModel.getThumbnail(imageVariants: ImageVariants.landscape_large)
         
         cell.setData(url: url, title: title, description: description)
         
