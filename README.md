@@ -63,8 +63,3 @@ Testes unitários
     - Criar testes de UI
     - Implementar o teste do CoreData
     
-    
-    ## Captura de Telas
-    <img src="https://github.com/MoacirParticular/desafio-mobile-iOS/blob/persistencia/Marvels/Captura%20de%20Tela%20ipod%207th.png" alt="Screenshot" width="320" height="590">
-    
-    <img src="https://github.com/MoacirParticular/desafio-mobile-iOS/blob/persistencia/Marvels/Captura%20de%20Tela%20iPhone%2013%20Pro%20max.png" alt="Screenshot" width="320" height="590">

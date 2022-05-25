@@ -14,7 +14,7 @@ class CharacterView: UIView {
     
     // MARK: - Properts
     private var characterViewModel: CharacterViewModel?
-    private var results: [Results]?
+    private var results: [CharacterData]?
 
     lazy var myCarousel: iCarousel = {
         let view = iCarousel()
@@ -34,8 +34,8 @@ class CharacterView: UIView {
                
         tv.backgroundColor = .white
         
-        tv.rowHeight = 260
-        tv.estimatedRowHeight = 260
+        tv.rowHeight = UIScreen.main.bounds.height * 0.5
+        tv.estimatedRowHeight = UIScreen.main.bounds.height * 0.5
         
         return tv
     }()
@@ -87,7 +87,7 @@ class CharacterView: UIView {
     func setData(viewModel: CharacterViewModel) {
         self.characterViewModel = viewModel
         
-        let rSlice = viewModel.results?[5...]
+        let rSlice = viewModel.dataStore?.items?[5...]
 
         guard let rSlice = rSlice else { return }
         
@@ -111,7 +111,7 @@ extension CharacterView: iCarouselDataSource {
         let kHeight = UIScreen.main.bounds.height * 0.55
         let kWidth = UIScreen.main.bounds.width * 0.62
         
-        let url = self.characterViewModel?.getThumbnail(row: index, imageVariants: ImageVariants.portrait_uncanny) ?? ""
+        let url = self.characterViewModel?.getThumbnailCarousel(row: index) ?? ""
         let title = self.characterViewModel?.getName(row: index) ?? ""
         let description = self.characterViewModel?.getDescription(row: index) ?? ""
         let view = ViewCarousel(frame: CGRect(x: 0, y: 0, width: kWidth, height: kHeight),
@@ -133,12 +133,11 @@ extension CharacterView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterViewCell.identified, for: indexPath) as! CharacterViewCell
 
-        guard let model = self.results?[indexPath.row] else { return cell }
-        let viewModel = ResultsViewModel(model: model)
+        guard let item = self.results?[indexPath.row] else { return cell }
         
-        let title = viewModel.name
-        let description = viewModel.resultDescription
-        let url = viewModel.getThumbnail(imageVariants: ImageVariants.landscape_large)
+        let title = item.name ?? ""
+        let description = item.about ?? ""
+        let url = item.thunbnailList ?? ""
         
         cell.setData(url: url, title: title, description: description)
         

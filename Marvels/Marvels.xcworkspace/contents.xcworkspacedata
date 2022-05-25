@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Marvels/Sources/DataStore/CoreData/CharacterData+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Marvels/Sources/DataStore/CoreData/CharacterData+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Marvels.xcodeproj">
    </FileRef>
    <FileRef
