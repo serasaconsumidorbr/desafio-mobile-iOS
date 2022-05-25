@@ -15,7 +15,6 @@ Carthage ou Cocoapods
     - Utilizado Cocoapods 
         - iCarousel (1.8.3)
         
-        
 Testes unitários
     - Feito teste unitário do contrato da API, mocando os dados.
     
@@ -30,8 +29,6 @@ Persistencia de dados
             PS: Aqui fiz um teste para inserir na base local somente os Personagens que tiver imagem. 
                 - Mesmo não estando no escopo, fiz para teste e como ficou mais visual dexei.
                 
-        
-
 O projeto contem
     Carrossel superior com os 5 primeiros personagens
     Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
