@@ -44,8 +44,14 @@ Testes unitários
     - Teste unitário básico com json mockado.
     
 - Features
-    - Criar um tela de detalhes 
-        - Nesta tela deve conter 
+    - Melhorar a lista de personagens
+        - Tirar a imagem e fazer uma lista mais fluida com o Titulo e indicar que tem mais informações.
+        - Permitir favoritar, com swipe
+        - Fazer com que no carrosel venha os personagens favoritados.
+        
+    - Criar uma tela de detalhes 
+        - Nesta tela deve conter
+            - Capa
             - Imagem
             - Titulo
             - Detalhes
