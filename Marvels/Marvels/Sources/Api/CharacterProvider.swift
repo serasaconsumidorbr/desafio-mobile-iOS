@@ -8,6 +8,7 @@
 import Foundation
 
 typealias CharacterAPICompletionHandler = (Result<CharacterModel, Error>) -> Void
+typealias CharacterDataStoreCompletionHandler = (CharacterDataStore) -> Void
 public typealias CompletionData = (statusCode: Int, data: Data)
 public typealias CompletionCallBack = (@escaping () throws -> CompletionData) -> Void
 

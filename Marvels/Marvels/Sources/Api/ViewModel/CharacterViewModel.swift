@@ -25,44 +25,41 @@ enum ImageVariants: String {
 }
 
 struct CharacterViewModel {
-    var model: CharacterModel?
+    var dataStore: CharacterDataStore?
     
-    init(model: CharacterModel) {
-        self.model = model
+    init(dataStore: CharacterDataStore) {
+        self.dataStore = dataStore
     }
     
     init() {
-//        self.model = CharacterModel()
+        self.dataStore = CharacterDataStore()
     }
     
     func getName(row: Int) -> String {
-        model?.data?.results?[row].name ?? ""
+        dataStore?.items?[row].name ?? ""
     }
     
     func getDescription(row: Int) -> String {
-        model?.data?.results?[row].resultDescription ?? ""
+        dataStore?.items?[row].about ?? ""
     }
     
-    func getThumbnail(row: Int, imageVariants: ImageVariants) -> String {
-        if model?.data?.results?[row].thumbnail?.path?.count ?? 0 > 0 {
-            let ext = model?.data?.results?[row].thumbnail?.thumbnailExtension ?? ""
-            let path = model?.data?.results?[row].thumbnail?.path ?? ""
-            return "\(path)/\(imageVariants.rawValue).\(ext)"
-        }
-        
-        return ""
+    func getThumbnailCarousel(row: Int) -> String {
+        dataStore?.items?[row].thunbnailCarousel ?? ""
     }
     
-    var results: [Results]? {
-        model?.data?.results
+    func getThumbnailList(row: Int) -> String {
+        dataStore?.items?[row].thunbnailList ?? ""
     }
     
-    func request(completionHandler: @escaping CharacterAPICompletionHandler) {
+    func request(completionHandler: @escaping CharacterDataStoreCompletionHandler) {
+        let characterDataStore = CharacterDataStore()
+        characterDataStore.getAllItems()
+
         let resource = Constants.MarvelApi.resource
         let apiKey = "\(Constants.MarvelApi.apiKey)=\(Constants.Credentials.apiPublicKey)"
         let hash = "\(Constants.MarvelApi.hash)=\(Constants.Credentials.hash)"
         let ts = "\(Constants.MarvelApi.timeStamp)=\(Constants.Credentials.timeStamp)"
-        let limit = "\(Constants.MarvelApi.limit)=1000"
+        let limit = "\(Constants.MarvelApi.limit)=100"
         let params = "\(resource)&\(apiKey)&\(hash)&\(ts)&\(limit)"
         
         let parameters: [AnyHashable: Any] = [Constants.MarvelApi.params: params]
@@ -73,41 +70,13 @@ struct CharacterViewModel {
                 let result = try result()
                 let apiResponse = try JSONDecoder().decode(CharacterModel.self, from: result.data)
                 
-                completionHandler(.success(apiResponse))
+                characterDataStore.createItem(withModel: apiResponse) { characterDataStore in
+                    completionHandler(characterDataStore)
+                }
             } catch {
                 debugPrint(error)
-                completionHandler(.failure(error))
+                completionHandler(characterDataStore)
             }
         }
     }
 }
-
-struct ResultsViewModel {
-    var model: Results?
-    
-    init(model: Results) {
-        self.model = model
-    }
-    
-    var name: String {
-        model?.name ?? ""
-    }
-
-    var resultDescription: String {
-        guard let description = model?.resultDescription else { return "" }
-        
-        return description.count < 1 ? "" : description
-    }
-
-    func getThumbnail(imageVariants: ImageVariants) -> String {
-        if model?.thumbnail?.path?.count ?? 0 > 0 {
-            let ext = model?.thumbnail?.thumbnailExtension ?? ""
-            let path = model?.thumbnail?.path ?? ""
-            return "\(path)/\(imageVariants).\(ext)"
-        }
-        
-        return ""
-    }
-}
-    
-   

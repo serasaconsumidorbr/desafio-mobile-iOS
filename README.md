@@ -15,11 +15,22 @@ Carthage ou Cocoapods
     - Utilizado Cocoapods 
         - iCarousel (1.8.3)
         
+        
 Testes unitários
     - Feito teste unitário do contrato da API, mocando os dados.
     
 Persistencia de dados 
     * CoreData
+        - Criei uma DataClass com os campos necessários para exibir na tela como esta atualmente.
+        - Ao abrir o app é carregado tudo que esta salvo 
+            - Após é pedido para api 100 registros, se retornar com sucesso verifico se ja esta salvo localmente
+                - Se existir atualizo os dados
+                - Se nao existir insiro um novo registro.
+                
+            PS: Aqui fiz um teste para inserir na base local somente os Personagens que tiver imagem. 
+                - Mesmo não estando no escopo, fiz para teste e como ficou mais visual dexei.
+                
+        
 
 O projeto contem
     Carrossel superior com os 5 primeiros personagens
@@ -47,4 +58,5 @@ Features
                 - comiclink
     
     - Criar testes de UI
+    - Implementar o teste do CoreData
     
