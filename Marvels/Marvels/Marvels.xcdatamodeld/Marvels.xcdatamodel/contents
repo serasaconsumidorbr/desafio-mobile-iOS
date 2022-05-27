@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterData" representedClassName="CharacterData" syncable="YES" codeGenerationType="class">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="thunbnailCarousel" optional="YES" attributeType="String"/>
+        <attribute name="thunbnailList" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="CharacterData" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
+</model>

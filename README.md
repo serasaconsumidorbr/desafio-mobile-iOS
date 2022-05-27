@@ -1,58 +1,65 @@
-<!-- Header-->
-<br />
-<p align="center">
-  <a href="https://github.com/serasaconsumidorbr/desafio-mobile-iOS">
-    <img src="https://turismoemfoco.com.br/v1/wp-content/uploads/2020/05/serasa-logo-nova22.png" alt="Logo" width="180" height="80">
-  </a>
-
-  <h3 align="center">Desafio - iOS Developer </h3>
-
-  <p align="center">
-    O nosso aplicativo é uma das nossas soluções para mudar a vida financeira de milhões de brasileiros. <b>Venha fazer parte desse time</b> muito engajado que
-  trabalha para que esse aplicativo chegue da melhor forma na mão dos consumidores.
-  </p>
-</p>
-
-## Sobre
-<p> Utilizamos este desafio para avaliar a qualidade do seu código, arquitetura, a forma que você organiza os seus pensamentos dentro do git e muitas outras coisas, por isso, sinta-se a vontade e dê o seu melhor! O tempo médio para a entrega deste desafio é de uma semana.</p>
-
-<p>Neste desafio você irá desenvolver um app que deverá mostrar os <b>personagens</b> da <a href="https://www.marvel.com/characters">Marvel</a>. 
-  
-<p>Para começar a fazer requests utilizando este serviço, siga esta <a href="https://developer.marvel.com/documentation/authorization">documentação</a>. O endpoint que deverá ser utilizado para popular as listas do app será a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">/v1/public/characters</a></b>. </p>
+# Requisitos básicos do projeto
 
 
-## Requisitos
-<p>Estes requisitos básicos são utilizados para ver como você lida com cada um desses itens. A falta de qualquer um desses requisitos compromete a sua avaliação no final.</p>
-
-
-* Swift 5+ 
-* Xcode 11+ 
-* Arquitetura
-* Auto-layout
-* Carthage ou Cocoapods
-* Testes unitários
-
-## Será um diferencial 
-* Persistencia de dados (CoreData, Realm...)
-* Animações customizadas (Lottie, Hero, UIViewAnimate etc..)
-
-## O projeto deverá conter
-* Carrossel superior com **5** personagens
-* Uma lista **vertical** abaixo do carrossel **com os personagens seguintes, sem repetir**
-* Scroll infinito
-
-<b>Atente-se aos detalhes que ache interessante mostrar, por exemplo, nome, descrição, imagens ou outras informações dos personagens</b>
-
-## Importante
-* **Sua criatividade:** Utilize as considerações acima para criar o projeto do seu jeito, **utilizando as dependências que quiser**. Apenas saiba explicar o motivo das suas escolhas. 
-
-* **Documentação:** Ao finalizar o projeto, não se esqueça de documenta-lo. É Muito importante escrever o seu fluxo de pensamentos, **anexar imagens do aplicativo**, inserir as **bibliotecas** e versões que estão sendo utilizadas, **roadmap** de features que você gostaria de colocar e **melhorias que gostaria de fazer**...
-
-## Por fim, envie seu teste!
-* Crie um `fork`, de preferencia público, desse repositório.
-* Tente seguir o <b><a href="https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow#:~:text=Como%20afirma%20Vincent%20Driessen%20(2010,o%20trunk%20e%20o%20branch.">gitflow</a></b> para o seu fluxo de desenvolvimento.
-* Ao finalizar, faça o **pull request** para este repositório
-
-Agora é só torcer!
-
-**Ultimo recadinho:** não utilize o nome da Serasa dentro de seu projeto 😉
+- Swift 5
+- Xcode 
+    - 13.4 (13F17a)
+    
+- Arquitetura 
+    - MVVM-C
+    
+- Auto-layout 
+    - Desenvolvido com ViewCode, todo layout desenvolvido com contraints.
+    
+Carthage ou Cocoapods
+    - Utilizado Cocoapods 
+        - iCarousel (1.8.3)
+        
+Testes unitários
+    - Feito teste unitário do contrato da API, mocando os dados.
+    
+- Persistencia de dados 
+    - CoreData
+        - Criei uma DataClass com os campos necessários para exibir na tela como esta atualmente.
+        - Ao abrir o app é carregado tudo que esta salvo 
+            - Após é pedido para api 100 registros, se retornar com sucesso verifico se ja esta salvo localmente
+                - Se existir atualizo os dados
+                - Se nao existir insiro um novo registro.
+                
+> PS: Aqui fiz um teste para inserir na base local somente os Personagens que tiver imagem. 
+>   - Mesmo não estando no escopo, fiz para teste e como ficou mais visual dexei.
+                
+- O projeto contem
+    - Carrossel superior com os 5 primeiros personagens
+    - Uma lista vertical abaixo do carrossel com os personagens seguintes, sem repetir
+        - Scroll infinito
+            - Porem limitei a busca na api a 100 itens
+        
+- GitFlow
+    - Utilizei Forked Workflow
+    - Desenvolvi basicamente tudo na master
+    - Criei poucas branchs, devido ao pouco tempo acabei me concentrando no desenvolvimento e dexei meio de lado o GitFlow,
+    
+- Testes
+    - Teste unitário básico com json mockado.
+    
+- Features
+    - Melhorar a lista de personagens
+        - Tirar a imagem e fazer uma lista mais fluida com o Titulo e indicar que tem mais informações.
+        - Permitir favoritar, com swipe
+        - Fazer com que no carrosel venha os personagens favoritados.
+        
+    - Criar uma tela de detalhes 
+        - Nesta tela deve conter
+            - Capa
+            - Imagem
+            - Titulo
+            - Detalhes
+            - Botões que abrem uma WebView para
+                - detail
+                - wiki
+                - comiclink
+    
+    - Criar testes de UI
+    - Implementar o teste do CoreData
+    
