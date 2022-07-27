@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5673E672891D23100C77668 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5673E662891D23100C77668 /* StackView.swift */; };
 		D572E66B2890562A008EB6B4 /* HeroesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E66A2890562A008EB6B4 /* HeroesTableViewCell.swift */; };
 		D572E66F289058B4008EB6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D572E66E289058B4008EB6B4 /* Assets.xcassets */; };
 		D572E6722890590B008EB6B4 /* GetHeroesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E6712890590B008EB6B4 /* GetHeroesList.swift */; };
+		D572E67828905F99008EB6B4 /* MarvelKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E67728905F99008EB6B4 /* MarvelKeys.swift */; };
+		D572E67B28906020008EB6B4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E67A28906020008EB6B4 /* String.swift */; };
+		D572E67E289063F1008EB6B4 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E67D289063F1008EB6B4 /* Hero.swift */; };
+		D572E68128908BCC008EB6B4 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D572E68028908BCC008EB6B4 /* NavigationBar.swift */; };
 		D5760EA4288F5D9B00564D7D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EA3288F5D9B00564D7D /* Tests_iOS.swift */; };
 		D5760EA6288F5D9B00564D7D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EA5288F5D9B00564D7D /* Tests_iOSLaunchTests.swift */; };
 		D5760ECA288F5ECA00564D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EC9288F5ECA00564D7D /* AppDelegate.swift */; };
@@ -20,6 +25,7 @@
 		D5760EDC288F66AD00564D7D /* HeroesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EDB288F66AD00564D7D /* HeroesListViewController.swift */; };
 		D5760EE0288F66CF00564D7D /* HeroesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EDF288F66CF00564D7D /* HeroesListView.swift */; };
 		D5760EE5288F691800564D7D /* HeroesCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5760EE4288F691800564D7D /* HeroesCarouselCell.swift */; };
+		D5F267F62891985F00F7AB59 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F267F52891985F00F7AB59 /* ImageView.swift */; };
 		DC458E0EA7E2C780CB651C27 /* Pods_Marvel__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A38E541DC4CD936BB4FFB2E /* Pods_Marvel__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,16 +42,19 @@
 /* Begin PBXFileReference section */
 		2A38E541DC4CD936BB4FFB2E /* Pods_Marvel__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD62CEFA86CA7196259D8A91 /* Pods-Marvel (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel (iOS).release.xcconfig"; path = "Target Support Files/Pods-Marvel (iOS)/Pods-Marvel (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		D5673E662891D23100C77668 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		D572E66A2890562A008EB6B4 /* HeroesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewCell.swift; sourceTree = "<group>"; };
 		D572E66E289058B4008EB6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D572E6712890590B008EB6B4 /* GetHeroesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHeroesList.swift; sourceTree = "<group>"; };
+		D572E67728905F99008EB6B4 /* MarvelKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelKeys.swift; sourceTree = "<group>"; };
+		D572E67A28906020008EB6B4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D572E67D289063F1008EB6B4 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		D572E68028908BCC008EB6B4 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		D572E682289090B2008EB6B4 /* Marvel--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Marvel--iOS--Info.plist"; sourceTree = "<group>"; };
 		D5760E92288F5D9B00564D7D /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5760E9A288F5D9B00564D7D /* marvel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = marvel.entitlements; sourceTree = "<group>"; };
 		D5760E9F288F5D9B00564D7D /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5760EA3288F5D9B00564D7D /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		D5760EA5288F5D9B00564D7D /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
-		D5760EAF288F5D9B00564D7D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		D5760EB1288F5D9B00564D7D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		D5760EC9288F5ECA00564D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5760ECB288F5F2700564D7D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D5760ECF288F617000564D7D /* HeroesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCoordinator.swift; sourceTree = "<group>"; };
@@ -54,6 +63,8 @@
 		D5760EDB288F66AD00564D7D /* HeroesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewController.swift; sourceTree = "<group>"; };
 		D5760EDF288F66CF00564D7D /* HeroesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListView.swift; sourceTree = "<group>"; };
 		D5760EE4288F691800564D7D /* HeroesCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCarouselCell.swift; sourceTree = "<group>"; };
+		D5F267F3289188F400F7AB59 /* Marvel (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Marvel (iOS).entitlements"; sourceTree = "<group>"; };
+		D5F267F52891985F00F7AB59 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		DC548241BE591C0CE509A64F /* Pods-Marvel (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Marvel (iOS)/Pods-Marvel (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +104,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D5673E652891D21D00C77668 /* StackView */ = {
+			isa = PBXGroup;
+			children = (
+				D5673E662891D23100C77668 /* StackView.swift */,
+			);
+			path = StackView;
+			sourceTree = "<group>";
+		};
 		D572E669289055F8008EB6B4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,12 +145,45 @@
 			path = Heroes;
 			sourceTree = "<group>";
 		};
+		D572E67628905F87008EB6B4 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D572E67728905F99008EB6B4 /* MarvelKeys.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		D572E6792890600F008EB6B4 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				D572E67A28906020008EB6B4 /* String.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		D572E67C289063D5008EB6B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D572E67D289063F1008EB6B4 /* Hero.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D572E67F28908BBE008EB6B4 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				D572E68028908BCC008EB6B4 /* NavigationBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		D5760E85288F5D9900564D7D = {
 			isa = PBXGroup;
 			children = (
+				D5F267F3289188F400F7AB59 /* Marvel (iOS).entitlements */,
+				D572E682289090B2008EB6B4 /* Marvel--iOS--Info.plist */,
 				D5760EC7288F5E6300564D7D /* marvel */,
 				D5760EA2288F5D9B00564D7D /* Tests iOS */,
-				D5760EAE288F5D9B00564D7D /* Tests macOS */,
 				D5760E93288F5D9B00564D7D /* Products */,
 				4A55821147FDFBB319D40117 /* Pods */,
 				367074ED863722EC9EC03D0A /* Frameworks */,
@@ -156,24 +208,15 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		D5760EAE288F5D9B00564D7D /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D5760EAF288F5D9B00564D7D /* Tests_macOS.swift */,
-				D5760EB1288F5D9B00564D7D /* Tests_macOSLaunchTests.swift */,
-			);
-			path = "Tests macOS";
-			sourceTree = "<group>";
-		};
 		D5760EC7288F5E6300564D7D /* marvel */ = {
 			isa = PBXGroup;
 			children = (
 				D5760EC8288F5E9A00564D7D /* Application */,
 				D5760ECD288F606700564D7D /* Features */,
 				D572E66C289057FB008EB6B4 /* Networking */,
+				D572E67C289063D5008EB6B4 /* Model */,
 				D5760ED1288F62F600564D7D /* Utils */,
 				D572E66D289058B4008EB6B4 /* Assets */,
-				D5760E9A288F5D9B00564D7D /* marvel.entitlements */,
 			);
 			path = marvel;
 			sourceTree = "<group>";
@@ -181,6 +224,7 @@
 		D5760EC8288F5E9A00564D7D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D572E67628905F87008EB6B4 /* Configuration */,
 				D5760EC9288F5ECA00564D7D /* AppDelegate.swift */,
 				D5760ECB288F5F2700564D7D /* AppCoordinator.swift */,
 			);
@@ -207,6 +251,10 @@
 		D5760ED1288F62F600564D7D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D5673E652891D21D00C77668 /* StackView */,
+				D5F267F42891984E00F7AB59 /* ImageView */,
+				D572E67F28908BBE008EB6B4 /* NavigationBar */,
+				D572E6792890600F008EB6B4 /* String */,
 				D5760ED2288F630700564D7D /* Coordinator */,
 			);
 			path = Utils;
@@ -253,6 +301,14 @@
 				D5760EDF288F66CF00564D7D /* HeroesListView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D5F267F42891984E00F7AB59 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				D5F267F52891985F00F7AB59 /* ImageView.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,15 +455,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F267F62891985F00F7AB59 /* ImageView.swift in Sources */,
 				D572E66B2890562A008EB6B4 /* HeroesTableViewCell.swift in Sources */,
+				D572E67B28906020008EB6B4 /* String.swift in Sources */,
 				D5760ED4288F631500564D7D /* Coordinator.swift in Sources */,
 				D5760ECC288F5F2700564D7D /* AppCoordinator.swift in Sources */,
 				D5760ECA288F5ECA00564D7D /* AppDelegate.swift in Sources */,
+				D572E68128908BCC008EB6B4 /* NavigationBar.swift in Sources */,
 				D5760EE5288F691800564D7D /* HeroesCarouselCell.swift in Sources */,
 				D5760EDA288F669600564D7D /* HeroesListViewModel.swift in Sources */,
+				D572E67828905F99008EB6B4 /* MarvelKeys.swift in Sources */,
 				D5760EE0288F66CF00564D7D /* HeroesListView.swift in Sources */,
+				D5673E672891D23100C77668 /* StackView.swift in Sources */,
 				D5760EDC288F66AD00564D7D /* HeroesListViewController.swift in Sources */,
 				D5760ED0288F617000564D7D /* HeroesCoordinator.swift in Sources */,
+				D572E67E289063F1008EB6B4 /* Hero.swift in Sources */,
 				D572E6722890590B008EB6B4 /* GetHeroesList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,15 +610,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Marvel (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Marvel--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -580,15 +643,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Marvel (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Marvel--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

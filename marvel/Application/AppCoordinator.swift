@@ -27,11 +27,10 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-//        let loginCoordinator = LoginCoordinator(navigationController)
-//        self.loginCoordinator = loginCoordinator
-//        attachChild(loginCoordinator, completion: {
-//            loginCoordinator.start()
-//        })
+        let heroesCoordinator = HeroesCoordinator(navigationController)
+        attachChild(heroesCoordinator, completion: {
+            heroesCoordinator.start()
+        })
     }
     
 }

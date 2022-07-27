@@ -23,8 +23,10 @@ class HeroesCoordinator: Coordinator {
     
     func start() {
         let heroesListViewModel = HeroesListViewModel()
-        topViewController = HeroesListViewController(with: heroesListViewModel)
-        navigationController.pushViewController(topViewController!, animated: true)
+        let heroesListViewController = HeroesListViewController(with: heroesListViewModel)
+        topViewController = heroesListViewController
+        heroesListViewModel.presenter = heroesListViewController
+        navigationController.setViewControllers([heroesListViewController], animated: true)
     }
 }
 
