@@ -35,7 +35,7 @@ class HeroesListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var contentView: UIView = {
+    public lazy var contentView: UIView = {
         let view = UIView()
         return view
     }()

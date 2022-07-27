@@ -45,8 +45,10 @@ class ImageView: UIImageView {
                 }
                 
             } catch let error{
-                self?.activityIndicator.stopAnimating()
-                print(error)
+                DispatchQueue.main.async { [weak self] in
+                    self?.activityIndicator.stopAnimating()
+                    print(error)
+                }
             }
             
         }

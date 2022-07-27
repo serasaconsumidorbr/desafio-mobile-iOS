@@ -21,7 +21,7 @@ class HeroesTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    private lazy var heroImageView: ImageView = {
+    public lazy var heroImageView: ImageView = {
         let view = ImageView()
         view.contentMode =  .scaleAspectFit
         view.clipsToBounds = true
@@ -29,12 +29,12 @@ class HeroesTableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var textContainer: UIView = {
+    public lazy var textContainer: UIView = {
         let view = UIView()
         return view
     }()
     
-    private lazy var heroName: UILabel = {
+    public lazy var heroName: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
@@ -42,7 +42,7 @@ class HeroesTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var descriptionText: UILabel = {
+    public lazy var descriptionText: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
@@ -51,28 +51,18 @@ class HeroesTableViewCell: UITableViewCell {
         return label
     }()
     
-//    private lazy var activityIndicator: UIActivityIndicatorView = {
-//        let view = UIActivityIndicatorView(style: .medium)
-//        view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//        view.hidesWhenStopped = true
-//        return view
-//    }()
     
     func configureLayout() {
         heroImageView.translatesAutoresizingMaskIntoConstraints = false
         textContainer.translatesAutoresizingMaskIntoConstraints = false
         heroName.translatesAutoresizingMaskIntoConstraints = false
         descriptionText.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(activityIndicator)
         addSubview(heroImageView)
         addSubview(textContainer)
         textContainer.addSubview(heroName)
         textContainer.addSubview(descriptionText)
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 100),
-            
-//            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             heroImageView.topAnchor.constraint(equalTo: topAnchor),
             heroImageView.widthAnchor.constraint(equalToConstant: 100),
@@ -94,7 +84,6 @@ class HeroesTableViewCell: UITableViewCell {
             descriptionText.bottomAnchor.constraint(lessThanOrEqualTo: textContainer.bottomAnchor)
         ])
         
-//        activityIndicator.startAnimating()
     }
     
     func configLayout(with hero:Hero?) {
@@ -114,6 +103,5 @@ class HeroesTableViewCell: UITableViewCell {
         }
         description.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .bold), range: NSMakeRange(0, 12))
         descriptionText.attributedText = description
-//        activityIndicator.stopAnimating()
     }
 }

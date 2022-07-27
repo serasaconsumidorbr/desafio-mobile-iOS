@@ -22,7 +22,7 @@ class HeroesCarouselCell: UICollectionViewCell{
         super.init(coder: coder)
     }
     
-    private lazy var imageView: ImageView = {
+    public lazy var imageView: ImageView = {
         let view = ImageView()
         view.contentMode =  .scaleAspectFit
         view.clipsToBounds = true
@@ -30,12 +30,12 @@ class HeroesCarouselCell: UICollectionViewCell{
         return view
     }()
     
-    private lazy var textContainer: UIView = {
+    public lazy var textContainer: UIView = {
         let view = UIView()
         return view
     }()
     
-    private lazy var heroNameLabel: UILabel = {
+    public lazy var heroNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Name: "
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -43,14 +43,14 @@ class HeroesCarouselCell: UICollectionViewCell{
         return label
     }()
     
-    private lazy var heroName: UILabel = {
+    public lazy var heroName: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
-    private lazy var descriptionLabel: UILabel = {
+    public lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Description: "
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -58,7 +58,7 @@ class HeroesCarouselCell: UICollectionViewCell{
         return label
     }()
     
-    private lazy var descriptionText: UILabel = {
+    public lazy var descriptionText: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
