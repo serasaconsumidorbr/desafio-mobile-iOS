@@ -4,6 +4,14 @@
 - O que foi desenvolvido: 
   - A tela inicial contém um carrousel no topo com os 5 primeiros personagens
   - Logo abaixo do carrousel existe uma lista infinita que busca de 10 em 10 os registros da API conforme o scroll 
+  
+# Telas:
+
+<img src="./Resources/screenshot-1.png" width="250" align="left">
+<img src="./Resources/screenshot-2.png" width="250" align="left">
+<img src="./Resources/screenshot-3.png" width="250" >
+
+
 
 # Requisitos do projeto:
 
