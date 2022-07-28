@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol HeroesListViewPresenterProtocol {
+protocol CharacterListViewPresenterProtocol {
     func reloadData()
     func reloadTableView(indexPaths: [IndexPath])
 }
 
-class HeroesListViewModel: HeroesListViewModelProtocol {
+class CharacterListViewModel: CharacterListViewModelProtocol {
     
     var currentOffSet: Int = 0
     
@@ -21,12 +21,12 @@ class HeroesListViewModel: HeroesListViewModelProtocol {
     var isLoading: Bool = false
     
     
-    var carouselItens: [Hero] = []
-    var tableViewItens: [Hero] = []
+    var carouselItens: [Character] = []
+    var tableViewItens: [Character] = []
     
-    var heroesApi = GetHeroesList()
+    var heroesApi = GetCharacterList()
     
-    var presenter: HeroesListViewPresenterProtocol?
+    var presenter: CharacterListViewPresenterProtocol?
     
     func onViewDidAppear() {
         getHeroes()

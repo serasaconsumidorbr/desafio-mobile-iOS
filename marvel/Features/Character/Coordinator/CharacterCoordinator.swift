@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesCoordinator: Coordinator {
+class CharacterCoordinator: Coordinator {
     
     var topViewController: UIViewController?
     
@@ -22,8 +22,8 @@ class HeroesCoordinator: Coordinator {
     }
     
     func start() {
-        let heroesListViewModel = HeroesListViewModel()
-        let heroesListViewController = HeroesListViewController(with: heroesListViewModel)
+        let heroesListViewModel = CharacterListViewModel()
+        let heroesListViewController = CharacterListViewController(with: heroesListViewModel)
         topViewController = heroesListViewController
         heroesListViewModel.presenter = heroesListViewController
         navigationController.setViewControllers([heroesListViewController], animated: true)

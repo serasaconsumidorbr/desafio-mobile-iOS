@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesTableViewCell: UITableViewCell {
+class CharacterTableViewCell: UITableViewCell {
     static var identifier: String {
         return String(describing: type(of: self))
     }
@@ -86,7 +86,7 @@ class HeroesTableViewCell: UITableViewCell {
         
     }
     
-    func configLayout(with hero:Hero?) {
+    func configLayout(with hero:Character?) {
         guard let hero = hero else {
             return
         }

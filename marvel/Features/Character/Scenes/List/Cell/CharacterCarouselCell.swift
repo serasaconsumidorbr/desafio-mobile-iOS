@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesCarouselCell: UICollectionViewCell{
+class CharacterCarouselCell: UICollectionViewCell{
     
     static var identifier: String {
         return String(describing: type(of: self))
@@ -109,7 +109,7 @@ class HeroesCarouselCell: UICollectionViewCell{
         ])
     }
     
-    func configLayout(with hero:Hero) {
+    func configLayout(with hero:Character) {
         imageView.image = nil
         imageView.loadFrom(URLAddress: "\(hero.thumbnail.path).\(hero.thumbnail.extension)")
         heroName.text = hero.name

@@ -1,5 +1,5 @@
 //
-//  Hero.swift
+//  Character.swift
 //  Marvel (iOS)
 //
 //  Created by Matheus Custódio on 26/07/22.
@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 
 
-struct HeroListWrapper: Decodable {
-    let data: HeroList
+struct CharacterListWrapper: Decodable {
+    let data: CharacterList
 }
 
-struct HeroList: Decodable {
+struct CharacterList: Decodable {
     var offset: Int
     var total: Int
-    var results: [Hero]
+    var results: [Character]
 }
 
-struct Hero: Decodable {
+struct Character: Decodable {
     var id: Int
     var name: String
     var description: String

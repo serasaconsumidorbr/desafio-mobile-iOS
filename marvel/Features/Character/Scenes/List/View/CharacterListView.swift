@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol HeroesListViewDelegate: UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching{
+protocol CharacterListViewDelegate: UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching{
     
 }
 
-class HeroesListView: UIView {
+class CharacterListView: UIView {
     
-    var delegate: HeroesListViewDelegate? {
+    var delegate: CharacterListViewDelegate? {
         didSet {
             guard let delegate = delegate else {
                 return
@@ -48,7 +48,7 @@ class HeroesListView: UIView {
         collectionView.showsHorizontalScrollIndicator = true
         collectionView.bounces = true
         collectionView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
-        collectionView.register(HeroesCarouselCell.self, forCellWithReuseIdentifier: HeroesCarouselCell.identifier)
+        collectionView.register(CharacterCarouselCell.self, forCellWithReuseIdentifier: CharacterCarouselCell.identifier)
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -69,7 +69,7 @@ class HeroesListView: UIView {
     
     public lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .grouped)
-        tableView.register(HeroesTableViewCell.self, forCellReuseIdentifier: HeroesTableViewCell.identifier)
+        tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.identifier)
         tableView.scrollIndicatorInsets = .zero
         tableView.sectionHeaderTopPadding = 0
         tableView.estimatedSectionHeaderHeight = 0.0
@@ -145,7 +145,7 @@ class HeroesListView: UIView {
 
 
 
-extension HeroesListView: UICollectionViewDelegateFlowLayout {
+extension CharacterListView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
@@ -162,7 +162,7 @@ extension HeroesListView: UICollectionViewDelegateFlowLayout {
 
 }
 
-extension HeroesListView: UICollectionViewDelegate {
+extension CharacterListView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath){
         updateIndex(selectedIndex: indexPath.row)
     }

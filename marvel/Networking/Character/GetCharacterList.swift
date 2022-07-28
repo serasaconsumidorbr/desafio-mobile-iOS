@@ -8,13 +8,13 @@
 import Foundation
 import Alamofire
 
-class GetHeroesList {
-    func getHeroesList(offset: Int, completion: @escaping (Result<HeroList, Error>) -> Void) {
+class GetCharacterList {
+    func getHeroesList(offset: Int, completion: @escaping (Result<CharacterList, Error>) -> Void) {
         let url = "\(MarvelKeys.mainURL)/characters?limit=10&offset=\(offset)\(MarvelKeys.hashParam)"
         
         AF
             .request(url)
-            .responseDecodable(of: HeroListWrapper.self ) { response in
+            .responseDecodable(of: CharacterListWrapper.self ) { response in
                 switch response.result {
                 case .success(let hero):
                     completion(.success(hero.data))

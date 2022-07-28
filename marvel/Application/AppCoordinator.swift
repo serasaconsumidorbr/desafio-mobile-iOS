@@ -27,7 +27,7 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let heroesCoordinator = HeroesCoordinator(navigationController)
+        let heroesCoordinator = CharacterCoordinator(navigationController)
         attachChild(heroesCoordinator, completion: {
             heroesCoordinator.start()
         })

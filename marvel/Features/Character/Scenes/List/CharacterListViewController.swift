@@ -9,30 +9,30 @@ import Foundation
 
 import UIKit
 
-protocol HeroesListViewModelProtocol: AnyObject {
+protocol CharacterListViewModelProtocol: AnyObject {
     func onViewDidAppear()
     func getHeroes()
-    var carouselItens: [Hero] { get }
-    var tableViewItens: [Hero] { get }
+    var carouselItens: [Character] { get }
+    var tableViewItens: [Character] { get }
     var totalOfItens: Int { get }
 }
 
-class HeroesListViewController: UIViewController, HeroesListViewDelegate {
+class CharacterListViewController: UIViewController, CharacterListViewDelegate {
     
-    private let viewModel: HeroesListViewModelProtocol
+    private let viewModel: CharacterListViewModelProtocol
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    private lazy var heroesListView: HeroesListView = {
-        let view = HeroesListView()
+    private lazy var heroesListView: CharacterListView = {
+        let view = CharacterListView()
         view.delegate = self
         return view
     }()
     
     init(
-        with viewModel: HeroesListViewModelProtocol
+        with viewModel: CharacterListViewModelProtocol
     ) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -64,7 +64,7 @@ class HeroesListViewController: UIViewController, HeroesListViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Marvel Heroes!"
+        navigationItem.title = "Marvel Characters!"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +74,7 @@ class HeroesListViewController: UIViewController, HeroesListViewDelegate {
     
 }
 
-extension HeroesListViewController: HeroesListViewPresenterProtocol {
+extension CharacterListViewController: CharacterListViewPresenterProtocol {
     func reloadTableView(indexPaths: [IndexPath]) {
         heroesListView.tableView.reloadRows(at: indexPaths, with: .automatic)
     }
@@ -85,14 +85,14 @@ extension HeroesListViewController: HeroesListViewPresenterProtocol {
     }
 }
 
-extension HeroesListViewController: UICollectionViewDataSource {
+extension CharacterListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.carouselItens.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroesCarouselCell.identifier, for: indexPath) as? HeroesCarouselCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCarouselCell.identifier, for: indexPath) as? CharacterCarouselCell {
             let item = viewModel.carouselItens[indexPath.row]
             cell.configLayout(with: item)
             return cell
@@ -102,13 +102,13 @@ extension HeroesListViewController: UICollectionViewDataSource {
 
 }
 
-extension HeroesListViewController : UITableViewDataSource {
+extension CharacterListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.totalOfItens - viewModel.carouselItens.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: HeroesTableViewCell.identifier, for: indexPath) as? HeroesTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as? CharacterTableViewCell {
             if viewModel.tableViewItens.count > indexPath.row {
                 let item = viewModel.tableViewItens[indexPath.row]
                 cell.configLayout(with: item)
@@ -124,7 +124,7 @@ extension HeroesListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UILabel()
-        view.text = "More Heroes: "
+        view.text = "More Characters: "
         view.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         view.textAlignment = .center
         return view
@@ -132,7 +132,7 @@ extension HeroesListViewController : UITableViewDataSource {
     
 }
 
-extension HeroesListViewController: UITableViewDataSourcePrefetching {
+extension CharacterListViewController: UITableViewDataSourcePrefetching {
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= viewModel.tableViewItens.count
@@ -144,6 +144,6 @@ extension HeroesListViewController: UITableViewDataSourcePrefetching {
           }
     }
 }
-extension HeroesListViewController : UITableViewDelegate {
+extension CharacterListViewController : UITableViewDelegate {
     
 }
