@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MarvelCharactersShowcase
 //
-//  Created by Henrique Legnaro on 20/08/22.
+//  Created by Henrique Legnaro on 18/08/22.
 //
 
 import UIKit

@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>privateAPIKey</key>
+	<string>5d0ac6732ee4e5e98772a607f763e515a547a3a3</string>
+	<key>publicAPIKey</key>
+	<string>f7ac0cf023a4f0a58c78d11e9b64b6e2</string>
 </dict>
 </plist>

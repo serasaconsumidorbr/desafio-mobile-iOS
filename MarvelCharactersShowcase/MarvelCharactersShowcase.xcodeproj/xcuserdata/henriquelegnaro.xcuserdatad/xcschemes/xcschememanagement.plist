@@ -7,7 +7,25 @@
 		<key>MarvelCharactersShowcase.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0A58930128AEFBDE00511333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0A58931A28AEFBE000511333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0A58932428AEFBE000511333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

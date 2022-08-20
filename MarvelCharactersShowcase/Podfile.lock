@@ -1,0 +1,16 @@
+PODS:
+  - Hash (1.5.0)
+
+DEPENDENCIES:
+  - Hash
+
+SPEC REPOS:
+  trunk:
+    - Hash
+
+SPEC CHECKSUMS:
+  Hash: 9765c4f6b0bbde0980b2122de0535e968bdfec37
+
+PODFILE CHECKSUM: 79fb983ac5a81b31dfc008a3a6d1d3bdbc8bb168
+
+COCOAPODS: 1.11.3
