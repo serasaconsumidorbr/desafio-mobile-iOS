@@ -19,9 +19,16 @@ struct Results: Codable {
 struct Character: Codable {
     let name: String
     let thumbnail: Thumbnail
+    let comics: Available
+    let series: Available
+    let stories: Available
 }
 
 struct Thumbnail: Codable {
     let path: String
     let `extension`: String
+}
+
+struct Available: Codable {
+    let available: Int
 }

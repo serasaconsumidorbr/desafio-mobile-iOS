@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharactersData" representedClassName=".CharactersData" syncable="YES" codeGenerationType="class">
+        <attribute name="comics" attributeType="String"/>
+        <attribute name="ext" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="path" attributeType="String"/>
+        <attribute name="series" attributeType="String"/>
+        <attribute name="stories" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CharactersData" positionX="-54" positionY="-9" width="128" height="119"/>
+    </elements>
+</model>

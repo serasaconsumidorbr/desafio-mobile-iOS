@@ -10,7 +10,7 @@ import UIKit
 
 class Formatter {
     
-    static func FormatURL(url: String) -> URL? {
+    static func FormatURL(url: String, offset: Int) -> URL? {
         
         if let url = NSURL(string: url) {
             if UIApplication.shared.canOpenURL(url as URL) == false {
@@ -24,6 +24,7 @@ class Formatter {
         baseUrl.queryItems?.append(contentsOf: [URLQueryItem(name: "ts", value: K.ts)])
         baseUrl.queryItems?.append(contentsOf: [URLQueryItem(name: "apikey", value: K.publicApi)])
         baseUrl.queryItems?.append(contentsOf: [URLQueryItem(name: "hash", value: K.hash)])
+        baseUrl.queryItems?.append(contentsOf: [URLQueryItem(name: "offset", value: String(offset))])
 
         let url = baseUrl.url
         
