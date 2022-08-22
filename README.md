@@ -65,13 +65,13 @@ Utilizei o Core Data para salvar localmente os primeiros 50 personagens recebido
 <p>
     Algumas funções implementadas por meio da biblioteca SDWebImage, utilizadas para baixar as imagens pela URL, ficaram sem tratamento de erro e foram utilizadas de forma insegura, o que pode gerar problemas, planejo adotar todos os tratamentos de segurança necessários. 
     </p>
+
 ## Prints
 <p>
-</p>
-    <a>
+<a>
     <img src="https://i.imgur.com/VVOuw3c.png" alt="Logo" width="250" height="400">
   </a>
     <a>
     <img src="https://i.imgur.com/r2QDo29.png" alt="Logo" width="250" height="400">
   </a>
-  
+</p>
