@@ -11,7 +11,6 @@
 		A0206E4E2988769C006EED95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0206E4D2988769C006EED95 /* ViewController.swift */; };
 		A0206E532988769D006EED95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0206E522988769D006EED95 /* Assets.xcassets */; };
 		A0206E562988769D006EED95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0206E542988769D006EED95 /* LaunchScreen.storyboard */; };
-		A0206E612988769D006EED95 /* Marvel_CharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0206E602988769D006EED95 /* Marvel_CharactersTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		A0206E552988769D006EED95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0206E572988769D006EED95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0206E5C2988769D006EED95 /* Marvel CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel CharactersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0206E602988769D006EED95 /* Marvel_CharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_CharactersTests.swift; sourceTree = "<group>"; };
 		A0206E662988769D006EED95 /* Marvel CharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel CharactersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				A0206E482988769C006EED95 /* Marvel Characters */,
-				A0206E5F2988769D006EED95 /* Marvel CharactersTests */,
 				A0206E472988769C006EED95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,14 +93,6 @@
 				A0206E79298876AE006EED95 /* Resources */,
 			);
 			path = "Marvel Characters";
-			sourceTree = "<group>";
-		};
-		A0206E5F2988769D006EED95 /* Marvel CharactersTests */ = {
-			isa = PBXGroup;
-			children = (
-				A0206E602988769D006EED95 /* Marvel_CharactersTests.swift */,
-			);
-			path = "Marvel CharactersTests";
 			sourceTree = "<group>";
 		};
 		A0206E79298876AE006EED95 /* Resources */ = {
@@ -278,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0206E612988769D006EED95 /* Marvel_CharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
