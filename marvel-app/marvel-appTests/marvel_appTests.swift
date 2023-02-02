@@ -5,10 +5,10 @@
 //  Created by Leonardo Bandeira on 01/02/23.
 //
 
-@testable import Alamofire
 import SDWebImage
 import XCTest
 
+@testable import Alamofire
 @testable import marvel_app
 
 private class HomeServiceMock: HomeServicing {
@@ -61,7 +61,65 @@ private extension HomeViewModelTests {
 
 // MARK: - Test(s).
 final class HomeViewModelTests: XCTestCase {
-    func testperformLoading_ShouldCallDisplayLoading() {
+    func testGetCharacters_ShouldCallDisplayCharactersWhenSuccess() {
+        let args = makeSUT()
+        args.serviceMock.getCharactersResult = .success([.fixture()])
+        
+        args.sut.getCharacters()
+        
+        XCTAssertEqual(args.displaySpy.messages, [
+            .displayLoading(true),
+            .displayLoading(false),
+            .displayCharacters([
+                .init(section: .carousel, characters: [.fixture()]),
+                .init(section: .list, characters: [])
+            ])
+        ])
+    }
+    
+    func testGetCharacters_ShouldCallDisplayFailureWhenFailure() {
+        let args = makeSUT()
+        
+        args.sut.getCharacters()
+        
+        XCTAssertEqual(args.displaySpy.messages, [.displayLoading(true), .displayLoading(false), .displayFailure])
+    }
+    
+    func testBuildSections_ShouldCallDisplayCharacters() {
+        let args = makeSUT()
+        args.sut.characters = [.fixture()]
+        
+        args.sut.buildSections()
+        
+        XCTAssertEqual(args.displaySpy.messages, [
+            .displayCharacters([
+                .init(section: .carousel, characters: [.fixture()]),
+                .init(section: .list, characters: [])
+            ])
+        ])
+    }
+    
+    func testGetMoreCharacters_ShouldAddValueToOffset() {
+        let args = makeSUT()
+        args.sut.characters = [.fixture()]
+        args.sut.limit = 0
+        
+        args.sut.getMoreCharacters()
+        
+        XCTAssertEqual(args.sut.offset, 50)
+    }
+    
+    func testGetMoreCharacters_ShouldNotAddValueToOffset() {
+        let args = makeSUT()
+        args.sut.characters = [.fixture()]
+        args.sut.limit = 50
+        
+        args.sut.getMoreCharacters()
+        
+        XCTAssertEqual(args.sut.offset, 0)
+    }
+    
+    func testPerformLoading_ShouldCallDisplayLoading() {
         let args = makeSUT()
         
         args.sut.performLoading(true)
