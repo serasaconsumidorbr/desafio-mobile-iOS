@@ -19,7 +19,7 @@ final class HomeViewModel: HomeViewModeling {
     weak var viewController: HomeDisplaying?
     
     var characters = [Character]()
-    var limit: Int = 50
+    var limit: Int = 25
     var offset: Int = 0
     
     var totalCharacters: Int {
@@ -48,7 +48,7 @@ final class HomeViewModel: HomeViewModeling {
     
     func getMoreCharacters() {
         guard limit + offset <= totalCharacters else { return }
-        offset += 50
+        offset += 25
         getCharacters()
     }
     

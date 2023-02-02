@@ -106,13 +106,13 @@ final class HomeViewModelTests: XCTestCase {
         
         args.sut.getMoreCharacters()
         
-        XCTAssertEqual(args.sut.offset, 50)
+        XCTAssertEqual(args.sut.offset, 25)
     }
     
     func testGetMoreCharacters_ShouldNotAddValueToOffset() {
         let args = makeSUT()
         args.sut.characters = [.fixture()]
-        args.sut.limit = 50
+        args.sut.limit = 25
         
         args.sut.getMoreCharacters()
         

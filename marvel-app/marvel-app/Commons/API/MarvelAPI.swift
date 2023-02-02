@@ -30,7 +30,3 @@ final class MarvelAPI {
         }
     }
 }
-
-
-
-
