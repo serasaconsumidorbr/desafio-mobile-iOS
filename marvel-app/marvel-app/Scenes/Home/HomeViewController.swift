@@ -117,9 +117,17 @@ extension HomeViewController: HomeDisplaying {
     
     func displayFailure() {
         let failureView = FailureView()
+        failureView.delegate = self
         tableView.backgroundView = failureView
         tableView.backgroundView?.isHidden = false
         tableView.hideSkeleton()
+    }
+}
+
+// MARK: - FailureViewDelegate Method(s).
+extension HomeViewController: FailureViewDelegate {
+    func performTap() {
+        viewModel.getCharacters()
     }
 }
 
