@@ -8,6 +8,7 @@ target 'MarvelCharacters' do
 
   target 'MarvelCharactersTests' do
     inherit! :search_paths
+    pod 'OHHTTPStubs/Swift', '~> 9.1'
   end
 
   target 'MarvelCharactersUITests' do
