@@ -6,10 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ConfiguratorProtocol {
     associatedtype Parameters
-    associatedtype ViewType
     
-    func configureView(with parameters: Parameters, of type: ViewType) -> ViewType
+    static func configureView(with parameters: Parameters) -> UIViewController
 }

@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class CharacterListConfigurator: ConfiguratorProtocol {
     typealias Parameters = Void
-    typealias ViewType = CharacterListViewController
     
-    func configureView(with parameters: Parameters, of type: ViewType) -> ViewType {
+    static func configureView(with parameters: Parameters) -> UIViewController {
         let presenter = CharacterListPresenter()
         
         let interactor = CharacterListInteractor(presenter: presenter, networkClient: NetworkClient.shared)
