@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkClientProtocol {
+public protocol NetworkClientProtocol {
     func makeRequest<T: Decodable>(
         to endpoint: EndpointConvertible,
         of type: T.Type,

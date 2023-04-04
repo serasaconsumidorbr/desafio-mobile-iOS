@@ -6,6 +6,7 @@
 
 ## User settings
 xcuserdata/
+*.xcconfig
 
 ## Obj-C/Swift specific
 *.hmap

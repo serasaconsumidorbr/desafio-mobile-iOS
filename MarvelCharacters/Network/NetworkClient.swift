@@ -7,17 +7,17 @@
 
 import Alamofire
 
-class NetworkClient: NetworkClientProtocol {
+open class NetworkClient: NetworkClientProtocol {
     
     static let shared = NetworkClient()
     
     let sessionManager: Session
     
-    init(sessionManager: Session = Session(configuration: URLSessionConfiguration.af.default)) {
+    public init(sessionManager: Session = Session(configuration: URLSessionConfiguration.af.default)) {
         self.sessionManager = sessionManager
     }
     
-    func makeRequest<T: Decodable>(
+    open func makeRequest<T: Decodable>(
         to endpoint: EndpointConvertible,
         of type: T.Type = T.self,
         completion: @escaping (_ result: Result<T, Error>) -> ()
@@ -33,7 +33,7 @@ class NetworkClient: NetworkClientProtocol {
             method: endpoint.method,
             parameters: parameters,
             encoding: endpoint.encoding,
-            headers: endpoint.headers
+            headers: HTTPHeaders(endpoint.headers)
         ).responseDecodable(of: type) { response in
             if let decodedObject = response.value {
                 completion(.success(decodedObject))
@@ -41,5 +41,14 @@ class NetworkClient: NetworkClientProtocol {
                 completion(.failure(error))
             }
         }
+    }
+}
+
+extension HTTPHeaders {
+    init?(_ headers: [HTTPHeader]?) {
+        guard let headers = headers else {
+            return nil
+        }
+        self.init(headers)
     }
 }

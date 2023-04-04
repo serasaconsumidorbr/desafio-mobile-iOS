@@ -8,6 +8,7 @@ target 'MarvelCharacters' do
 
   target 'MarvelCharactersTests' do
     inherit! :search_paths
+    pod 'Nimble', '~> 11.2'
     pod 'OHHTTPStubs/Swift', '~> 9.1'
   end
 
