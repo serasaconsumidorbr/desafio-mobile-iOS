@@ -23,5 +23,5 @@ public protocol CharacterListPresenterProtocol: AnyObject {
     func startLoading()
     func stopLoading()
     func didLoadSuccessfully(_ characterList: CharacterList, shouldPaginate: Bool)
-    func didFailLoading(_ error: Error)
+    func didFailLoading(_ message: String)
 }

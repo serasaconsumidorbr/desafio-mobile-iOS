@@ -14,8 +14,8 @@ class CharacterListPresenterProtocolMock: CharacterListPresenterProtocol {
     enum Methods: Equatable {
         case startLoading
         case stopLoading
-        case didLoadSuccessfully(characterList: CharacterList)
-        case didFailLoading(error: Error)
+        case didLoadSuccessfully(characterList: CharacterList, shouldPaginate: Bool)
+        case didFailLoading(message: String)
         
         static func == (lhs: CharacterListPresenterProtocolMock.Methods, rhs: CharacterListPresenterProtocolMock.Methods) -> Bool {
             switch (lhs, rhs) {
@@ -23,10 +23,11 @@ class CharacterListPresenterProtocolMock: CharacterListPresenterProtocol {
                 return true
             case (.stopLoading, stopLoading):
                 return true
-            case (let .didLoadSuccessfully(lhsCharacterList), let .didLoadSuccessfully(rhsCharacterList)):
-                return lhsCharacterList == rhsCharacterList
-            case (let .didFailLoading(lhsError), let .didFailLoading(rhsError)):
-                return lhsError.localizedDescription == rhsError.localizedDescription
+            case (let .didLoadSuccessfully(lhsCharacterList, lhsShouldPaginate), let .didLoadSuccessfully(rhsCharacterList, rhsShouldPaginate)):
+                return (lhsCharacterList == rhsCharacterList) &&
+                (lhsShouldPaginate == rhsShouldPaginate)
+            case (let .didFailLoading(lhsMessage), let .didFailLoading(rhsMessage)):
+                return lhsMessage == rhsMessage
             default:
                 return false
                 
@@ -44,11 +45,11 @@ class CharacterListPresenterProtocolMock: CharacterListPresenterProtocol {
         calledMethods.append(.stopLoading)
     }
     
-    func didLoadSuccessfully(_ characterList: CharacterList) {
-        calledMethods.append(.didLoadSuccessfully(characterList: characterList))
+    func didLoadSuccessfully(_ characterList: CharacterList, shouldPaginate: Bool) {
+        calledMethods.append(.didLoadSuccessfully(characterList: characterList, shouldPaginate: shouldPaginate))
     }
     
-    func didFailLoading(_ error: Error) {
-        calledMethods.append(.didFailLoading(error: error))
+    func didFailLoading(_ message: String) {
+        calledMethods.append(.didFailLoading(message: message))
     }
 }

@@ -34,9 +34,12 @@ class CharacterListInteractor: CharacterListInteractorProtocol {
             networkClient.makeRequest(to: endpoint, of: CharacterList.self) { [weak self] result in
                 switch result {
                 case let .success(characterList):
+                    self?.offset = characterList.offset
+                    self?.limit = characterList.limit
+                    self?.count = characterList.count
                     self?.presenter.didLoadSuccessfully(characterList, shouldPaginate: shouldPaginate)
                 case let .failure(error):
-                    self?.presenter.didFailLoading(error)
+                    self?.presenter.didFailLoading(error.localizedDescription)
                 }
                 self?.isLoading = false
                 self?.presenter.stopLoading()

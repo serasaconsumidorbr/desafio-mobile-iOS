@@ -79,4 +79,9 @@ class CharacterTableViewCell: UITableViewCell {
         nameLabel.text = character.name
         descriptionLabel.text = character.description
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterImageView.image = nil
+    }
 }

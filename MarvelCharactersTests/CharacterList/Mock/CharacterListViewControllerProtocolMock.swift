@@ -9,12 +9,13 @@ import Foundation
 import MarvelCharacters
 
 class CharacterListViewControllerProtocolMock: CharacterListViewControllerProtocol {
-    
+        
     var calledMethods: [Methods] = []
     
-    enum Methods {
+    enum Methods: Equatable {
         case startLoading
         case stopLoading
+        case updateDataSource(characterList: CharacterList, shouldPaginate: Bool)
     }
     
     func startLoading() {
@@ -23,5 +24,9 @@ class CharacterListViewControllerProtocolMock: CharacterListViewControllerProtoc
     
     func stopLoading() {
         calledMethods.append(.stopLoading)
+    }
+    
+    func updateDataSource(_ characterList: MarvelCharacters.CharacterList, shouldPaginate: Bool) {
+        calledMethods.append(.updateDataSource(characterList: characterList, shouldPaginate: shouldPaginate))
     }
 }

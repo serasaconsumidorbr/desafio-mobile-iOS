@@ -46,7 +46,6 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor.loadCharacters(shouldPaginate: false)
     }
     
     override func addSubviews() {
@@ -93,7 +92,7 @@ extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.items[indexPath.row] {
         case .character:
-            return 120
+            return 118
         case .carousell:
             return 430
         case .loading:
@@ -124,6 +123,7 @@ extension CharacterListViewController: UITableViewDataSource {
             
             return cell
         case .loading:
+            interactor.loadCharacters(shouldPaginate: true)
             return tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath)
         default:
             return UITableViewCell()

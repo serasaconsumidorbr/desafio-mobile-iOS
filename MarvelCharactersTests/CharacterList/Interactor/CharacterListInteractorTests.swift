@@ -25,7 +25,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadNextPage()
+        sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
             .toEventually(beTrue())
@@ -34,13 +34,19 @@ final class CharacterListInteractorTests: XCTestCase {
             .toEventually(
                 equal([
                     .startLoading,
-                    .didLoadSuccessfully(characterList: .listMockPageOne),
+                    .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading
                 ])
             )
         
-        expect(sut.interactor.characterList)
-            .toEventually(equal(.listMockPageOne))
+        expect(sut.interactor.limit)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.count)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.offset)
+            .toEventually(equal(0))
         
         expect(sut.interactor.isLoading)
             .toEventually(beFalse())
@@ -61,7 +67,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadNextPage()
+        sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
             .toEventually(beTrue())
@@ -70,13 +76,19 @@ final class CharacterListInteractorTests: XCTestCase {
             .toEventually(
                 equal([
                     .startLoading,
-                    .didLoadSuccessfully(characterList: .listMockPageOne),
+                    .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading
                 ])
             )
         
-        expect(sut.interactor.characterList)
-            .toEventually(equal(.listMockPageOne))
+        expect(sut.interactor.limit)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.count)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.offset)
+            .toEventually(equal(0))
         
         expect(sut.interactor.isLoading)
             .toEventually(beFalse())
@@ -93,7 +105,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadNextPage()
+        sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
             .toEventually(beTrue())
@@ -102,16 +114,22 @@ final class CharacterListInteractorTests: XCTestCase {
             .toEventually(
                 equal([
                     .startLoading,
-                    .didLoadSuccessfully(characterList: .listMockPageOne),
+                    .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading,
                     .startLoading,
-                    .didLoadSuccessfully(characterList: .listMockPageTwo),
+                    .didLoadSuccessfully(characterList: .listMockPageTwo, shouldPaginate: true),
                     .stopLoading
                 ])
             )
         
-        expect(sut.interactor.characterList)
-            .toEventually(equal(.listMockPageOneAndTwo))
+        expect(sut.interactor.limit)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.count)
+            .toEventually(equal(2))
+        
+        expect(sut.interactor.offset)
+            .toEventually(equal(2))
         
         expect(sut.interactor.isLoading)
             .toEventually(beFalse())
