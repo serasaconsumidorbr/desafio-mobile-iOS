@@ -24,6 +24,7 @@
 		0000FCFB29DE250A00AD431A /* CharacterListDataSource+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCFA29DE250A00AD431A /* CharacterListDataSource+Mock.swift */; };
 		0000FCFD29DE26E200AD431A /* v1_public_characters_list_page_four.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCFC29DE26E200AD431A /* v1_public_characters_list_page_four.json */; };
 		0000FCFF29DE292D00AD431A /* v1_public_characters_list_single_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCFE29DE292D00AD431A /* v1_public_characters_list_single_page.json */; };
+		0000FD0129DE2D3700AD431A /* BaseViewCodeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FD0029DE2D3700AD431A /* BaseViewCodeControllerTests.swift */; };
 		000A593429DB8D910046CE7A /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593329DB8D910046CE7A /* CharacterListViewController.swift */; };
 		000A593629DB8DA30046CE7A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */; };
 		000A593929DB8DC20046CE7A /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */; };
@@ -85,6 +86,7 @@
 		0000FCFA29DE250A00AD431A /* CharacterListDataSource+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterListDataSource+Mock.swift"; sourceTree = "<group>"; };
 		0000FCFC29DE26E200AD431A /* v1_public_characters_list_page_four.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_page_four.json; sourceTree = "<group>"; };
 		0000FCFE29DE292D00AD431A /* v1_public_characters_list_single_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_single_page.json; sourceTree = "<group>"; };
+		0000FD0029DE2D3700AD431A /* BaseViewCodeControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCodeControllerTests.swift; sourceTree = "<group>"; };
 		000A593329DB8D910046CE7A /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
 		000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				0000FCD829DC6CD500AD431A /* APIKeysTests.swift */,
 				0000FCDA29DC89E600AD431A /* MD5Tests.swift */,
+				0000FD0029DE2D3700AD431A /* BaseViewCodeControllerTests.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				0000FCF129DE1C6000AD431A /* CharacterListViewControllerTests.swift in Sources */,
 				0049ECE729DB8B37007F31A7 /* MockObject.swift in Sources */,
 				00494A5D29DBA50D0098BDF3 /* CharacterListPresenterProtocolMock.swift in Sources */,
+				0000FD0129DE2D3700AD431A /* BaseViewCodeControllerTests.swift in Sources */,
 				0000FCF329DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift in Sources */,
 				0049ECE529DB8AFF007F31A7 /* MockEndpoint.swift in Sources */,
 				00494A6729DBB4050098BDF3 /* Character+Mock.swift in Sources */,
