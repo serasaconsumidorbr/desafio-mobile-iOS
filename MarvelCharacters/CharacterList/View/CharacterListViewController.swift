@@ -25,6 +25,7 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 130
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: "CharacterTableViewCell")
+        tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: "LoadingTableViewCell")
         tableView.refreshControl = refreshControl
         return tableView
     }()
@@ -33,9 +34,9 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     
     let interactor: CharacterListInteractorProtocol
     
-    init(interactor: CharacterListInteractorProtocol, viewModel: CharacterListDataSource = .initialState) {
+    init(interactor: CharacterListInteractorProtocol, dataSource: CharacterListDataSource = .initialState) {
         self.interactor = interactor
-        self.dataSource = viewModel
+        self.dataSource = dataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,7 +58,7 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -92,9 +93,11 @@ extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.items[indexPath.row] {
         case .character:
-            return 130
+            return 120
         case .carousell:
             return 430
+        case .loading:
+            return 80
         default:
             return 100
         }
@@ -120,6 +123,8 @@ extension CharacterListViewController: UITableViewDataSource {
             cell.fill(with: character)
             
             return cell
+        case .loading:
+            return tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath)
         default:
             return UITableViewCell()
         }

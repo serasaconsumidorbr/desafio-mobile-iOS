@@ -16,13 +16,23 @@ class CharacterTableViewCell: UITableViewCell {
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
+        imgView.contentMode = .scaleAspectFill
+        imgView.layer.cornerRadius = 4
         return imgView
     }()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -41,17 +51,21 @@ class CharacterTableViewCell: UITableViewCell {
     func configureViews() {
         contentView.addSubview(characterImageView)
         contentView.addSubview(nameLabel)
+        contentView.addSubview(descriptionLabel)
         
         contentView.addConstraints([
-            characterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            characterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            characterImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            characterImageView.heightAnchor.constraint(equalToConstant: 100),
-            characterImageView.widthAnchor.constraint(equalToConstant: 100),
-            nameLabel.leadingAnchor.constraint(equalTo: characterImageView.trailingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            characterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
+            characterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14),
+            characterImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14),
+            characterImageView.heightAnchor.constraint(equalToConstant: 90),
+            characterImageView.widthAnchor.constraint(equalToConstant: 105),
+            nameLabel.leadingAnchor.constraint(equalTo: characterImageView.trailingAnchor, constant: 14),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
+            nameLabel.topAnchor.constraint(equalTo: characterImageView.topAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
+            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: characterImageView.bottomAnchor)
         ])
     }
     
@@ -63,5 +77,6 @@ class CharacterTableViewCell: UITableViewCell {
         }
         
         nameLabel.text = character.name
+        descriptionLabel.text = character.description
     }
 }
