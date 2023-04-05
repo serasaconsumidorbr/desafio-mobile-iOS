@@ -11,9 +11,13 @@ import XCTest
 
 final class CharacterListViewControllerTests: XCTestCase {
     
-    func testStartLoading() {
+    func testPullToRefreshAction() {
         let sut = makeSut()
         
+        sut.viewController.refresh("")
+        
+        expect(sut.interactor.calledMethods)
+            .to(equal([.loadCharacters(shouldPaginate: false)]))
     }
     
     fileprivate func makeSut() -> SUT {
