@@ -29,7 +29,7 @@ final class NetworkClientTests: XCTestCase {
         
         let expectation = expectation(description: "Wait for async completion")
         
-        networkClient.makeRequest(to: MockEndpoint(), of: MockObject.self) { result in
+        networkClient.makeRequest(to: MockEndpoint.test, of: MockObject.self) { result in
             switch result {
             case .success:
                 break
@@ -46,12 +46,12 @@ final class NetworkClientTests: XCTestCase {
         let networkClient = NetworkClient()
         
         stub(condition: isMethodGET()) { _ in
-            return HTTPStubsResponse(error: AFError.invalidURL(url: MockEndpoint().convertible))
+            return HTTPStubsResponse(error: AFError.invalidURL(url: MockEndpoint.test.convertible))
         }
         
         let expectation = expectation(description: "Wait for async completion")
         
-        networkClient.makeRequest(to: MockEndpoint(), of: MockObject.self) { result in
+        networkClient.makeRequest(to: MockEndpoint.test, of: MockObject.self) { result in
             switch result {
             case .success:
                 XCTFail("Request should not be successful")

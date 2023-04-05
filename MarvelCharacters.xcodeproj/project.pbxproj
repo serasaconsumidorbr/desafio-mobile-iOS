@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0000FCD429DBC2E200AD431A /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCD329DBC2E200AD431A /* Dictionary+Extensions.swift */; };
 		0000FCD629DBC82E00AD431A /* v1_public_characters_list_page_two.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCD529DBC82E00AD431A /* v1_public_characters_list_page_two.json */; };
 		0000FCD929DC6CD500AD431A /* APIKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCD829DC6CD500AD431A /* APIKeysTests.swift */; };
 		0000FCDB29DC89E600AD431A /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCDA29DC89E600AD431A /* MD5Tests.swift */; };
@@ -69,7 +68,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0000FCD329DBC2E200AD431A /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		0000FCD529DBC82E00AD431A /* v1_public_characters_list_page_two.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_page_two.json; sourceTree = "<group>"; };
 		0000FCD829DC6CD500AD431A /* APIKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysTests.swift; sourceTree = "<group>"; };
 		0000FCDA29DC89E600AD431A /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 		00494A5429DBA28F0098BDF3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				0000FCD329DBC2E200AD431A /* Dictionary+Extensions.swift */,
 				00494A5229DBA2620098BDF3 /* String+MD5.swift */,
 			);
 			path = Extension;
@@ -640,7 +637,6 @@
 				000A593429DB8D910046CE7A /* CharacterListViewController.swift in Sources */,
 				000A594429DB91EB0046CE7A /* CharacterListProtocols.swift in Sources */,
 				000A593929DB8DC20046CE7A /* CharacterListPresenter.swift in Sources */,
-				0000FCD429DBC2E200AD431A /* Dictionary+Extensions.swift in Sources */,
 				0000FCE329DCD2E100AD431A /* CharacterListItem.swift in Sources */,
 				0000FCE129DCD2B700AD431A /* CharacterListDataSource.swift in Sources */,
 				00494A5329DBA2620098BDF3 /* String+MD5.swift in Sources */,

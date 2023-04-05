@@ -9,22 +9,26 @@ import Alamofire
 import Foundation
 import MarvelCharacters
 
-struct MockEndpoint: EndpointConvertible, Equatable {
-    var endpoint: String = "/test/endpoint"
+enum MockEndpoint: EndpointConvertible, Equatable {
+    case test
     
-    var method: Alamofire.HTTPMethod = .get
+    var endpoint: String {
+        return "/test/endpoint"
+    }
     
-    var additionalParameters: Alamofire.Parameters? = nil
+    var method: Alamofire.HTTPMethod {
+        return .get
+    }
     
-    var encoding: Alamofire.ParameterEncoding = URLEncoding.default
+    var additionalParameters: Alamofire.Parameters? {
+        return nil
+    }
     
-    var headers: [HTTPHeader]? = nil
+    var encoding: Alamofire.ParameterEncoding {
+        return URLEncoding.default
+    }
     
-    static func == (lhs: MockEndpoint, rhs: MockEndpoint) -> Bool {
-        return (lhs.baseURL == rhs.baseURL) &&
-        (lhs.endpoint == rhs.endpoint) &&
-        (lhs.method == rhs.method) &&
-        (lhs.additionalParameters == rhs.additionalParameters) &&
-        (lhs.headers == rhs.headers)
+    var headers: [HTTPHeader]? {
+        return nil
     }
 }

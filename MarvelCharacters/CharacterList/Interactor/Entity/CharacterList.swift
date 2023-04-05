@@ -31,15 +31,6 @@ public struct CharacterList: Equatable, Decodable {
         self.characters = characters
     }
     
-    mutating func updating(with characterList: CharacterList) {
-        copyright = characterList.copyright
-        offset = characterList.offset
-        limit = characterList.limit
-        total = characterList.total
-        count = characterList.count
-        characters += characterList.characters
-    }
-    
     enum CodingKeys: String, CodingKey {
         case copyright
         case data
