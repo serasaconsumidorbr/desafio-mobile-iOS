@@ -10,8 +10,20 @@ import Foundation
 public struct CharacterListDataSource: Equatable {
     var copyright: String?
     var items: [CharacterListItem]
-    var hasPartialCarousell: Bool = false
-    var hasFullCarousell: Bool = false
+    var hasPartialCarousell: Bool
+    var hasFullCarousell: Bool
+    
+    public init(
+        copyright: String? = nil,
+        items: [CharacterListItem] = [.loading],
+        hasPartialCarousell: Bool = false,
+        hasFullCarousell: Bool = false
+    ) {
+        self.copyright = copyright
+        self.items = items
+        self.hasPartialCarousell = hasPartialCarousell
+        self.hasFullCarousell = hasFullCarousell
+    }
     
     mutating func updating(with characterList: CharacterList, shouldPaginate: Bool) {
         
@@ -57,11 +69,5 @@ public struct CharacterListDataSource: Equatable {
         if characterList.offset + characterList.count < characterList.total {
             items.append(.loading)
         }
-    }
-}
-
-extension CharacterListDataSource {
-    static var initialState: CharacterListDataSource {
-        return CharacterListDataSource(items: [.loading])
     }
 }

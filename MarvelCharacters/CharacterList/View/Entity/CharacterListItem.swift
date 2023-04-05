@@ -11,5 +11,4 @@ public enum CharacterListItem: Equatable {
     case carousell(characters: [Character])
     case character(character: Character)
     case loading
-    case error(message: String)
 }

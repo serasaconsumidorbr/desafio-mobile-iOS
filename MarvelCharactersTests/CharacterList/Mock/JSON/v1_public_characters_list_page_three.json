@@ -1,0 +1,412 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2023 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2023 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2023 MARVEL</a>",
+  "etag": "c8af0d7ca73d8e9d5a933968924727dc869a028d",
+  "data": {
+    "offset": 4,
+    "limit": 2,
+    "total": 8,
+    "count": 2,
+    "results": [
+      {
+        "id": 1009146,
+        "name": "Abomination (Emil Blonsky)",
+        "description": "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
+        "modified": "2012-03-20T12:32:12-0400",
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04",
+          "extension": "jpg"
+        },
+        "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009146",
+        "comics": {
+          "available": 55,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009146/comics",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/17547",
+              "name": "Avengers (1998) #61"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/17548",
+              "name": "Avengers (1998) #62"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/1098",
+              "name": "Avengers Vol. 1: World Trust (Trade Paperback)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/8557",
+              "name": "Earth X (1999) #7"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/4241",
+              "name": "EARTH X TPB [NEW PRINTING] (Trade Paperback)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/20863",
+              "name": "Hulk (2008) #3"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/2499",
+              "name": "Hulk: Destruction (2005) #4"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14424",
+              "name": "Hulk (1999) #24"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14425",
+              "name": "Hulk (1999) #25"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14428",
+              "name": "Hulk (1999) #28"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14450",
+              "name": "Hulk (1999) #50"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14451",
+              "name": "Hulk (1999) #51"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14453",
+              "name": "Hulk (1999) #53"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/14454",
+              "name": "Hulk (1999) #54"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/8948",
+              "name": "Incredible Hulk (1962) #137"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/8982",
+              "name": "Incredible Hulk (1962) #171"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/9005",
+              "name": "Incredible Hulk (1962) #194"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/9006",
+              "name": "Incredible Hulk (1962) #195"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/9007",
+              "name": "Incredible Hulk (1962) #196"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/9011",
+              "name": "Incredible Hulk (1962) #200"
+            }
+          ],
+          "returned": 20
+        },
+        "series": {
+          "available": 27,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009146/series",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/354",
+              "name": "Avengers (1998 - 2004)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/158",
+              "name": "Avengers Vol. 1: World Trust (2003)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/378",
+              "name": "Earth X (1999 - 2000)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/1806",
+              "name": "EARTH X TPB [NEW PRINTING] (2006)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/465",
+              "name": "Hulk (1999 - 2008)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/3374",
+              "name": "Hulk (2008 - 2012)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/924",
+              "name": "Hulk: Destruction (2005)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/2021",
+              "name": "Incredible Hulk (1962 - 1999)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/2983",
+              "name": "Incredible Hulk Annual (1976 - 1994)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/22424",
+              "name": "Incredible Hulk Epic Collection: The Hulk Must Die (2017)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/212",
+              "name": "Incredible Hulk Vol. 4: Abominable (2003)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/244",
+              "name": "Incredible Hulk Vol. IV: Abominable (2003)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/8842",
+              "name": "Incredible Hulks (2010 - 2011)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/2572",
+              "name": "Iron Man (1998 - 2004)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/977",
+              "name": "Irredeemable Ant-Man (2006 - 2007)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/2423",
+              "name": "IRREDEEMABLE ANT-MAN VOL. 1: LOW-LIFE DIGEST (2007)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/3722",
+              "name": "Killraven (2002 - 2003)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/2437",
+              "name": "KILLRAVEN PREMIERE HC (2007)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/32108",
+              "name": "Maestro: World War M (2022)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/21675",
+              "name": "Marvel Cinematic Universe Guidebook: The Avengers Initiative (2017)"
+            }
+          ],
+          "returned": 20
+        },
+        "stories": {
+          "available": 65,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009146/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/4946",
+              "name": "4 of 4 - 4XLS",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/5496",
+              "name": "Irredeemable Ant-Man (2006) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/12370",
+              "name": "Cover #12370",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/12372",
+              "name": "Whosoever Harms the Hulk..!",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18419",
+              "name": "[none]",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18420",
+              "name": "The Stars Mine Enemy",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18488",
+              "name": "Incredible Hulk (1962) #171",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18489",
+              "name": "Revenge",
+              "type": ""
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18534",
+              "name": "Incredible Hulk (1962) #194",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18535",
+              "name": "The Day of the Locust!",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18536",
+              "name": "Incredible Hulk (1962) #195",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18537",
+              "name": "Warfare In Wonderland!",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18538",
+              "name": "Incredible Hulk (1962) #196",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18539",
+              "name": "The Abomination Proclamation!",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18546",
+              "name": "Incredible Hulk (1962) #200",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18547",
+              "name": "An Intruder In the Mind!",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18776",
+              "name": "Cover #18776",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18877",
+              "name": "Incredible Hulk (1962) #364",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18878",
+              "name": "Countdown Part 4: The Abomination",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/18881",
+              "name": "Incredible Hulk (1962) #366",
+              "type": "cover"
+            }
+          ],
+          "returned": 20
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009146/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/296",
+              "name": "Chaos War"
+            }
+          ],
+          "returned": 1
+        },
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/characters/81/abomination?utm_campaign=apiRef&utm_source=066201a806fa0b522452f78b3d9c61ec"
+          },
+          {
+            "type": "wiki",
+            "url": "http://marvel.com/universe/Abomination?utm_campaign=apiRef&utm_source=066201a806fa0b522452f78b3d9c61ec"
+          },
+          {
+            "type": "comiclink",
+            "url": "http://marvel.com/comics/characters/1009146/abomination_emil_blonsky?utm_campaign=apiRef&utm_source=066201a806fa0b522452f78b3d9c61ec"
+          }
+        ]
+      },
+      {
+        "id": 1016823,
+        "name": "Abomination (Ultimate)",
+        "description": "",
+        "modified": "2012-07-10T19:11:52-0400",
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+          "extension": "jpg"
+        },
+        "resourceURI": "http://gateway.marvel.com/v1/public/characters/1016823",
+        "comics": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1016823/comics",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/40638",
+              "name": "Hulk (2008) #50"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/comics/15717",
+              "name": "Ultimate X-Men (2001) #26"
+            }
+          ],
+          "returned": 2
+        },
+        "series": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1016823/series",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/3374",
+              "name": "Hulk (2008 - 2012)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/series/474",
+              "name": "Ultimate X-Men (2001 - 2009)"
+            }
+          ],
+          "returned": 2
+        },
+        "stories": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1016823/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/31883",
+              "name": "Free Preview of THE INCREDIBLE HULK #50",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/92098",
+              "name": "Hulk (2008) #50",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/92099",
+              "name": "Interior #92099",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 3
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/characters/1016823/events",
+          "items": [],
+          "returned": 0
+        },
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/characters/81/abomination?utm_campaign=apiRef&utm_source=066201a806fa0b522452f78b3d9c61ec"
+          },
+          {
+            "type": "comiclink",
+            "url": "http://marvel.com/comics/characters/1016823/abomination_ultimate?utm_campaign=apiRef&utm_source=066201a806fa0b522452f78b3d9c61ec"
+          }
+        ]
+      }
+    ]
+  }
+}

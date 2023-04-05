@@ -16,7 +16,9 @@ class CharacterListConfigurator: ConfiguratorProtocol {
         
         let interactor = CharacterListInteractor(presenter: presenter, networkClient: NetworkClient.shared)
         
-        let viewController = CharacterListViewController(interactor: interactor)
+        let dataSource = CharacterListDataSource()
+        
+        let viewController = CharacterListViewController(interactor: interactor, dataSource: dataSource)
         
         presenter.viewController = viewController
         

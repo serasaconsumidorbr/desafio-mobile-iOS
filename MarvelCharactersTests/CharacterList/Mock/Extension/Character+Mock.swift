@@ -36,4 +36,32 @@ extension Character {
         description: "",
         imageURL: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")
     )
+    
+    static var mockFive = Character(
+        id: 1009146,
+        name: "Abomination (Emil Blonsky)",
+        description: "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
+        imageURL: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg")
+    )
+    
+    static var mockSix = Character(
+        id: 1016823,
+        name: "Abomination (Ultimate)",
+        description: "",
+        imageURL: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")
+    )
+    
+    static var mockSeven = Character(
+        id: 1009148,
+        name: "Absorbing Man",
+        description: "",
+        imageURL: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7.jpg")
+    )
+    
+    static var mockEight = Character(
+        id: 1009149,
+        name: "Abyss",
+        description: "",
+        imageURL: URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64.jpg")
+    )
 }

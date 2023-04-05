@@ -18,6 +18,13 @@
 		0000FCE829DDDC2D00AD431A /* CharacterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCE729DDDC2D00AD431A /* CharacterListPresenterTests.swift */; };
 		0000FCEB29DDE50200AD431A /* CarousellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCEA29DDE50200AD431A /* CarousellTableViewCell.swift */; };
 		0000FCEE29DDE64700AD431A /* CarousellItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCED29DDE64700AD431A /* CarousellItemCollectionViewCell.swift */; };
+		0000FCF129DE1C6000AD431A /* CharacterListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCF029DE1C6000AD431A /* CharacterListViewControllerTests.swift */; };
+		0000FCF329DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCF229DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift */; };
+		0000FCF529DE243300AD431A /* v1_public_characters_list_page_three.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCF429DE243300AD431A /* v1_public_characters_list_page_three.json */; };
+		0000FCF729DE244F00AD431A /* CharacterListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCF629DE244F00AD431A /* CharacterListDataSourceTests.swift */; };
+		0000FCFB29DE250A00AD431A /* CharacterListDataSource+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCFA29DE250A00AD431A /* CharacterListDataSource+Mock.swift */; };
+		0000FCFD29DE26E200AD431A /* v1_public_characters_list_page_four.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCFC29DE26E200AD431A /* v1_public_characters_list_page_four.json */; };
+		0000FCFF29DE292D00AD431A /* v1_public_characters_list_single_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 0000FCFE29DE292D00AD431A /* v1_public_characters_list_single_page.json */; };
 		000A593429DB8D910046CE7A /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593329DB8D910046CE7A /* CharacterListViewController.swift */; };
 		000A593629DB8DA30046CE7A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */; };
 		000A593929DB8DC20046CE7A /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */; };
@@ -73,6 +80,13 @@
 		0000FCE729DDDC2D00AD431A /* CharacterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTests.swift; sourceTree = "<group>"; };
 		0000FCEA29DDE50200AD431A /* CarousellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousellTableViewCell.swift; sourceTree = "<group>"; };
 		0000FCED29DDE64700AD431A /* CarousellItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousellItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		0000FCF029DE1C6000AD431A /* CharacterListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewControllerTests.swift; sourceTree = "<group>"; };
+		0000FCF229DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorProtocolMock.swift; sourceTree = "<group>"; };
+		0000FCF429DE243300AD431A /* v1_public_characters_list_page_three.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_page_three.json; sourceTree = "<group>"; };
+		0000FCF629DE244F00AD431A /* CharacterListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataSourceTests.swift; sourceTree = "<group>"; };
+		0000FCFA29DE250A00AD431A /* CharacterListDataSource+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterListDataSource+Mock.swift"; sourceTree = "<group>"; };
+		0000FCFC29DE26E200AD431A /* v1_public_characters_list_page_four.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_page_four.json; sourceTree = "<group>"; };
+		0000FCFE29DE292D00AD431A /* v1_public_characters_list_single_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = v1_public_characters_list_single_page.json; sourceTree = "<group>"; };
 		000A593329DB8D910046CE7A /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
 		000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
@@ -161,7 +175,6 @@
 		0000FCDF29DCD2A700AD431A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0000FCE029DCD2B700AD431A /* CharacterListDataSource.swift */,
 				0000FCE229DCD2E100AD431A /* CharacterListItem.swift */,
 			);
 			path = Entity;
@@ -173,6 +186,37 @@
 				0000FCE729DDDC2D00AD431A /* CharacterListPresenterTests.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0000FCEF29DE1C4B00AD431A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0000FCF029DE1C6000AD431A /* CharacterListViewControllerTests.swift */,
+				0000FCF629DE244F00AD431A /* CharacterListDataSourceTests.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0000FCF829DE24EA00AD431A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				0000FCFE29DE292D00AD431A /* v1_public_characters_list_single_page.json */,
+				0000FCFC29DE26E200AD431A /* v1_public_characters_list_page_four.json */,
+				0000FCF429DE243300AD431A /* v1_public_characters_list_page_three.json */,
+				0000FCD529DBC82E00AD431A /* v1_public_characters_list_page_two.json */,
+				00494A6229DBB2E00098BDF3 /* v1_public_characters_list_page_one.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		0000FCF929DE24F600AD431A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				00494A6429DBB30A0098BDF3 /* CharacterList+Mock.swift */,
+				00494A6629DBB4050098BDF3 /* Character+Mock.swift */,
+				0000FCFA29DE250A00AD431A /* CharacterListDataSource+Mock.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		000A593729DB8DAB0046CE7A /* Entity */ = {
@@ -223,6 +267,7 @@
 		00494A5729DBA4060098BDF3 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
+				0000FCEF29DE1C4B00AD431A /* ViewController */,
 				0000FCE629DDDC1D00AD431A /* Presenter */,
 				00494A5B29DBA4ED0098BDF3 /* Mock */,
 				00494A5829DBA40C0098BDF3 /* Interactor */,
@@ -241,12 +286,11 @@
 		00494A5B29DBA4ED0098BDF3 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				0000FCD529DBC82E00AD431A /* v1_public_characters_list_page_two.json */,
-				00494A6229DBB2E00098BDF3 /* v1_public_characters_list_page_one.json */,
+				0000FCF929DE24F600AD431A /* Extension */,
+				0000FCF829DE24EA00AD431A /* JSON */,
 				00494A5C29DBA50D0098BDF3 /* CharacterListPresenterProtocolMock.swift */,
 				00494A6029DBAEE50098BDF3 /* CharacterListViewControllerProtocolMock.swift */,
-				00494A6429DBB30A0098BDF3 /* CharacterList+Mock.swift */,
-				00494A6629DBB4050098BDF3 /* Character+Mock.swift */,
+				0000FCF229DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -333,6 +377,7 @@
 		00D092A829DB67C6000780C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0000FCE029DCD2B700AD431A /* CharacterListDataSource.swift */,
 				0000FCDF29DCD2A700AD431A /* Entity */,
 				0000FCDC29DC8CC600AD431A /* TableViewCell */,
 				000A593329DB8D910046CE7A /* CharacterListViewController.swift */,
@@ -492,7 +537,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0000FCF529DE243300AD431A /* v1_public_characters_list_page_three.json in Resources */,
+				0000FCFF29DE292D00AD431A /* v1_public_characters_list_single_page.json in Resources */,
 				00494A6329DBB2E00098BDF3 /* v1_public_characters_list_page_one.json in Resources */,
+				0000FCFD29DE26E200AD431A /* v1_public_characters_list_page_four.json in Resources */,
 				0000FCD629DBC82E00AD431A /* v1_public_characters_list_page_two.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,17 +664,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0000FCF729DE244F00AD431A /* CharacterListDataSourceTests.swift in Sources */,
 				0000FCE829DDDC2D00AD431A /* CharacterListPresenterTests.swift in Sources */,
 				0000FCD929DC6CD500AD431A /* APIKeysTests.swift in Sources */,
 				00494A5A29DBA41E0098BDF3 /* CharacterListInteractorTests.swift in Sources */,
 				00494A6529DBB30A0098BDF3 /* CharacterList+Mock.swift in Sources */,
 				00494A6129DBAEE50098BDF3 /* CharacterListViewControllerProtocolMock.swift in Sources */,
+				0000FCF129DE1C6000AD431A /* CharacterListViewControllerTests.swift in Sources */,
 				0049ECE729DB8B37007F31A7 /* MockObject.swift in Sources */,
 				00494A5D29DBA50D0098BDF3 /* CharacterListPresenterProtocolMock.swift in Sources */,
+				0000FCF329DE1CC300AD431A /* CharacterListInteractorProtocolMock.swift in Sources */,
 				0049ECE529DB8AFF007F31A7 /* MockEndpoint.swift in Sources */,
 				00494A6729DBB4050098BDF3 /* Character+Mock.swift in Sources */,
 				0000FCDB29DC89E600AD431A /* MD5Tests.swift in Sources */,
 				00D092B929DB794B000780C3 /* NetworkClientTests.swift in Sources */,
+				0000FCFB29DE250A00AD431A /* CharacterListDataSource+Mock.swift in Sources */,
 				00494A5F29DBABCC0098BDF3 /* NetworkClientProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

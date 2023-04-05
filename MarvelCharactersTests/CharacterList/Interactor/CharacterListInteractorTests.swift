@@ -159,5 +159,3 @@ final class CharacterListInteractorTests: XCTestCase {
         let networkClient: NetworkClientProtocolMock
     }
 }
-
-

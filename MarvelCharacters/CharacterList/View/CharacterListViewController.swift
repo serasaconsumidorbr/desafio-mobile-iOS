@@ -35,7 +35,10 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     
     let interactor: CharacterListInteractorProtocol
     
-    init(interactor: CharacterListInteractorProtocol, dataSource: CharacterListDataSource = .initialState) {
+    init(
+        interactor: CharacterListInteractorProtocol,
+        dataSource: CharacterListDataSource
+    ) {
         self.interactor = interactor
         self.dataSource = dataSource
         super.init(nibName: nil, bundle: nil)
@@ -68,7 +71,7 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    @objc private func refresh(_ sender: Any) {
+    @objc public func refresh(_ sender: Any) {
         interactor.loadCharacters(shouldPaginate: false)
     }
 
@@ -76,7 +79,7 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
 
 extension CharacterListViewController {
     func startLoading() {
-        
+        refreshControl.beginRefreshing()
     }
     
     func stopLoading() {
@@ -98,8 +101,6 @@ extension CharacterListViewController: UITableViewDelegate {
             return 480
         case .loading:
             return 80
-        default:
-            return 100
         }
     }
 }
@@ -133,8 +134,6 @@ extension CharacterListViewController: UITableViewDataSource {
         case .loading:
             interactor.loadCharacters(shouldPaginate: true)
             return tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath)
-        default:
-            return UITableViewCell()
         }
     }
 }
