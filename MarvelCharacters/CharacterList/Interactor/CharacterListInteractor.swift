@@ -11,14 +11,10 @@ class CharacterListInteractor: CharacterListInteractorProtocol {
     let presenter: CharacterListPresenterProtocol
     let networkClient: NetworkClientProtocol
     
-    var characterList: CharacterList = CharacterList(
-        copyright: "",
-        offset: 0,
-        limit: 20,
-        total: 0,
-        count: 0,
-        characters: []
-    )
+    var offset = 0
+    var limit = 20
+    var count = 0
+    
     var isLoading = false
     
     init(presenter: CharacterListPresenterProtocol, networkClient: NetworkClientProtocol) {
@@ -26,19 +22,19 @@ class CharacterListInteractor: CharacterListInteractorProtocol {
         self.networkClient = networkClient
     }
     
-    func loadNextPage() {
+    func loadCharacters(shouldPaginate: Bool) {
         if !isLoading {
             isLoading = true
             presenter.startLoading()
+            
             let endpoint = CharacterEndpoint.list(
-                offset: characterList.offset + characterList.count,
-                limit: characterList.limit
+                offset: offset + count,
+                limit: limit
             )
             networkClient.makeRequest(to: endpoint, of: CharacterList.self) { [weak self] result in
                 switch result {
                 case let .success(characterList):
-                    self?.characterList.updating(with: characterList)
-                    self?.presenter.didLoadSuccessfully(characterList)
+                    self?.presenter.didLoadSuccessfully(characterList, shouldPaginate: shouldPaginate)
                 case let .failure(error):
                     self?.presenter.didFailLoading(error)
                 }

@@ -10,16 +10,18 @@ import Foundation
 class CharacterListPresenter: CharacterListPresenterProtocol {
     weak var viewController: CharacterListViewControllerProtocol?
     
+    var viewModel: CharacterListDataSource?
+    
     func startLoading() {
         
     }
     
     func stopLoading() {
-        
+        viewController?.stopLoading()
     }
     
-    func didLoadSuccessfully(_ characterList: CharacterList) {
-        
+    func didLoadSuccessfully(_ characterList: CharacterList, shouldPaginate: Bool) {
+        viewController?.updateDataSource(characterList, shouldPaginate: shouldPaginate)
     }
     
     func didFailLoading(_ error: Error) {

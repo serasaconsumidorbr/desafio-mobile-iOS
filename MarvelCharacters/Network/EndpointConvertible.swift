@@ -80,17 +80,17 @@ extension EndpointConvertible where Self: Equatable {
 
 public extension EndpointConvertible {
     var baseURL: String {
-        return "https://developer.marvel.com"
+        return "https://gateway.marvel.com"
     }
     
     var authenticationParameters: Parameters? {
         guard let apiSecret = APIKeys.apiSecret, let apiKey = APIKeys.apiKey else { return nil }
         let timestamp = String(Date().timeIntervalSince1970)
-        
+        let hash = (timestamp + apiSecret + apiKey)
         return [
             "ts": timestamp,
-            "apiKey": apiKey,
-            "hash": (timestamp + apiSecret + apiKey).MD5
+            "apikey": apiKey,
+            "hash": hash.MD5
         ]
     }
     

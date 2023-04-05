@@ -28,13 +28,19 @@ open class NetworkClient: NetworkClientProtocol {
             parameters?.merge(additionalParameters, uniquingKeysWith: { (current, _) in current })
         }
         
-        sessionManager.request(
+        let request = sessionManager.request(
             endpoint.convertible,
             method: endpoint.method,
             parameters: parameters,
             encoding: endpoint.encoding,
             headers: HTTPHeaders(endpoint.headers)
-        ).responseDecodable(of: type) { response in
+        )
+            
+        request.cURLDescription(calling: { (curl) in
+            print(curl)
+        })
+        
+        request.responseDecodable(of: type) { response in
             if let decodedObject = response.value {
                 completion(.success(decodedObject))
             } else if let error = response.error {
