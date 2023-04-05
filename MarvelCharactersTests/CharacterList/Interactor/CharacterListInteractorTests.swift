@@ -28,7 +28,7 @@ final class CharacterListInteractorTests: XCTestCase {
         sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
-            .toEventually(beTrue())
+            .to(beTrue())
         
         expect(sut.presenter.calledMethods)
             .toEventually(
@@ -40,22 +40,51 @@ final class CharacterListInteractorTests: XCTestCase {
             )
         
         expect(sut.interactor.limit)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.count)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.offset)
-            .toEventually(equal(0))
+            .to(equal(0))
         
         expect(sut.interactor.isLoading)
-            .toEventually(beFalse())
+            .to(beFalse())
         
         expect(sut.networkClient.calledMethods)
             .toEventually(
                 equal([
                     .makeRequest(endpoint: CharacterEndpoint.list(offset: 0, limit: 20))
                 ])
+            )
+    }
+    
+    func testLoadWhileAlreadyLoading() {
+        let sut = makeSut()
+        
+        sut.interactor.isLoading = true
+        sut.interactor.loadCharacters(shouldPaginate: true)
+        
+        expect(sut.interactor.isLoading)
+            .to(beTrue())
+        
+        expect(sut.presenter.calledMethods)
+            .toEventually(
+                equal([])
+            )
+        
+        expect(sut.interactor.limit)
+            .to(equal(20))
+        
+        expect(sut.interactor.count)
+            .to(equal(0))
+        
+        expect(sut.interactor.offset)
+            .to(equal(0))
+        
+        expect(sut.networkClient.calledMethods)
+            .toEventually(
+                equal([])
             )
     }
     
@@ -70,7 +99,7 @@ final class CharacterListInteractorTests: XCTestCase {
         sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
-            .toEventually(beTrue())
+            .to(beTrue())
         
         expect(sut.presenter.calledMethods)
             .toEventually(
@@ -82,16 +111,16 @@ final class CharacterListInteractorTests: XCTestCase {
             )
         
         expect(sut.interactor.limit)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.count)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.offset)
-            .toEventually(equal(0))
+            .to(equal(0))
         
         expect(sut.interactor.isLoading)
-            .toEventually(beFalse())
+            .to(beFalse())
         
         expect(sut.networkClient.calledMethods)
             .toEventually(
@@ -108,7 +137,7 @@ final class CharacterListInteractorTests: XCTestCase {
         sut.interactor.loadCharacters(shouldPaginate: true)
         
         expect(sut.interactor.isLoading)
-            .toEventually(beTrue())
+            .to(beTrue())
         
         expect(sut.presenter.calledMethods)
             .toEventually(
@@ -123,22 +152,115 @@ final class CharacterListInteractorTests: XCTestCase {
             )
         
         expect(sut.interactor.limit)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.count)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.offset)
-            .toEventually(equal(2))
+            .to(equal(2))
         
         expect(sut.interactor.isLoading)
-            .toEventually(beFalse())
+            .to(beFalse())
         
         expect(sut.networkClient.calledMethods)
             .toEventually(
                 equal([
                     .makeRequest(endpoint: CharacterEndpoint.list(offset: 0, limit: 20)),
                     .makeRequest(endpoint: CharacterEndpoint.list(offset: 2, limit: 2))
+                ])
+            )
+    }
+    
+    func testLoadWithoutPaginating() {
+        let sut = makeSut()
+        
+        stub(condition: isPath("/v1/public/characters")) { _ in
+            let stubPath = OHPathForFile("v1_public_characters_list_page_one.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
+        
+        sut.interactor.loadCharacters(shouldPaginate: true)
+        
+        expect(sut.interactor.isLoading)
+            .to(beTrue())
+        
+        expect(sut.presenter.calledMethods)
+            .toEventually(
+                equal([
+                    .startLoading,
+                    .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
+                    .stopLoading
+                ])
+            )
+        
+        expect(sut.interactor.limit)
+            .to(equal(2))
+        
+        expect(sut.interactor.count)
+            .to(equal(2))
+        
+        expect(sut.interactor.offset)
+            .to(equal(0))
+        
+        expect(sut.interactor.isLoading)
+            .to(beFalse())
+        
+        expect(sut.networkClient.calledMethods)
+            .toEventually(
+                equal([
+                    .makeRequest(endpoint: CharacterEndpoint.list(offset: 0, limit: 20))
+                ])
+            )
+        
+        stub(condition: isPath("/v1/public/characters")) { _ in
+            let stubPath = OHPathForFile("v1_public_characters_list_page_two.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
+        
+        sut.interactor.loadCharacters(shouldPaginate: false)
+        
+        expect(sut.interactor.isLoading)
+            .to(beTrue())
+        
+        expect(sut.interactor.limit)
+            .to(equal(20))
+        
+        expect(sut.interactor.count)
+            .to(equal(0))
+        
+        expect(sut.interactor.offset)
+            .to(equal(0))
+        
+        expect(sut.presenter.calledMethods)
+            .toEventually(
+                equal([
+                    .startLoading,
+                    .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
+                    .stopLoading,
+                    .startLoading,
+                    .didLoadSuccessfully(characterList: .listMockPageTwo, shouldPaginate: false),
+                    .stopLoading
+                ])
+            )
+        
+        expect(sut.interactor.limit)
+            .to(equal(2))
+        
+        expect(sut.interactor.count)
+            .to(equal(2))
+        
+        expect(sut.interactor.offset)
+            .to(equal(2))
+        
+        expect(sut.interactor.isLoading)
+            .to(beFalse())
+        
+        expect(sut.networkClient.calledMethods)
+            .toEventually(
+                equal([
+                    .makeRequest(endpoint: CharacterEndpoint.list(offset: 0, limit: 20)),
+                    .makeRequest(endpoint: CharacterEndpoint.list(offset: 0, limit: 20))
                 ])
             )
     }
