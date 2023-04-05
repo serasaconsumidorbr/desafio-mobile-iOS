@@ -27,6 +27,12 @@ class CharacterListInteractor: CharacterListInteractorProtocol {
             isLoading = true
             presenter.startLoading()
             
+            if !shouldPaginate {
+                offset = 0
+                limit = 20
+                count = 0
+            }
+            
             let endpoint = CharacterEndpoint.list(
                 offset: offset + count,
                 limit: limit
