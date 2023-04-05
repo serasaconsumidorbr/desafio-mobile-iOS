@@ -16,6 +16,8 @@
 		0000FCE329DCD2E100AD431A /* CharacterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCE229DCD2E100AD431A /* CharacterListItem.swift */; };
 		0000FCE529DDCFE000AD431A /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCE429DDCFE000AD431A /* LoadingTableViewCell.swift */; };
 		0000FCE829DDDC2D00AD431A /* CharacterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCE729DDDC2D00AD431A /* CharacterListPresenterTests.swift */; };
+		0000FCEB29DDE50200AD431A /* CarousellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCEA29DDE50200AD431A /* CarousellTableViewCell.swift */; };
+		0000FCEE29DDE64700AD431A /* CarousellItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000FCED29DDE64700AD431A /* CarousellItemCollectionViewCell.swift */; };
 		000A593429DB8D910046CE7A /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593329DB8D910046CE7A /* CharacterListViewController.swift */; };
 		000A593629DB8DA30046CE7A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */; };
 		000A593929DB8DC20046CE7A /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */; };
@@ -69,6 +71,8 @@
 		0000FCE229DCD2E100AD431A /* CharacterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListItem.swift; sourceTree = "<group>"; };
 		0000FCE429DDCFE000AD431A /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		0000FCE729DDDC2D00AD431A /* CharacterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTests.swift; sourceTree = "<group>"; };
+		0000FCEA29DDE50200AD431A /* CarousellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousellTableViewCell.swift; sourceTree = "<group>"; };
+		0000FCED29DDE64700AD431A /* CarousellItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousellItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		000A593329DB8D910046CE7A /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
 		000A593829DB8DC20046CE7A /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
@@ -143,13 +147,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		0000FCDC29DC8CC600AD431A /* Cell */ = {
+		0000FCDC29DC8CC600AD431A /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				0000FCDD29DC8CD600AD431A /* CharacterTableViewCell.swift */,
 				0000FCE429DDCFE000AD431A /* LoadingTableViewCell.swift */,
+				0000FCEA29DDE50200AD431A /* CarousellTableViewCell.swift */,
+				0000FCED29DDE64700AD431A /* CarousellItemCollectionViewCell.swift */,
 			);
-			path = Cell;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		0000FCDF29DCD2A700AD431A /* Entity */ = {
@@ -328,7 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				0000FCDF29DCD2A700AD431A /* Entity */,
-				0000FCDC29DC8CC600AD431A /* Cell */,
+				0000FCDC29DC8CC600AD431A /* TableViewCell */,
 				000A593329DB8D910046CE7A /* CharacterListViewController.swift */,
 			);
 			path = View;
@@ -595,9 +601,11 @@
 				008FAF0B29DB5C9E00560494 /* SceneDelegate.swift in Sources */,
 				00494A5629DBA2E90098BDF3 /* APIKeys.swift in Sources */,
 				000A593C29DB8E600046CE7A /* ViewCodeController.swift in Sources */,
+				0000FCEE29DDE64700AD431A /* CarousellItemCollectionViewCell.swift in Sources */,
 				0000FCDE29DC8CD600AD431A /* CharacterTableViewCell.swift in Sources */,
 				00D092A629DB65F1000780C3 /* NetworkClient.swift in Sources */,
 				0000FCE529DDCFE000AD431A /* LoadingTableViewCell.swift in Sources */,
+				0000FCEB29DDE50200AD431A /* CarousellTableViewCell.swift in Sources */,
 				00D092AD29DB67F4000780C3 /* CharacterEndpoint.swift in Sources */,
 				00D092B429DB6DC6000780C3 /* Character.swift in Sources */,
 				00D092B629DB75EA000780C3 /* NetworkClientProtocol.swift in Sources */,

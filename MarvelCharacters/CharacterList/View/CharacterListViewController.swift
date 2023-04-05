@@ -24,6 +24,7 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
         tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 130
+        tableView.register(CarousellTableViewCell.self, forCellReuseIdentifier: "CarousellTableViewCell")
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: "CharacterTableViewCell")
         tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: "LoadingTableViewCell")
         tableView.refreshControl = refreshControl
@@ -94,7 +95,7 @@ extension CharacterListViewController: UITableViewDelegate {
         case .character:
             return 118
         case .carousell:
-            return 430
+            return 480
         case .loading:
             return 80
         default:
@@ -115,6 +116,13 @@ extension CharacterListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch dataSource.items[indexPath.row] {
+        case let .carousell(characters):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CarousellTableViewCell", for: indexPath) as? CarousellTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.updateDataSource(with: characters)
+            
+            return cell
         case let .character(character):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath) as? CharacterTableViewCell else {
                 return UITableViewCell()

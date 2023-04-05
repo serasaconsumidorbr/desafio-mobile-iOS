@@ -14,7 +14,6 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var characterImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         imgView.contentMode = .scaleAspectFill
         imgView.layer.cornerRadius = 4
