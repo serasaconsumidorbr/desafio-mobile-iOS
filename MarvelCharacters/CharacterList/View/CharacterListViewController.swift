@@ -87,21 +87,24 @@ extension CharacterListViewController {
     
     func updateDataSource(_ characterList: CharacterList, shouldPaginate: Bool) {
         dataSource.updating(with: characterList, shouldPaginate: shouldPaginate)
-        let oldNumberOfItems = characterList.offset
-        let newNumberOfItems = oldNumberOfItems + characterList.count
+        let newNumberOfItems = characterList.offset + characterList.count
         
         var indexPaths: [IndexPath] = []
-
-        let oldLastIndex = max(oldNumberOfItems - 4, 0)
+        
+        let oldLastIndex = tableView.numberOfRows(inSection: 0)
         let newLastIndex = max(newNumberOfItems - 4, 0)
         
-        for i in oldLastIndex...newLastIndex {
-            indexPaths.append(IndexPath(row: i, section: 0))
+        if newLastIndex > oldLastIndex {
+            for i in (oldLastIndex-1)...newLastIndex {
+                indexPaths.append(IndexPath(row: i, section: 0))
+            }
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [IndexPath(row: oldLastIndex-1, section: 0)], with: .left)
+            tableView.insertRows(at: indexPaths, with: .right)
+            tableView.endUpdates()
+        } else {
+            tableView.reloadData()
         }
-
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [IndexPath(row: oldLastIndex, section: 0)], with: .left)
-        tableView.insertRows(at: indexPaths, with: .right)
-        tableView.endUpdates()
     }
 }
