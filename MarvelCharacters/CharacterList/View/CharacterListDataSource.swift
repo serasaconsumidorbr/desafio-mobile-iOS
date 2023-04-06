@@ -82,10 +82,10 @@ extension CharacterListDataSource: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch items[indexPath.row] {
-        case .character:
-            return 118
         case .carousell:
             return 480
+        case .character:
+            return 118
         case .loading:
             return 80
         }

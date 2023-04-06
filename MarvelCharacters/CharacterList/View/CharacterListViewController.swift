@@ -22,8 +22,6 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.allowsSelection = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 130
         tableView.register(CarousellTableViewCell.self, forCellReuseIdentifier: "CarousellTableViewCell")
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: "CharacterTableViewCell")
         tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: "LoadingTableViewCell")
