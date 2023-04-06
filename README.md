@@ -6,8 +6,8 @@ Algumas Feature:
 - Scroll infinito
 
 ## Imagens
-<img src="./Images/Screenshot.png" width="250" align="left">
-<img src="./Images/Video.gif" width="250" align="left">
+<img src="./Images/Screenshot.png" width="400" align="center">
+<img src="./Images/Video.gif" width="400" align="center">
 
 ## Pré requisitos:
 - XCode 14.2(Essa é a versão que eu usei, mas pode funcionar com uma mais antiga)
