@@ -12,60 +12,49 @@ import XCTest
 final class CharacterListDataSourceTests: XCTestCase {
     
     func testUpdatingPaginating() {
-        var sut = makeSut()
+        let sut = CharacterListDataSource()
         
-        sut.dataSource.updating(with: .listMockPageOne, shouldPaginate: true)
+        sut.updating(with: .listMockPageOne, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockOnePage))
+        print(sut)
+        print(CharacterListDataSource.mockOnePage)
+        expect(sut).to(equal(.mockOnePage))
         
-        sut.dataSource.updating(with: .listMockPageTwo, shouldPaginate: true)
+        sut.updating(with: .listMockPageTwo, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockTwoPages))
+        expect(sut).to(equal(.mockTwoPages))
         
-        sut.dataSource.updating(with: .listMockPageThree, shouldPaginate: true)
+        sut.updating(with: .listMockPageThree, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockThreePages))
+        expect(sut).to(equal(.mockThreePages))
         
-        sut.dataSource.updating(with: .listMockPageFour, shouldPaginate: true)
+        sut.updating(with: .listMockPageFour, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockFourPages))
+        expect(sut).to(equal(.mockFourPages))
     }
     
     func testUpdatingNotPaginating() {
-        var sut = makeSut()
+        let sut = CharacterListDataSource()
         
-        sut.dataSource.updating(with: .listMockPageOne, shouldPaginate: true)
+        sut.updating(with: .listMockPageOne, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockOnePage))
+        expect(sut).to(equal(.mockOnePage))
         
-        sut.dataSource.updating(with: .listMockPageTwo, shouldPaginate: true)
+        sut.updating(with: .listMockPageTwo, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockTwoPages))
+        expect(sut).to(equal(.mockTwoPages))
         
-        sut.dataSource.updating(with: .listMockPageOne, shouldPaginate: false)
+        sut.updating(with: .listMockPageOne, shouldPaginate: false)
         
-        expect(sut.dataSource).to(equal(.mockOnePage))
+        expect(sut).to(equal(.mockOnePage))
     }
     
     func testUpdatingSinglePage() {
-        var sut = makeSut()
+        let sut = CharacterListDataSource()
         
-        sut.dataSource.updating(with: .listMockSinglePage, shouldPaginate: true)
+        sut.updating(with: .listMockSinglePage, shouldPaginate: true)
         
-        expect(sut.dataSource).to(equal(.mockFourPages))
+        expect(sut).to(equal(.mockFourPages))
     }
     
-    fileprivate func makeSut() -> SUT {
-        let dataSource = CharacterListDataSource()
-                
-        return SUT(
-            dataSource: dataSource
-        )
-    }
-    
-    fileprivate struct SUT {
-        var dataSource: CharacterListDataSource
-    }
 }
-
-

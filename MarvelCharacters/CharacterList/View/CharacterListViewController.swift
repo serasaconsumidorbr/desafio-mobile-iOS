@@ -19,8 +19,8 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
         tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 130
@@ -74,7 +74,6 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     @objc public func refresh(_ sender: Any) {
         interactor.loadCharacters(shouldPaginate: false)
     }
-
 }
 
 extension CharacterListViewController {
@@ -87,53 +86,22 @@ extension CharacterListViewController {
     }
     
     func updateDataSource(_ characterList: CharacterList, shouldPaginate: Bool) {
-        self.dataSource.updating(with: characterList, shouldPaginate: shouldPaginate)
-        tableView.reloadData()
-    }
-}
+        dataSource.updating(with: characterList, shouldPaginate: shouldPaginate)
+        let oldNumberOfItems = characterList.offset
+        let newNumberOfItems = oldNumberOfItems + characterList.count
+        
+        var indexPaths: [IndexPath] = []
 
-extension CharacterListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch dataSource.items[indexPath.row] {
-        case .character:
-            return 118
-        case .carousell:
-            return 480
-        case .loading:
-            return 80
+        let oldLastIndex = max(oldNumberOfItems - 4, 0)
+        let newLastIndex = max(newNumberOfItems - 4, 0)
+        
+        for i in oldLastIndex...newLastIndex {
+            indexPaths.append(IndexPath(row: i, section: 0))
         }
-    }
-}
 
-extension CharacterListViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch dataSource.items[indexPath.row] {
-        case let .carousell(characters):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CarousellTableViewCell", for: indexPath) as? CarousellTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.updateDataSource(with: characters)
-            
-            return cell
-        case let .character(character):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath) as? CharacterTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.fill(with: character)
-            
-            return cell
-        case .loading:
-            interactor.loadCharacters(shouldPaginate: true)
-            return tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath)
-        }
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: oldLastIndex, section: 0)], with: .left)
+        tableView.insertRows(at: indexPaths, with: .right)
+        tableView.endUpdates()
     }
 }
