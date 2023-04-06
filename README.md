@@ -1,58 +1,45 @@
-<!-- Header-->
-<br />
-<p align="center">
-  <a href="https://github.com/serasaconsumidorbr/desafio-mobile-iOS">
-    <img src="https://turismoemfoco.com.br/v1/wp-content/uploads/2020/05/serasa-logo-nova22.png" alt="Logo" width="180" height="80">
-  </a>
-
-  <h3 align="center">Desafio - iOS Developer </h3>
-
-  <p align="center">
-    O nosso aplicativo é uma das nossas soluções para mudar a vida financeira de milhões de brasileiros. <b>Venha fazer parte desse time</b> muito engajado que
-  trabalha para que esse aplicativo chegue da melhor forma na mão dos consumidores.
-  </p>
-</p>
-
 ## Sobre
-<p> Utilizamos este desafio para avaliar a qualidade do seu código, arquitetura, a forma que você organiza os seus pensamentos dentro do git e muitas outras coisas, por isso, sinta-se a vontade e dê o seu melhor! O tempo médio para a entrega deste desafio é de uma semana.</p>
 
-<p>Neste desafio você irá desenvolver um app que deverá mostrar os <b>personagens</b> da <a href="https://www.marvel.com/characters">Marvel</a>. 
-  
-<p>Para começar a fazer requests utilizando este serviço, siga esta <a href="https://developer.marvel.com/documentation/authorization">documentação</a>. O endpoint que deverá ser utilizado para popular as listas do app será a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">/v1/public/characters</a></b>. </p>
+Esse App se utiliza da API da Marvel para listar os personagens em ordem alfabética.
+Algumas Feature:
+- Pull to refresh
+- Scroll infinito
+
+## Imagens
+<img src="./Images/Screenshot.png" width="400" align="center">
+<img src="./Images/Video.gif" width="400" align="center">
+
+## Pré requisitos:
+- XCode 14.2(Essa é a versão que eu usei, mas pode funcionar com uma mais antiga)
+- Swift 5
+- Cocoapods 1.12.0
+
+## Setup
+Eu comitei a pasta Pods para facilitar o setup, então não deve ser necessário rodar um `pod install`
+
+As chaves da API da Marvel não foram comitadas pois isso seria uma falha de segurança. Eu enviei os arquivos de chaves por e-mail para serem repassados aos avaliadores. Esses arquivos devem ser colocados no caminho `desafio-mobile-iOS/MarvelCharacters/` (Mesma pasta do AppDelegate)
+
+## Arquitetura
+Utilizei a arquitetura VIP para melhor separação das responsabilidades entre classes e facilitar os testes unitários através de injeção de dependências.
+
+## Dependências
+Normalmente não uso dependências nesse tipo de teste, mas como era um pré-requisito me senti a vontade para economizar algum tempo incluindo algumas bem conhecidas.
+ - Alamofire: Para facilitar as chamadas de API.(Hoje só existe um endpoint implementado no app, porém, como o plano é adicionar mais no futuro, ter uma abstração para chamadas bem completa como o Alamofire pode facilitar bastante.)
+ - AlamofireImage: Para facilitar o download de imagens.
+ - Nimble: Para conseguir testar código assíncrono eu acabaria tendo que colocar completion blocks em muitas funções, o Nimble torna esse tipo de teste muito fácil através do `toEventually()`. Ele também foi muito útil para testar um `fatalError()` na classe `BaseViewCodeController`.
+ - OHHTTPStubs: Permite mockar chamadas de API de forma fácil sem ser necessário criar um mock de URLSession gigantesco para injetar na sua classe de Network.
+ 
+ 
+## Considerações
+- Eu estava mais acostumado com a arquitetura VIPER, porém gostei bastante da VIP, acredito que a injeção de dependências fica um pouco mais simples por seguir um sentido único.
+- Não criei muitos testes unitários para a camada de UI, pois precisaria de muito tempo para tornar cada componente injetável ou então precisaria deixar tudo como público. Idealmente essa parte seria testada com UITests ou testes de Snapshot, o que atrasaria um pouco a entrega.
+- Eu tornei o `CharacterListDataSource` extremamente complexo para cobrir o cenário onde o carrossel de imagens do topo é carregado parcialmente para caso o limite de items passado para a API fosse menor do que 5. Eu sei que poderia ter ignorado esse cenário mas pensei que seria um desafio interessante tornar o código o mais resiliente possível. (Todos os branches estão cobertos por testes unitários)
+- Antes eu estava recarregando a tableView toda ao pegar novos items da API, porém isso gera alguns problemas de performance, então gastei um tempão melhorando a função `updateDataSource` da `CharacterListViewController` para executar as operações de inserção e remoção precisamente nos indíces alterados.
+- Pensei nos dois requisitos adicionais de colocar persistência e animações, porém acabei não fazendo eles por falta de tempo. 
+ 
+## Planos futuros
+- Colocar o Lottie pra ter uma animação de loading diferente na LoadingTableViewCell ao invés do spinner padrão.
+- Tela de detalhe ao clicar em algum personagem mostrando mais informações. 
+- Tornar a listagem mais configurável, permitindo busca, ordenação, e também customizar a quantidade de itens no carrossel.
 
 
-## Requisitos
-<p>Estes requisitos básicos são utilizados para ver como você lida com cada um desses itens. A falta de qualquer um desses requisitos compromete a sua avaliação no final.</p>
-
-
-* Swift 5+ 
-* Xcode 11+ 
-* Arquitetura
-* Auto-layout
-* Carthage ou Cocoapods
-* Testes unitários
-
-## Será um diferencial 
-* Persistencia de dados (CoreData, Realm...)
-* Animações customizadas (Lottie, Hero, UIViewAnimate etc..)
-
-## O projeto deverá conter
-* Carrossel superior com **5** personagens
-* Uma lista **vertical** abaixo do carrossel **com os personagens seguintes, sem repetir**
-* Scroll infinito
-
-<b>Atente-se aos detalhes que ache interessante mostrar, por exemplo, nome, descrição, imagens ou outras informações dos personagens</b>
-
-## Importante
-* **Sua criatividade:** Utilize as considerações acima para criar o projeto do seu jeito, **utilizando as dependências que quiser**. Apenas saiba explicar o motivo das suas escolhas. 
-
-* **Documentação:** Ao finalizar o projeto, não se esqueça de documenta-lo. É Muito importante escrever o seu fluxo de pensamentos, **anexar imagens do aplicativo**, inserir as **bibliotecas** e versões que estão sendo utilizadas, **roadmap** de features que você gostaria de colocar e **melhorias que gostaria de fazer**...
-
-## Por fim, envie seu teste!
-* Crie um `fork`, de preferencia público, desse repositório.
-* Tente seguir o <b><a href="https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow#:~:text=Como%20afirma%20Vincent%20Driessen%20(2010,o%20trunk%20e%20o%20branch.">gitflow</a></b> para o seu fluxo de desenvolvimento.
-* Ao finalizar, faça o **pull request** para este repositório
-
-Agora é só torcer!
-
-**Ultimo recadinho:** não utilize o nome da Serasa dentro de seu projeto 😉
