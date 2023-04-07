@@ -9,16 +9,16 @@ import Foundation
 
 class Persistence: PersistenceProtocol {
     
-    private let defaults: UserDefaults
+    private let userDefaults: UserDefaults
     
-    static let shared = Persistence(defaults: UserDefaults.standard)
+    static let shared = Persistence(userDefaults: UserDefaults.standard)
     
-    private init(defaults: UserDefaults) {
-        self.defaults = defaults
+    public init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
     }
     
     func erase<PersistableObject: Codable>(_ type: PersistableObject.Type, persistenceKey: String) {
-        defaults.set(nil, forKey: persistenceKey)
+        userDefaults.set(nil, forKey: persistenceKey)
     }
     
     func erase<PersistableObject: Persistable>(_ type: PersistableObject.Type) {
@@ -30,7 +30,7 @@ class Persistence: PersistenceProtocol {
             return
         }
         
-        defaults.set(encoded, forKey: persistenceKey)
+        userDefaults.set(encoded, forKey: persistenceKey)
     }
     
     func save<PersistableObject: Persistable>(_ object: PersistableObject) {
@@ -42,7 +42,7 @@ class Persistence: PersistenceProtocol {
         persistenceKey: String
     ) -> PersistableObject? {
         guard
-            let savedObjectData = defaults.object(forKey: persistenceKey) as? Data,
+            let savedObjectData = userDefaults.object(forKey: persistenceKey) as? Data,
             let object = try? JSONDecoder().decode(PersistableObject.self, from: savedObjectData)
         else {
             return nil
@@ -56,6 +56,6 @@ class Persistence: PersistenceProtocol {
     }
     
     func sync() {
-        defaults.synchronize()
+        userDefaults.synchronize()
     }
 }

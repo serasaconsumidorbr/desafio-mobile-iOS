@@ -50,6 +50,8 @@
 		002A7C3929DFBD7900C23764 /* ListOptionsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A7C3829DFBD7900C23764 /* ListOptionsPresenterTests.swift */; };
 		002A7C3C29DFC59500C23764 /* CharacterListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A7C3B29DFC59500C23764 /* CharacterListRouterTests.swift */; };
 		002A7C3F29DFC60F00C23764 /* ViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A7C3E29DFC60F00C23764 /* ViewControllerMock.swift */; };
+		002A7C4129DFCDA500C23764 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A7C4029DFCDA500C23764 /* PersistenceTests.swift */; };
+		002A7C4329DFD01800C23764 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A7C4229DFD01800C23764 /* UserDefaultsMock.swift */; };
 		00494A5329DBA2620098BDF3 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00494A5229DBA2620098BDF3 /* String+MD5.swift */; };
 		00494A5629DBA2E90098BDF3 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00494A5529DBA2E90098BDF3 /* APIKeys.swift */; };
 		00494A5A29DBA41E0098BDF3 /* CharacterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00494A5929DBA41E0098BDF3 /* CharacterListInteractorTests.swift */; };
@@ -132,6 +134,8 @@
 		002A7C3829DFBD7900C23764 /* ListOptionsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionsPresenterTests.swift; sourceTree = "<group>"; };
 		002A7C3B29DFC59500C23764 /* CharacterListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouterTests.swift; sourceTree = "<group>"; };
 		002A7C3E29DFC60F00C23764 /* ViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMock.swift; sourceTree = "<group>"; };
+		002A7C4029DFCDA500C23764 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
+		002A7C4229DFD01800C23764 /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
 		00494A5229DBA2620098BDF3 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		00494A5529DBA2E90098BDF3 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		00494A5929DBA41E0098BDF3 /* CharacterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorTests.swift; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				0000FD2E29DF5E9B00AD431A /* Mock */,
+				002A7C4029DFCDA500C23764 /* PersistenceTests.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				0000FD2F29DF5EB800AD431A /* PersistenceProtocolMock.swift */,
+				002A7C4229DFD01800C23764 /* UserDefaultsMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -432,9 +438,9 @@
 		002A7C2D29DFBC0C00C23764 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				002A7C3229DFBC0C00C23764 /* Model */,
 				002A7C2E29DFBC0C00C23764 /* Persistence.swift */,
 				002A7C2F29DFBC0C00C23764 /* Protocol */,
-				002A7C3229DFBC0C00C23764 /* Model */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -546,17 +552,17 @@
 		008FAF0729DB5C9E00560494 /* MarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
-				002A7C2D29DFBC0C00C23764 /* UserDefaults */,
-				0000FD2829DF3FA000AD431A /* Features */,
-				000A593A29DB8E270046CE7A /* Util */,
-				00D092A329DB656F000780C3 /* Network */,
 				008FAF0829DB5C9E00560494 /* AppDelegate.swift */,
-				008FAF0A29DB5C9E00560494 /* SceneDelegate.swift */,
 				008FAF1129DB5CA000560494 /* Assets.xcassets */,
-				008FAF1329DB5CA000560494 /* LaunchScreen.storyboard */,
-				008FAF1629DB5CA000560494 /* Info.plist */,
 				000A594529DB9F6B0046CE7A /* Debug.xcconfig */,
+				0000FD2829DF3FA000AD431A /* Features */,
+				008FAF1629DB5CA000560494 /* Info.plist */,
+				008FAF1329DB5CA000560494 /* LaunchScreen.storyboard */,
+				00D092A329DB656F000780C3 /* Network */,
 				000A594729DB9FBB0046CE7A /* Release.xcconfig */,
+				008FAF0A29DB5C9E00560494 /* SceneDelegate.swift */,
+				002A7C2D29DFBC0C00C23764 /* UserDefaults */,
+				000A593A29DB8E270046CE7A /* Util */,
 			);
 			path = MarvelCharacters;
 			sourceTree = "<group>";
@@ -896,6 +902,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0000FCF729DE244F00AD431A /* CharacterListDataSourceTests.swift in Sources */,
+				002A7C4129DFCDA500C23764 /* PersistenceTests.swift in Sources */,
 				0000FCE829DDDC2D00AD431A /* CharacterListPresenterTests.swift in Sources */,
 				0000FD3A29DF640300AD431A /* ListOptionsPresenterProtocolMock.swift in Sources */,
 				0000FD3829DF638100AD431A /* ListOptionsInteractorTests.swift in Sources */,
@@ -915,6 +922,7 @@
 				0049ECE529DB8AFF007F31A7 /* MockEndpoint.swift in Sources */,
 				002A7C3F29DFC60F00C23764 /* ViewControllerMock.swift in Sources */,
 				0000FD2C29DF5D5600AD431A /* CharacterListRouterProtocolMock.swift in Sources */,
+				002A7C4329DFD01800C23764 /* UserDefaultsMock.swift in Sources */,
 				00494A6729DBB4050098BDF3 /* Character+Mock.swift in Sources */,
 				0000FCDB29DC89E600AD431A /* MD5Tests.swift in Sources */,
 				00D092B929DB794B000780C3 /* NetworkClientTests.swift in Sources */,
