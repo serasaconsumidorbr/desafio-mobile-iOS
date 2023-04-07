@@ -1,13 +1,21 @@
 ## Sobre
 
 Esse App se utiliza da API da Marvel para listar os personagens em ordem alfabética.
-Algumas Feature:
+
+Algumas features:
 - Pull to refresh
 - Scroll infinito
+- Ordenação e paginação customizáveis
 
 ## Imagens
-<img src="./Images/Screenshot.png" width="400" align="center">
-<img src="./Images/Video.gif" width="400" align="center">
+<p align="center">
+<img src="./Images/Screenshot1.png" width="300">
+<img src="./Images/Screenshot2.png" width="300">
+</p>
+
+<p align="center">
+<img src="./Images/Video.gif" width="400">
+</p>
 
 ## Pré requisitos:
 - XCode 14.2(Essa é a versão que eu usei, mas pode funcionar com uma mais antiga)
@@ -33,13 +41,13 @@ Normalmente não uso dependências nesse tipo de teste, mas como era um pré-req
 ## Considerações
 - Eu estava mais acostumado com a arquitetura VIPER, porém gostei bastante da VIP, acredito que a injeção de dependências fica um pouco mais simples por seguir um sentido único.
 - Não criei muitos testes unitários para a camada de UI, pois precisaria de muito tempo para tornar cada componente injetável ou então precisaria deixar tudo como público. Idealmente essa parte seria testada com UITests ou testes de Snapshot, o que atrasaria um pouco a entrega.
-- Eu tornei o `CharacterListDataSource` extremamente complexo para cobrir o cenário onde o carrossel de imagens do topo é carregado parcialmente para caso o limite de items passado para a API fosse menor do que 5. Eu sei que poderia ter ignorado esse cenário mas pensei que seria um desafio interessante tornar o código o mais resiliente possível. (Todos os branches estão cobertos por testes unitários)
+- Eu tornei o `CharacterListDataSource` extremamente complexo para cobrir o cenário onde o carrossel de imagens do topo é carregado parcialmente quando limite de items passado para a API for menor do que 5. Eu sei que poderia ter ignorado esse cenário forçando a quantidade de items a sempre ser maior do que 5 mas pensei que seria um desafio interessante tornar o código o mais resiliente possível. (Todos os branches estão cobertos por testes unitários)
 - Antes eu estava recarregando a tableView toda ao pegar novos items da API, porém isso gera alguns problemas de performance, então gastei um tempão melhorando a função `updateDataSource` da `CharacterListViewController` para executar as operações de inserção e remoção precisamente nos indíces alterados.
-- Pensei nos dois requisitos adicionais de colocar persistência e animações, porém acabei não fazendo eles por falta de tempo. 
+- Acabei dando uma corrida pra conseguir colocar uma persistência básica no UserDefaults, com isso tornei a listagem um pouco mais configurável.
+- Preciso colocar um loading mais bonito ao recarregar a listagem toda, seja no pull to refresh ou ao mudar alguma opção de listagem.
+
  
 ## Planos futuros
-- Colocar o Lottie pra ter uma animação de loading diferente na LoadingTableViewCell ao invés do spinner padrão.
-- Tela de detalhe ao clicar em algum personagem mostrando mais informações. 
-- Tornar a listagem mais configurável, permitindo busca, ordenação, e também customizar a quantidade de itens no carrossel.
-
-
+- Colocar o Lottie pra ter uma animação de loading diferente na LoadingTableViewCell ao invés do spinner padrão e também adicionar um indicativo de loading ao recarregar a listagem toda.
+- Tela de detalhe de personagem ao clicar em alguma personagem para mostrar mais informações. 
+- Tornar a listagem ainda mais configurável, permitindo busca e customizar a quantidade de itens no carrossel.

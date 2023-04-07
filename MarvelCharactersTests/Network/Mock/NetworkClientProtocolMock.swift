@@ -12,14 +12,14 @@ class NetworkClientProtocolMock: NetworkClient {
     var calledMethods: [Methods] = []
     
     enum Methods: Equatable {
+        case makeRequest(endpoint: EndpointConvertible)
+        
         static func == (lhs: NetworkClientProtocolMock.Methods, rhs: NetworkClientProtocolMock.Methods) -> Bool {
             switch (lhs, rhs) {
             case (let .makeRequest(lhsEndpoint), let .makeRequest(rhsEndpoint)):
                 return lhsEndpoint.isEqualTo(rhsEndpoint)
             }
         }
-        
-        case makeRequest(endpoint: EndpointConvertible)
     }
     
     override func makeRequest<T: Decodable>(
