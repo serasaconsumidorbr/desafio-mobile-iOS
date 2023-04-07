@@ -1,15 +1,21 @@
 ## Sobre
 
 Esse App se utiliza da API da Marvel para listar os personagens em ordem alfabética.
-Algumas Feature:
+
+Algumas features:
 - Pull to refresh
 - Scroll infinito
 - Ordenação e paginação customizáveis
 
 ## Imagens
-<img src="./Images/Screenshot1.png" width="300" align="center">
-<img src="./Images/Screenshot2.png" width="300" align="center">
-<img src="./Images/Video.gif" width="300" align="center">
+<p align="center">
+<img src="./Images/Screenshot1.png" width="300">
+<img src="./Images/Screenshot2.png" width="300">
+</p>
+
+<p align="center">
+<img src="./Images/Video.gif" width="400">
+</p>
 
 ## Pré requisitos:
 - XCode 14.2(Essa é a versão que eu usei, mas pode funcionar com uma mais antiga)
