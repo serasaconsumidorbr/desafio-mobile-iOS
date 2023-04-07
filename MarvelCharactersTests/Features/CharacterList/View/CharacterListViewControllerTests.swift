@@ -17,7 +17,7 @@ final class CharacterListViewControllerTests: XCTestCase {
         sut.viewController.refresh("")
         
         expect(sut.interactor.calledMethods)
-            .to(equal([.loadCharacters(shouldPaginate: false)]))
+            .to(equal([.reloadCharacters]))
     }
     
     fileprivate func makeSut() -> SUT {

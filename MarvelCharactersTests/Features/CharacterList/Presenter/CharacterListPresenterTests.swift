@@ -18,8 +18,10 @@ final class CharacterListPresenterTests: XCTestCase {
         sut.presenter.startLoading()
         
         expect(sut.viewController.calledMethods)
-            .toEventually(
-                equal([])
+            .to(
+                equal([
+                    .startLoading
+                ])
             )
     }
     
@@ -29,7 +31,7 @@ final class CharacterListPresenterTests: XCTestCase {
         sut.presenter.stopLoading()
         
         expect(sut.viewController.calledMethods)
-            .toEventually(
+            .to(
                 equal([
                     .stopLoading
                 ])
@@ -42,7 +44,7 @@ final class CharacterListPresenterTests: XCTestCase {
         sut.presenter.didLoadSuccessfully(.listMockPageOne, shouldPaginate: true)
         
         expect(sut.viewController.calledMethods)
-            .toEventually(
+            .to(
                 equal([
                     .updateDataSource(characterList: .listMockPageOne, shouldPaginate: true)
                 ])
@@ -55,9 +57,7 @@ final class CharacterListPresenterTests: XCTestCase {
         sut.presenter.didFailLoading("Failed loading")
         
         expect(sut.viewController.calledMethods)
-            .toEventually(
-                equal([])
-            )
+            .to(beEmpty())
     }
     
     fileprivate func makeSut() -> SUT {

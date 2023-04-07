@@ -11,7 +11,7 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
     weak var viewController: CharacterListViewControllerProtocol?
     
     func startLoading() {
-        
+        viewController?.startLoading()
     }
     
     func stopLoading() {

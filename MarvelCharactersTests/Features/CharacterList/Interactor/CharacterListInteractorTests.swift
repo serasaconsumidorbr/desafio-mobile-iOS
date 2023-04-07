@@ -25,7 +25,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadCharacters(shouldPaginate: true)
+        sut.interactor.loadCharactersPage()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
@@ -33,7 +33,6 @@ final class CharacterListInteractorTests: XCTestCase {
         expect(sut.presenter.calledMethods)
             .toEventually(
                 equal([
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading
                 ])
@@ -60,15 +59,13 @@ final class CharacterListInteractorTests: XCTestCase {
         let sut = makeSut()
         
         sut.interactor.isLoading = true
-        sut.interactor.loadCharacters(shouldPaginate: true)
+        sut.interactor.loadCharactersPage()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
         
         expect(sut.presenter.calledMethods)
-            .toEventually(
-                equal([])
-            )
+            .to(beEmpty())
         
         expect(sut.interactor.count)
             .to(equal(0))
@@ -77,9 +74,7 @@ final class CharacterListInteractorTests: XCTestCase {
             .to(equal(0))
         
         expect(sut.networkClient.calledMethods)
-            .toEventually(
-                equal([])
-            )
+            .to(beEmpty())
     }
     
     func testLoadTwoPagesSuccess() {
@@ -90,7 +85,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadCharacters(shouldPaginate: true)
+        sut.interactor.loadCharactersPage()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
@@ -98,7 +93,6 @@ final class CharacterListInteractorTests: XCTestCase {
         expect(sut.presenter.calledMethods)
             .toEventually(
                 equal([
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading
                 ])
@@ -125,7 +119,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadCharacters(shouldPaginate: true)
+        sut.interactor.loadCharactersPage()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
@@ -133,10 +127,8 @@ final class CharacterListInteractorTests: XCTestCase {
         expect(sut.presenter.calledMethods)
             .toEventually(
                 equal([
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading,
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageTwo, shouldPaginate: true),
                     .stopLoading
                 ])
@@ -168,7 +160,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadCharacters(shouldPaginate: true)
+        sut.interactor.loadCharactersPage()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
@@ -176,7 +168,6 @@ final class CharacterListInteractorTests: XCTestCase {
         expect(sut.presenter.calledMethods)
             .toEventually(
                 equal([
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading
                 ])
@@ -203,7 +194,7 @@ final class CharacterListInteractorTests: XCTestCase {
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        sut.interactor.loadCharacters(shouldPaginate: false)
+        sut.interactor.reloadCharacters()
         
         expect(sut.interactor.isLoading)
             .to(beTrue())
@@ -217,7 +208,6 @@ final class CharacterListInteractorTests: XCTestCase {
         expect(sut.presenter.calledMethods)
             .toEventually(
                 equal([
-                    .startLoading,
                     .didLoadSuccessfully(characterList: .listMockPageOne, shouldPaginate: true),
                     .stopLoading,
                     .startLoading,

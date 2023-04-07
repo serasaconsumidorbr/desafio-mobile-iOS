@@ -9,13 +9,19 @@ import Foundation
 import MarvelCharacters
 
 class CharacterListInteractorProtocolMock: CharacterListInteractorProtocol {
+    
     var calledMethods: [Methods] = []
     
     enum Methods: Equatable {
-        case loadCharacters(shouldPaginate: Bool)
+        case loadCharactersPage
+        case reloadCharacters
     }
     
-    func loadCharacters(shouldPaginate: Bool) {
-        calledMethods.append(.loadCharacters(shouldPaginate: shouldPaginate))
+    func loadCharactersPage() {
+        calledMethods.append(.loadCharactersPage)
+    }
+    
+    func reloadCharacters() {
+        calledMethods.append(.reloadCharacters)
     }
 }

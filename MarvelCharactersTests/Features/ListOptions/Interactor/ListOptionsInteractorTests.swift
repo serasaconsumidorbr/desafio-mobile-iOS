@@ -29,6 +29,9 @@ final class ListOptionsInteractorTests: XCTestCase {
                     .didLoadOptions(listOptions: ListOptions.defaultValue)
                 ])
             )
+        
+        expect(sut.reloadDelegate.calledMethods)
+            .to(beEmpty())
     }
     
     func testSaveOptions() {
@@ -39,7 +42,15 @@ final class ListOptionsInteractorTests: XCTestCase {
         expect(sut.persistence.calledMethods)
             .to(
                 equal([
-                    .savePersistable
+                    .savePersistable,
+                    .sync
+                ])
+            )
+        
+        expect(sut.reloadDelegate.calledMethods)
+            .to(
+                equal([
+                    .reloadCharacters
                 ])
             )
     }
@@ -51,13 +62,19 @@ final class ListOptionsInteractorTests: XCTestCase {
             presenter: presenter,
             persistence: persistence
         )
+        
+        let reloadDelegate = CharacterListInteractorProtocolMock()
+        
+        interactor.reloadDelegate = reloadDelegate
+        
         let viewController = ListOptionsViewControllerProtocolMock()
         
         return SUT(
             interactor: interactor,
             presenter: presenter,
             viewController: viewController,
-            persistence: persistence
+            persistence: persistence,
+            reloadDelegate: reloadDelegate
         )
     }
     
@@ -66,5 +83,6 @@ final class ListOptionsInteractorTests: XCTestCase {
         let presenter: ListOptionsPresenterProtocolMock
         let viewController: ListOptionsViewControllerProtocolMock
         let persistence: PersistenceProtocolMock
+        let reloadDelegate: CharacterListInteractorProtocolMock
     }
 }

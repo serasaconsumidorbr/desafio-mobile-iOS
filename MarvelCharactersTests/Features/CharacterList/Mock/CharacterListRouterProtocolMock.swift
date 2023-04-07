@@ -18,7 +18,7 @@ class CharacterListRouterProtocolMock: CharacterListRouterProtocol {
         case showOptions
     }
     
-    func showOptions() {
+    func showOptions(reloadDelegate: CharacterListReloadDelegate?) {
         calledMethods.append(.showOptions)
     }
 }

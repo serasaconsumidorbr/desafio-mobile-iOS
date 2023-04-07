@@ -77,11 +77,11 @@ class CharacterListViewController: BaseViewCodeController, CharacterListViewCont
     }
     
     @objc public func refresh(_ sender: Any) {
-        interactor.loadCharacters(shouldPaginate: false)
+        interactor.reloadCharacters()
     }
     
     @objc public func showOptions(_ sender: Any) {
-        router.showOptions()
+        router.showOptions(reloadDelegate: interactor)
     }
 }
 

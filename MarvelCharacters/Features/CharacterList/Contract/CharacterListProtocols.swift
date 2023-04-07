@@ -14,8 +14,13 @@ public protocol CharacterListViewControllerProtocol: AnyObject {
     func updateDataSource(_ characterList: CharacterList, shouldPaginate: Bool)
 }
 
-public protocol CharacterListInteractorProtocol: AnyObject {
-    func loadCharacters(shouldPaginate: Bool)
+public protocol CharacterListInteractorProtocol: CharacterListReloadDelegate {
+    func loadCharactersPage()
+    func reloadCharacters()
+}
+
+public protocol CharacterListReloadDelegate: AnyObject {
+    func reloadCharacters()
 }
 
 public protocol CharacterListPresenterProtocol: AnyObject {
@@ -29,5 +34,5 @@ public protocol CharacterListPresenterProtocol: AnyObject {
 
 public protocol CharacterListRouterProtocol: AnyObject {
     var viewController: UIViewController? { get set }
-    func showOptions()
+    func showOptions(reloadDelegate: CharacterListReloadDelegate?)
 }

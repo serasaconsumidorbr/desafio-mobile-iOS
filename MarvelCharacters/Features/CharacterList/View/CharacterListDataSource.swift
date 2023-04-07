@@ -120,7 +120,9 @@ extension CharacterListDataSource: UITableViewDataSource {
 
             return cell
         case .loading:
-            interactor?.loadCharacters(shouldPaginate: true)
+            // This is not the ideal way of handling the new page loads because we are treating it as a side-effect.
+            // Unfortunately time is too short to properly implement the tableView prefetchRow functions.
+            interactor?.loadCharactersPage()
             return tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath)
         }
     }

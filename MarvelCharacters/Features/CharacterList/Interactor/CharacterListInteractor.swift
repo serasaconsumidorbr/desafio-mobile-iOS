@@ -31,17 +31,22 @@ class CharacterListInteractor: CharacterListInteractorProtocol {
         self.persistence = persistence
     }
     
-    func loadCharacters(shouldPaginate: Bool) {
+    func loadCharactersPage() {
+        loadCharacters(shouldPaginate: true)
+    }
+    
+    func reloadCharacters() {
+        offset = 0
+        count = 0
+        loadCharacters(shouldPaginate: false)
+        presenter.startLoading()
+    }
+    
+    private func loadCharacters(shouldPaginate: Bool) {
         guard !isLoading else {
             return
         }
         isLoading = true
-        presenter.startLoading()
-        
-        if !shouldPaginate {
-            offset = 0
-            count = 0
-        }
         
         let endpoint = CharacterEndpoint.list(
             offset: offset + count,

@@ -11,8 +11,8 @@ import UIKit
 class CharacterListRouter: CharacterListRouterProtocol {
     weak var viewController: UIViewController?
     
-    func showOptions() {
-        let optionsViewController = ListOptionsConfigurator.configureView(with: ())
+    func showOptions(reloadDelegate: CharacterListReloadDelegate?) {
+        let optionsViewController = ListOptionsConfigurator.configureView(with: reloadDelegate)
         viewController?.present(optionsViewController, animated: true)
     }
 }
