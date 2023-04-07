@@ -95,6 +95,11 @@ extension CharacterListViewController {
     }
     
     func updateDataSource(_ characterList: CharacterList, shouldPaginate: Bool) {
+        if !shouldPaginate {
+            DispatchQueue.main.async {
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+        }
         dataSource.updating(with: characterList, shouldPaginate: shouldPaginate)
         let newNumberOfItems = characterList.offset + characterList.count
         
@@ -108,12 +113,16 @@ extension CharacterListViewController {
                 indexPaths.append(IndexPath(row: i, section: 0))
             }
             
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [IndexPath(row: oldLastIndex-1, section: 0)], with: .left)
-            tableView.insertRows(at: indexPaths, with: .right)
-            tableView.endUpdates()
+            DispatchQueue.main.async {
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [IndexPath(row: oldLastIndex-1, section: 0)], with: .left)
+                self.tableView.insertRows(at: indexPaths, with: .right)
+                self.tableView.endUpdates()
+            }
         } else {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 }

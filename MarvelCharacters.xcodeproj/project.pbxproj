@@ -570,8 +570,8 @@
 		008FAF1E29DB5CA100560494 /* MarvelCharactersTests */ = {
 			isa = PBXGroup;
 			children = (
-				002A7C3D29DFC60100C23764 /* Mock */,
 				0000FD3129DF632C00AD431A /* Features */,
+				002A7C3D29DFC60100C23764 /* Mock */,
 				00D092B729DB7928000780C3 /* Network */,
 				0000FD2D29DF5E9100AD431A /* UserDefaults */,
 				0000FCD729DC6CBF00AD431A /* Util */,
@@ -606,9 +606,9 @@
 			isa = PBXGroup;
 			children = (
 				0000FCE029DCD2B700AD431A /* CharacterListDataSource.swift */,
+				000A593329DB8D910046CE7A /* CharacterListViewController.swift */,
 				0000FCDF29DCD2A700AD431A /* Entity */,
 				0000FCDC29DC8CC600AD431A /* TableViewCell */,
-				000A593329DB8D910046CE7A /* CharacterListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -616,9 +616,9 @@
 		00D092A929DB67CD000780C3 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */,
 				000A593729DB8DAB0046CE7A /* Entity */,
 				00D092AB29DB67E4000780C3 /* Network */,
-				000A593529DB8DA30046CE7A /* CharacterListInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
