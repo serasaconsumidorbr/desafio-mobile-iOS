@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82D11484909714FDD771E5DC /* Pods_DesafioMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52DF1F948638DA90ABAAC16 /* Pods_DesafioMobileApp.framework */; };
+		F140CA8829F60EDF00F4DC53 /* Marvel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F140CA8429F60EDF00F4DC53 /* Marvel-Bold.ttf */; };
+		F140CA8929F60EDF00F4DC53 /* Marvel-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F140CA8529F60EDF00F4DC53 /* Marvel-Italic.ttf */; };
+		F140CA8A29F60EDF00F4DC53 /* Marvel-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F140CA8629F60EDF00F4DC53 /* Marvel-BoldItalic.ttf */; };
+		F140CA8B29F60EDF00F4DC53 /* Marvel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F140CA8729F60EDF00F4DC53 /* Marvel-Regular.ttf */; };
+		F1568102298C484D003C690B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1568101298C484D003C690B /* UIColor+Extension.swift */; };
+		F1568104298C8A56003C690B /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1568103298C8A56003C690B /* UIFont+Extension.swift */; };
+		F1568121298CC735003C690B /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1568120298CC735003C690B /* LaunchViewController.swift */; };
+		F19FEE532988AE1800B83360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE522988AE1800B83360 /* AppDelegate.swift */; };
+		F19FEE552988AE1800B83360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE542988AE1800B83360 /* SceneDelegate.swift */; };
+		F19FEE572988AE1800B83360 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE562988AE1800B83360 /* HomeViewController.swift */; };
+		F19FEE5C2988AE1B00B83360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19FEE5B2988AE1B00B83360 /* Assets.xcassets */; };
+		F19FEE5F2988AE1B00B83360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19FEE5D2988AE1B00B83360 /* LaunchScreen.storyboard */; };
+		F19FEE6A2988AFBD00B83360 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE692988AFBC00B83360 /* NetworkService.swift */; };
+		F19FEE6F29899FB500B83360 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE6E29899FB500B83360 /* NetworkEndpoint.swift */; };
+		F19FEE712989A08F00B83360 /* MarvelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE702989A08F00B83360 /* MarvelEndpoint.swift */; };
+		F19FEE742989A0B900B83360 /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE732989A0B900B83360 /* MarvelService.swift */; };
+		F19FEE772989A34B00B83360 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE762989A34B00B83360 /* CharacterModel.swift */; };
+		F19FEE7D2989AEDA00B83360 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE7C2989AEDA00B83360 /* HomeViewModel.swift */; };
+		F19FEE7F2989AEEF00B83360 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE7E2989AEEF00B83360 /* HomeView.swift */; };
+		F19FEE812989BC3E00B83360 /* HomeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE802989BC3E00B83360 /* HomeViewData.swift */; };
+		F19FEE842989E35500B83360 /* CarrousselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FEE832989E35500B83360 /* CarrousselCollectionViewCell.swift */; };
+		F1C371A3298A95AF0068381D /* HeroListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C371A2298A95AF0068381D /* HeroListTableViewCell.swift */; };
+		F1F7E02D298ACB4E006D1129 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7E02C298ACB4E006D1129 /* UIImageView+Extension.swift */; };
+		F1F7E030298ACC9D006D1129 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7E02F298ACC9D006D1129 /* UIImage+Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		31E7370BE3FA9D7AFC19163E /* Pods-DesafioMobileApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobileApp.debug.xcconfig"; path = "Target Support Files/Pods-DesafioMobileApp/Pods-DesafioMobileApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E52DF1F948638DA90ABAAC16 /* Pods_DesafioMobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioMobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F140CA8429F60EDF00F4DC53 /* Marvel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Bold.ttf"; sourceTree = "<group>"; };
+		F140CA8529F60EDF00F4DC53 /* Marvel-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Italic.ttf"; sourceTree = "<group>"; };
+		F140CA8629F60EDF00F4DC53 /* Marvel-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-BoldItalic.ttf"; sourceTree = "<group>"; };
+		F140CA8729F60EDF00F4DC53 /* Marvel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Regular.ttf"; sourceTree = "<group>"; };
+		F1568101298C484D003C690B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F1568103298C8A56003C690B /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		F1568120298CC735003C690B /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		F19FEE4F2988AE1800B83360 /* DesafioMobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioMobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19FEE522988AE1800B83360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F19FEE542988AE1800B83360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F19FEE562988AE1800B83360 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F19FEE5B2988AE1B00B83360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F19FEE5E2988AE1B00B83360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F19FEE602988AE1B00B83360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F19FEE692988AFBC00B83360 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F19FEE6E29899FB500B83360 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		F19FEE702989A08F00B83360 /* MarvelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEndpoint.swift; sourceTree = "<group>"; };
+		F19FEE732989A0B900B83360 /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
+		F19FEE762989A34B00B83360 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		F19FEE7C2989AEDA00B83360 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F19FEE7E2989AEEF00B83360 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F19FEE802989BC3E00B83360 /* HomeViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewData.swift; sourceTree = "<group>"; };
+		F19FEE832989E35500B83360 /* CarrousselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrousselCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1C371A2298A95AF0068381D /* HeroListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListTableViewCell.swift; sourceTree = "<group>"; };
+		F1F7E02C298ACB4E006D1129 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		F1F7E02F298ACC9D006D1129 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		F9F8C9E2DB605EC78A1CA1EA /* Pods-DesafioMobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobileApp.release.xcconfig"; path = "Target Support Files/Pods-DesafioMobileApp/Pods-DesafioMobileApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F19FEE4C2988AE1800B83360 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82D11484909714FDD771E5DC /* Pods_DesafioMobileApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		226413319AFBD258E023BC7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E52DF1F948638DA90ABAAC16 /* Pods_DesafioMobileApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5AFD4F126FA411799F0C463 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31E7370BE3FA9D7AFC19163E /* Pods-DesafioMobileApp.debug.xcconfig */,
+				F9F8C9E2DB605EC78A1CA1EA /* Pods-DesafioMobileApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F10A39EB2989E8BE00C4387D /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE522988AE1800B83360 /* AppDelegate.swift */,
+				F19FEE542988AE1800B83360 /* SceneDelegate.swift */,
+				F19FEE5B2988AE1B00B83360 /* Assets.xcassets */,
+				F19FEE5D2988AE1B00B83360 /* LaunchScreen.storyboard */,
+				F19FEE602988AE1B00B83360 /* Info.plist */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		F140CA8329F60EA000F4DC53 /* MarvelFont */ = {
+			isa = PBXGroup;
+			children = (
+				F140CA8429F60EDF00F4DC53 /* Marvel-Bold.ttf */,
+				F140CA8629F60EDF00F4DC53 /* Marvel-BoldItalic.ttf */,
+				F140CA8529F60EDF00F4DC53 /* Marvel-Italic.ttf */,
+				F140CA8729F60EDF00F4DC53 /* Marvel-Regular.ttf */,
+			);
+			path = MarvelFont;
+			sourceTree = "<group>";
+		};
+		F1568100298C483A003C690B /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				F1568101298C484D003C690B /* UIColor+Extension.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		F1568105298C8A5A003C690B /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				F140CA8329F60EA000F4DC53 /* MarvelFont */,
+				F1568103298C8A56003C690B /* UIFont+Extension.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		F19FEE462988AE1800B83360 = {
+			isa = PBXGroup;
+			children = (
+				F19FEE512988AE1800B83360 /* DesafioMobileApp */,
+				D5AFD4F126FA411799F0C463 /* Pods */,
+				226413319AFBD258E023BC7C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F19FEE502988AE1800B83360 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE4F2988AE1800B83360 /* DesafioMobileApp.app */,
+			);
+			name = Products;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F19FEE512988AE1800B83360 /* DesafioMobileApp */ = {
+			isa = PBXGroup;
+			children = (
+				F10A39EB2989E8BE00C4387D /* Commons */,
+				F1F7E02B298ACB1B006D1129 /* Extension */,
+				F19FEE782989AE7A00B83360 /* Scenes */,
+				F19FEE672988AEB000B83360 /* Network */,
+				F19FEE502988AE1800B83360 /* Products */,
+			);
+			path = DesafioMobileApp;
+			sourceTree = "<group>";
+		};
+		F19FEE672988AEB000B83360 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE752989A33A00B83360 /* Model */,
+				F19FEE722989A0A600B83360 /* Service */,
+				F19FEE6D29899F8200B83360 /* Endpoint */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F19FEE6D29899F8200B83360 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE6E29899FB500B83360 /* NetworkEndpoint.swift */,
+				F19FEE702989A08F00B83360 /* MarvelEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		F19FEE722989A0A600B83360 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE692988AFBC00B83360 /* NetworkService.swift */,
+				F19FEE732989A0B900B83360 /* MarvelService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F19FEE752989A33A00B83360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE762989A34B00B83360 /* CharacterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F19FEE782989AE7A00B83360 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE7A2989AE8D00B83360 /* ViewModel */,
+				F19FEE7B2989AE9300B83360 /* View */,
+				F19FEE792989AE8500B83360 /* ViewController */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F19FEE792989AE8500B83360 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE562988AE1800B83360 /* HomeViewController.swift */,
+				F1568120298CC735003C690B /* LaunchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F19FEE7A2989AE8D00B83360 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE7C2989AEDA00B83360 /* HomeViewModel.swift */,
+				F19FEE802989BC3E00B83360 /* HomeViewData.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F19FEE7B2989AE9300B83360 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE822989E33900B83360 /* ViewCells */,
+				F19FEE7E2989AEEF00B83360 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F19FEE822989E33900B83360 /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F19FEE832989E35500B83360 /* CarrousselCollectionViewCell.swift */,
+				F1C371A2298A95AF0068381D /* HeroListTableViewCell.swift */,
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		F1F7E02B298ACB1B006D1129 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F1568105298C8A5A003C690B /* UIFont */,
+				F1568100298C483A003C690B /* UIColor */,
+				F1F7E02E298ACB9B006D1129 /* UIImageView */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F1F7E02E298ACB9B006D1129 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F1F7E02C298ACB4E006D1129 /* UIImageView+Extension.swift */,
+				F1F7E02F298ACC9D006D1129 /* UIImage+Extension.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F19FEE4E2988AE1800B83360 /* DesafioMobileApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F19FEE632988AE1B00B83360 /* Build configuration list for PBXNativeTarget "DesafioMobileApp" */;
+			buildPhases = (
+				14129EA33A53F03908100724 /* [CP] Check Pods Manifest.lock */,
+				F19FEE4B2988AE1800B83360 /* Sources */,
+				F19FEE4C2988AE1800B83360 /* Frameworks */,
+				F19FEE4D2988AE1800B83360 /* Resources */,
+				B3EAF7D8B2500F742792872C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DesafioMobileApp;
+			productName = DesafioMobileApp;
+			productReference = F19FEE4F2988AE1800B83360 /* DesafioMobileApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F19FEE472988AE1800B83360 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F19FEE4E2988AE1800B83360 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = F19FEE4A2988AE1800B83360 /* Build configuration list for PBXProject "DesafioMobileApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F19FEE462988AE1800B83360;
+			productRefGroup = F19FEE502988AE1800B83360 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F19FEE4E2988AE1800B83360 /* DesafioMobileApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F19FEE4D2988AE1800B83360 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19FEE5F2988AE1B00B83360 /* LaunchScreen.storyboard in Resources */,
+				F19FEE5C2988AE1B00B83360 /* Assets.xcassets in Resources */,
+				F140CA8B29F60EDF00F4DC53 /* Marvel-Regular.ttf in Resources */,
+				F140CA8A29F60EDF00F4DC53 /* Marvel-BoldItalic.ttf in Resources */,
+				F140CA8829F60EDF00F4DC53 /* Marvel-Bold.ttf in Resources */,
+				F140CA8929F60EDF00F4DC53 /* Marvel-Italic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14129EA33A53F03908100724 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DesafioMobileApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3EAF7D8B2500F742792872C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DesafioMobileApp/Pods-DesafioMobileApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DesafioMobileApp/Pods-DesafioMobileApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DesafioMobileApp/Pods-DesafioMobileApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F19FEE4B2988AE1800B83360 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19FEE6F29899FB500B83360 /* NetworkEndpoint.swift in Sources */,
+				F19FEE7D2989AEDA00B83360 /* HomeViewModel.swift in Sources */,
+				F1F7E02D298ACB4E006D1129 /* UIImageView+Extension.swift in Sources */,
+				F19FEE712989A08F00B83360 /* MarvelEndpoint.swift in Sources */,
+				F19FEE7F2989AEEF00B83360 /* HomeView.swift in Sources */,
+				F19FEE572988AE1800B83360 /* HomeViewController.swift in Sources */,
+				F19FEE742989A0B900B83360 /* MarvelService.swift in Sources */,
+				F1568102298C484D003C690B /* UIColor+Extension.swift in Sources */,
+				F19FEE532988AE1800B83360 /* AppDelegate.swift in Sources */,
+				F19FEE842989E35500B83360 /* CarrousselCollectionViewCell.swift in Sources */,
+				F1568104298C8A56003C690B /* UIFont+Extension.swift in Sources */,
+				F19FEE772989A34B00B83360 /* CharacterModel.swift in Sources */,
+				F19FEE812989BC3E00B83360 /* HomeViewData.swift in Sources */,
+				F1C371A3298A95AF0068381D /* HeroListTableViewCell.swift in Sources */,
+				F1F7E030298ACC9D006D1129 /* UIImage+Extension.swift in Sources */,
+				F1568121298CC735003C690B /* LaunchViewController.swift in Sources */,
+				F19FEE6A2988AFBD00B83360 /* NetworkService.swift in Sources */,
+				F19FEE552988AE1800B83360 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F19FEE5D2988AE1B00B83360 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F19FEE5E2988AE1B00B83360 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F19FEE612988AE1B00B83360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F19FEE622988AE1B00B83360 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F19FEE642988AE1B00B83360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31E7370BE3FA9D7AFC19163E /* Pods-DesafioMobileApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HCB7U8M7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DesafioMobileApp/Commons/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = marvel.DesafioMobileApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F19FEE652988AE1B00B83360 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9F8C9E2DB605EC78A1CA1EA /* Pods-DesafioMobileApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HCB7U8M7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DesafioMobileApp/Commons/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = marvel.DesafioMobileApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F19FEE4A2988AE1800B83360 /* Build configuration list for PBXProject "DesafioMobileApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19FEE612988AE1B00B83360 /* Debug */,
+				F19FEE622988AE1B00B83360 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F19FEE632988AE1B00B83360 /* Build configuration list for PBXNativeTarget "DesafioMobileApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19FEE642988AE1B00B83360 /* Debug */,
+				F19FEE652988AE1B00B83360 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F19FEE472988AE1800B83360 /* Project object */;
+}
