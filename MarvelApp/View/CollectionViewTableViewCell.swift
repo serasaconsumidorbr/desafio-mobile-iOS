@@ -44,9 +44,11 @@ class CollectionViewTableViewCell: UITableViewCell {
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HerosCollectionViewCell.identifier, for: indexPath) as? HerosCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: "")
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
