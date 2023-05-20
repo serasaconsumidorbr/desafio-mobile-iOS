@@ -4,16 +4,21 @@
 target 'MarvelCharacters' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for MarvelCharacters
+  pod 'Alamofire'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
 
-  target 'MarvelCharactersTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+target 'MarvelCharactersTests' do
+  inherit! :search_paths
+  # Pods for testing
+  pod 'RxBlocking', '6.5.0'
+  pod 'RxTest', '6.5.0'
+end
 
-  target 'MarvelCharactersUITests' do
-    # Pods for testing
-  end
+target 'MarvelCharactersUITests' do
+  # Pods for testing
+end
 
 end
