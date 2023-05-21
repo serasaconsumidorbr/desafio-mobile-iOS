@@ -43,14 +43,14 @@ struct CharacterRequest: Request {
     var path: String {
         switch cases {
         case .characters:
-            return "/v1/public/characters/"
+            return "/v1/public/characters"
         }
     }
     
     var parameters: [URLQueryItem] {
         let timestamp = "\(Date().timeIntervalSince1970)"
-        let privateKey = "93359d297fb9e465aea24e94a3669e1e"
-        let apiKey = "2f1e888aa7ef830570c1b2f088ef5499281b8c12"
+        let privateKey = "2f1e888aa7ef830570c1b2f088ef5499281b8c12"
+        let apiKey = "93359d297fb9e465aea24e94a3669e1e"
         let hash = "\(timestamp)\(privateKey)\(apiKey)".md5
         var queryItems = [URLQueryItem(name: "ts", value: timestamp),
                          URLQueryItem(name: "hash", value: hash),
