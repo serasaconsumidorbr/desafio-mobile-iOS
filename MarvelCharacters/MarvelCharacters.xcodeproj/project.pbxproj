@@ -89,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031022ED2A19BD8100427C2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				035EA3AA2A18210900CF1650 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		035EA3952A18210700CF1650 = {
 			isa = PBXGroup;
 			children = (
@@ -114,10 +122,10 @@
 		035EA3A02A18210700CF1650 /* MarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
+				031022ED2A19BD8100427C2A /* Resources */,
 				035EA3A12A18210700CF1650 /* AppDelegate.swift */,
 				035EA3A32A18210700CF1650 /* SceneDelegate.swift */,
 				035EA3A52A18210700CF1650 /* ViewController.swift */,
-				035EA3AA2A18210900CF1650 /* Assets.xcassets */,
 				035EA3AC2A18210900CF1650 /* LaunchScreen.storyboard */,
 				035EA3AF2A18210900CF1650 /* Info.plist */,
 			);
@@ -161,7 +169,6 @@
 				04FC7CDDECB3DD018DD7F34B /* Pods-MarvelCharactersTests.debug.xcconfig */,
 				9930D917E5EC5A22093520DB /* Pods-MarvelCharactersTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
