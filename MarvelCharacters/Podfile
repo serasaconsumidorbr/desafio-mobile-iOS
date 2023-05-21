@@ -8,6 +8,7 @@ target 'MarvelCharacters' do
   # Pods for MarvelCharacters
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
+  pod 'SDWebImage', '~> 5.0'
 
 target 'MarvelCharactersTests' do
   inherit! :search_paths
