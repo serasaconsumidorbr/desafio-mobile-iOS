@@ -63,7 +63,6 @@ public class NetworkingOperation: NetworkingOperationType {
             }
             guard response != nil,
                   let data = data else { return }
-            
             DispatchQueue.main.async {
                 if let responseObject = try? JSONDecoder().decode(ResponseType.self, from: data) {
                     completion(.success(responseObject))

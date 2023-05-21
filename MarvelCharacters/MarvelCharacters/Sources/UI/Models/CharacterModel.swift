@@ -19,6 +19,6 @@ public struct CharacterModel {
               let imageExtension = imageExtension else {
             return ""
         }
-        return "\(imagePath)/landscape_incredible.\(imageExtension)"
+        return "\(imagePath)\(imageExtension)"
     }
 }

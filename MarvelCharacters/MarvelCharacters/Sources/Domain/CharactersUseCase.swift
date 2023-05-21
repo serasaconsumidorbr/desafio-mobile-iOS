@@ -53,7 +53,7 @@ class CharactersUseCase: CharactersUseCaseType {
     }
     
     private func convertCharacterToModel(_ character: Character) -> CharacterModel? {
-        guard let id = character.id else { return nil }
+        guard character.id != nil else { return nil }
         return CharacterModel(id: String(character.id!),
                               name: character.name,
                               description: character.description,
