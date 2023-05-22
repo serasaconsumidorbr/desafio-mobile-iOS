@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CharacterModel {
+public struct CharacterModel: Equatable {
     let id: String
     let name: String?
     let description: String?

@@ -12,13 +12,12 @@ class CharactersViewModel: CharactersViewModelProtocol {
     // MARK: - PRIVATE PROPERTIES
     
     private let charactersUseCase: CharactersUseCaseType
-    private var characters: [CharacterModel]?
+    internal var characters: [CharacterModel]?
     private let disposeBag = DisposeBag()
     
     // MARK: - PUBLIC PROPERTIES
-    
-    var viewState: BehaviorSubject<CharactersViewState> = .init(value: .loading(asPagination: false))
-    var isPaginating: Bool = false
+    public var viewState: BehaviorSubject<CharactersViewState> = .init(value: .loading(asPagination: false))
+    public var isPaginating: Bool = false
     
     // MARK: - INITIALIZERS
     
@@ -42,10 +41,17 @@ class CharactersViewModel: CharactersViewModelProtocol {
         let offset = !asPagination ? 0 : (characters?.count ?? 0 + 1)
         viewState.onNext(.loading(asPagination: asPagination))
         charactersUseCase.execute(with: .init(offset: offset, limit: 15))
-            .subscribeOnMainDisposed(by: disposeBag) { [weak self] result in
-                self?.isPaginating = false
-                self?.handleRetrieveCharacters(result, asPagination: asPagination)
-            }
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] result in
+                    self?.isPaginating = false
+                    self?.handleRetrieveCharacters(result, asPagination: asPagination)
+                },
+                onError: { [weak self] error in
+                    self?.handleError(error)
+                }
+            )
+            .disposed(by: disposeBag)
     }
     
     // MARK: - HANDLERS
@@ -72,6 +78,6 @@ class CharactersViewModel: CharactersViewModelProtocol {
     private func handleEmptyCharacters() { }
     
     private func handleError(_ error: Error) {
-        print(error)
+        viewState.onNext(.error(error))
     }
 }
