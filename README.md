@@ -1,58 +1,48 @@
-<!-- Header-->
-<br />
-<p align="center">
-  <a href="https://github.com/serasaconsumidorbr/desafio-mobile-iOS">
-    <img src="https://turismoemfoco.com.br/v1/wp-content/uploads/2020/05/serasa-logo-nova22.png" alt="Logo" width="180" height="80">
-  </a>
+# MarvelCharactersApp Documentation
 
-  <h3 align="center">Desafio - iOS Developer </h3>
+Este documento tem como objetivo fornecer uma documentação detalhada do aplicativo Marvel Characters, desenvolvido em Swift com View Code na arquitetura MVVM.
 
-  <p align="center">
-    O nosso aplicativo é uma das nossas soluções para mudar a vida financeira de milhões de brasileiros. <b>Venha fazer parte desse time</b> muito engajado que
-  trabalha para que esse aplicativo chegue da melhor forma na mão dos consumidores.
-  </p>
-</p>
+## Fluxo de pensamentos
 
-## Sobre
-<p> Utilizamos este desafio para avaliar a qualidade do seu código, arquitetura, a forma que você organiza os seus pensamentos dentro do git e muitas outras coisas, por isso, sinta-se a vontade e dê o seu melhor! O tempo médio para a entrega deste desafio é de uma semana.</p>
+O desenvolvimento do aplicativo foi feito seguindo a arquitetura MVVM, que tem como objetivo separar responsabilidades e tornar o código mais organizado. Para isso, primeiramente, foi feita uma análise do que seria necessário para o aplicativo, como fontes de dados, design e funcionalidades. Em seguida, foi feita a escolha das bibliotecas e ferramentas que seriam utilizadas para o desenvolvimento.
 
-<p>Neste desafio você irá desenvolver um app que deverá mostrar os <b>personagens</b> da <a href="https://www.marvel.com/characters">Marvel</a>. 
-  
-<p>Para começar a fazer requests utilizando este serviço, siga esta <a href="https://developer.marvel.com/documentation/authorization">documentação</a>. O endpoint que deverá ser utilizado para popular as listas do app será a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">/v1/public/characters</a></b>. </p>
+## Imagens do App
 
+![appPrints](https://github.com/irixsrs/desafio-mobile-iOS/assets/97895129/2c24dec1-5178-4036-a262-c4d2ceb885be)
 
-## Requisitos
-<p>Estes requisitos básicos são utilizados para ver como você lida com cada um desses itens. A falta de qualquer um desses requisitos compromete a sua avaliação no final.</p>
+## Bibliotecas e suas versões
 
+### RxSwift
 
-* Swift 5+ 
-* Xcode 11+ 
-* Arquitetura
-* Auto-layout
-* Carthage ou Cocoapods
-* Testes unitários
+A biblioteca RxSwift foi escolhida para lidar com a parte reativa do aplicativo. Com ela, foi possível implementar ações reativas, como a atualização da lista de personagens da Marvel. A versão utilizada foi a 5.1.1.
 
-## Será um diferencial 
-* Persistencia de dados (CoreData, Realm...)
-* Animações customizadas (Lottie, Hero, UIViewAnimate etc..)
+O RxSwift é uma biblioteca que permite programação reativa no iOS. Programação reativa é um paradigma de programação que se concentra em fluxos de dados e na propagação de mudanças. Com o RxSwift, é possível criar fluxos de dados que reagem às mudanças de entrada e produzem resultados de saída.
 
-## O projeto deverá conter
-* Carrossel superior com **5** personagens
-* Uma lista **vertical** abaixo do carrossel **com os personagens seguintes, sem repetir**
-* Scroll infinito
+### SDWebImage
 
-<b>Atente-se aos detalhes que ache interessante mostrar, por exemplo, nome, descrição, imagens ou outras informações dos personagens</b>
+A biblioteca SDWebImage foi utilizada para carregar e armazenar em cache as imagens dos personagens. Com ela, foi possível carregar as imagens de forma assíncrona e com cache, melhorando a performance do aplicativo. A versão utilizada foi a 5.11.2.
 
-## Importante
-* **Sua criatividade:** Utilize as considerações acima para criar o projeto do seu jeito, **utilizando as dependências que quiser**. Apenas saiba explicar o motivo das suas escolhas. 
+O SDWebImage é uma biblioteca para download de imagens da web. Ele baixa as imagens de forma assíncrona e armazena em cache, o que pode melhorar significativamente a performance do aplicativo. O SDWebImage também fornece recursos para exibir as imagens, como suporte para animações de carregamento e tratamento de erros.
 
-* **Documentação:** Ao finalizar o projeto, não se esqueça de documenta-lo. É Muito importante escrever o seu fluxo de pensamentos, **anexar imagens do aplicativo**, inserir as **bibliotecas** e versões que estão sendo utilizadas, **roadmap** de features que você gostaria de colocar e **melhorias que gostaria de fazer**...
+### CocoaPods
 
-## Por fim, envie seu teste!
-* Crie um `fork`, de preferencia público, desse repositório.
-* Tente seguir o <b><a href="https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow#:~:text=Como%20afirma%20Vincent%20Driessen%20(2010,o%20trunk%20e%20o%20branch.">gitflow</a></b> para o seu fluxo de desenvolvimento.
-* Ao finalizar, faça o **pull request** para este repositório
+O gerenciador de dependências CocoaPods foi utilizado para instalar e gerenciar as bibliotecas utilizadas no aplicativo. Com ele, foi possível manter as dependências atualizadas e separadas do código do projeto.
 
-Agora é só torcer!
+O CocoaPods é um gerenciador de dependências para projetos iOS e macOS. Ele automatiza o processo de baixar, instalar e gerenciar bibliotecas de terceiros em um projeto. O uso do CocoaPods torna mais fácil manter as dependências atualizadas e separadas do código do projeto.
 
-**Ultimo recadinho:** não utilize o nome da Serasa dentro de seu projeto 😉
+## Funcionalidades
+
+O aplicativo consiste em uma lista de personagens da Marvel, ordenados por ordem alfabética. Cada personagem é exibido com uma foto e uma descrição, quando disponível. As informações dos personagens são obtidas através da API pública da Marvel.
+
+A lista de personagens é atualizada automaticamente quando chega ao fim da página, carregando mais personagens.
+
+## Roadmap de features futuras e melhorias
+
+Algumas features futuras e melhorias que poderiam ser implementadas no aplicativo são:
+
+- Adicionar mais informações sobre os personagens, como os quadrinhos em que eles aparecem;
+- Adicionar pesquisa e filtros na lista de personagens, permitindo que o usuário possa buscar por personagens específicos ou organizar a lista de acordo com suas preferências;
+- Adicionar uma navegação para detalhes do personagem, com todas as informações disponíveis na API;
+- Adicionar opção de favoritar personagens e manter uma lista dos personagens favoritados para acesso do usuário;
+
+Essas features podem tornar o aplicativo mais informativo e completo. Dessa forma, os usuários teriam acesso a uma gama maior de informações e poderiam se aprofundar ainda mais no universo Marvel.
