@@ -55,8 +55,9 @@ class EntityTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = .byTruncatingTail
-        label.numberOfLines = 5
+        label.numberOfLines = 7
         label.textColor = .none
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     

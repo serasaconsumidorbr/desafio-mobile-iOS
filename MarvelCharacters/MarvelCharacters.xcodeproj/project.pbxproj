@@ -24,6 +24,8 @@
 		031023162A19E47200427C2A /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023152A19E47200427C2A /* Observable+Extensions.swift */; };
 		031023182A19EE5700427C2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023172A19EE5600427C2A /* ViewController.swift */; };
 		0310231A2A1AA2E600427C2A /* CharactersViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023192A1AA2E600427C2A /* CharactersViewControllerDelegate.swift */; };
+		031023202A1ACE6700427C2A /* EntityTableViewCellCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310231F2A1ACE6700427C2A /* EntityTableViewCellCarousel.swift */; };
+		031023222A1AF4F900427C2A /* EntityTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023212A1AF4F900427C2A /* EntityTableViewHeader.swift */; };
 		035EA3A22A18210700CF1650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EA3A12A18210700CF1650 /* AppDelegate.swift */; };
 		035EA3A42A18210700CF1650 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EA3A32A18210700CF1650 /* SceneDelegate.swift */; };
 		035EA3AB2A18210900CF1650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035EA3AA2A18210900CF1650 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		031023152A19E47200427C2A /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
 		031023172A19EE5600427C2A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MarvelCharacters/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		031023192A1AA2E600427C2A /* CharactersViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0310231F2A1ACE6700427C2A /* EntityTableViewCellCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewCellCarousel.swift; sourceTree = "<group>"; };
+		031023212A1AF4F900427C2A /* EntityTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewHeader.swift; sourceTree = "<group>"; };
 		035EA39E2A18210700CF1650 /* MarvelCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035EA3A12A18210700CF1650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		035EA3A32A18210700CF1650 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				031023062A19DD9700427C2A /* EntityTableViewCell.swift */,
+				031023212A1AF4F900427C2A /* EntityTableViewHeader.swift */,
+				0310231F2A1ACE6700427C2A /* EntityTableViewCellCarousel.swift */,
 				031023082A19DDDD00427C2A /* EntityCellModel.swift */,
 				035EA3AC2A18210900CF1650 /* LaunchScreen.storyboard */,
 			);
@@ -566,6 +572,8 @@
 				031022F82A19D20B00427C2A /* NetworkingOperation.swift in Sources */,
 				031023122A19E35A00427C2A /* CharactersViewModelProtocol.swift in Sources */,
 				031023162A19E47200427C2A /* Observable+Extensions.swift in Sources */,
+				031023202A1ACE6700427C2A /* EntityTableViewCellCarousel.swift in Sources */,
+				031023222A1AF4F900427C2A /* EntityTableViewHeader.swift in Sources */,
 				035EA3A42A18210700CF1650 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
