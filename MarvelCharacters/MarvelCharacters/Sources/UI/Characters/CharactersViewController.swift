@@ -14,7 +14,9 @@ class CharactersViewController: UIViewController {
     
     private var viewModel: CharactersViewModelProtocol
     private let disposeBag = DisposeBag()
-    private let reuseIdentifier = "EntityTableViewCell"
+    private let tableViewIdentifier = "EntityTableViewCell"
+    private let carrouselIdentifier = "EntityTableViewCellCarousel"
+    private let headerIdentifier = "EntityTableViewHeader"
     
     // MARK: - PUBLIC PROPERTIES
             
@@ -23,16 +25,17 @@ class CharactersViewController: UIViewController {
     // MARK: - UI
     
     private lazy var charactersTableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: CGRectZero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(EntityTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(EntityTableViewCell.self, forCellReuseIdentifier: tableViewIdentifier)
+        tableView.register(EntityTableViewCellCarousel.self, forCellReuseIdentifier: carrouselIdentifier)
+        tableView.register(EntityTableViewHeader.self, forHeaderFooterViewReuseIdentifier: headerIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 182
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
     }()
-    
+
 //    private lazy var searchBar: UISearchController = {
 //        let searchController = UISearchController()
 //        searchController.searchResultsUpdater = self
@@ -82,7 +85,7 @@ class CharactersViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .systemBackground
-        title = "Comics"
+        title = "Marvel Characters"
     }
     
     private func buildViewHierarchy() {
@@ -109,6 +112,12 @@ class CharactersViewController: UIViewController {
             feedbackLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       if (indexPath.row >= 1 && indexPath.row <= 5) {
+           return 0
+       }
+       return tableView.rowHeight
+   }
     
     private func bindObservables() {
         viewModel.viewState
@@ -191,30 +200,69 @@ extension CharactersViewController: UITableViewDelegate {
         guard (viewModel.getCharacter(at: indexPath.row)) != nil else { return }
         //delegate?.characterViewController(didTapCharacter: character)
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier)
+        return header
+    }
 }
 
 extension CharactersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.getCharacters()?.count ?? 0
+           return viewModel.getCharacters()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? EntityTableViewCell else {
-            return UITableViewCell()
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: carrouselIdentifier, for: indexPath) as? EntityTableViewCellCarousel else {
+                return UITableViewCell()
+            }
+            let characters = viewModel.getCharacters()
+            guard (characters?[indexPath.row]) != nil else { return cell }
+            cell.setupCell(with: .init(cell:
+                                        [.init(title: characters?[0].name,
+                                               description: characters?[0].description,
+                                               imagePath: characters?[0].imagePath,
+                                               imageExtension: characters?[0].imageExtension),
+                                         .init(title: characters?[1].name,
+                                                description: characters?[1].description,
+                                                imagePath: characters?[1].imagePath,
+                                                imageExtension: characters?[1].imageExtension),
+                                         .init(title: characters?[2].name,
+                                                description: characters?[2].description,
+                                                imagePath: characters?[2].imagePath,
+                                                imageExtension: characters?[2].imageExtension),
+                                         .init(title: characters?[3].name,
+                                                description: characters?[3].description,
+                                                imagePath: characters?[3].imagePath,
+                                                imageExtension: characters?[3].imageExtension),
+                                         .init(title: characters?[4].name,
+                                                description: characters?[4].description,
+                                                imagePath: characters?[4].imagePath,
+                                                imageExtension: characters?[4].imageExtension)]))
+            return cell
         }
-        let characters = viewModel.getCharacters()
-        guard let character = characters?[indexPath.row] else { return cell }
-        cell.setupCell(with: .init(title: character.name,
-                                   description: character.description,
-                                   imagePath: character.imagePath,
-                                   imageExtension: character.imageExtension))
-        return cell
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: tableViewIdentifier, for: indexPath) as? EntityTableViewCell else {
+                return UITableViewCell()
+            }
+            let characters = viewModel.getCharacters()
+            guard let character = characters?[indexPath.row] else { return cell }
+            cell.setupCell(with: .init(title: character.name,
+                                       description: character.description,
+                                       imagePath: character.imagePath,
+                                       imageExtension: character.imageExtension))
+            if indexPath.row <= 5 {
+                cell.isHidden = true
+            }
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let comicsCount = viewModel.getCharacters()?.count else { return }
-        if indexPath.row == comicsCount - 3 {
+        if indexPath.row == comicsCount - 6 {
             guard !viewModel.isPaginating else { return }
             viewModel.retrieveCharacters(asPagination: true)
         }

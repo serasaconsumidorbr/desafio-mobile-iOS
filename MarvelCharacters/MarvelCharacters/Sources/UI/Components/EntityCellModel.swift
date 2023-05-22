@@ -34,3 +34,25 @@ struct EntityCellModel {
         return "\(imagePath)/portrait_fantastic.\(imageExtension)"
     }
 }
+
+struct EntityCellsModel {
+    let cell: [EntityCellModel]
+    
+    init(cell: [EntityCellModel]) {
+        self.cell = cell
+    }
+    
+    func getImagesUrl() -> [String] {
+        var imagesUrl: [String] = []
+        for i in 0...4 {
+            imagesUrl.append(getImageUrl(imagePath: cell[i].imagePath ?? "", imageExtension: cell[i].imageExtension ?? ""))
+        }
+        return imagesUrl
+    }
+    func getImageUrl(imagePath: String, imageExtension: String) -> String {
+        
+        let imagePath = imagePath
+        let imageExtension = imageExtension
+        return "\(imagePath)/portrait_fantastic.\(imageExtension)"
+    }
+}
