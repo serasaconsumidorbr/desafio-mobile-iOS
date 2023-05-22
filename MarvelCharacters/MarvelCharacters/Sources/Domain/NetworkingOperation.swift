@@ -10,45 +10,11 @@ import Dispatch
 
 public protocol NetworkingOperationType: AnyObject {
     func request<ResponseType: Codable>(request: Request, completion: @escaping(Result<ResponseType, Error>) -> ())
-    func request<ResponseType: Codable>(requests: [Request], completion: @escaping (Result<[ResponseType], Error>) -> ())
 }
 
 public class NetworkingOperation: NetworkingOperationType {
     
     // MARK: - PUBLIC FUNCTIONS
-    
-    public func request<ResponseType: Codable>(requests: [Request], completion: @escaping (Result<[ResponseType], Error>) -> ()) {
-        var responseList = [ResponseType]()
-        let requestQueue = DispatchQueue(label: "com.urlDownloader.urlqueue")
-        let requestGroup = DispatchGroup()
-        let urls: [URLRequest] = requests.compactMap { request in
-            return makeURLRequest(for: request)
-        }
-        
-        urls.forEach { urlRequest in
-            
-            requestGroup.enter()
-            
-            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                guard let data = data,
-                      let responseObject = try? JSONDecoder().decode(ResponseType.self, from: data) else {
-                          requestQueue.async {
-                              requestGroup.leave()
-                          }
-                          return
-                      }
-                
-                requestQueue.async {
-                    responseList.append(responseObject)
-                    requestGroup.leave()
-                }
-            }
-            dataTask.resume()
-        }
-        requestGroup.notify(queue: DispatchQueue.global()) {
-            completion(.success(responseList))
-        }
-    }
     
     public func request<ResponseType: Codable>(request: Request, completion: @escaping (Result<ResponseType, Error>) -> ())  {
         guard let urlRequest = makeURLRequest(for: request) else { return }

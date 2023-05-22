@@ -19,8 +19,8 @@ class CharactersViewController: UIViewController {
     private let headerIdentifier = "EntityTableViewHeader"
     
     // MARK: - PUBLIC PROPERTIES
-            
-        weak var delegate: CharactersViewControllerDelegate?
+    
+    weak var delegate: CharactersViewControllerDelegate?
     
     // MARK: - UI
     
@@ -35,13 +35,6 @@ class CharactersViewController: UIViewController {
         tableView.dataSource = self
         return tableView
     }()
-
-//    private lazy var searchBar: UISearchController = {
-//        let searchController = UISearchController()
-//        searchController.searchResultsUpdater = self
-//        searchController.searchBar.placeholder = "Search for comic title"
-//        return searchController
-//    }()
     
     private lazy var spinner: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -112,12 +105,6 @@ class CharactersViewController: UIViewController {
             feedbackLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       if (indexPath.row >= 1 && indexPath.row <= 5) {
-           return 0
-       }
-       return tableView.rowHeight
-   }
     
     private func bindObservables() {
         viewModel.viewState
@@ -196,9 +183,16 @@ class CharactersViewController: UIViewController {
 }
 
 extension CharactersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row >= 1 && indexPath.row <= 5) {
+            return 0
+        }
+        return tableView.rowHeight
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard (viewModel.getCharacter(at: indexPath.row)) != nil else { return }
-        //delegate?.characterViewController(didTapCharacter: character)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -210,7 +204,7 @@ extension CharactersViewController: UITableViewDelegate {
 extension CharactersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return viewModel.getCharacters()?.count ?? 0
+        return viewModel.getCharacters()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -220,27 +214,26 @@ extension CharactersViewController: UITableViewDataSource {
             }
             let characters = viewModel.getCharacters()
             guard (characters?[indexPath.row]) != nil else { return cell }
-            cell.setupCell(with: .init(cell:
-                                        [.init(title: characters?[0].name,
-                                               description: characters?[0].description,
-                                               imagePath: characters?[0].imagePath,
-                                               imageExtension: characters?[0].imageExtension),
-                                         .init(title: characters?[1].name,
-                                                description: characters?[1].description,
-                                                imagePath: characters?[1].imagePath,
-                                                imageExtension: characters?[1].imageExtension),
-                                         .init(title: characters?[2].name,
-                                                description: characters?[2].description,
-                                                imagePath: characters?[2].imagePath,
-                                                imageExtension: characters?[2].imageExtension),
-                                         .init(title: characters?[3].name,
-                                                description: characters?[3].description,
-                                                imagePath: characters?[3].imagePath,
-                                                imageExtension: characters?[3].imageExtension),
-                                         .init(title: characters?[4].name,
-                                                description: characters?[4].description,
-                                                imagePath: characters?[4].imagePath,
-                                                imageExtension: characters?[4].imageExtension)]))
+            cell.setupCell(with: .init(cell: [.init(title: characters?[0].name,
+                                                    description: characters?[0].description,
+                                                    imagePath: characters?[0].imagePath,
+                                                    imageExtension: characters?[0].imageExtension),
+                                              .init(title: characters?[1].name,
+                                                    description: characters?[1].description,
+                                                    imagePath: characters?[1].imagePath,
+                                                    imageExtension: characters?[1].imageExtension),
+                                              .init(title: characters?[2].name,
+                                                    description: characters?[2].description,
+                                                    imagePath: characters?[2].imagePath,
+                                                    imageExtension: characters?[2].imageExtension),
+                                              .init(title: characters?[3].name,
+                                                    description: characters?[3].description,
+                                                    imagePath: characters?[3].imagePath,
+                                                    imageExtension: characters?[3].imageExtension),
+                                              .init(title: characters?[4].name,
+                                                    description: characters?[4].description,
+                                                    imagePath: characters?[4].imagePath,
+                                                    imageExtension: characters?[4].imageExtension)]))
             return cell
         }
         else {
@@ -268,15 +261,3 @@ extension CharactersViewController: UITableViewDataSource {
         }
     }
 }
-
-//extension CharactersViewController: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        if let text = searchController.searchBar.text,
-//           !text.isEmpty {
-//            viewModel.filterModel = FilterSearchModel(text: text)
-//        } else {
-//            viewModel.filterModel = nil
-//        }
-//        charactersTableView.reloadData()
-//    }
-//}

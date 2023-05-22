@@ -25,36 +25,9 @@ class EntityTableViewCellCarousel: UITableViewCell {
         return stackView
     }()
     
+    // Character One
     
     private lazy var pictureAndtitleStackView1: UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        return stack
-    }()
-    private lazy var pictureAndtitleStackView2: UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        return stack
-    }()
-    private lazy var pictureAndtitleStackView3: UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        return stack
-    }()
-    private lazy var pictureAndtitleStackView4: UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        return stack
-    }()
-    private lazy var pictureAndtitleStackView5: UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -82,6 +55,16 @@ class EntityTableViewCellCarousel: UITableViewCell {
         return label
     }()
     
+    // Character Two
+    
+    private lazy var pictureAndtitleStackView2: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8
+        return stack
+    }()
+    
     private lazy var picture2: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +83,16 @@ class EntityTableViewCellCarousel: UITableViewCell {
         label.textColor = .none
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
+    }()
+    
+    // Character Three
+    
+    private lazy var pictureAndtitleStackView3: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8
+        return stack
     }()
     
     private lazy var picture3: UIImageView = {
@@ -122,6 +115,16 @@ class EntityTableViewCellCarousel: UITableViewCell {
         return label
     }()
     
+    // Character Four
+    
+    private lazy var pictureAndtitleStackView4: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8
+        return stack
+    }()
+    
     private lazy var picture4: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -141,6 +144,17 @@ class EntityTableViewCellCarousel: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
+    
+    // Character Five
+    
+    private lazy var pictureAndtitleStackView5: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8
+        return stack
+    }()
+    
     private lazy var picture5: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,6 +174,7 @@ class EntityTableViewCellCarousel: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
+    
     // MARK: - INITIALIZERS
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
