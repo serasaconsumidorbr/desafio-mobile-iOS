@@ -22,7 +22,6 @@
 		031023122A19E35A00427C2A /* CharactersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023112A19E35A00427C2A /* CharactersViewModelProtocol.swift */; };
 		031023142A19E3B000427C2A /* CharactersViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023132A19E3B000427C2A /* CharactersViewState.swift */; };
 		031023162A19E47200427C2A /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023152A19E47200427C2A /* Observable+Extensions.swift */; };
-		031023182A19EE5700427C2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023172A19EE5600427C2A /* ViewController.swift */; };
 		0310231A2A1AA2E600427C2A /* CharactersViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023192A1AA2E600427C2A /* CharactersViewControllerDelegate.swift */; };
 		031023202A1ACE6700427C2A /* EntityTableViewCellCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310231F2A1ACE6700427C2A /* EntityTableViewCellCarousel.swift */; };
 		031023222A1AF4F900427C2A /* EntityTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031023212A1AF4F900427C2A /* EntityTableViewHeader.swift */; };
@@ -71,7 +70,6 @@
 		031023112A19E35A00427C2A /* CharactersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelProtocol.swift; sourceTree = "<group>"; };
 		031023132A19E3B000427C2A /* CharactersViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewState.swift; sourceTree = "<group>"; };
 		031023152A19E47200427C2A /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
-		031023172A19EE5600427C2A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MarvelCharacters/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		031023192A1AA2E600427C2A /* CharactersViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerDelegate.swift; sourceTree = "<group>"; };
 		0310231F2A1ACE6700427C2A /* EntityTableViewCellCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewCellCarousel.swift; sourceTree = "<group>"; };
 		031023212A1AF4F900427C2A /* EntityTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewHeader.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 				031023002A19D47500427C2A /* Sources */,
 				031022ED2A19BD8100427C2A /* Resources */,
 				035EA3A12A18210700CF1650 /* AppDelegate.swift */,
-				031023172A19EE5600427C2A /* ViewController.swift */,
 				035EA3A32A18210700CF1650 /* SceneDelegate.swift */,
 				035EA3AF2A18210900CF1650 /* Info.plist */,
 			);
@@ -567,7 +564,6 @@
 				0310231A2A1AA2E600427C2A /* CharactersViewControllerDelegate.swift in Sources */,
 				035EA3A22A18210700CF1650 /* AppDelegate.swift in Sources */,
 				031023072A19DD9700427C2A /* EntityTableViewCell.swift in Sources */,
-				031023182A19EE5700427C2A /* ViewController.swift in Sources */,
 				031022F62A19D0CB00427C2A /* String+Extensions.swift in Sources */,
 				031022F82A19D20B00427C2A /* NetworkingOperation.swift in Sources */,
 				031023122A19E35A00427C2A /* CharactersViewModelProtocol.swift in Sources */,

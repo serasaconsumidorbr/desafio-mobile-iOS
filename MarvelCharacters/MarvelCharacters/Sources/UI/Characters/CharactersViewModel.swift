@@ -19,7 +19,6 @@ class CharactersViewModel: CharactersViewModelProtocol {
     
     var viewState: BehaviorSubject<CharactersViewState> = .init(value: .loading(asPagination: false))
     var isPaginating: Bool = false
-    //var filterModel: FilterSearchModel?
     
     // MARK: - INITIALIZERS
     
@@ -75,16 +74,4 @@ class CharactersViewModel: CharactersViewModelProtocol {
     private func handleError(_ error: Error) {
         print(error)
     }
-    
-//    // MARK: - PRIVATE FUNCTIONS
-//
-//    private func getFilteredCharacters(_ filterModel: FilterSearchModel) -> [CharacterModel]? {
-//        return characters?.filter({ character in
-//            if let characterTitle = character.name?.lowercased(),
-//               characterTitle.contains(filterModel.text.lowercased()) {
-//                return true
-//            }
-//            return false
-//        })
-//    }
 }
