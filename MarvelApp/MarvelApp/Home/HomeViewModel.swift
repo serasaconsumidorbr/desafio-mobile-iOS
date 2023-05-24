@@ -18,16 +18,20 @@ class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
     private let network = Network()
     private var fetchResult: RequestResultModel?
-    private var homeCharacters = [HomeCharacterModel]() {
+    private(set) var homeCharacters = [HomeCharacterModel]() {
         didSet {
             self.delegate?.updateCharacterList(homeCharacters.filter({ !topFiveCharacters.contains($0) }))
         }
     }
-    private var topFiveCharacters = [HomeCharacterModel]()
+    private(set) var topFiveCharacters = [HomeCharacterModel]()
     
     init() {
         self.delegate?.isFetchingFirstData(true)
         self.fetchRequest()
+    }
+    
+    init(characters: [HomeCharacterModel]) {
+        self.homeCharacters = characters
     }
     
     private func fetchRequest() {
@@ -65,15 +69,14 @@ class HomeViewModel {
         }
     }
     
-    private func getTopFive() {
+    internal func getTopFive() {
         if (topFiveCharacters.count == 5) { return }
-        for (index, character) in homeCharacters.enumerated() {
+        for character in homeCharacters {
   
             let alreadyHasCharacter = topFiveCharacters.contains(where: { $0.name == character.name})
         
             if (character.description != "" && !alreadyHasCharacter) {
                 self.topFiveCharacters.append(character)
-                self.homeCharacters.remove(at: index)
                 if (topFiveCharacters.count == 5) {
                     self.delegate?.updateTopFive(self.topFiveCharacters)
                     self.delegate?.isFetchingFirstData(false)
@@ -81,15 +84,5 @@ class HomeViewModel {
                 }
             }
         }
-    }
-    
-    private func removeDuplicateElements(characters: [HomeCharacterModel]) -> [HomeCharacterModel] {
-        var uniqueCharacters = [HomeCharacterModel]()
-        for character in characters {
-            if !uniqueCharacters.contains(where: {$0.name == character.name }) {
-                uniqueCharacters.append(character)
-            }
-        }
-        return uniqueCharacters
     }
 }
