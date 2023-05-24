@@ -7,8 +7,12 @@
 
 import UIKit
 
-struct HomeCharacterModel {
+struct HomeCharacterModel: Hashable, Equatable {
     let name: String
     let image: UIImage
     let description: String?
+   
+    static func == (lhs: HomeCharacterModel, rhs: HomeCharacterModel) -> Bool {
+       return lhs.name == rhs.name
+    }
 }

@@ -20,7 +20,7 @@ class HomeViewModel {
     private var fetchResult: RequestResultModel?
     private var homeCharacters = [HomeCharacterModel]() {
         didSet {
-            self.delegate?.updateCharacterList(homeCharacters)
+            self.delegate?.updateCharacterList(homeCharacters.filter({ !topFiveCharacters.contains($0) }))
         }
     }
     private var topFiveCharacters = [HomeCharacterModel]()
@@ -60,27 +60,36 @@ class HomeViewModel {
             self.fetchRequest()
         } 
         
-        if (homeCharacters.count > 5 && self.topFiveCharacters.count < 5) {
+        if (homeCharacters.count > 10  && self.topFiveCharacters.count != 5) {
             self.getTopFive()
         }
     }
     
     private func getTopFive() {
-        
-        for character in homeCharacters {
-            let randomChar = homeCharacters.randomElement()
-            //print(topFiveCharacters.count)
-            if (topFiveCharacters.count == 5) {
-                self.delegate?.updateTopFive(self.topFiveCharacters)
-                self.delegate?.isFetchingFirstData(false)
-                break
-            }
+        if (topFiveCharacters.count == 5) { return }
+        for (index, character) in homeCharacters.enumerated() {
   
-            let alreadyHasCharacter = topFiveCharacters.contains(where: { $0.name == randomChar?.name})
+            let alreadyHasCharacter = topFiveCharacters.contains(where: { $0.name == character.name})
         
-            if (randomChar?.description != "" && !alreadyHasCharacter) {
-                self.topFiveCharacters.append(randomChar ?? character)
+            if (character.description != "" && !alreadyHasCharacter) {
+                self.topFiveCharacters.append(character)
+                self.homeCharacters.remove(at: index)
+                if (topFiveCharacters.count == 5) {
+                    self.delegate?.updateTopFive(self.topFiveCharacters)
+                    self.delegate?.isFetchingFirstData(false)
+                    break
+                }
             }
         }
+    }
+    
+    private func removeDuplicateElements(characters: [HomeCharacterModel]) -> [HomeCharacterModel] {
+        var uniqueCharacters = [HomeCharacterModel]()
+        for character in characters {
+            if !uniqueCharacters.contains(where: {$0.name == character.name }) {
+                uniqueCharacters.append(character)
+            }
+        }
+        return uniqueCharacters
     }
 }
