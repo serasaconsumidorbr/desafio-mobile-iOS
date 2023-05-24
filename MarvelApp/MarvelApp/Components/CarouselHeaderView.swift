@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CarouselTableViewHeaderView: UITableViewHeaderFooterView {
+class CarouselHeaderView: UIView {
     
     private let headerIconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,9 +18,18 @@ class CarouselTableViewHeaderView: UITableViewHeaderFooterView {
     private let titleLabel: UILabel = {
        let label = UILabel()
        label.font = .systemFont(ofSize: 18)
-       label.numberOfLines = 0
+       label.numberOfLines = 1
        label.textColor = .black
        label.text = "iOS Challenge"
+       return label
+    }()
+    
+    private let copyrightLabel: UILabel = {
+       let label = UILabel()
+       label.text = "Data provided by Marvel. © 2023 MARVEL";
+        label.textColor = .systemGray3
+        label.font = .systemFont(ofSize: 12)
+        label.numberOfLines = 1
        return label
     }()
 
@@ -39,7 +48,7 @@ class CarouselTableViewHeaderView: UITableViewHeaderFooterView {
          let pageControl = UIPageControl()
          pageControl.pageIndicatorTintColor = .gray
          pageControl.numberOfPages = 5
-         pageControl.currentPageIndicatorTintColor = .white
+         pageControl.currentPageIndicatorTintColor = .red
          return pageControl
       }()
     
@@ -49,12 +58,14 @@ class CarouselTableViewHeaderView: UITableViewHeaderFooterView {
         }
     }
     
+    public var topFiveCharacters = [HomeCharacterModel]()
+    
     // MARK: - Init
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: .null)
         setupLayout()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -65,18 +76,15 @@ class CarouselTableViewHeaderView: UITableViewHeaderFooterView {
 }
 
 // MARK: - Collection View Delegate and Data Source
-extension CarouselTableViewHeaderView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-          return 1
-    }
+extension CarouselHeaderView: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.topFiveCharacters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "carouselCellId", for: indexPath) as? CarouselCollectionViewCell else { return UICollectionViewCell() }
+        cell.setupWith(character: topFiveCharacters[indexPath.row])
         return cell
     }
     
@@ -98,11 +106,17 @@ extension CarouselTableViewHeaderView: UICollectionViewDelegate, UICollectionVie
 }
 
 // MARK: - Layout
-extension CarouselTableViewHeaderView {
+extension CarouselHeaderView {
+    
+    public func setupWith(characters: [HomeCharacterModel]) {
+        self.topFiveCharacters = characters
+        self.carouselCollectionView.reloadData()
+    }
     
     private func setupLayout() {
         setupHeaderIconImageView()
         setupTitleLabel()
+        setupCopyrightLabel()
         setupCarouselCollectionView()
         setupPageControl()
     }
@@ -127,14 +141,23 @@ extension CarouselTableViewHeaderView {
         }
     }
     
+    private func setupCopyrightLabel() {
+        self.addSubview(copyrightLabel)
+        
+        copyrightLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.leading.equalToSuperview().offset(10)
+        }
+    }
+    
     private func setupCarouselCollectionView() {
         self.addSubview(carouselCollectionView)
         
         carouselCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(headerIconImageView.snp.bottom).offset(15)
+            make.top.equalTo(headerIconImageView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(400)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -142,22 +165,20 @@ extension CarouselTableViewHeaderView {
         self.addSubview(pageControl)
         
         pageControl.snp.makeConstraints { make in
-            //make.top.equalTo(carouselCollectionView.snp.bottom).offset(10)
             make.centerX.equalTo(carouselCollectionView)
             make.centerY.equalTo(carouselCollectionView).offset(60)
-           // make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-5)
         }
     }
 }
 
 // MARK: - Helpers
-extension CarouselTableViewHeaderView {
+extension CarouselHeaderView {
     
     private func configureView() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = .init(width: frame.width, height: 400)
-       // flowLayout.sectionInset = .init(top: 0, left: 60, bottom: 0, right: 60)
         flowLayout.minimumLineSpacing = 0
         carouselCollectionView.collectionViewLayout = flowLayout
     }

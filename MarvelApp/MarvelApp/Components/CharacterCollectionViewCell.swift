@@ -8,44 +8,53 @@
 import UIKit
 import SnapKit
 
-class CharacterTableViewCell: UITableViewCell {
+class CharacterCollectionViewCell: UICollectionViewCell {
     
     private let characterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 24
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.red.cgColor
         return imageView
     }()
+    
+    private let labelBackground = UIView()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.textColor = .black
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 5
         label.text = "Character Name"
         return label
     }()
     
     private let separatorView = UIView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupLayout()
-        self.backgroundColor = .clear
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupLayout()
     }
 
-    @available(*, unavailable)
-       required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension CharacterTableViewCell {
+extension CharacterCollectionViewCell {
+    
+    public func setupWith(character: HomeCharacterModel) {
+        self.characterImageView.image = character.image
+        self.nameLabel.text = character.name
+    }
     
     private func setupLayout() {
         setupCharacterImageView()
+        setupLabelBackground()
         setupNameLabel()
         setupSeparatorView()
     }
@@ -55,16 +64,27 @@ extension CharacterTableViewCell {
         
         characterImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
+        }
+    }
+    
+    private func setupLabelBackground() {
+        self.characterImageView.addSubview(labelBackground)
+        labelBackground.backgroundColor = .white.withAlphaComponent(0.8)
+        
+        labelBackground.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.height.equalTo(28)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
     private func setupNameLabel() {
-        self.characterImageView.addSubview(nameLabel)
+        self.labelBackground.addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
             make.leading.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            //make.trailing.equalToSuperview()
         }
     }
     

@@ -9,7 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let homeView = HomeView()
+    private lazy var homeView = HomeView(viewModel: homeViewModel)
+    
+    private var homeViewModel = HomeViewModel()
     
     // MARK: - Life Cycle
     override func loadView() {

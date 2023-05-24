@@ -15,15 +15,17 @@ class CarouselCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.layer.cornerRadius = 24
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.red.cgColor
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
-        label.numberOfLines = 0
+        label.font = .boldSystemFont(ofSize: 16)
+        label.numberOfLines = 1
         label.textColor = .black
+     
         label.text = "Character Name"
         return label
     }()
@@ -31,7 +33,7 @@ class CarouselCollectionViewCell: UICollectionViewCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         label.textColor = .black
         label.text = """
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare, leo et fringilla vehicula, odio enim malesuada lectus, non posuere libero tellus ut lorem. Aliquam vel nisi elit. Nulla ornare tortor eu faucibus dictum. Phasellus mollis erat vel lacus accumsan eleifend. Praesent ornare felis at leo ornare, id efficitur dolor vehicula.
@@ -51,6 +53,13 @@ class CarouselCollectionViewCell: UICollectionViewCell {
 }
 
 extension CarouselCollectionViewCell {
+    
+    public func setupWith(character: HomeCharacterModel) {
+        self.imageView.image = character.image
+        self.titleLabel.text = character.name
+        self.descriptionLabel.text = character.description
+    }
+    
     private func setupLayout() {
         setupImageView()
         setupDescription()
@@ -71,13 +80,14 @@ extension CarouselCollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(imageView)
+            make.leading.equalTo(imageView).offset(16)
+            make.trailing.equalTo(imageView).offset(-16)
         }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(3)
-            make.leading.trailing.equalTo(imageView)
-            make.bottom.equalToSuperview()
+            make.leading.equalTo(imageView).offset(16)
+            make.trailing.equalTo(imageView).offset(-16)
         }
     }
 }
