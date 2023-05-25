@@ -72,7 +72,6 @@ extension Network {
     private func buildUrlQuerys() -> String {
         let apiKey = "5cf9fdf2b3c8207486863666010388e0"
         let privateKey = "2c4cf17f2748a733bf347021e710f816fff9d9ed"
-        
         let date = Date()
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withInternetDateTime]
