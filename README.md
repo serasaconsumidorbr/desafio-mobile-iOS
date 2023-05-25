@@ -1,58 +1,61 @@
+
 <!-- Header-->
-<br />
 <p align="center">
-  <a href="https://github.com/serasaconsumidorbr/desafio-mobile-iOS">
-    <img src="https://turismoemfoco.com.br/v1/wp-content/uploads/2020/05/serasa-logo-nova22.png" alt="Logo" width="180" height="80">
-  </a>
+<img src="https://cdn.marvel.com/content/1x/marvellogo_0.jpg" alt="Marvel Logo" width="500" height="250">
+</p>
+<h3 align="center">Desafio iOS - MarvelApp </h3>
 
-  <h3 align="center">Desafio - iOS Developer </h3>
+## ✏️ Sobre o projeto
+<p align="center">
+O desafio consiste na criação de um aplicativo que apresente os personagens da Marvel vindos da API oficial. As especificações para interface do projeto são: 
 
-  <p align="center">
-    O nosso aplicativo é uma das nossas soluções para mudar a vida financeira de milhões de brasileiros. <b>Venha fazer parte desse time</b> muito engajado que
-  trabalha para que esse aplicativo chegue da melhor forma na mão dos consumidores.
-  </p>
+* Carrossel superior com ****5**** personagens
+* Uma lista ****vertical**** abaixo do carrossel ****com os personagens seguintes, sem repetir****
+* Scroll infinito
 </p>
 
-## Sobre
-<p> Utilizamos este desafio para avaliar a qualidade do seu código, arquitetura, a forma que você organiza os seus pensamentos dentro do git e muitas outras coisas, por isso, sinta-se a vontade e dê o seu melhor! O tempo médio para a entrega deste desafio é de uma semana.</p>
+## ✨ Demonstração
 
-<p>Neste desafio você irá desenvolver um app que deverá mostrar os <b>personagens</b> da <a href="https://www.marvel.com/characters">Marvel</a>. 
+<p align="center">
   
-<p>Para começar a fazer requests utilizando este serviço, siga esta <a href="https://developer.marvel.com/documentation/authorization">documentação</a>. O endpoint que deverá ser utilizado para popular as listas do app será a <b><a href="https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">/v1/public/characters</a></b>. </p>
+<img src="/gif1.gif" alt="Simulator Recording" width="300">
+  
+<img src="/gif2.gif" alt="Simulator Recording" width="300">
+  
+</p>
+
+A tela principal é construída na parte superior com uma CollectionView que atua como um carrossel, exibindo apenas 5 personagens principais. Cada personagem é apresentado com sua foto (se disponível na API), nome e descrição.
+
+Abaixo do carrossel, temos outra CollectionView que mostra todos os outros personagens (excluindo aqueles já exibidos no carrossel) em uma lista vertical com scroll infinito. Essa lista é preenchida à medida que os dados são extraídos da API.
+
+Todos os dados provenientes da API são tratados primeiro por uma camada de Network, que popula a ViewModel da página principal. Em seguida, a ViewModel se comunica com a View para atualizar a interface de acordo.
 
 
-## Requisitos
-<p>Estes requisitos básicos são utilizados para ver como você lida com cada um desses itens. A falta de qualquer um desses requisitos compromete a sua avaliação no final.</p>
+
+## 💻 Tecnologias utilizadas
+
+* Swift 5+/Xcode 11+
+* MVVM
+* ViewCode, UIKit, SnapKit
+* Cocoapods
+* XCTest
+* Lottie
+
+ 
+## 🏹 Roadmap
+
+*  Finalizar a implementação do CoreData, populando a Entity e trocando a referência da ViewModel
+*  Implementar uma barra de pesquisa
+*  Adicionar filtros, permitindo exibir a lista principal de personagens pelo filtro selecionado pelo usuário
+*  Cobrir mais regras e casos de uso com os testes unitários
+* Adicionar uma "página de perfil" do personagem, ao selecionar a célula de determinado personagem, contendo mais informações vindas do mesmo Endpoint
 
 
-* Swift 5+ 
-* Xcode 11+ 
-* Arquitetura
-* Auto-layout
-* Carthage ou Cocoapods
-* Testes unitários
+## 🧩 Installation
 
-## Será um diferencial 
-* Persistencia de dados (CoreData, Realm...)
-* Animações customizadas (Lottie, Hero, UIViewAnimate etc..)
+<p>
 
-## O projeto deverá conter
-* Carrossel superior com **5** personagens
-* Uma lista **vertical** abaixo do carrossel **com os personagens seguintes, sem repetir**
-* Scroll infinito
+Para rodar o aplicativo localmente é necessário ter o sistema operacional MacOS com o Xcode IDE instalada.
 
-<b>Atente-se aos detalhes que ache interessante mostrar, por exemplo, nome, descrição, imagens ou outras informações dos personagens</b>
-
-## Importante
-* **Sua criatividade:** Utilize as considerações acima para criar o projeto do seu jeito, **utilizando as dependências que quiser**. Apenas saiba explicar o motivo das suas escolhas. 
-
-* **Documentação:** Ao finalizar o projeto, não se esqueça de documenta-lo. É Muito importante escrever o seu fluxo de pensamentos, **anexar imagens do aplicativo**, inserir as **bibliotecas** e versões que estão sendo utilizadas, **roadmap** de features que você gostaria de colocar e **melhorias que gostaria de fazer**...
-
-## Por fim, envie seu teste!
-* Crie um `fork`, de preferencia público, desse repositório.
-* Tente seguir o <b><a href="https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow#:~:text=Como%20afirma%20Vincent%20Driessen%20(2010,o%20trunk%20e%20o%20branch.">gitflow</a></b> para o seu fluxo de desenvolvimento.
-* Ao finalizar, faça o **pull request** para este repositório
-
-Agora é só torcer!
-
-**Ultimo recadinho:** não utilize o nome da Serasa dentro de seu projeto 😉
+Basta clonar o projeto ou baixá-lo localmente e abrir o arquivo `MarvelApp.xcworkspace`, após isso basta buildar o aplicativo pela IDE e ele poderá rodar no simulador de sua preferência e também em dispositivos físicos. 
+</p>
